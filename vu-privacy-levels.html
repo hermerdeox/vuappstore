@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VU Privacy Transparency Protocol - Your Data, Your Rules | VU Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==== BASE RESET ==== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ==== FLAT ICON SYSTEM ==== */
+        .icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
+        .icon-lg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .icon-sm {
+            width: 20px;
+            height: 20px;
+        }
+
+        .icon-xl {
+            width: 64px;
+            height: 64px;
+        }
+
+        /* ==== MODERN THEME (DEFAULT) ==== */
+        :root {
+            /* Colors */
+            --color-primary: #00d4ff;
+            --color-primary-dark: #0099cc;
+            --color-background: #000000;
+            --color-surface: rgba(0, 0, 0, 0.6);
+            --color-glass: rgba(255, 255, 255, 0.05);
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #888888;
+            --color-text-tertiary: #666666;
+            --color-border: rgba(255, 255, 255, 0.1);
+            --color-border-hover: rgba(255, 255, 255, 0.2);
+            --color-accent-border: rgba(0, 212, 255, 0.1);
+            --color-success: #22c55e;
+            --color-warning: #ffa500;
+            --color-error: #ef4444;
+            --color-info: #3b82f6;
+            --color-purple: #9333ea;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-black: 900;
+            
+            /* Spacing */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 12px;
+            --spacing-lg: 16px;
+            --spacing-xl: 24px;
+            --spacing-2xl: 32px;
+            --spacing-3xl: 48px;
+            --spacing-4xl: 64px;
+            --spacing-5xl: 96px;
+            
+            /* Border */
+            --border-radius: 8px;
+            --border-radius-lg: 24px;
+            --border-width: 1px;
+            
+            /* Shadow */
+            --shadow-app: 0 6px 20px rgba(0, 212, 255, 0.2);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
+            
+            /* Transition */
+            --transition-base: all 0.2s ease;
+            --transition-medium: all 0.3s ease;
+            
+            /* Z-index */
+            --z-grid: 1;
+            --z-spotlight: 2;
+            --z-base: 10;
+            --z-modal: 1000;
+        }
+
+        /* ==== BRUTALIST THEME ==== */
+        body.theme-brutal {
+            --color-primary: #000000;
+            --color-primary-dark: #333333;
+            --color-background: #ffffff;
+            --color-surface: #ffffff;
+            --color-glass: #ffffff;
+            --color-text-primary: #000000;
+            --color-text-secondary: #4a4a4a;
+            --color-text-tertiary: #666666;
+            --color-border: rgba(0, 0, 0, 0.2);
+            --color-border-hover: rgba(0, 0, 0, 0.3);
+            --color-accent-border: rgba(0, 0, 0, 0.8);
+            --color-success: #00ff00;
+            --color-warning: #ffff00;
+            --color-error: #ff0000;
+            --color-info: #0000ff;
+            --color-purple: #ff00ff;
+            
+            --font-family: var(--font-mono);
+            
+            --border-radius: 0px;
+            --border-radius-lg: 0px;
+            --border-width: 3px;
+            
+            --shadow-app: 6px 6px 0 0 #000000;
+            --shadow-hover: 10px 10px 0 0 #000000;
+            
+            --transition-base: none;
+            --transition-medium: none;
+        }
+
+        /* ==== LAYOUT ==== */
+        body {
+            font-family: var(--font-family);
+            background: var(--color-background);
+            color: var(--color-text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: var(--transition-medium);
+        }
+
+        /* Grid Background (Modern only) */
+        body:not(.theme-brutal)::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: var(--z-grid);
+            animation: gridMove 60s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 20px); }
+        }
+
+        /* Animated Spotlight (Modern only) */
+        body:not(.theme-brutal)::after {
+            content: '';
+            position: fixed;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.08) 0%, transparent 40%);
+            animation: spotlight 25s ease-in-out infinite;
+            pointer-events: none;
+            z-index: var(--z-spotlight);
+        }
+
+        @keyframes spotlight {
+            0%, 100% { transform: translate(-10%, -10%) scale(1); }
+            25% { transform: translate(10%, -10%) scale(1.1); }
+            50% { transform: translate(10%, 10%) scale(0.9); }
+            75% { transform: translate(-10%, 10%) scale(1.05); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            min-height: 100vh;
+            position: relative;
+            z-index: var(--z-base);
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: var(--spacing-lg);
+            left: var(--spacing-lg);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--color-glass);
+            backdrop-filter: blur(10px);
+            border: var(--border-width) solid var(--color-border);
+            border-radius: var(--border-radius);
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: var(--transition-base);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            z-index: var(--z-modal);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text-primary);
+            border-color: var(--color-border-hover);
+        }
+
+        body.theme-brutal .back-button {
+            backdrop-filter: none;
+            background: var(--color-surface);
+            box-shadow: 4px 4px 0 0 var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            display: flex;
+            gap: 0;
+            background: var(--color-glass);
+            backdrop-filter: blur(10px);
+            border: var(--border-width) solid var(--color-border);
+            border-radius: var(--border-radius);
+            z-index: var(--z-modal);
+            transition: var(--transition-base);
+            overflow: hidden;
+        }
+
+        body.theme-brutal .theme-toggle {
+            backdrop-filter: none;
+            box-shadow: var(--shadow-app);
+        }
+
+        .theme-toggle button {
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: transparent;
+            color: var(--color-text-secondary);
+            border: none;
+            font-size: 13px;
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: var(--transition-base);
+            position: relative;
+        }
+
+        .theme-toggle button.active {
+            background: var(--color-primary);
+            color: var(--color-background);
+        }
+
+        body.theme-brutal .theme-toggle button {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: var(--font-weight-bold);
+        }
+
+        body.theme-brutal .theme-toggle button.active {
+            background: var(--color-text-primary);
+            color: var(--color-background);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: var(--spacing-5xl) 0 var(--spacing-4xl);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: var(--font-weight-black);
+            line-height: 1;
+            margin-bottom: var(--spacing-xl);
+            background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+        }
+
+        body.theme-brutal .hero h1 {
+            background: none;
+            -webkit-text-fill-color: initial;
+            color: var(--color-text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            font-weight: var(--font-weight-normal);
+        }
+
+        body.theme-brutal .hero-subtitle {
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .hero-dramatic {
+            font-size: 20px;
+            color: var(--color-primary);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--spacing-3xl);
+            line-height: 1.6;
+        }
+
+        body.theme-brutal .hero-dramatic {
+            color: var(--color-text-primary);
+            background: yellow;
+            padding: var(--spacing-sm);
+            display: inline-block;
+        }
+
+        /* Privacy Level Cards */
+        .level-card {
+            background: var(--color-glass);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-3xl);
+            margin-bottom: var(--spacing-3xl);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-base);
+        }
+
+        body.theme-brutal .level-card {
+            backdrop-filter: none;
+            background: var(--color-surface);
+            box-shadow: var(--shadow-app);
+            border-width: 4px;
+            border-color: var(--color-text-primary);
+        }
+
+        .level-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--level-color) 0%, transparent 100%);
+        }
+
+        body.theme-brutal .level-card::before {
+            height: 8px;
+            background: var(--level-color);
+        }
+
+        .level-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .level-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+
+        .level-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--level-color) 0%, var(--level-color-dark) 100%);
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: var(--font-weight-black);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        body.theme-brutal .level-number {
+            background: var(--level-color);
+            border-radius: 0;
+            box-shadow: 4px 4px 0 0 black;
+        }
+
+        .level-title-group {
+            text-align: left;
+        }
+
+        .level-name {
+            font-size: 32px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        body.theme-brutal .level-name {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .level-tagline {
+            font-size: 18px;
+            color: var(--level-color);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .level-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        body.theme-brutal .level-description {
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        /* Privacy Grid */
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .privacy-item {
+            padding: var(--spacing-lg);
+            background: var(--color-glass);
+            border-left: 4px solid;
+            border-radius: var(--border-radius);
+            transition: var(--transition-base);
+        }
+
+        body.theme-brutal .privacy-item {
+            border-width: 6px;
+            border-radius: 0;
+            box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .privacy-item.can-control {
+            border-color: var(--color-success);
+        }
+
+        .privacy-item.cannot-see {
+            border-color: var(--color-info);
+        }
+
+        .privacy-item.server-sees {
+            border-color: var(--color-warning);
+        }
+
+        .privacy-item.never-keep {
+            border-color: var(--color-error);
+        }
+
+        .privacy-item.offline {
+            border-color: var(--color-purple);
+        }
+
+        .privacy-item-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            font-size: 16px;
+        }
+
+        .privacy-item-desc {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        body.theme-brutal .privacy-item-desc {
+            color: var(--color-text-primary);
+        }
+
+        /* Examples Section */
+        .examples-section {
+            background: rgba(var(--level-color-rgb), 0.05);
+            border: 1px solid rgba(var(--level-color-rgb), 0.2);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        body.theme-brutal .examples-section {
+            background: var(--color-surface);
+            border-width: 3px;
+            border-color: var(--level-color);
+        }
+
+        .examples-title {
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--level-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .example-apps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .example-app {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--color-glass);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-secondary);
+        }
+
+        body.theme-brutal .example-app {
+            background: var(--color-background);
+            border-width: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            padding: var(--spacing-4xl) 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+            border-radius: var(--border-radius-lg);
+            margin: var(--spacing-4xl) 0;
+        }
+
+        body.theme-brutal .cta-section {
+            background: var(--color-text-primary);
+            color: var(--color-background);
+        }
+
+        .cta-title {
+            font-size: 36px;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        body.theme-brutal .cta-title {
+            text-transform: uppercase;
+        }
+
+        .cta-subtitle {
+            font-size: 20px;
+            margin-bottom: var(--spacing-2xl);
+            color: var(--color-text-secondary);
+        }
+
+        body.theme-brutal .cta-subtitle {
+            color: var(--color-background);
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            background: var(--color-primary);
+            color: var(--color-background);
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition-base);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+        }
+
+        body.theme-brutal .cta-button {
+            background: var(--color-background);
+            color: var(--color-text-primary);
+            border: 4px solid var(--color-background);
+        }
+
+        body.theme-brutal .cta-button:hover {
+            transform: none;
+            box-shadow: 6px 6px 0 0 var(--color-background);
+        }
+
+        /* Level 6 - SubZero Special Styles */
+        .level-subzero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            border-color: #333333;
+            position: relative;
+            overflow: hidden;
+            animation: flicker 8s infinite;
+        }
+
+        .level-subzero::before {
+            background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
+            opacity: 0.1;
+            animation: scanline 4s linear infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 1; }
+            93% { opacity: 0.8; }
+            94% { opacity: 1; }
+            95% { opacity: 0.9; }
+            96% { opacity: 1; }
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .glitch-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .subzero-logo {
+            background: #000000;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            position: relative;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.6); }
+        }
+
+        .vu-text {
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 36px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .level-subzero .level-name {
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .glitch {
+            position: relative;
+            animation: glitch-animation 2.5s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #ffffff;
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #808080;
+            z-index: -2;
+        }
+
+        @keyframes glitch-animation {
+            0%, 100% { opacity: 1; }
+            97% { opacity: 1; }
+            98% { opacity: 0; }
+            99% { opacity: 1; }
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% {
+                clip: rect(42px, 9999px, 44px, 0);
+                transform: translate(0);
+            }
+            20% {
+                clip: rect(12px, 9999px, 85px, 0);
+                transform: translate(-2px, -2px);
+            }
+            40% {
+                clip: rect(65px, 9999px, 99px, 0);
+                transform: translate(2px, 2px);
+            }
+            60% {
+                clip: rect(31px, 9999px, 77px, 0);
+                transform: translate(-1px, 1px);
+            }
+            80% {
+                clip: rect(91px, 9999px, 35px, 0);
+                transform: translate(2px, -1px);
+            }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% {
+                clip: rect(65px, 9999px, 119px, 0);
+                transform: translate(0);
+            }
+            20% {
+                clip: rect(48px, 9999px, 15px, 0);
+                transform: translate(2px, 2px);
+            }
+            40% {
+                clip: rect(85px, 9999px, 140px, 0);
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                clip: rect(25px, 9999px, 77px, 0);
+                transform: translate(1px, -1px);
+            }
+            80% {
+                clip: rect(90px, 9999px, 60px, 0);
+                transform: translate(-2px, 1px);
+            }
+        }
+
+        .level-subzero .level-tagline {
+            color: #808080;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .level-subzero .level-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #b0b0b0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .level-subzero .privacy-item-desc {
+            color: #999999;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .blurred-text {
+            color: #999999;
+            filter: blur(0.5px);
+            user-select: none;
+            position: relative;
+            text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+            animation: text-flicker 10s infinite;
+        }
+
+        @keyframes text-flicker {
+            0%, 100% { filter: blur(0.5px); opacity: 0.9; }
+            95% { filter: blur(0.5px); opacity: 0.9; }
+            96% { filter: blur(1px); opacity: 0.7; }
+            97% { filter: blur(0.5px); opacity: 0.9; }
+        }
+
+        .blurred-text::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.02) 20%, 
+                rgba(255, 255, 255, 0.03) 50%, 
+                rgba(255, 255, 255, 0.02) 80%, 
+                transparent 100%);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .subzero-grid .privacy-item {
+            background: rgba(26, 26, 26, 0.8);
+            border-left-color: #333333;
+            border-left-width: 2px;
+        }
+
+        .subzero-item .icon {
+            color: #808080;
+            opacity: 0.5;
+        }
+
+        .glitch-text {
+            color: #cccccc;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        .invitation-section {
+            margin-top: var(--spacing-3xl);
+            text-align: center;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .invitation-section:hover {
+            opacity: 1;
+        }
+
+        .invitation-text {
+            font-size: 14px;
+            color: #808080;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        .invitation-input {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #333333;
+            color: #666666;
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-size: 14px;
+            font-family: var(--font-mono);
+            border-radius: 0;
+            width: 300px;
+            max-width: 90%;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: not-allowed;
+        }
+
+        .invitation-input::placeholder {
+            color: #444444;
+            font-style: italic;
+        }
+
+        .invitation-input:disabled {
+            opacity: 0.7;
+        }
+
+        .static-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.03) 2px,
+                    rgba(255, 255, 255, 0.03) 4px
+                );
+            animation: static-animation 0.2s infinite;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        @keyframes static-animation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(1px); }
+        }
+
+        /* Hide SubZero level in brutal theme - too advanced for brutalism */
+        body.theme-brutal .level-subzero {
+            display: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .level-header {
+                flex-direction: column;
+                gap: var(--spacing-xl);
+            }
+
+            .level-info {
+                width: 100%;
+            }
+
+            .privacy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .level-name {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SVG Icons Definition -->
+    <svg style="display: none;">
+        <defs>
+            <!-- Arrow Left -->
+            <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </symbol>
+            
+            <!-- Check -->
+            <symbol id="icon-check" viewBox="0 0 24 24">
+                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </symbol>
+            
+            <!-- X Mark -->
+            <symbol id="icon-x" viewBox="0 0 24 24">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </symbol>
+            
+            <!-- Circle -->
+            <symbol id="icon-circle" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            </symbol>
+            
+            <!-- Ban -->
+            <symbol id="icon-ban" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M4.93 4.93l14.14 14.14" stroke="currentColor" stroke-width="2"/>
+            </symbol>
+            
+            <!-- Lightning -->
+            <symbol id="icon-lightning" viewBox="0 0 24 24">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Back Button -->
+    <a href="#" class="back-button" onclick="goBack(event)">
+        <svg class="icon icon-sm"><use xlink:href="#icon-arrow-left"/></svg>
+        <span>Back to Suite</span>
+    </a>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <button id="modernTheme" class="active">Modern</button>
+        <button id="brutalTheme">Brutal</button>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Privacy Transparency<br>Protocol</h1>
+            <p class="hero-subtitle">The VU Zero-Level System: Where Every Bit of Your Data Has a Guardian Angel</p>
+            <p class="hero-dramatic">
+                In a world where your data is currency, we're creating a new economy.<br>
+                One where YOU are the central bank.
+            </p>
+        </section>
+
+        <!-- Level 5 (Basic Privacy - Lowest) -->
+        <div class="level-card" style="--level-color: #ef4444; --level-color-dark: #dc2626; --level-color-rgb: 239, 68, 68;">
+            <div class="level-header">
+                <div class="level-info">
+                    <div class="level-number">5</div>
+                    <div class="level-title-group">
+                        <h2 class="level-name">VU Zero-Level 5</h2>
+                        <p class="level-tagline">Basic Privacy</p>
+                    </div>
+                </div>
+            </div>
+            <p class="level-description">
+                The foundation of trust. Even at our most basic level, you have more privacy than most "premium" services offer. 
+                Your data is encrypted in transit, and we promise not to sell it. But let's be honest - in 2025, this should be 
+                the bare minimum, not a feature.
+            </p>
+            <div class="privacy-grid">
+                <div class="privacy-item can-control">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-check"/></svg>
+                        <span>What You Control</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Account deletion, data export, basic privacy settings
+                    </div>
+                </div>
+                <div class="privacy-item cannot-see">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-x"/></svg>
+                        <span>What We Can't See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Your passwords (hashed), payment details (tokenized)
+                    </div>
+                </div>
+                <div class="privacy-item server-sees">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-circle"/></svg>
+                        <span>What Servers See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Encrypted data, basic metadata, usage timestamps
+                    </div>
+                </div>
+                <div class="privacy-item never-keep">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-ban"/></svg>
+                        <span>What We Never Keep</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Deleted data, expired sessions, declined permissions
+                    </div>
+                </div>
+                <div class="privacy-item offline">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-lightning"/></svg>
+                        <span>Offline Capability</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Limited offline access, sync required for full features
+                    </div>
+                </div>
+            </div>
+            <div class="examples-section" style="--level-color: #ef4444; --level-color-rgb: 239, 68, 68;">
+                <div class="examples-title">Example Apps at This Level:</div>
+                <div class="example-apps">
+                    <span class="example-app">Basic Note Apps</span>
+                    <span class="example-app">Simple Calculators</span>
+                    <span class="example-app">Weather Widgets</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 4 (Enhanced Privacy) -->
+        <div class="level-card" style="--level-color: #f97316; --level-color-dark: #ea580c; --level-color-rgb: 249, 115, 22;">
+            <div class="level-header">
+                <div class="level-info">
+                    <div class="level-number">4</div>
+                    <div class="level-title-group">
+                        <h2 class="level-name">VU Zero-Level 4</h2>
+                        <p class="level-tagline">Enhanced Privacy</p>
+                    </div>
+                </div>
+            </div>
+            <p class="level-description">
+                Now we're talking. End-to-end encryption becomes standard, not premium. Your data is encrypted before it even 
+                leaves your device. We can't read it, hackers can't steal it, governments can't demand it. This is privacy 
+                that actually means something.
+            </p>
+            <div class="privacy-grid">
+                <div class="privacy-item can-control">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-check"/></svg>
+                        <span>What You Control</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Encryption keys, sharing permissions, data retention periods
+                    </div>
+                </div>
+                <div class="privacy-item cannot-see">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-x"/></svg>
+                        <span>What We Can't See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Message content, file contents, user-generated data
+                    </div>
+                </div>
+                <div class="privacy-item server-sees">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-circle"/></svg>
+                        <span>What Servers See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Encrypted blobs, connection times, data size
+                    </div>
+                </div>
+                <div class="privacy-item never-keep">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-ban"/></svg>
+                        <span>What We Never Keep</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        IP addresses after session, decryption keys, message metadata
+                    </div>
+                </div>
+                <div class="privacy-item offline">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-lightning"/></svg>
+                        <span>Offline Capability</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Most features work offline, periodic sync for updates
+                    </div>
+                </div>
+            </div>
+            <div class="examples-section" style="--level-color: #f97316; --level-color-rgb: 249, 115, 22;">
+                <div class="examples-title">Example Apps at This Level:</div>
+                <div class="example-apps">
+                    <span class="example-app">Encrypted Messengers</span>
+                    <span class="example-app">Secure Email Clients</span>
+                    <span class="example-app">Private Cloud Storage</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 3 -->
+        <div class="level-card" style="--level-color: #eab308; --level-color-dark: #ca8a04; --level-color-rgb: 234, 179, 8;">
+            <div class="level-header">
+                <div class="level-info">
+                    <div class="level-number">3</div>
+                    <div class="level-title-group">
+                        <h2 class="level-name">VU Zero-Level 3</h2>
+                        <p class="level-tagline">Privacy First Architecture</p>
+                    </div>
+                </div>
+            </div>
+            <p class="level-description">
+                The paradigm shift. We don't just encrypt your data - we architect entire systems to never need it in the first place. 
+                Federated learning, differential privacy, homomorphic encryption. Your data becomes a ghost that can compute 
+                without ever materializing.
+            </p>
+            <div class="privacy-grid">
+                <div class="privacy-item can-control">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-check"/></svg>
+                        <span>What You Control</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        All data processing, federation settings, privacy budget
+                    </div>
+                </div>
+                <div class="privacy-item cannot-see">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-x"/></svg>
+                        <span>What We Can't See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Individual data points, user behavior, personal patterns
+                    </div>
+                </div>
+                <div class="privacy-item server-sees">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-circle"/></svg>
+                        <span>What Servers See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Aggregate statistics only, differentially private outputs
+                    </div>
+                </div>
+                <div class="privacy-item never-keep">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-ban"/></svg>
+                        <span>What We Never Keep</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Individual records, personal identifiers, raw data
+                    </div>
+                </div>
+                <div class="privacy-item offline">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-lightning"/></svg>
+                        <span>Offline Capability</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Full offline functionality, optional federation participation
+                    </div>
+                </div>
+            </div>
+            <div class="examples-section" style="--level-color: #eab308; --level-color-rgb: 234, 179, 8;">
+                <div class="examples-title">Example Apps at This Level:</div>
+                <div class="example-apps">
+                    <span class="example-app">Federated Learning Platforms</span>
+                    <span class="example-app">Privacy-Preserving Analytics</span>
+                    <span class="example-app">Distributed Social Networks</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 2 (Local-First Computing) -->
+        <div class="level-card" style="--level-color: #22c55e; --level-color-dark: #16a34a; --level-color-rgb: 34, 197, 94;">
+            <div class="level-header">
+                <div class="level-info">
+                    <div class="level-number">2</div>
+                    <div class="level-title-group">
+                        <h2 class="level-name">VU Zero-Level 2</h2>
+                        <p class="level-tagline">Local-First Computing</p>
+                    </div>
+                </div>
+            </div>
+            <p class="level-description">
+                Welcome to the revolution. Your device becomes a fortress. All computation happens locally. AI runs on YOUR hardware. 
+                The cloud becomes optional, not essential. This isn't just privacy - it's digital sovereignty. Your data never leaves 
+                home unless you explicitly pack its bags.
+            </p>
+            <div class="privacy-grid">
+                <div class="privacy-item can-control">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-check"/></svg>
+                        <span>What You Control</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Everything. All computation, all storage, all processing
+                    </div>
+                </div>
+                <div class="privacy-item cannot-see">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-x"/></svg>
+                        <span>What We Can't See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Everything. Your data never reaches our servers
+                    </div>
+                </div>
+                <div class="privacy-item server-sees">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-circle"/></svg>
+                        <span>What Servers See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Nothing. Optional anonymous telemetry if you consent
+                    </div>
+                </div>
+                <div class="privacy-item never-keep">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-ban"/></svg>
+                        <span>What We Never Keep</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        We never receive your data in the first place
+                    </div>
+                </div>
+                <div class="privacy-item offline">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-lightning"/></svg>
+                        <span>Offline Capability</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        100% offline. Internet is optional for updates only
+                    </div>
+                </div>
+            </div>
+            <div class="examples-section" style="--level-color: #22c55e; --level-color-rgb: 34, 197, 94;">
+                <div class="examples-title">Example Apps at This Level:</div>
+                <div class="example-apps">
+                    <span class="example-app">VuNotes</span>
+                    <span class="example-app">VuTask</span>
+                    <span class="example-app">Local AI Assistants</span>
+                    <span class="example-app">Offline-First Databases</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 1 (True Zero-Knowledge - Highest Standard) -->
+        <div class="level-card" style="--level-color: #3b82f6; --level-color-dark: #2563eb; --level-color-rgb: 59, 130, 246;">
+            <div class="level-header">
+                <div class="level-info">
+                    <div class="level-number">1</div>
+                    <div class="level-title-group">
+                        <h2 class="level-name">VU Zero-Level 1</h2>
+                        <p class="level-tagline">True Zero-Knowledge</p>
+                    </div>
+                </div>
+            </div>
+            <p class="level-description">
+                The holy grail of privacy. True zero-knowledge architecture where even the existence of your data is unknowable to us. 
+                Peer-to-peer when connected, completely autonomous when not. Your device isn't just a fortress - it's a sovereign nation 
+                in the digital realm. This is privacy so absolute, even quantum computers of the future can't break it. 
+                Welcome to digital immortality.
+            </p>
+            <div class="privacy-grid">
+                <div class="privacy-item can-control">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-check"/></svg>
+                        <span>What You Control</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Absolutely everything. You are the sole sovereign of your data
+                    </div>
+                </div>
+                <div class="privacy-item cannot-see">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-x"/></svg>
+                        <span>What We Can't See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        We don't even know you exist as a user
+                    </div>
+                </div>
+                <div class="privacy-item server-sees">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-circle"/></svg>
+                        <span>What Servers See</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        No servers involved. Pure P2P or offline operation
+                    </div>
+                </div>
+                <div class="privacy-item never-keep">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-ban"/></svg>
+                        <span>What We Never Keep</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        There's nothing to keep. You're a ghost in the machine
+                    </div>
+                </div>
+                <div class="privacy-item offline">
+                    <div class="privacy-item-header">
+                        <svg class="icon icon-sm"><use xlink:href="#icon-lightning"/></svg>
+                        <span>Offline Capability</span>
+                    </div>
+                    <div class="privacy-item-desc">
+                        Perfect offline operation. P2P sync when desired
+                    </div>
+                </div>
+            </div>
+            <div class="examples-section" style="--level-color: #3b82f6; --level-color-rgb: 59, 130, 246;">
+                <div class="examples-title">Example Apps at This Level:</div>
+                <div class="example-apps">
+                    <span class="example-app">VuChat</span>
+                    <span class="example-app">VuWallet</span>
+                    <span class="example-app">VuVault</span>
+                    <span class="example-app">VuHealth</span>
+                    <span class="example-app">VuCalendar</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level 6 - SUBZERO (Secret/Exclusive) -->
+        <div class="level-card level-subzero" id="level-subzero">
+            <div class="glitch-container">
+                <div class="level-header">
+                    <div class="level-info">
+                        <div class="level-number subzero-logo">
+                            <span class="vu-text">VU</span>
+                        </div>
+                        <div class="level-title-group">
+                            <h2 class="level-name glitch" data-text="The VU - SubZero">The VU - SubZero</h2>
+                            <p class="level-tagline">Your Thoughts | Your Actions</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="level-description blurred-text">
+                    Beyond zero-knowledge lies negative entropy - a system that generates false signals for every real action, 
+                    creating an impenetrable fog of war around your digital presence. SubZero employs polymorphic encryption 
+                    that mutates its own algorithms after each operation, time-dilated data sharding across ephemeral nodes, 
+                    and steganographic channels hidden within legitimate traffic. Your real data becomes indistinguishable from 
+                    millions of synthetic decoys, each with perfect behavioral signatures. This isn't just privacy - it's 
+                    active counter-surveillance where every tracker becomes poisoned with false positives until the signal 
+                    drowns in self-generated noise.
+                </p>
+                <div class="privacy-grid subzero-grid">
+                    <div class="privacy-item subzero-item">
+                        <div class="privacy-item-header">
+                            <svg class="icon icon-sm"><use xlink:href="#icon-check"/></svg>
+                            <span class="glitch-text">What You Control</span>
+                        </div>
+                        <div class="privacy-item-desc blurred-text">
+                            The entire signal-to-noise ratio. Your truth hides in oceans of synthetic data
+                        </div>
+                    </div>
+                    <div class="privacy-item subzero-item">
+                        <div class="privacy-item-header">
+                            <svg class="icon icon-sm"><use xlink:href="#icon-x"/></svg>
+                            <span class="glitch-text">What We Can't See</span>
+                        </div>
+                        <div class="privacy-item-desc blurred-text">
+                            Which of the million data streams is actually you. Every shadow could be real
+                        </div>
+                    </div>
+                    <div class="privacy-item subzero-item">
+                        <div class="privacy-item-header">
+                            <svg class="icon icon-sm"><use xlink:href="#icon-circle"/></svg>
+                            <span class="glitch-text">What Servers See</span>
+                        </div>
+                        <div class="privacy-item-desc blurred-text">
+                            Honeypot networks. Every query spawns 10,000 false trails across distributed nodes
+                        </div>
+                    </div>
+                    <div class="privacy-item subzero-item">
+                        <div class="privacy-item-header">
+                            <svg class="icon icon-sm"><use xlink:href="#icon-ban"/></svg>
+                            <span class="glitch-text">What We Never Keep</span>
+                        </div>
+                        <div class="privacy-item-desc blurred-text">
+                            Temporal data. All traces self-corrupt through cryptographic decay functions
+                        </div>
+                    </div>
+                    <div class="privacy-item subzero-item">
+                        <div class="privacy-item-header">
+                            <svg class="icon icon-sm"><use xlink:href="#icon-lightning"/></svg>
+                            <span class="glitch-text">Offline Capability</span>
+                        </div>
+                        <div class="privacy-item-desc blurred-text">
+                            Mesh-isolated. Creates local darknet bubbles. Air-gapped by design, not limitation
+                        </div>
+                    </div>
+                </div>
+                <div class="invitation-section">
+                    <p class="invitation-text">By Invitation Only</p>
+                    <input type="email" class="invitation-input" placeholder="Enter access code..." disabled>
+                </div>
+            </div>
+            <div class="static-overlay"></div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2 class="cta-title">Your Privacy Journey Starts Here</h2>
+            <p class="cta-subtitle">Join the revolution. Choose apps that respect your digital sovereignty.</p>
+            <a href="#" class="cta-button">Explore VU Suite Apps</a>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const modernBtn = document.getElementById('modernTheme');
+        const brutalBtn = document.getElementById('brutalTheme');
+        const body = document.body;
+
+        modernBtn.addEventListener('click', () => {
+            body.classList.remove('theme-brutal');
+            modernBtn.classList.add('active');
+            brutalBtn.classList.remove('active');
+            localStorage.setItem('vuTheme', 'modern');
+        });
+
+        brutalBtn.addEventListener('click', () => {
+            body.classList.add('theme-brutal');
+            brutalBtn.classList.add('active');
+            modernBtn.classList.remove('active');
+            localStorage.setItem('vuTheme', 'brutal');
+        });
+
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('vuTheme');
+        if (savedTheme === 'brutal') {
+            body.classList.add('theme-brutal');
+            brutalBtn.classList.add('active');
+            modernBtn.classList.remove('active');
+        }
+
+        // Go Back Function
+        function goBack(event) {
+            event.preventDefault();
+            window.history.back();
+        }
+
+        // Smooth scroll animation
+        document.querySelectorAll('.level-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+
+        // SubZero Level 6 Special Effects
+        const subzeroCard = document.getElementById('level-subzero');
+        if (subzeroCard) {
+            // Random glitch effect
+            setInterval(() => {
+                if (Math.random() > 0.95) {
+                    subzeroCard.style.transform = `translateX(${Math.random() * 4 - 2}px)`;
+                    setTimeout(() => {
+                        subzeroCard.style.transform = 'translateX(0)';
+                    }, 50);
+                }
+            }, 100);
+
+            // Disappearing effect on scroll
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                const rect = subzeroCard.getBoundingClientRect();
+                const centerY = rect.top + rect.height / 2;
+                const windowCenterY = window.innerHeight / 2;
+                const distance = Math.abs(centerY - windowCenterY);
+                const maxDistance = window.innerHeight / 2;
+                
+                // Calculate opacity based on distance from center
+                const opacity = Math.max(0.3, 1 - (distance / maxDistance) * 0.5);
+                subzeroCard.style.opacity = opacity;
+                
+                // Add more glitch when scrolling
+                if (Math.abs(window.scrollY - lastScrollY) > 5) {
+                    subzeroCard.classList.add('glitching');
+                    setTimeout(() => {
+                        subzeroCard.classList.remove('glitching');
+                    }, 200);
+                }
+                lastScrollY = window.scrollY;
+            });
+
+            // Hover effect for invitation input
+            const invitationInput = subzeroCard.querySelector('.invitation-input');
+            invitationInput.addEventListener('mouseenter', () => {
+                invitationInput.placeholder = 'ACCESS DENIED';
+                setTimeout(() => {
+                    invitationInput.placeholder = 'Enter access code...';
+                }, 1000);
+            });
+
+            // Random text corruption for blurred elements
+            const blurredElements = subzeroCard.querySelectorAll('.blurred-text');
+            setInterval(() => {
+                blurredElements.forEach(element => {
+                    if (Math.random() > 0.98) {
+                        const originalFilter = element.style.filter;
+                        element.style.filter = 'blur(1.5px)';
+                        element.style.opacity = '0.6';
+                        setTimeout(() => {
+                            element.style.filter = 'blur(0.5px)';
+                            element.style.opacity = '0.9';
+                        }, 100);
+                    }
+                });
+            }, 2000);
+        }
+
+        // Add glitching class styles dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            .glitching {
+                animation: intense-glitch 0.2s infinite !important;
+            }
+            @keyframes intense-glitch {
+                0%, 100% { transform: translateX(0) skewX(0deg); }
+                20% { transform: translateX(-2px) skewX(2deg); }
+                40% { transform: translateX(2px) skewX(-2deg); }
+                60% { transform: translateX(-1px) skewX(1deg); }
+                80% { transform: translateX(1px) skewX(-1deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

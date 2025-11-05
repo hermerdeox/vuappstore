@@ -1,0 +1,48 @@
+{
+	"name": "vuappstore",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^7.0.0",
+		"@sveltejs/kit": "^2.47.1",
+		"@sveltejs/vite-plugin-svelte": "^6.2.1",
+		"@tailwindcss/forms": "^0.5.10",
+		"@tailwindcss/typography": "^0.5.19",
+		"autoprefixer": "^10.4.21",
+		"postcss": "^8.5.6",
+		"svelte": "^5.41.0",
+		"svelte-check": "^4.3.3",
+		"tailwindcss": "^3.4.18",
+		"typescript": "^5.9.3",
+		"vite": "^7.1.10"
+	},
+	"dependencies": {
+		"@prisma/client": "^6.18.0",
+		"@stripe/stripe-js": "^8.3.0",
+		"bits-ui": "^2.14.2",
+		"clsx": "^2.1.1",
+		"dotenv": "^17.2.3",
+		"envalid": "^8.1.0",
+		"gsap": "^3.13.0",
+		"lucide-svelte": "^0.552.0",
+		"mode-watcher": "^1.1.0",
+		"prisma": "^6.18.0",
+		"sass": "^1.93.3",
+		"stripe": "^19.2.0",
+		"svelte-intersection-observer": "^1.0.0",
+		"svelte-meta-tags": "^4.5.0",
+		"svelte-motion": "^0.12.2",
+		"tailwind-merge": "^3.3.1",
+		"tailwind-variants": "^3.1.1",
+		"zod": "^4.1.12"
+	}
+}

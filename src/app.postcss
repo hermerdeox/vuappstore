@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+/* Custom theme configuration for Tailwind CSS v4 */
+@theme {
+	--color-primary: #00d4ff;
+	--color-primary-dark: #0099cc;
+	--color-background: #000000;
+	--color-surface: rgba(0, 0, 0, 0.6);
+	--color-glass: rgba(255, 255, 255, 0.05);
+	--color-glass-heavy: rgba(255, 255, 255, 0.08);
+	--color-text-primary: #ffffff;
+	--color-text-secondary: #888888;
+	--color-text-tertiary: #666666;
+	--color-border: rgba(255, 255, 255, 0.1);
+	--color-border-hover: rgba(255, 255, 255, 0.2);
+	--color-accent-border: rgba(0, 212, 255, 0.1);
+	--color-success: #22c55e;
+	--color-warning: #ffa500;
+	--color-error: #ef4444;
+	--color-stripe-blue: #635BFF;
+	--color-trust-green: #00D924;
+	--color-secure-gold: #FFB800;
+}
+
+@layer base {
+	body {
+		background-color: var(--color-background);
+		color: var(--color-text-primary);
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		min-height: 100vh;
+		overflow-x: hidden;
+		position: relative;
+	}
+	
+	/* Grid Background */
+	body::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: 
+			linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+		background-size: 40px 40px;
+		pointer-events: none;
+		z-index: 1;
+		animation: gridFloat 120s linear infinite;
+	}
+	
+	@keyframes gridFloat {
+		0% { transform: translate(0, 0); }
+		100% { transform: translate(40px, 40px); }
+	}
+}
+
+@layer components {
+	.container {
+		@apply max-w-7xl mx-auto px-6;
+	}
+	
+	.btn {
+		@apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-200;
+	}
+	
+	.btn-primary {
+		background-color: var(--color-primary);
+		color: var(--color-background);
+		@apply hover:-translate-y-0.5;
+	}
+	
+	.btn-primary:hover {
+		background-color: var(--color-primary-dark);
+	}
+	
+	.btn-secondary {
+		background-color: var(--color-glass);
+		color: var(--color-text-primary);
+		border: 1px solid var(--color-border);
+		@apply transition-all duration-200;
+	}
+	
+	.btn-secondary:hover {
+		background-color: var(--color-glass-heavy);
+		border-color: var(--color-border-hover);
+	}
+	
+	.glass-card {
+		background-color: var(--color-glass);
+		border: 1px solid var(--color-border);
+		@apply rounded-2xl backdrop-blur-sm transition-all duration-200;
+	}
+	
+	.glass-card:hover {
+		background-color: var(--color-glass-heavy);
+		border-color: var(--color-border-hover);
+	}
+}
+
+@layer utilities {
+	.text-gradient {
+		@apply bg-clip-text text-transparent;
+		background-image: linear-gradient(to bottom right, var(--color-text-primary), var(--color-primary));
+	}
+}
