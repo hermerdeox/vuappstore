@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { getAppById } from '$lib/data/apps';
 	import { Download, Shield, Lock, Globe, Star } from 'lucide-svelte';
+	import VuLabsCertified from '$lib/components/badges/VuLabsCertified.svelte';
 
 	$: app = getAppById($page.params.slug || '');
 
@@ -199,11 +200,19 @@
 							{app.icon}
 						</div>
 						<div>
-							<h1 class="text-4xl md:text-5xl font-black">{app.name}</h1>
+							<div class="flex items-center gap-3 flex-wrap mb-2">
+								<h1 class="text-4xl md:text-5xl font-black">{app.name}</h1>
+								{#if app.certified}
+									<VuLabsCertified size="md" />
+								{/if}
+							</div>
 							{#if app.id === 'vuchat'}
 								<p class="text-lg text-text-secondary italic" data-i18n="vuchat-tagline">{app.tagline}</p>
 							{:else}
 								<p class="text-lg text-text-secondary italic">{app.tagline}</p>
+							{/if}
+							{#if app.developer}
+								<p class="text-sm text-primary font-mono mt-1">by {app.developer}</p>
 							{/if}
 						</div>
 					</div>

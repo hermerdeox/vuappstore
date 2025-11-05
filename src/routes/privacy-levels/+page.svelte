@@ -137,6 +137,97 @@
 		</p>
 	</section>
 
+	<!-- Level 5 (Conventional "Privacy" - Not VU Standard) -->
+	<div class="level-card level-5-conventional" style="--level-color: #6b7280; --level-color-dark: #4b5563; --level-color-rgb: 107, 116, 128;">
+		<div class="level-header">
+			<div class="level-info">
+				<div class="level-number level-5-number">5</div>
+				<div class="level-title-group">
+					<h2 class="level-name">Conventional "Privacy"</h2>
+					<p class="level-tagline">What Others Call Privacy</p>
+				</div>
+			</div>
+			<div class="level-disclaimer">
+				<div class="disclaimer-badge">
+					<X class="w-4 h-4" />
+					<span>NOT VU STANDARD</span>
+				</div>
+			</div>
+		</div>
+		<p class="level-description">
+			This represents what most "privacy-focused" apps claim to offer. While marketed as private, 
+			these solutions still collect metadata, require trust in centralized servers, and often have 
+			backdoors for "lawful access." <strong>VU doesn't recognize this as true privacy.</strong>
+		</p>
+		<div class="privacy-grid">
+			<div class="privacy-item can-control conventional">
+				<div class="privacy-item-header">
+					<Check class="w-5 h-5" />
+					<span>What You "Control"</span>
+				</div>
+				<div class="privacy-item-desc">
+					Basic privacy settings, opt-out requests (maybe honored)
+				</div>
+			</div>
+			<div class="privacy-item cannot-see conventional">
+				<div class="privacy-item-header">
+					<X class="w-5 h-5" />
+					<span>What They "Can't" See</span>
+				</div>
+				<div class="privacy-item-desc">
+					Message content (but metadata exposed), encrypted files (with keys)
+				</div>
+			</div>
+			<div class="privacy-item server-sees conventional">
+				<div class="privacy-item-header">
+					<Circle class="w-5 h-5" />
+					<span>What Servers Actually See</span>
+				</div>
+				<div class="privacy-item-desc">
+					All metadata, usage patterns, social graphs, behavioral analytics
+				</div>
+			</div>
+			<div class="privacy-item never-keep conventional">
+				<div class="privacy-item-header">
+					<Ban class="w-5 h-5" />
+					<span>What They "Never" Keep</span>
+				</div>
+				<div class="privacy-item-desc">
+					Raw content (but derivatives stored), "deleted" data (archived)
+				</div>
+			</div>
+			<div class="privacy-item offline conventional">
+				<div class="privacy-item-header">
+					<Zap class="w-5 h-5" />
+					<span>Offline Capability</span>
+				</div>
+				<div class="privacy-item-desc">
+					Minimal offline access, requires constant server validation
+				</div>
+			</div>
+		</div>
+		<div class="examples-section conventional-examples" style="--level-color: #6b7280; --level-color-rgb: 107, 116, 128;">
+			<div class="examples-title">Popular Apps at This Level:</div>
+			<div class="example-apps">
+				<span class="example-app">ProtonMail</span>
+				<span class="example-app">Signal</span>
+				<span class="example-app">Telegram</span>
+				<span class="example-app">DuckDuckGo</span>
+				<span class="example-app">Brave Browser</span>
+				<span class="example-app">1Password</span>
+			</div>
+			<div class="level-5-warning">
+				<div class="warning-content">
+					<X class="w-5 h-5 text-error" />
+					<div>
+						<strong>Why VU Doesn't Accept This Standard:</strong>
+						<p>These apps still require trust in centralized infrastructure, collect metadata that can reveal your entire digital life, and often have government backdoors or "lawful access" provisions. True privacy shouldn't require trust.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Level 4 (Basic Privacy - Lowest) -->
 	<div class="level-card" style="--level-color: #ef4444; --level-color-dark: #dc2626; --level-color-rgb: 239, 68, 68;">
 		<div class="level-header">
@@ -1014,6 +1105,172 @@
 		40% { transform: translateX(2px) skewX(-2deg); }
 		60% { transform: translateX(-1px) skewX(1deg); }
 		80% { transform: translateX(1px) skewX(-1deg); }
+	}
+
+	/* ========================================
+	   LEVEL 5 - CONVENTIONAL "PRIVACY" STYLES
+	   ======================================== */
+	
+	.level-5-conventional {
+		position: relative;
+		border: 2px dashed var(--level-color) !important;
+		background: linear-gradient(135deg, 
+			rgba(var(--level-color-rgb), 0.05), 
+			rgba(var(--level-color-rgb), 0.02)
+		);
+		opacity: 0.85;
+	}
+
+	.level-5-conventional::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 10px,
+			rgba(var(--level-color-rgb), 0.1) 10px,
+			rgba(var(--level-color-rgb), 0.1) 20px
+		);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.level-5-conventional > * {
+		position: relative;
+		z-index: 2;
+	}
+
+	.level-5-number {
+		background: var(--level-color) !important;
+		color: #ffffff !important;
+		position: relative;
+	}
+
+	.level-5-number::after {
+		content: '✗';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: #ffffff;
+		font-size: 24px;
+		font-weight: 900;
+		text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+	}
+
+	.level-disclaimer {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+	}
+
+	.disclaimer-badge {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 6px 12px;
+		background: rgba(239, 68, 68, 0.2);
+		border: 1px solid #ef4444;
+		border-radius: 20px;
+		color: #ef4444;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.conventional-examples {
+		background: rgba(var(--level-color-rgb), 0.1) !important;
+		border: 1px dashed var(--level-color) !important;
+	}
+
+	.privacy-item.conventional {
+		opacity: 0.8;
+		border-style: dashed !important;
+	}
+
+	.privacy-item.conventional .privacy-item-header span {
+		position: relative;
+	}
+
+	.privacy-item.conventional .privacy-item-header span::before {
+		content: '"';
+		opacity: 0.6;
+	}
+
+	.privacy-item.conventional .privacy-item-header span::after {
+		content: '"';
+		opacity: 0.6;
+	}
+
+	.level-5-warning {
+		margin-top: 24px;
+		padding: 16px;
+		background: rgba(239, 68, 68, 0.1);
+		border: 1px solid rgba(239, 68, 68, 0.3);
+		border-radius: 8px;
+	}
+
+	.warning-content {
+		display: flex;
+		gap: 12px;
+		align-items: flex-start;
+	}
+
+	.warning-content strong {
+		color: #ef4444;
+		display: block;
+		margin-bottom: 8px;
+	}
+
+	.warning-content p {
+		color: #888888;
+		font-size: 14px;
+		line-height: 1.5;
+		margin: 0;
+	}
+
+	/* Level 5 hover effects */
+	.level-5-conventional:hover {
+		opacity: 1;
+		border-color: #ef4444 !important;
+	}
+
+	.level-5-conventional:hover::before {
+		background: repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 10px,
+			rgba(239, 68, 68, 0.15) 10px,
+			rgba(239, 68, 68, 0.15) 20px
+		);
+	}
+
+	/* Responsive adjustments for Level 5 */
+	@media (max-width: 768px) {
+		.level-disclaimer {
+			margin-left: 0;
+			margin-top: 12px;
+		}
+
+		.level-header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.disclaimer-badge {
+			font-size: 10px;
+			padding: 4px 8px;
+		}
+
+		.warning-content {
+			flex-direction: column;
+			gap: 8px;
+		}
 	}
 </style>
 

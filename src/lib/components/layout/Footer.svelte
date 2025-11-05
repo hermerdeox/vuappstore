@@ -3,6 +3,7 @@
 	import { ShieldCheck, Lock, FileCheck, EyeOff } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import { initTranslation } from '$lib/utils/i18n';
+	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
 
 	const footerSections = [
 		{
@@ -156,9 +157,7 @@
 					</p>
 				</div>
 				<div class="footer-actions flex items-center gap-4">
-					<button class="theme-toggle px-3 py-1.5 bg-glass border border-border rounded-lg text-xs text-text-secondary hover:text-text-primary transition-colors">
-						<span data-i18n="footer.theme">🌓 Theme</span>
-					</button>
+					<ThemeToggle variant="footer" />
 					<select class="language-select px-3 py-1.5 bg-glass border border-border rounded-lg text-xs text-text-secondary">
 						<option value="en">English</option>
 						<option value="es">Español</option>

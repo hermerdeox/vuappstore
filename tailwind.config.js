@@ -2,6 +2,15 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		screens: {
+			'xs': '320px',    // Extra small phones
+			'sm': '375px',    // Small phones (iPhone SE)
+			'md': '768px',    // Tablets
+			'lg': '1024px',   // Small laptops
+			'xl': '1280px',   // Laptops
+			'2xl': '1536px',  // Large screens
+			'3xl': '1920px'   // Ultra-wide
+		},
 		extend: {
 			colors: {
 				primary: '#00d4ff',

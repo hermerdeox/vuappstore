@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { vuApps, getAllApps, getFeaturedApps, getPrivacyChampions } from '$lib/data/apps';
 	import { Download, Lock, ShieldCheck, Globe, ArrowRight, Star, Sparkles } from 'lucide-svelte';
+	import VuLabsCertified from '$lib/components/badges/VuLabsCertified.svelte';
 
 	const featuredApps = getFeaturedApps();
 	const privacyChampions = getPrivacyChampions();
@@ -24,42 +25,51 @@
 
 <div class="home-page">
 	<!-- Hero Section -->
-	<section class="hero container py-16 md:py-24 text-center relative z-10">
-		<div class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
+	<section class="hero container hero-padding text-center relative z-10">
+		<div class="hero-badge inline-flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 bg-primary/10 border border-primary/30 rounded-full mb-4 md:mb-6">
 			<span class="hero-badge-dot w-2 h-2 bg-primary rounded-full animate-pulse"></span>
 			<span class="hero-badge-text text-xs font-semibold text-primary uppercase tracking-wide">Zero-Knowledge Marketplace</span>
 		</div>
-		<h1 class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 text-gradient">
-			Your Apps. Your Data.<br>Your Life. Zero Surveillance.
+		<h1 class="heading-hero mb-4 md:mb-6 text-gradient">
+			Your Apps. Your Data.<br class="hidden sm:block">Your Life. Zero Surveillance.
 		</h1>
-		<p class="hero-subtitle text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto mb-8">
+		<p class="text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto mb-6 md:mb-8 px-4 sm:px-0">
 			The first app marketplace where privacy isn't a feature, it's the foundation. 
 			Every app verified, every byte encrypted, every moment yours.
 		</p>
 
 		<!-- Trust Indicators -->
-		<div class="business-highlights grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
-			<div class="highlight flex items-center gap-2 justify-center">
-				<span class="icon text-success">✓</span>
-				<span class="text-sm text-text-secondary">Legitimate SaaS</span>
+		<div class="business-highlights grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mb-6 md:mb-8 px-4 sm:px-0">
+			<div class="highlight flex items-center gap-2 justify-center text-center">
+				<span class="icon text-success text-sm">✓</span>
+				<span class="text-xs sm:text-sm text-text-secondary">Legitimate SaaS</span>
 			</div>
-			<div class="highlight flex items-center gap-2 justify-center">
-				<span class="icon text-success">✓</span>
-				<span class="text-sm text-text-secondary">Instant Delivery</span>
+			<div class="highlight flex items-center gap-2 justify-center text-center">
+				<span class="icon text-success text-sm">✓</span>
+				<span class="text-xs sm:text-sm text-text-secondary">Instant Delivery</span>
 			</div>
-			<div class="highlight flex items-center gap-2 justify-center">
-				<span class="icon text-success">✓</span>
-				<span class="text-sm text-text-secondary">30-Day Guarantee</span>
+			<div class="highlight flex items-center gap-2 justify-center text-center">
+				<span class="icon text-success text-sm">✓</span>
+				<span class="text-xs sm:text-sm text-text-secondary">30-Day Guarantee</span>
 			</div>
-			<div class="highlight flex items-center gap-2 justify-center">
-				<span class="icon text-success">✓</span>
-				<span class="text-sm text-text-secondary">Secure Payments</span>
+			<div class="highlight flex items-center gap-2 justify-center text-center">
+				<span class="icon text-success text-sm">✓</span>
+				<span class="text-xs sm:text-sm text-text-secondary">Secure Payments</span>
 			</div>
 		</div>
 	</section>
 
 	<!-- The VU Suite Spotlight -->
 	<section class="spotlight-section container mb-16 relative z-10">
+		<!-- Explore The Store Button -->
+		<div class="text-center mb-8">
+			<a href="/vu-store" class="inline-flex items-center gap-3 px-8 py-4 bg-primary/20 border-2 border-primary hover:bg-primary hover:text-background transition-all duration-200 rounded-xl font-bold text-lg">
+				<ShieldCheck class="w-6 h-6" />
+				Explore The Store
+				<ArrowRight class="w-6 h-6" />
+			</a>
+		</div>
+
 		<div class="spotlight-card glass-card p-8 md:p-12 relative overflow-hidden">
 			<div class="spotlight-header flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
 				<span class="spotlight-badge inline-flex items-center gap-2 px-4 py-2 bg-primary text-background rounded-full text-xs font-bold uppercase tracking-wide">
@@ -107,18 +117,23 @@
 					</div>
 				</div>
 
-				<div class="spotlight-apps grid grid-cols-3 md:grid-cols-5 lg:col-span-3 gap-4">
+				<div class="spotlight-apps mini-app-grid lg:col-span-3">
 					{#each vuSuiteApps as appId}
-						<a href="/apps/{appId}" class="mini-app glass-card aspect-square flex flex-col items-center justify-center gap-2 hover:-translate-y-1 transition-all" style="--app-color: {vuApps[appId].color}; --app-color-rgb: {vuApps[appId].colorRgb};">
-							<div class="mini-app-icon text-4xl md:text-5xl font-bold" style="color: {vuApps[appId].color};">
+						<a href="/apps/{appId}" class="mini-app glass-card aspect-square flex flex-col items-center justify-center gap-1 md:gap-2 hover:-translate-y-1 transition-all relative" style="--app-color: {vuApps[appId].color}; --app-color-rgb: {vuApps[appId].colorRgb};">
+							<div class="mini-app-icon text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold" style="color: {vuApps[appId].color};">
 								{vuApps[appId].icon}
 							</div>
-							<div class="mini-app-name text-sm md:text-base font-medium text-text-secondary">{vuApps[appId].name}</div>
+							<div class="mini-app-name text-xs sm:text-sm md:text-base font-medium text-text-secondary text-center px-1">{vuApps[appId].name}</div>
+							{#if vuApps[appId].certified}
+								<div class="absolute bottom-1 md:bottom-2">
+									<VuLabsCertified size="xs" />
+								</div>
+							{/if}
 						</a>
 					{/each}
-					<a href="/apps" class="mini-app glass-card aspect-square flex flex-col items-center justify-center gap-2 hover:-translate-y-1 transition-all" style="--app-color: #8b5cf6; --app-color-rgb: 139, 92, 246;">
-						<div class="mini-app-icon text-4xl md:text-5xl font-bold" style="color: #8b5cf6;">+21</div>
-						<div class="mini-app-name text-sm md:text-base font-medium text-text-secondary">More Apps</div>
+					<a href="/apps" class="mini-app glass-card aspect-square flex flex-col items-center justify-center gap-1 md:gap-2 hover:-translate-y-1 transition-all" style="--app-color: #8b5cf6; --app-color-rgb: 139, 92, 246;">
+						<div class="mini-app-icon text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold" style="color: #8b5cf6;">+21</div>
+						<div class="mini-app-name text-xs sm:text-sm md:text-base font-medium text-text-secondary text-center px-1">More Apps</div>
 					</a>
 				</div>
 			</div>
@@ -143,7 +158,12 @@
 						</div>
 						<div class="app-card-info flex-1">
 							<div class="app-card-name text-lg font-semibold mb-1">{app.name}</div>
-							<div class="app-card-developer text-xs text-text-tertiary">by VuApps</div>
+							<div class="app-card-developer text-xs text-text-tertiary">by {app.developer || 'VuApps'}</div>
+						{#if app.certified}
+							<div class="mt-1">
+								<VuLabsCertified size="sm" />
+							</div>
+						{/if}
 						</div>
 					</div>
 					<div class="app-card-description text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">
@@ -172,19 +192,24 @@
 				<ArrowRight class="w-4 h-4" />
 			</a>
 		</div>
-		<div class="app-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+		<div class="app-grid">
 			{#each newAndNoteworthy as app}
-				<a href="/apps/{app.id}" class="app-card glass-card p-6 hover:-translate-y-1 transition-all">
-					<div class="app-card-header flex gap-4 mb-4">
-						<div class="app-card-icon w-14 h-14 bg-surface rounded-lg flex items-center justify-center text-2xl font-bold" style="color: {app.color};">
+				<a href="/apps/{app.id}" class="app-card glass-card p-4 md:p-6 hover:-translate-y-1 transition-all">
+					<div class="app-card-header flex gap-3 md:gap-4 mb-3 md:mb-4">
+						<div class="app-card-icon w-12 h-12 md:w-14 md:h-14 bg-surface rounded-lg flex items-center justify-center text-xl md:text-2xl font-bold" style="color: {app.color};">
 							{app.icon}
 						</div>
-						<div class="app-card-info flex-1">
-							<div class="app-card-name text-lg font-semibold mb-1">{app.name}</div>
-							<div class="app-card-developer text-xs text-text-tertiary">by VuApps</div>
+						<div class="app-card-info flex-1 min-w-0">
+							<div class="app-card-name text-base md:text-lg font-semibold mb-1 truncate">{app.name}</div>
+							<div class="app-card-developer text-xs text-text-tertiary">by {app.developer || 'VuApps'}</div>
+						{#if app.certified}
+							<div class="mt-1">
+								<VuLabsCertified size="sm" />
+							</div>
+						{/if}
 						</div>
 					</div>
-					<div class="app-card-description text-sm text-text-secondary leading-relaxed mb-4 line-clamp-3">
+					<div class="app-card-description text-sm text-text-secondary leading-relaxed mb-3 md:mb-4 line-clamp-3">
 						{app.description}
 					</div>
 					<div class="app-card-footer flex justify-between items-center">
@@ -227,12 +252,20 @@
 				</p>
 
 			<!-- Level Preview Cards -->
-			<div class="levels-preview grid grid-cols-2 md:grid-cols-5 gap-4 mb-8 max-w-4xl mx-auto">
-				<div class="level-preview-card glass-card p-4 border-l-4 border-error hover:-translate-y-1 transition-transform">
-					<div class="text-3xl font-black text-error mb-2">4</div>
+			<div class="levels-preview grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 mb-8 max-w-5xl mx-auto">
+				<a href="/privacy-levels#level-5" class="level-preview-card glass-card p-3 md:p-4 border-l-4 border-gray-500 hover:-translate-y-1 transition-transform opacity-75 hover:opacity-100">
+					<div class="text-2xl md:text-3xl font-black text-gray-500 mb-2 relative">
+						5
+						<span class="absolute -top-1 -right-1 text-xs text-error">✗</span>
+					</div>
+					<div class="text-xs font-semibold text-text-primary mb-1">Conventional</div>
+					<div class="text-[10px] text-text-tertiary">"Privacy" Claims</div>
+				</a>
+				<a href="/privacy-levels#level-4" class="level-preview-card glass-card p-3 md:p-4 border-l-4 border-error hover:-translate-y-1 transition-transform">
+					<div class="text-2xl md:text-3xl font-black text-error mb-2">4</div>
 					<div class="text-xs font-semibold text-text-primary mb-1">Basic Privacy</div>
 					<div class="text-[10px] text-text-tertiary">Encrypted Transit</div>
-				</div>
+				</a>
 				<div class="level-preview-card glass-card p-4 border-l-4 border-warning hover:-translate-y-1 transition-transform">
 					<div class="text-3xl font-black text-warning mb-2">3</div>
 					<div class="text-xs font-semibold text-text-primary mb-1">Enhanced</div>

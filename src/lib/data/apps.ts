@@ -27,6 +27,8 @@ export interface VuApp {
 	downloads: number;
 	rating: number;
 	reviews: number;
+	certified?: boolean; // VuLabs Certified badge (official VU Suite apps)
+	developer?: string; // Developer @username
 }
 
 export const vuApps: Record<string, VuApp> = {
@@ -55,7 +57,9 @@ export const vuApps: Record<string, VuApp> = {
 		status: 'available',
 		downloads: 125430,
 		rating: 4.8,
-		reviews: 2341
+		reviews: 2341,
+		certified: true,
+		developer: '@vuapps'
 	},
 	vuwallet: {
 		id: 'vuwallet',
