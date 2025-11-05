@@ -4,12 +4,16 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --port 3700 --host",
 		"build": "vite build",
-		"preview": "vite preview",
+		"preview": "vite preview --port 3700 --host",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"pwa:generate-icons": "node scripts/generate-icons.js",
+		"pwa:validate": "npx pwa-asset-generator --help",
+		"pwa:audit": "npx lighthouse http://localhost:3700 --only-categories=pwa --chrome-flags='--headless'",
+		"pwa:test": "npm run build && npm run preview"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^7.0.0",
