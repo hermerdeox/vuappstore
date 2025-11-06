@@ -25,34 +25,34 @@
 
 <div class="home-page">
 	<!-- Hero Section -->
-	<section class="hero container hero-padding text-center relative z-10">
-		<div class="hero-badge inline-flex items-center gap-2 px-3 py-2 md:px-4 md:py-2 bg-primary/10 border border-primary/30 rounded-full mb-4 md:mb-6">
-			<span class="hero-badge-dot w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+	<section class="hero container text-center relative z-10 px-4 py-8 md:py-16">
+		<div class="hero-badge inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 border border-primary/30 rounded-full mb-4 md:mb-6">
+			<span class="hero-badge-dot w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full animate-pulse"></span>
 			<span class="hero-badge-text text-xs font-semibold text-primary uppercase tracking-wide">Zero-Knowledge Marketplace</span>
 		</div>
-		<h1 class="heading-hero mb-4 md:mb-6 text-gradient">
+		<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 text-gradient leading-tight">
 			Your Apps. Your Data.<br class="hidden sm:block">Your Life. Zero Surveillance.
 		</h1>
-		<p class="text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto mb-6 md:mb-8 px-4 sm:px-0">
+		<p class="text-sm sm:text-base md:text-lg text-text-secondary leading-relaxed max-w-xl md:max-w-2xl mx-auto mb-6 md:mb-8">
 			The first app marketplace where privacy isn't a feature, it's the foundation. 
 			Every app verified, every byte encrypted, every moment yours.
 		</p>
 
-		<!-- Trust Indicators -->
-		<div class="business-highlights grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mb-6 md:mb-8 px-4 sm:px-0">
-			<div class="highlight flex items-center gap-2 justify-center text-center">
+		<!-- Trust Indicators - Mobile Optimized -->
+		<div class="business-highlights grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-4 md:gap-4 max-w-sm sm:max-w-md md:max-w-4xl mx-auto mb-6 md:mb-8">
+			<div class="highlight flex flex-col sm:flex-row items-center gap-1 sm:gap-2 justify-center text-center p-2 sm:p-0">
 				<span class="icon text-success text-sm">✓</span>
 				<span class="text-xs sm:text-sm text-text-secondary">Legitimate SaaS</span>
 			</div>
-			<div class="highlight flex items-center gap-2 justify-center text-center">
+			<div class="highlight flex flex-col sm:flex-row items-center gap-1 sm:gap-2 justify-center text-center p-2 sm:p-0">
 				<span class="icon text-success text-sm">✓</span>
 				<span class="text-xs sm:text-sm text-text-secondary">Instant Delivery</span>
 			</div>
-			<div class="highlight flex items-center gap-2 justify-center text-center">
+			<div class="highlight flex flex-col sm:flex-row items-center gap-1 sm:gap-2 justify-center text-center p-2 sm:p-0">
 				<span class="icon text-success text-sm">✓</span>
 				<span class="text-xs sm:text-sm text-text-secondary">30-Day Guarantee</span>
 			</div>
-			<div class="highlight flex items-center gap-2 justify-center text-center">
+			<div class="highlight flex flex-col sm:flex-row items-center gap-1 sm:gap-2 justify-center text-center p-2 sm:p-0">
 				<span class="icon text-success text-sm">✓</span>
 				<span class="text-xs sm:text-sm text-text-secondary">Secure Payments</span>
 			</div>
@@ -60,60 +60,60 @@
 	</section>
 
 	<!-- The VU Suite Spotlight -->
-	<section class="spotlight-section container mb-16 relative z-10">
+	<section class="spotlight-section container mb-8 md:mb-16 relative z-10 px-4">
 		<!-- Explore The Store Button -->
-		<div class="text-center mb-8">
-			<a href="/vu-store" class="inline-flex items-center gap-3 px-8 py-4 bg-primary/20 border-2 border-primary hover:bg-primary hover:text-background transition-all duration-200 rounded-xl font-bold text-lg">
-				<ShieldCheck class="w-6 h-6" />
+		<div class="text-center mb-6 md:mb-8">
+			<a href="/vu-store" class="inline-flex items-center gap-2 md:gap-3 px-4 py-3 md:px-8 md:py-4 bg-primary/20 border-2 border-primary hover:bg-primary hover:text-background transition-all duration-200 rounded-xl font-bold text-base md:text-lg">
+				<ShieldCheck class="w-5 h-5 md:w-6 md:h-6" />
 				Explore The Store
-				<ArrowRight class="w-6 h-6" />
+				<ArrowRight class="w-5 h-5 md:w-6 md:h-6" />
 			</a>
 		</div>
 
-		<div class="spotlight-card glass-card p-8 md:p-12 relative overflow-hidden">
-			<div class="spotlight-header flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
-				<span class="spotlight-badge inline-flex items-center gap-2 px-4 py-2 bg-primary text-background rounded-full text-xs font-bold uppercase tracking-wide">
-					<Sparkles class="w-4 h-4" />
+		<div class="spotlight-card glass-card p-4 md:p-8 lg:p-12 relative overflow-hidden">
+			<div class="spotlight-header flex flex-col gap-4 md:gap-6 mb-6 md:mb-8">
+				<span class="spotlight-badge inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary text-background rounded-full text-xs font-bold uppercase tracking-wide mx-auto md:mx-0">
+					<Sparkles class="w-3 h-3 md:w-4 md:h-4" />
 					Premium In-House Production
 				</span>
-				<div class="spotlight-price text-left md:text-right">
-					<div class="spotlight-price-amount text-4xl font-bold text-text-primary">$2.56</div>
+				<div class="spotlight-price text-center md:text-right">
+					<div class="spotlight-price-amount text-3xl md:text-4xl font-bold text-text-primary">$2.56</div>
 					<div class="spotlight-price-period text-sm text-text-secondary">per app, per month</div>
 					<div class="spotlight-price-value text-sm text-primary font-semibold mt-1">256 bits = $2.56 = 1¢ per bit</div>
 					<div class="spotlight-price-crypto text-xs text-info mt-2">Pay with crypto • Zero tracking</div>
 				</div>
 			</div>
 
-			<div class="spotlight-content grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+			<div class="spotlight-content grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-center">
 				<div class="spotlight-info lg:col-span-2">
-					<h2 class="text-3xl md:text-4xl font-bold mb-3">The VU Suite</h2>
-					<p class="spotlight-tagline text-lg text-text-secondary italic mb-6">
+					<h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-center lg:text-left">The VU Suite</h2>
+					<p class="spotlight-tagline text-base md:text-lg text-text-secondary italic mb-4 md:mb-6 text-center lg:text-left">
 						"Déjà vu - Remember when your data was yours?"
 					</p>
-					<p class="spotlight-description text-text-secondary leading-relaxed mb-6">
+					<p class="spotlight-description text-sm md:text-base text-text-secondary leading-relaxed mb-4 md:mb-6 text-center lg:text-left">
 						30+ zero-knowledge applications built from the ground up with privacy as the core architecture. 
 						At just 1 cent per bit of encryption, true digital sovereignty has never been more accessible.
 					</p>
-					<div class="spotlight-stats flex gap-6 mb-6 flex-wrap">
+					<div class="spotlight-stats flex gap-4 md:gap-6 mb-4 md:mb-6 flex-wrap justify-center lg:justify-start">
 						<div class="stat-item flex items-center gap-2">
-							<Lock class="w-5 h-5 text-primary" />
-							<span class="stat-text text-sm text-text-secondary"><strong class="text-text-primary">100%</strong> Encrypted</span>
+							<Lock class="w-4 h-4 md:w-5 md:h-5 text-primary" />
+							<span class="stat-text text-xs md:text-sm text-text-secondary"><strong class="text-text-primary">100%</strong> Encrypted</span>
 						</div>
 						<div class="stat-item flex items-center gap-2">
-							<ShieldCheck class="w-5 h-5 text-primary" />
-							<span class="stat-text text-sm text-text-secondary"><strong class="text-text-primary">Zero</strong> Tracking</span>
+							<ShieldCheck class="w-4 h-4 md:w-5 md:h-5 text-primary" />
+							<span class="stat-text text-xs md:text-sm text-text-secondary"><strong class="text-text-primary">Zero</strong> Tracking</span>
 						</div>
 						<div class="stat-item flex items-center gap-2">
-							<Globe class="w-5 h-5 text-primary" />
-							<span class="stat-text text-sm text-text-secondary"><strong class="text-text-primary">Offline</strong> First</span>
+							<Globe class="w-4 h-4 md:w-5 md:h-5 text-primary" />
+							<span class="stat-text text-xs md:text-sm text-text-secondary"><strong class="text-text-primary">Offline</strong> First</span>
 						</div>
 					</div>
-					<div class="spotlight-cta flex gap-4 flex-wrap">
-						<a href="/pricing" class="btn btn-primary">
+					<div class="spotlight-cta flex gap-3 md:gap-4 flex-wrap justify-center lg:justify-start">
+						<a href="/pricing" class="btn btn-primary text-sm md:text-base px-4 py-2 md:px-6 md:py-3">
 							<Download class="w-4 h-4" />
 							Get The VU Suite
 						</a>
-						<a href="/apps/vuvault" class="btn btn-secondary">Learn More</a>
+						<a href="/apps/vuvault" class="btn btn-secondary text-sm md:text-base px-4 py-2 md:px-6 md:py-3">Learn More</a>
 					</div>
 				</div>
 
@@ -141,17 +141,17 @@
 	</section>
 
 	<!-- Privacy Champions Section -->
-	<section class="section container mb-16 relative z-10">
-		<div class="section-header flex justify-between items-center mb-6">
-			<h2 class="section-title text-2xl md:text-3xl font-bold">Privacy Champions</h2>
+	<section class="section container mb-8 md:mb-16 relative z-10 px-4">
+		<div class="section-header flex justify-between items-center mb-4 md:mb-6">
+			<h2 class="section-title text-xl md:text-2xl lg:text-3xl font-bold">Privacy Champions</h2>
 			<a href="/apps" class="section-action text-sm text-primary font-medium flex items-center gap-2 hover:gap-3 transition-all">
 				See all
 				<ArrowRight class="w-4 h-4" />
 			</a>
 		</div>
-		<div class="horizontal-scroll flex gap-4 overflow-x-auto pb-4">
+		<div class="horizontal-scroll flex gap-3 md:gap-4 overflow-x-auto pb-4 -mx-4 px-4">
 			{#each privacyChampions as app}
-				<a href="/apps/{app.id}" class="horizontal-card glass-card flex-shrink-0 w-64 p-4 hover:scale-105 transition-transform">
+				<a href="/apps/{app.id}" class="horizontal-card glass-card flex-shrink-0 w-56 md:w-64 p-3 md:p-4 hover:scale-105 transition-transform">
 					<div class="app-card-header flex gap-4 mb-4">
 						<div class="app-card-icon w-14 h-14 bg-surface rounded-lg flex items-center justify-center text-2xl font-bold" style="color: {app.color};">
 							{app.icon}
@@ -184,15 +184,15 @@
 	</section>
 
 	<!-- New & Noteworthy -->
-	<section class="section container mb-16 relative z-10">
-		<div class="section-header flex justify-between items-center mb-6">
-			<h2 class="section-title text-2xl md:text-3xl font-bold">New & Noteworthy</h2>
+	<section class="section container mb-8 md:mb-16 relative z-10 px-4">
+		<div class="section-header flex justify-between items-center mb-4 md:mb-6">
+			<h2 class="section-title text-xl md:text-2xl lg:text-3xl font-bold">New & Noteworthy</h2>
 			<a href="/apps" class="section-action text-sm text-primary font-medium flex items-center gap-2 hover:gap-3 transition-all">
 				Browse all
 				<ArrowRight class="w-4 h-4" />
 			</a>
 		</div>
-		<div class="app-grid">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
 			{#each newAndNoteworthy as app}
 				<a href="/apps/{app.id}" class="app-card glass-card p-4 md:p-6 hover:-translate-y-1 transition-all">
 					<div class="app-card-header flex gap-3 md:gap-4 mb-3 md:mb-4">
@@ -227,42 +227,42 @@
 	</section>
 
 	<!-- VU Zero Privacy Levels - Prominent Section -->
-	<section class="privacy-levels-cta container mb-24 relative z-10">
-		<div class="glass-card p-12 md:p-16 text-center relative overflow-hidden border-2 border-primary/30">
+	<section class="privacy-levels-cta container mb-12 md:mb-24 relative z-10 px-4">
+		<div class="glass-card p-6 md:p-12 lg:p-16 text-center relative overflow-hidden border-2 border-primary/30">
 			<!-- Background Gradient -->
 			<div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple/5 pointer-events-none"></div>
 			
 			<div class="relative z-10">
 				<!-- Badge -->
-				<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full mb-6">
-					<ShieldCheck class="w-4 h-4 text-primary" />
+				<div class="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary/20 border border-primary/40 rounded-full mb-4 md:mb-6">
+					<ShieldCheck class="w-3 h-3 md:w-4 md:h-4 text-primary" />
 					<span class="text-xs font-bold text-primary uppercase tracking-wide">Transparency Protocol</span>
 				</div>
 
 				<!-- Heading -->
-				<h2 class="text-3xl md:text-5xl font-black mb-6 text-gradient">
-					Understand Your Privacy.<br>Choose Your Level.
+				<h2 class="text-2xl md:text-3xl lg:text-5xl font-black mb-4 md:mb-6 text-gradient leading-tight">
+					Understand Your Privacy.<br class="hidden sm:block">Choose Your Level.
 				</h2>
 				
 				<!-- Description -->
-				<p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto mb-8 leading-relaxed">
+				<p class="text-sm md:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed">
 					Not all privacy is created equal. The VU Zero-Level System shows you exactly what each app can see, 
 					what it can't, and what happens to your data. From <strong class="text-primary">Basic Privacy</strong> to 
 					<strong class="text-success">True Zero-Knowledge</strong> and beyond.
 				</p>
 
 			<!-- Level Preview Cards -->
-			<div class="levels-preview grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 mb-8 max-w-5xl mx-auto">
-				<a href="/privacy-levels#level-5" class="level-preview-card glass-card p-3 md:p-4 border-l-4 border-gray-500 hover:-translate-y-1 transition-transform opacity-75 hover:opacity-100">
-					<div class="text-2xl md:text-3xl font-black text-gray-500 mb-2 relative">
+			<div class="levels-preview grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 lg:gap-4 mb-6 md:mb-8 max-w-5xl mx-auto">
+				<a href="/privacy-levels#level-5" class="level-preview-card glass-card p-2 md:p-3 lg:p-4 border-l-4 border-gray-500 hover:-translate-y-1 transition-transform opacity-75 hover:opacity-100">
+					<div class="text-xl md:text-2xl lg:text-3xl font-black text-gray-500 mb-1 md:mb-2 relative">
 						5
 						<span class="absolute -top-1 -right-1 text-xs text-error">✗</span>
 					</div>
 					<div class="text-xs font-semibold text-text-primary mb-1">Conventional</div>
 					<div class="text-[10px] text-text-tertiary">"Privacy" Claims</div>
 				</a>
-				<a href="/privacy-levels#level-4" class="level-preview-card glass-card p-3 md:p-4 border-l-4 border-error hover:-translate-y-1 transition-transform">
-					<div class="text-2xl md:text-3xl font-black text-error mb-2">4</div>
+				<a href="/privacy-levels#level-4" class="level-preview-card glass-card p-2 md:p-3 lg:p-4 border-l-4 border-error hover:-translate-y-1 transition-transform">
+					<div class="text-xl md:text-2xl lg:text-3xl font-black text-error mb-1 md:mb-2">4</div>
 					<div class="text-xs font-semibold text-text-primary mb-1">Basic Privacy</div>
 					<div class="text-[10px] text-text-tertiary">Encrypted Transit</div>
 				</a>
