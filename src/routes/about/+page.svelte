@@ -119,7 +119,7 @@
 				<div>
 					<h3 class="font-semibold mb-2">Legal Entity</h3>
 					<p class="text-text-secondary">
-						VU Digital Privacy Solutions LLC<br>
+						VU Technologies<br>
 						A Delaware Limited Liability Company
 					</p>
 				</div>

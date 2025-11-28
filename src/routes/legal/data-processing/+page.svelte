@@ -7,7 +7,7 @@
 	<section>
 		<h2>1. INTRODUCTION</h2>
 		<p>
-			This Data Processing Agreement ("DPA") forms part of the Terms of Service between VU Digital Privacy Solutions LLC ("VuAppStore", "we", "us") and you ("Customer", "you") regarding the processing of personal data in connection with the VuAppStore services.
+			This Data Processing Agreement ("DPA") forms part of the Terms of Service between VU Technologies ("VuAppStore", "we", "us") and you ("Customer", "you") regarding the processing of personal data in connection with the VuAppStore services.
 		</p>
 		<p>
 			This DPA reflects the parties' agreement on the terms governing the processing of personal data in accordance with the requirements of applicable Data Protection Laws, including the EU General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
@@ -217,7 +217,7 @@
 		<p>
 			<strong>Data Protection Officer</strong><br/>
 			Email: privacy@vuappstore.com<br/>
-			Address: VU Digital Privacy Solutions LLC<br/>
+			Address: VU Technologies<br/>
 			1209 Orange Street<br/>
 			Wilmington, DE 19801<br/>
 			United States

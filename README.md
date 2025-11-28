@@ -232,7 +232,7 @@ All required legal documentation is included:
 
 ## 📄 License
 
-Copyright © 2024 VU Digital Privacy Solutions LLC. All rights reserved.
+Copyright © 2024 VU Technologies. All rights reserved.
 
 ---
 

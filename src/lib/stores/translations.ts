@@ -75,7 +75,7 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.link.github': 'GitHub',
 		'footer.payments': 'Privacy Payments via',
 		'footer.copyright': '© 2024 VuAppStore. All rights reserved.',
-		'footer.company-info': 'VU Digital Privacy Solutions LLC | Delaware, USA',
+		'footer.company-info': 'VU Technologies | Delaware, USA',
 		'footer.theme': 'Theme',
 		
 		// About Pages
@@ -203,7 +203,7 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.link.github': 'GitHub',
 		'footer.payments': 'Pagos Privados vía',
 		'footer.copyright': '© 2024 VuAppStore. Todos los derechos reservados.',
-		'footer.company-info': 'VU Digital Privacy Solutions LLC | Delaware, EE.UU.',
+		'footer.company-info': 'VU Technologies | Delaware, EE.UU.',
 		'footer.theme': 'Tema',
 		
 		// About Pages
@@ -331,7 +331,7 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.link.github': 'GitHub',
 		'footer.payments': 'Paiements Privés via',
 		'footer.copyright': '© 2024 VuAppStore. Tous droits réservés.',
-		'footer.company-info': 'VU Digital Privacy Solutions LLC | Delaware, États-Unis',
+		'footer.company-info': 'VU Technologies | Delaware, États-Unis',
 		'footer.theme': 'Thème',
 		
 		// About Pages

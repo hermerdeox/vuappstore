@@ -165,7 +165,7 @@
 				<div class="footer-copyright text-center md:text-left">
 					<p class="text-sm text-text-secondary mb-1" data-i18n="footer.copyright">© 2024 VuAppStore. All rights reserved.</p>
 					<p class="footer-company text-xs text-text-tertiary" data-i18n="footer.company-info">
-						VU Digital Privacy Solutions LLC | Delaware, USA
+						VU Technologies | Delaware, USA
 					</p>
 				</div>
 				<div class="footer-actions flex items-center gap-4">

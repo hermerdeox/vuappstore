@@ -183,7 +183,7 @@ Do NOT translate:
 - VU Suite
 - App names (VuChat, VuMail, etc.)
 - Technical terms (API, GDPR, CCPA, SSL, PCI, etc.)
-- Company name (VU Digital Privacy Solutions LLC)
+- Company name (VU Technologies)
 - Stripe, Visa, Mastercard, etc.
 
 ### Cultural Adaptations

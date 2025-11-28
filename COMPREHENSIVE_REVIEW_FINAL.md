@@ -96,7 +96,7 @@ The VuAppStore implementation is **nearly production-ready** with a comprehensiv
 #### 4. **Business & Compliance**
 - ✅ Transparent pricing (Monthly: $29.99, Annual: $299.99, Lifetime: $999)
 - ✅ All 6 legal pages for Stripe compliance
-- ✅ Company information (VU Digital Privacy Solutions LLC)
+- ✅ Company information (VU Technologies)
 - ✅ Support contact information
 - ✅ 30-day money-back guarantee
 

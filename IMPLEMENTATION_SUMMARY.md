@@ -148,7 +148,7 @@ npx prisma studio
 ### Business Profile Details
 - **MCC Code**: 5817 (Digital Goods: Software)
 - **Business Type**: Company (LLC)
-- **Company**: VU Digital Privacy Solutions LLC
+- **Company**: VU Technologies
 - **Location**: Wilmington, Delaware, USA
 - **Support Email**: support@vuappstore.com
 - **Support Phone**: +1-302-555-0100

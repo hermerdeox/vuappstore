@@ -10,7 +10,7 @@ export const stripeBusinessProfile = {
 	mcc: '5817', // Digital Goods: Software - Low-risk category
 	business_type: 'company' as const,
 	company: {
-		name: 'VU Digital Privacy Solutions LLC',
+		name: 'VU Technologies',
 		tax_id: '',
 		address: {
 			line1: '1209 Orange Street',

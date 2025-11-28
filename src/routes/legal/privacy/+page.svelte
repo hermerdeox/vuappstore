@@ -219,7 +219,7 @@
 			Response Time: Within 72 hours
 		</p>
 		<p>
-			<strong>VU Digital Privacy Solutions LLC</strong><br/>
+			<strong>VU Technologies</strong><br/>
 			1209 Orange Street<br/>
 			Wilmington, DE 19801<br/>
 			United States
