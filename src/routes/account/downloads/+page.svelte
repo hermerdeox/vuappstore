@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { User, CreditCard, Download, Settings, LogOut, Shield, Calendar, HardDrive, RefreshCw } from 'lucide-svelte';
+	import { User, CreditCard, Download, Settings, LogOut, Shield, Calendar, HardDrive, RefreshCw, LockKeyhole, MessageSquare, Dumbbell, StickyNote, Wallet, Camera, Inbox, Rocket, CheckCircle, FileDown } from 'lucide-svelte';
 	import { vuApps } from '$lib/data/apps';
 
 	// VU Philosophy: No real names, only @usernames and @vumail.app addresses
@@ -15,7 +15,7 @@
 		{
 			appId: 'vuvault',
 			appName: 'VuVault',
-			icon: '🔐',
+			iconComponent: LockKeyhole,
 			color: '#00d4ff',
 			downloadedAt: '2 days ago',
 			version: 'v2.4.1',
@@ -26,7 +26,7 @@
 		{
 			appId: 'vuchat',
 			appName: 'VuChat',
-			icon: '💬',
+			iconComponent: MessageSquare,
 			color: '#9333ea',
 			downloadedAt: '5 days ago',
 			version: 'v3.1.0',
@@ -37,7 +37,7 @@
 		{
 			appId: 'vufit',
 			appName: 'VuFit',
-			icon: '💪',
+			iconComponent: Dumbbell,
 			color: '#22c55e',
 			downloadedAt: '1 week ago',
 			version: 'v1.8.3',
@@ -48,7 +48,7 @@
 		{
 			appId: 'vunotes',
 			appName: 'VuNotes',
-			icon: '📝',
+			iconComponent: StickyNote,
 			color: '#eab308',
 			downloadedAt: '2 weeks ago',
 			version: 'v4.2.0',
@@ -59,7 +59,7 @@
 		{
 			appId: 'vuwallet',
 			appName: 'VuWallet',
-			icon: '💰',
+			iconComponent: Wallet,
 			color: '#f97316',
 			downloadedAt: '3 weeks ago',
 			version: 'v2.0.5',
@@ -70,7 +70,7 @@
 		{
 			appId: 'vuphoto',
 			appName: 'VuPhoto',
-			icon: '📸',
+			iconComponent: Camera,
 			color: '#ec4899',
 			downloadedAt: '1 month ago',
 			version: 'v3.5.2',
@@ -205,8 +205,8 @@
 							<div class="flex items-center justify-between gap-6">
 								<div class="flex items-center gap-4 flex-1">
 									<!-- App Icon -->
-									<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold" style="background: {download.color}20; color: {download.color};">
-										{download.icon}
+									<div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: {download.color}20;">
+										<svelte:component this={download.iconComponent} class="w-8 h-8" style="color: {download.color};" />
 									</div>
 
 									<!-- App Info -->
@@ -256,28 +256,28 @@
 				<h3 class="text-xl font-semibold mb-4">Download Instructions</h3>
 				<div class="space-y-4">
 					<div class="instruction-item">
-						<h4 class="font-semibold text-primary mb-2">📥 Re-download Anytime</h4>
+						<h4 class="font-semibold text-primary mb-2 flex items-center gap-2"><Inbox class="w-4 h-4" /> Re-download Anytime</h4>
 						<p class="text-sm text-text-secondary">
 							As long as your subscription is active, you can re-download any VU Suite app 
 							unlimited times. No questions asked, no tracking, no limits.
 						</p>
 					</div>
 					<div class="instruction-item">
-						<h4 class="font-semibold text-primary mb-2">🔐 Verified Downloads Only</h4>
+						<h4 class="font-semibold text-primary mb-2 flex items-center gap-2"><LockKeyhole class="w-4 h-4" /> Verified Downloads Only</h4>
 						<p class="text-sm text-text-secondary">
 							Every download is cryptographically signed and verified. You'll always get 
 							the authentic, unmodified application directly from VU.
 						</p>
 					</div>
 					<div class="instruction-item">
-						<h4 class="font-semibold text-primary mb-2">🚀 Automatic Updates</h4>
+						<h4 class="font-semibold text-primary mb-2 flex items-center gap-2"><Rocket class="w-4 h-4" /> Automatic Updates</h4>
 						<p class="text-sm text-text-secondary">
 							Apps automatically check for updates in the background. You control when 
 							to install them. No forced updates, no telemetry.
 						</p>
 					</div>
 					<div class="instruction-item">
-						<h4 class="font-semibold text-primary mb-2">💾 Offline Installers</h4>
+						<h4 class="font-semibold text-primary mb-2 flex items-center gap-2"><FileDown class="w-4 h-4" /> Offline Installers</h4>
 						<p class="text-sm text-text-secondary">
 							Download standalone offline installers for complete independence. 
 							Install on air-gapped systems, backup to encrypted drives, or share with 

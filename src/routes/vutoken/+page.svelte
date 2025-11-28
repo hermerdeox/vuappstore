@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Coins, TrendingUp, Users, Code, Shield, Zap, Gift, ArrowRight, CheckCircle, Sparkles, Lock, Globe, DollarSign, Target } from 'lucide-svelte';
+	import { Coins, TrendingUp, Users, Code, Shield, Zap, Gift, ArrowRight, CheckCircle, Sparkles, Lock, Globe, DollarSign, Target, Lightbulb, LockKeyhole, Check } from 'lucide-svelte';
 </script>
 
 <svelte:head>
@@ -349,7 +349,7 @@
 									<div class="text-xl font-bold text-primary">$180/year</div>
 								</div>
 							</div>
-							<p class="text-xs text-success mt-3">💡 Earns enough to cover 70% of Complete Suite annual subscription!</p>
+							<p class="text-xs text-success mt-3 flex items-center gap-1"><Lightbulb class="w-3 h-3" /> Earns enough to cover 70% of Complete Suite annual subscription!</p>
 						</div>
 					</div>
 				</div>
@@ -383,7 +383,7 @@
 									<div class="text-xl font-bold text-success">15,750 VUT</div>
 								</div>
 							</div>
-							<p class="text-xs text-primary mt-3">💰 $157.50/month in additional token rewards on top of subscription revenue!</p>
+							<p class="text-xs text-primary mt-3 flex items-center gap-1"><DollarSign class="w-3 h-3" /> $157.50/month in additional token rewards on top of subscription revenue!</p>
 						</div>
 					</div>
 				</div>
@@ -413,7 +413,7 @@
 									<div class="text-sm font-bold text-primary">Recognition</div>
 								</div>
 							</div>
-							<p class="text-xs text-warning mt-3">🔒 Critical bugs = Maximum rewards. Help secure privacy for everyone.</p>
+							<p class="text-xs text-warning mt-3 flex items-center gap-1"><Lock class="w-3 h-3" /> Critical bugs = Maximum rewards. Help secure privacy for everyone.</p>
 						</div>
 					</div>
 				</div>
@@ -469,7 +469,9 @@
 
 				<div class="relative">
 					<div class="glass-card p-8 text-center">
-						<div class="text-6xl mb-6">🔐</div>
+						<div class="w-16 h-16 mx-auto mb-6 bg-primary/20 rounded-full flex items-center justify-center">
+							<LockKeyhole class="w-10 h-10 text-primary" />
+						</div>
 						<h3 class="text-2xl font-bold mb-4">Your Tokens. Your Privacy.</h3>
 						<p class="text-text-secondary mb-6">
 							Built on proven privacy technology, VuToken ensures your financial activities remain completely private.
@@ -509,19 +511,19 @@
 						<h3 class="text-2xl font-bold mb-3">Token Launch</h3>
 						<ul class="space-y-2 text-text-secondary">
 							<li class="flex items-start gap-2">
-								<span class="text-primary">✓</span>
+								<Check class="w-4 h-4 text-primary flex-shrink-0" />
 								<span>VuToken smart contract deployment</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-primary">✓</span>
+								<Check class="w-4 h-4 text-primary flex-shrink-0" />
 								<span>Initial token distribution to early supporters</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-primary">✓</span>
+								<Check class="w-4 h-4 text-primary flex-shrink-0" />
 								<span>Enable earning through app usage</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-primary">✓</span>
+								<Check class="w-4 h-4 text-primary flex-shrink-0" />
 								<span>DEX listing on privacy-focused exchanges</span>
 							</li>
 						</ul>
@@ -540,19 +542,19 @@
 						<h3 class="text-2xl font-bold mb-3">Ecosystem Expansion</h3>
 						<ul class="space-y-2 text-text-secondary">
 							<li class="flex items-start gap-2">
-								<span class="text-success">✓</span>
+								<Check class="w-4 h-4 text-success flex-shrink-0" />
 								<span>Developer bounty program with VuToken rewards</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-success">✓</span>
+								<Check class="w-4 h-4 text-success flex-shrink-0" />
 								<span>Subscription payments in VuToken enabled</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-success">✓</span>
+								<Check class="w-4 h-4 text-success flex-shrink-0" />
 								<span>Community governance implementation</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-success">✓</span>
+								<Check class="w-4 h-4 text-success flex-shrink-0" />
 								<span>Staking rewards program</span>
 							</li>
 						</ul>
@@ -571,19 +573,19 @@
 						<h3 class="text-2xl font-bold mb-3">Advanced Features</h3>
 						<ul class="space-y-2 text-text-secondary">
 							<li class="flex items-start gap-2">
-								<span class="text-info">✓</span>
+								<Check class="w-4 h-4 text-info flex-shrink-0" />
 								<span>Cross-chain privacy bridges</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-info">✓</span>
+								<Check class="w-4 h-4 text-info flex-shrink-0" />
 								<span>Privacy-preserving DeFi integration</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-info">✓</span>
+								<Check class="w-4 h-4 text-info flex-shrink-0" />
 								<span>Anonymous token swap protocol</span>
 							</li>
 							<li class="flex items-start gap-2">
-								<span class="text-info">✓</span>
+								<Check class="w-4 h-4 text-info flex-shrink-0" />
 								<span>Mobile wallet with biometric security</span>
 							</li>
 						</ul>
@@ -671,12 +673,12 @@
 						Join Waitlist
 					</button>
 				</div>
-				<p class="text-xs text-text-tertiary mt-3">
-					✓ Only @vumail.app addresses accepted. No external email tracking.
+				<p class="text-xs text-text-tertiary mt-3 flex items-center justify-center gap-1">
+					<CheckCircle class="w-3 h-3" /> Only @vumail.app addresses accepted. No external email tracking.
 				</p>
 			</form>
-			<div class="text-sm text-success font-semibold">
-				🎁 Bonus: First 10,000 signups receive 1,000 VUT at launch ($10 value)
+			<div class="text-sm text-success font-semibold flex items-center justify-center gap-2">
+				<Gift class="w-4 h-4" /> Bonus: First 10,000 signups receive 1,000 VUT at launch ($10 value)
 			</div>
 		</div>
 	</section>

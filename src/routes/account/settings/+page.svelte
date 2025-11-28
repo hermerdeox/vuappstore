@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { User, CreditCard, Download, Settings, LogOut, Shield, Mail, Lock, Eye, EyeOff, Trash2, AlertTriangle, CheckCircle, Globe } from 'lucide-svelte';
+	import { User, CreditCard, Download, Settings, LogOut, Shield, Mail, Lock, Eye, EyeOff, Trash2, AlertTriangle, CheckCircle, Globe, LockKeyhole, Lightbulb, Check } from 'lucide-svelte';
 
 	// VU Philosophy: No real names, only @usernames and @vumail.app addresses
 	const user = {
@@ -120,8 +120,8 @@
 							/>
 							<button class="btn btn-secondary">Update</button>
 						</div>
-						<p class="text-xs text-text-tertiary mt-2">
-							✓ Your username is how you're identified. No real names required.
+						<p class="text-xs text-text-tertiary mt-2 flex items-center gap-1">
+							<Check class="w-3 h-3" /> Your username is how you're identified. No real names required.
 						</p>
 					</div>
 
@@ -138,8 +138,8 @@
 							/>
 							<button class="btn btn-secondary" disabled>Verified</button>
 						</div>
-						<p class="text-xs text-text-tertiary mt-2">
-							✓ Only @vumail.app addresses allowed for maximum privacy. No external email tracking.
+						<p class="text-xs text-text-tertiary mt-2 flex items-center gap-1">
+							<Check class="w-3 h-3" /> Only @vumail.app addresses allowed for maximum privacy. No external email tracking.
 						</p>
 					</div>
 
@@ -166,8 +166,8 @@
 							</div>
 							<button class="btn btn-secondary">Change</button>
 						</div>
-						<p class="text-xs text-text-tertiary mt-2">
-							🔐 Your password is hashed with Argon2id and never stored in plain text.
+						<p class="text-xs text-text-tertiary mt-2 flex items-center gap-1">
+							<LockKeyhole class="w-3 h-3" /> Your password is hashed with Argon2id and never stored in plain text.
 						</p>
 					</div>
 				</div>
@@ -195,7 +195,7 @@
 						</div>
 						{#if twoFactorEnabled}
 							<div class="mt-4 p-3 bg-success/10 border border-success/30 rounded-lg">
-								<p class="text-sm text-success font-medium">✓ 2FA is enabled</p>
+								<p class="text-sm text-success font-medium flex items-center gap-1"><Check class="w-3 h-3" /> 2FA is enabled</p>
 								<button class="text-xs text-primary hover:underline mt-2">View Backup Codes</button>
 							</div>
 						{:else}
@@ -349,8 +349,8 @@
 							<option value="us-pacific">US Pacific</option>
 							<option value="eu-central">EU Central</option>
 						</select>
-						<p class="text-xs text-text-tertiary mt-2">
-							💡 Auto-detect uses browser timezone without sending it to servers
+						<p class="text-xs text-text-tertiary mt-2 flex items-center gap-1">
+							<Lightbulb class="w-3 h-3" /> Auto-detect uses browser timezone without sending it to servers
 						</p>
 					</div>
 				</div>
@@ -470,12 +470,12 @@
 						<div class="mb-4 p-3 bg-background/50 rounded border border-error/30">
 							<p class="text-xs font-mono text-text-secondary mb-2">What happens when you delete:</p>
 							<ul class="space-y-1 text-xs text-text-secondary">
-								<li>✓ Your @username becomes available again</li>
-								<li>✓ Your @vumail.app address is permanently deleted</li>
-								<li>✓ Subscription cancelled (prorated refund if applicable)</li>
-								<li>✓ Download access revoked immediately</li>
-								<li>✓ All server-side data purged within 24 hours</li>
-								<li>✓ Billing records retained for 7 years (legal requirement)</li>
+								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Your @username becomes available again</li>
+								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Your @vumail.app address is permanently deleted</li>
+								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Subscription cancelled (prorated refund if applicable)</li>
+								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Download access revoked immediately</li>
+								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> All server-side data purged within 24 hours</li>
+								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Billing records retained for 7 years (legal requirement)</li>
 							</ul>
 						</div>
 						<button 

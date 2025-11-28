@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ShieldCheck } from 'lucide-svelte';
 	
-	export let size: 'sm' | 'md' | 'lg' = 'md';
+	export let size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
 	export let showIcon: boolean = true;
 	export let variant: 'badge' | 'banner' = 'badge';
 </script>
@@ -49,13 +49,23 @@
 		transform: translateY(-1px);
 	}
 
-	/* Size Variants - 20% smaller than original */
+	/* Size Variants */
+	.vulabs-badge-xs {
+		padding: 1px 3px;
+		font-size: 6px;
+	}
+
+	.vulabs-badge-xs :global(.badge-icon) {
+		width: 6px;
+		height: 6px;
+	}
+
 	.vulabs-badge-sm {
 		padding: 1.6px 4.8px;
 		font-size: 7.2px;
 	}
 
-	.vulabs-badge-sm .badge-icon {
+	.vulabs-badge-sm :global(.badge-icon) {
 		width: 8px;
 		height: 8px;
 	}
@@ -65,7 +75,7 @@
 		font-size: 8px;
 	}
 
-	.vulabs-badge-md .badge-icon {
+	.vulabs-badge-md :global(.badge-icon) {
 		width: 9.6px;
 		height: 9.6px;
 	}
@@ -75,12 +85,12 @@
 		font-size: 8.8px;
 	}
 
-	.vulabs-badge-lg .badge-icon {
+	.vulabs-badge-lg :global(.badge-icon) {
 		width: 11.2px;
 		height: 11.2px;
 	}
 
-	.badge-icon {
+	:global(.badge-icon) {
 		color: var(--color-primary, #00d4ff);
 		flex-shrink: 0;
 	}

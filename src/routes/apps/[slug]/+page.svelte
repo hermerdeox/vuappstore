@@ -1,7 +1,19 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { getAppById } from '$lib/data/apps';
-	import { Download, Shield, Lock, Globe, Star } from 'lucide-svelte';
+	import { Download, Shield, Lock, Globe, Star, FileText, Smartphone, Search, Key, DollarSign, BarChart2, Calendar, Link, Clock, Dumbbell, Watch, TrendingUp, Target, PenLine, Book, Palette, Upload, Bot, User, MapPin, Phone, Video, Users, MessageSquare, Type, Clipboard, Package, Cloud, UserX, Eye, Mail, Mask, Ban, Inbox, CheckCircle, RefreshCw, Tag, Ghost, Fingerprint, AlertTriangle, Folder, Music, Mic, Sliders, Radio, FastForward, Moon, Brain, Layers, Table2, Presentation, Map, Compass, Car, Camera, Trophy, Timer, BookOpen, ShoppingCart, Apple, CreditCard, Smile, MessageCircle, Pencil, Library, Zap, Monitor } from 'lucide-svelte';
+
+	// Icon map for dynamic icon rendering
+	const iconMap: Record<string, any> = {
+		Lock, FileText, Smartphone, Search, Key, DollarSign, Shield, BarChart2, Calendar,
+		Link, Clock, Globe, Dumbbell, Watch, TrendingUp, Target, PenLine, Book, Palette,
+		Upload, Bot, User, MapPin, Phone, Video, Users, MessageSquare, Type, Clipboard,
+		Package, Cloud, UserX, Eye, Mail, Mask, Ban, Inbox, CheckCircle, RefreshCw, Tag,
+		Ghost, Fingerprint, AlertTriangle, Folder, Music, Mic, Sliders, Radio, Download,
+		FastForward, Moon, Brain, Layers, Table2, Presentation, Map, Compass, Car, Camera,
+		Trophy, Timer, BookOpen, ShoppingCart, Apple, CreditCard, Smile, MessageCircle,
+		Pencil, Library, Zap, Monitor, Star
+	};
 	import VuLabsCertified from '$lib/components/badges/VuLabsCertified.svelte';
 
 	$: app = getAppById($page.params.slug || '');
@@ -292,7 +304,13 @@
 				{#each app.features as feature, index}
 					<div class="feature-card glass-card p-6">
 						<div class="flex items-start gap-4">
-							<div class="feature-icon text-3xl">{feature.icon}</div>
+							<div class="feature-icon">
+								{#if iconMap[feature.icon]}
+									<svelte:component this={iconMap[feature.icon]} class="w-8 h-8" style="color: {app.color};" />
+								{:else}
+									<span class="text-3xl" style="color: {app.color};">V</span>
+								{/if}
+							</div>
 							<div>
 								{#if app.id === 'vuchat'}
 									{#if index === 0}

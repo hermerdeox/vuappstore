@@ -1,7 +1,20 @@
 <script lang="ts">
 	import { Book, Code, Shield, Zap, Users, ExternalLink, Download, GitBranch } from 'lucide-svelte';
 
-	const docSections = [
+	interface DocLink {
+		title: string;
+		href: string;
+		external?: boolean;
+	}
+
+	interface DocSection {
+		title: string;
+		icon: typeof Zap;
+		description: string;
+		links: DocLink[];
+	}
+
+	const docSections: DocSection[] = [
 		{
 			title: "Getting Started",
 			icon: Zap,

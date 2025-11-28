@@ -5,7 +5,19 @@
 	import { initTranslation } from '$lib/utils/i18n';
 	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
 
-	const footerSections = [
+	interface FooterLink {
+		href: string;
+		labelKey: string;
+		featured?: boolean;
+		external?: boolean;
+	}
+
+	interface FooterSection {
+		titleKey: string;
+		links: FooterLink[];
+	}
+
+	const footerSections: FooterSection[] = [
 		{
 			titleKey: 'footer.section.resources',
 			links: [
@@ -115,11 +127,11 @@
 									{:else}
 										<a 
 											href={link.href} 
-											class="footer-link text-sm transition-colors {link.featured ? 'text-primary font-semibold hover:text-primary-dark' : 'text-text-secondary hover:text-text-primary'}"
+											class="footer-link text-sm transition-colors {link.featured ? 'text-primary font-semibold hover:text-primary-dark flex items-center gap-1' : 'text-text-secondary hover:text-text-primary'}"
 											class:active={$page.url.pathname === link.href}
 											data-i18n={link.labelKey}
 										>
-											{#if link.featured}🛡️ {/if}Link
+											{#if link.featured}<ShieldCheck class="w-3 h-3 inline-block" />{/if}Link
 										</a>
 									{/if}
 								</li>

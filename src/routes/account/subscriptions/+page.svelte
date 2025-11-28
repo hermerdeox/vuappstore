@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { User, CreditCard, Download, Settings, LogOut, Shield, Calendar, CheckCircle, AlertCircle, ExternalLink, XCircle } from 'lucide-svelte';
+	import { User, CreditCard, Download, Settings, LogOut, Shield, Calendar, CheckCircle, AlertCircle, ExternalLink, XCircle, Zap, Lightbulb, AlertTriangle, Check } from 'lucide-svelte';
 
 	// VU Philosophy: No real names, only @usernames and @vumail.app addresses
 	const user = {
@@ -205,8 +205,8 @@
 							<p class="text-sm text-text-secondary mb-2">
 								Current subscription paid with: <span class="font-semibold text-primary">{subscription.paymentProcessor}</span>
 							</p>
-							<p class="text-xs text-text-tertiary">
-								💡 Monero (Level 0) provides complete transaction privacy with zero traceability
+							<p class="text-xs text-text-tertiary flex items-start gap-1">
+								<Lightbulb class="w-3 h-3 flex-shrink-0 mt-0.5" /> Monero (Level 0) provides complete transaction privacy with zero traceability
 							</p>
 						</div>
 					</div>
@@ -214,17 +214,23 @@
 
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 					<div class="payment-option p-4 bg-info/5 border border-info/30 rounded-lg">
-						<div class="text-2xl mb-2">🛡️</div>
+						<div class="w-8 h-8 mb-2 bg-info/20 rounded-full flex items-center justify-center">
+							<Shield class="w-4 h-4 text-info" />
+						</div>
 						<h4 class="font-semibold text-sm mb-1">Monero (XMR)</h4>
 						<p class="text-xs text-text-secondary">Zero-Knowledge</p>
 					</div>
 					<div class="payment-option p-4 bg-success/5 border border-success/30 rounded-lg">
-						<div class="text-2xl mb-2">⚡</div>
+						<div class="w-8 h-8 mb-2 bg-success/20 rounded-full flex items-center justify-center">
+							<Zap class="w-4 h-4 text-success" />
+						</div>
 						<h4 class="font-semibold text-sm mb-1">Lightning</h4>
 						<p class="text-xs text-text-secondary">Fast & Private</p>
 					</div>
 					<div class="payment-option p-4 bg-warning/5 border border-warning/30 rounded-lg">
-						<div class="text-2xl mb-2">₿</div>
+						<div class="w-8 h-8 mb-2 bg-warning/20 rounded-full flex items-center justify-center">
+							<CreditCard class="w-4 h-4 text-warning" />
+						</div>
 						<h4 class="font-semibold text-sm mb-1">BTC/ETH</h4>
 						<p class="text-xs text-text-secondary">Standard Crypto</p>
 					</div>
@@ -258,7 +264,7 @@
 							<div class="flex items-center gap-4">
 								<div class="text-right">
 									<p class="font-semibold">${bill.amount}.00</p>
-									<p class="text-xs text-success uppercase">✓ Confirmed</p>
+									<p class="text-xs text-success uppercase flex items-center gap-1"><Check class="w-3 h-3" /> Confirmed</p>
 								</div>
 								<button class="btn btn-secondary text-sm">
 									Download Invoice
@@ -269,8 +275,8 @@
 				</div>
 
 				<div class="mt-6 p-4 bg-glass rounded-lg">
-					<p class="text-xs text-text-tertiary">
-						💡 All invoices are available for download anytime. We retain billing records 
+					<p class="text-xs text-text-tertiary flex items-start gap-1">
+						<Lightbulb class="w-3 h-3 flex-shrink-0 mt-0.5" /> All invoices are available for download anytime. We retain billing records 
 						as required by law, but no usage data or personal details beyond your @vumail.app address.
 					</p>
 				</div>
@@ -355,40 +361,40 @@
 				{:else}
 					<!-- Confirmation Section -->
 					<div class="confirmation-section p-6 bg-error/10 border-2 border-error/30 rounded-lg mb-6">
-						<h3 class="text-xl font-bold text-error mb-4">⚠️ Final Confirmation Required</h3>
+						<h3 class="text-xl font-bold text-error mb-4 flex items-center gap-2"><AlertTriangle class="w-5 h-5" /> Final Confirmation Required</h3>
 						
 						<!-- Disclaimer -->
 						<div class="disclaimer mb-6 p-4 bg-background/50 border border-error/50 rounded">
 							<h4 class="font-semibold text-error mb-3">What Happens When You Exit:</h4>
 							<ul class="space-y-2 text-sm text-text-secondary mb-4">
 								<li class="flex items-start gap-2">
-									<span class="text-error">✓</span>
+									<Check class="w-4 h-4 text-error flex-shrink-0" />
 									<span>Your <strong class="text-text-primary">@{user.username.slice(1)}</strong> account will be <strong class="text-error">destroyed immediately</strong></span>
 								</li>
 								<li class="flex items-start gap-2">
-									<span class="text-error">✓</span>
+									<Check class="w-4 h-4 text-error flex-shrink-0" />
 									<span>Your <strong class="text-text-primary">{user.email}</strong> address will be <strong class="text-error">permanently deleted</strong></span>
 								</li>
 								<li class="flex items-start gap-2">
-									<span class="text-error">✓</span>
+									<Check class="w-4 h-4 text-error flex-shrink-0" />
 									<span>All server-side data will be <strong class="text-error">purged within 24 hours</strong></span>
 								</li>
 								<li class="flex items-start gap-2">
-									<span class="text-error">✓</span>
+									<Check class="w-4 h-4 text-error flex-shrink-0" />
 									<span>Subscription will be <strong class="text-error">cancelled immediately</strong></span>
 								</li>
 								<li class="flex items-start gap-2">
-									<span class="text-error">✓</span>
+									<Check class="w-4 h-4 text-error flex-shrink-0" />
 									<span>Download access will be <strong class="text-error">revoked instantly</strong></span>
 								</li>
 								<li class="flex items-start gap-2">
-									<span class="text-error">✓</span>
+									<Check class="w-4 h-4 text-error flex-shrink-0" />
 									<span>Current billing period will <strong class="text-error">end automatically</strong></span>
 								</li>
 							</ul>
 
 							<div class="p-3 bg-warning/10 border border-warning/30 rounded mb-3">
-								<p class="text-sm font-semibold text-warning mb-2">⚠️ NO REFUNDS FOR UNUSED TIME</p>
+								<p class="text-sm font-semibold text-warning mb-2 flex items-center gap-1"><AlertTriangle class="w-4 h-4" /> NO REFUNDS FOR UNUSED TIME</p>
 								<p class="text-xs text-text-secondary leading-relaxed">
 									Due to our privacy protocols, we cannot track usage or calculate prorated refunds. 
 									When you exit, your remaining subscription time is forfeited. This is the price of 
@@ -397,7 +403,7 @@
 							</div>
 
 							<div class="p-3 bg-error/10 border border-error/30 rounded">
-								<p class="text-sm font-semibold text-error mb-2">🚨 THIS ACTION CANNOT BE UNDONE</p>
+								<p class="text-sm font-semibold text-error mb-2 flex items-center gap-1"><XCircle class="w-4 h-4" /> THIS ACTION CANNOT BE UNDONE</p>
 								<p class="text-xs text-text-secondary">
 									Once confirmed, your account will be destroyed permanently. There is no recovery, 
 									no restoration, no going back. Your privacy journey with VU ends here.

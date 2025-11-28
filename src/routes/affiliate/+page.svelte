@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DollarSign, Users, TrendingUp, Gift, Star, ExternalLink, Mail, CheckCircle } from 'lucide-svelte';
+	import { DollarSign, Users, TrendingUp, Gift, Star, ExternalLink, Mail, CheckCircle, X, Check } from 'lucide-svelte';
 
 	const commissionTiers = [
 		{
@@ -259,7 +259,7 @@
 			<h2 class="text-3xl font-bold text-center mb-8">Requirements</h2>
 			<div class="grid md:grid-cols-2 gap-8">
 				<div class="glass-card p-6">
-					<h3 class="text-xl font-bold mb-4 text-success">✓ We Welcome</h3>
+					<h3 class="text-xl font-bold mb-4 text-success flex items-center gap-2"><Check class="w-5 h-5" /> We Welcome</h3>
 					<ul class="space-y-2">
 						<li class="text-sm text-text-secondary">• Privacy and security bloggers</li>
 						<li class="text-sm text-text-secondary">• Tech reviewers and YouTubers</li>
@@ -270,7 +270,7 @@
 					</ul>
 				</div>
 				<div class="glass-card p-6">
-					<h3 class="text-xl font-bold mb-4 text-error">✗ Not Allowed</h3>
+					<h3 class="text-xl font-bold mb-4 text-error flex items-center gap-2"><X class="w-5 h-5" /> Not Allowed</h3>
 					<ul class="space-y-2">
 						<li class="text-sm text-text-secondary">• Spam or unsolicited emails</li>
 						<li class="text-sm text-text-secondary">• Paid search on brand terms</li>

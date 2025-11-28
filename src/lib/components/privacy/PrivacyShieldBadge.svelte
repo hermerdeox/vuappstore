@@ -17,6 +17,8 @@
 	class="privacy-shield-container {isExpanded ? 'expanded' : ''}"
 	on:mouseenter={() => isHovered = true}
 	on:mouseleave={() => isHovered = false}
+	role="region"
+	aria-label="Privacy Shield Status"
 >
 	<button 
 		class="privacy-shield-badge"
@@ -24,7 +26,7 @@
 		aria-label="Privacy Shield - Zero Tracking Guarantee"
 	>
 		<div class="badge-icon">
-			<Shield class="w-5 h-5" />
+			<Shield class="w-4 h-4" />
 		</div>
 		<div class="badge-content">
 			<span class="badge-title">ZERO COOKIES</span>
@@ -123,21 +125,21 @@
 	.privacy-shield-badge {
 		display: flex;
 		align-items: center;
-		gap: 10px;
-		padding: 10px 16px;
+		gap: 7px;
+		padding: 7px 12px;
 		background: linear-gradient(135deg, 
 			rgba(34, 197, 94, 0.9) 0%, 
 			rgba(0, 212, 255, 0.9) 100%);
 		border: 1px solid rgba(34, 197, 94, 0.5);
-		border-radius: 30px;
+		border-radius: 23px;
 		color: #000;
 		cursor: pointer;
 		transition: all 0.3s ease;
 		position: relative;
 		overflow: hidden;
 		box-shadow: 
-			0 4px 20px rgba(34, 197, 94, 0.3),
-			0 0 40px rgba(34, 197, 94, 0.1);
+			0 3px 15px rgba(34, 197, 94, 0.3),
+			0 0 30px rgba(34, 197, 94, 0.1);
 	}
 	
 	.privacy-shield-badge:hover {
@@ -151,8 +153,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 30px;
-		height: 30px;
+		width: 23px;
+		height: 23px;
 		background: rgba(0, 0, 0, 0.2);
 		border-radius: 50%;
 		animation: pulse 2s ease-in-out infinite;
@@ -165,14 +167,14 @@
 	}
 	
 	.badge-title {
-		font-size: 11px;
+		font-size: 8px;
 		font-weight: 800;
-		letter-spacing: 1px;
+		letter-spacing: 0.7px;
 		text-transform: uppercase;
 	}
 	
 	.badge-subtitle {
-		font-size: 9px;
+		font-size: 7px;
 		font-weight: 500;
 		opacity: 0.8;
 	}

@@ -112,7 +112,7 @@
 
 {#if show && !isInstalled}
 	<div class="pwa-install-prompt">
-		<div class="prompt-backdrop" on:click={dismissPrompt}></div>
+		<div class="prompt-backdrop" on:click={dismissPrompt} on:keydown={(e) => e.key === 'Escape' && dismissPrompt()} role="button" tabindex="-1" aria-label="Close prompt"></div>
 		<div class="prompt-content glass-card">
 			<div class="prompt-header">
 				<div class="prompt-icon">

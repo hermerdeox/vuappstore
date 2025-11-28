@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { Search, X, ArrowRight } from 'lucide-svelte';
+	import { Search, X, ArrowRight, Shield } from 'lucide-svelte';
 	import { getAllApps, type VuApp } from '$lib/data/apps';
 
 	export let isOpen = false;
@@ -73,7 +73,7 @@
 </script>
 
 {#if isOpen}
-	<div class="search-modal" transition:fade={{ duration: 200 }} on:click={handleBackdropClick} role="dialog" aria-modal="true" aria-labelledby="search-title">
+	<div class="search-modal" transition:fade={{ duration: 200 }} on:click={handleBackdropClick} on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-labelledby="search-title" tabindex="-1">
 		<div class="modal-content" transition:fly={{ y: -50, duration: 300 }}>
 			<!-- Search Header -->
 			<div class="search-header">
@@ -152,7 +152,9 @@
 					</div>
 				{:else}
 					<div class="no-results">
-						<div class="no-results-icon">🔍</div>
+						<div class="no-results-icon">
+							<Search class="w-16 h-16 opacity-50 mx-auto" />
+						</div>
 						<h3>No apps found</h3>
 						<p>Try searching for something else, or <a href="/apps" class="text-primary hover:underline">browse all apps</a></p>
 					</div>
@@ -167,7 +169,7 @@
 					<span class="tip"><kbd>Esc</kbd> Close</span>
 				</div>
 				<div class="privacy-notice">
-					<span class="privacy-icon">🛡️</span>
+					<Shield class="privacy-icon w-4 h-4 text-primary" />
 					<span class="privacy-text">Your searches are never logged or tracked</span>
 				</div>
 			</div>
@@ -218,7 +220,7 @@
 		border-color: var(--color-primary);
 	}
 
-	.search-icon {
+	:global(.search-icon) {
 		flex-shrink: 0;
 	}
 
@@ -394,9 +396,7 @@
 	}
 
 	.no-results-icon {
-		font-size: 64px;
 		margin-bottom: 16px;
-		opacity: 0.5;
 	}
 
 	.no-results h3 {
@@ -455,7 +455,7 @@
 	}
 
 	.privacy-icon {
-		font-size: 14px;
+		flex-shrink: 0;
 	}
 
 	/* Mobile responsiveness */

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { TrendingUp, Star, Download, Users, MessageSquare, Lightbulb, Trophy, Github, Twitter, DollarSign, ArrowRight, Shield, Zap, Coins, Sparkles, Lock, Globe, Eye } from 'lucide-svelte';
+	import { TrendingUp, Star, Download, Users, MessageSquare, Lightbulb, Trophy, Github, Twitter, DollarSign, ArrowRight, Shield, Zap, Coins, Sparkles, Lock, Globe, Eye, Ghost, LockKeyhole, Mail, StickyNote, Cloud, BarChart3, Calendar, CheckCircle, Wallet, Dumbbell, Monitor, Music, FileText, Flame, Rocket, PlusCircle } from 'lucide-svelte';
 
 	// Third-party developer apps (mockup data)
 	const trendingApps = [
 		{
 			id: 'privatemessenger',
 			name: 'PrivateMessenger',
-			icon: '💬',
+			iconComponent: MessageSquare,
 			color: '#8b5cf6',
 			tagline: 'Anonymous chat with self-destruct',
 			developer: '@cryptodev',
@@ -22,7 +22,7 @@
 		{
 			id: 'shieldvpn',
 			name: 'ShieldVPN',
-			icon: '🛡️',
+			iconComponent: Shield,
 			color: '#22c55e',
 			tagline: 'No-logs VPN with quantum resistance',
 			developer: '@privacypirate',
@@ -37,7 +37,7 @@
 		{
 			id: 'ghostbrowser',
 			name: 'GhostBrowser',
-			icon: '👻',
+			iconComponent: Ghost,
 			color: '#3b82f6',
 			tagline: 'Browse the web without a trace',
 			developer: '@anonymousdev',
@@ -52,7 +52,7 @@
 		{
 			id: 'securepass',
 			name: 'SecurePass',
-			icon: '🔐',
+			iconComponent: LockKeyhole,
 			color: '#ef4444',
 			tagline: 'Password manager you can trust',
 			developer: '@securityfirst',
@@ -67,7 +67,7 @@
 		{
 			id: 'cryptomail',
 			name: 'CryptoMail',
-			icon: '📧',
+			iconComponent: Mail,
 			color: '#f97316',
 			tagline: 'Email that actually stays private',
 			developer: '@emailfreedom',
@@ -86,7 +86,7 @@
 		{
 			id: 'privacynotes',
 			name: 'PrivacyNotes',
-			icon: '📝',
+			iconComponent: StickyNote,
 			color: '#eab308',
 			developer: '@notemaster',
 			rating: 4.9,
@@ -98,7 +98,7 @@
 		{
 			id: 'safecloudstorage',
 			name: 'SafeCloud',
-			icon: '☁️',
+			iconComponent: Cloud,
 			color: '#06b6d4',
 			developer: '@cloudprivacy',
 			rating: 4.8,
@@ -110,7 +110,7 @@
 		{
 			id: 'anonymousanalytics',
 			name: 'PrivateMetrics',
-			icon: '📊',
+			iconComponent: BarChart3,
 			color: '#8b5cf6',
 			developer: '@dataethics',
 			rating: 4.8,
@@ -122,7 +122,7 @@
 		{
 			id: 'encryptedcalendar',
 			name: 'TimeVault',
-			icon: '📅',
+			iconComponent: Calendar,
 			color: '#ec4899',
 			developer: '@timeprivacy',
 			rating: 4.7,
@@ -134,7 +134,7 @@
 		{
 			id: 'securetasks',
 			name: 'TaskShield',
-			icon: '✅',
+			iconComponent: CheckCircle,
 			color: '#10b981',
 			developer: '@productivitysec',
 			rating: 4.7,
@@ -146,7 +146,7 @@
 		{
 			id: 'privacywallet',
 			name: 'CryptoVault',
-			icon: '💰',
+			iconComponent: Wallet,
 			color: '#f59e0b',
 			developer: '@cryptowallet',
 			rating: 4.9,
@@ -162,7 +162,8 @@
 		{
 			id: 'privacyfit',
 			name: 'FitPrivate',
-			icon: '💪',
+			iconComponent: Dumbbell,
+			color: '#ef4444',
 			developer: '@healthsec',
 			rating: 4.6,
 			pricing: { monthly: 2.56 },
@@ -171,7 +172,8 @@
 		{
 			id: 'securecode',
 			name: 'CodeVault',
-			icon: '💻',
+			iconComponent: Monitor,
+			color: '#3b82f6',
 			developer: '@devsecurity',
 			rating: 4.7,
 			pricing: { monthly: 2.56 },
@@ -180,7 +182,8 @@
 		{
 			id: 'anonymousmusic',
 			name: 'TunePrivacy',
-			icon: '🎵',
+			iconComponent: Music,
+			color: '#8b5cf6',
 			developer: '@musicfreedom',
 			rating: 4.5,
 			pricing: { monthly: 2.56 },
@@ -189,7 +192,8 @@
 		{
 			id: 'privatedocs',
 			name: 'DocSecure',
-			icon: '📄',
+			iconComponent: FileText,
+			color: '#22c55e',
 			developer: '@docprivacy',
 			rating: 4.8,
 			pricing: { monthly: 2.56 },
@@ -241,68 +245,76 @@
 
 <div class="store-page">
 	<!-- Eye-Catching Hero Section -->
-	<section class="hero container py-20 relative z-10">
+	<section class="hero container py-10 md:py-16 lg:py-20 relative z-10 px-4">
 		<div class="hero-content max-w-5xl mx-auto">
 			<!-- Animated Badge -->
-			<div class="text-center mb-8">
-				<div class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-primary/20 to-purple/20 border-2 border-primary/40 rounded-full mb-4 animate-pulse-slow">
-					<Sparkles class="w-5 h-5 text-primary" />
-					<span class="text-sm font-black text-primary uppercase tracking-wider">The Privacy Revolution</span>
-					<Sparkles class="w-5 h-5 text-primary" />
+			<div class="text-center mb-4 md:mb-8">
+				<div class="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-primary/20 to-purple/20 border-2 border-primary/40 rounded-full mb-3 md:mb-4 animate-pulse-slow">
+					<Sparkles class="w-4 h-4 md:w-5 md:h-5 text-primary" />
+					<span class="text-xs md:text-sm font-black text-primary uppercase tracking-wider">The Privacy Revolution</span>
+					<Sparkles class="w-4 h-4 md:w-5 md:h-5 text-primary" />
 				</div>
 			</div>
 
 			<!-- Hero Title -->
-			<h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-center mb-6 leading-tight">
-				<span class="text-gradient block mb-2">The VU Store</span>
-				<span class="text-text-secondary text-3xl md:text-4xl font-semibold">Where Privacy Meets Innovation</span>
+			<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-center mb-4 md:mb-6 leading-tight">
+				<span class="text-gradient block mb-1 md:mb-2">The VU Store</span>
+				<span class="text-text-secondary text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold">Where Privacy Meets Innovation</span>
 			</h1>
 
 			<!-- Hero Description -->
-			<p class="text-xl md:text-2xl text-text-secondary text-center max-w-3xl mx-auto mb-12 leading-relaxed">
+			<p class="text-sm sm:text-base md:text-xl lg:text-2xl text-text-secondary text-center max-w-3xl mx-auto mb-6 md:mb-8 lg:mb-12 leading-relaxed">
 				<strong class="text-primary">500+ privacy-first apps</strong> from <strong class="text-success">independent developers worldwide</strong>.  
 				All at <strong class="text-primary">$2.56/month</strong>. Pay with <strong class="text-info">crypto</strong>. <strong class="text-success">Zero tracking</strong>.
 			</p>
 
 			<!-- Hero Stats Grid -->
-			<div class="hero-stats grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-				<div class="stat-card glass-card p-6 text-center border-2 border-primary/20 hover:border-primary/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon text-4xl mb-2">🛡️</div>
-					<div class="text-4xl font-black text-primary mb-1">500+</div>
-					<div class="text-xs text-text-secondary uppercase tracking-wide">Privacy Apps</div>
+			<div class="hero-stats grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-6 md:mb-8 lg:mb-12">
+				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-primary/20 hover:border-primary/40 transition-all hover:-translate-y-1">
+					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+						<Shield class="w-6 h-6 md:w-10 md:h-10 text-primary" />
+					</div>
+					<div class="text-2xl md:text-4xl font-black text-primary mb-0.5 md:mb-1">500+</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Privacy Apps</div>
 				</div>
-				<div class="stat-card glass-card p-6 text-center border-2 border-success/20 hover:border-success/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon text-4xl mb-2">💰</div>
-					<div class="text-4xl font-black text-success mb-1">$2.56</div>
-					<div class="text-xs text-text-secondary uppercase tracking-wide">Per App/Month</div>
+				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-success/20 hover:border-success/40 transition-all hover:-translate-y-1">
+					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+						<DollarSign class="w-6 h-6 md:w-10 md:h-10 text-success" />
+					</div>
+					<div class="text-2xl md:text-4xl font-black text-success mb-0.5 md:mb-1">$2.56</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Per App/Month</div>
 				</div>
-				<div class="stat-card glass-card p-6 text-center border-2 border-info/20 hover:border-info/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon text-4xl mb-2">🚀</div>
-					<div class="text-4xl font-black text-info mb-1">1.2M</div>
-					<div class="text-xs text-text-secondary uppercase tracking-wide">Total Downloads</div>
+				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-info/20 hover:border-info/40 transition-all hover:-translate-y-1">
+					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+						<Rocket class="w-6 h-6 md:w-10 md:h-10 text-info" />
+					</div>
+					<div class="text-2xl md:text-4xl font-black text-info mb-0.5 md:mb-1">1.2M</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Total Downloads</div>
 				</div>
-				<div class="stat-card glass-card p-6 text-center border-2 border-warning/20 hover:border-warning/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon text-4xl mb-2">👥</div>
-					<div class="text-4xl font-black text-warning mb-1">50K+</div>
-					<div class="text-xs text-text-secondary uppercase tracking-wide">Developers</div>
+				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-warning/20 hover:border-warning/40 transition-all hover:-translate-y-1">
+					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+						<Users class="w-6 h-6 md:w-10 md:h-10 text-warning" />
+					</div>
+					<div class="text-2xl md:text-4xl font-black text-warning mb-0.5 md:mb-1">50K+</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Developers</div>
 				</div>
 			</div>
 
 			<!-- Hero CTAs -->
-			<div class="flex justify-center gap-6 flex-wrap mb-12">
-				<a href="/apps" class="btn btn-primary text-lg px-10 py-5 shadow-lg hover:shadow-xl">
-					<Shield class="w-6 h-6" />
+			<div class="flex justify-center gap-3 md:gap-6 flex-wrap mb-6 md:mb-8 lg:mb-12">
+				<a href="/apps" class="btn btn-primary text-sm md:text-lg px-4 py-3 md:px-10 md:py-5 shadow-lg hover:shadow-xl">
+					<Shield class="w-4 h-4 md:w-6 md:h-6" />
 					Browse All Apps
-					<ArrowRight class="w-6 h-6" />
+					<ArrowRight class="w-4 h-4 md:w-6 md:h-6" />
 				</a>
-				<a href="/developers/contribute" class="btn btn-secondary text-lg px-10 py-5">
-					<Lightbulb class="w-6 h-6" />
+				<a href="/developers/contribute" class="btn btn-secondary text-sm md:text-lg px-4 py-3 md:px-10 md:py-5">
+					<Lightbulb class="w-4 h-4 md:w-6 md:h-6" />
 					Submit Your App
 				</a>
 			</div>
 
 			<!-- Trust Badges -->
-			<div class="trust-badges flex justify-center gap-8 flex-wrap text-sm text-text-tertiary">
+			<div class="trust-badges flex justify-center gap-4 md:gap-8 flex-wrap text-xs md:text-sm text-text-tertiary">
 				<div class="flex items-center gap-2">
 					<Lock class="w-4 h-4 text-success" />
 					<span>Zero Tracking</span>
@@ -324,8 +336,8 @@
 	</section>
 
 	<!-- VuToken Banner -->
-	<section class="vutoken-banner container mb-16 relative z-10">
-		<div class="glass-card p-8 md:p-12 relative overflow-hidden border-2 border-warning/30">
+	<section class="vutoken-banner container mb-8 md:mb-16 relative z-10 px-4">
+		<div class="glass-card p-4 md:p-8 lg:p-12 relative overflow-hidden border-2 border-warning/30">
 			<!-- Background Gradient -->
 			<div class="absolute inset-0 bg-gradient-to-r from-warning/10 via-primary/10 to-success/10 pointer-events-none"></div>
 			
@@ -371,8 +383,8 @@
 									<span>Reporting security vulnerabilities</span>
 								</li>
 							</ul>
-							<p class="text-sm text-text-tertiary italic">
-								💡 VuToken: Privacy-preserving blockchain rewards. Trade tokens for subscriptions, discounts, or cash out anonymously.
+							<p class="text-sm text-text-tertiary italic flex items-start gap-2">
+								<Lightbulb class="w-4 h-4 flex-shrink-0 mt-0.5" /> VuToken: Privacy-preserving blockchain rewards. Trade tokens for subscriptions, discounts, or cash out anonymously.
 							</p>
 						</div>
 						
@@ -391,7 +403,7 @@
 	<section class="trending-section container mb-16 relative z-10">
 		<div class="section-header flex items-center justify-between mb-8">
 			<div>
-				<h2 class="text-3xl font-bold mb-2">🔥 Trending This Week</h2>
+				<h2 class="text-3xl font-bold mb-2 flex items-center gap-2"><Flame class="w-8 h-8 text-warning" /> Trending This Week</h2>
 				<p class="text-text-secondary">Most downloaded privacy apps in the last 7 days</p>
 			</div>
 			<a href="/apps" class="text-primary font-semibold hover:underline">View All →</a>
@@ -406,8 +418,8 @@
 					</div>
 
 					<div class="flex items-start gap-4 mt-8">
-						<div class="app-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold" style="background: {app.color}20; color: {app.color};">
-							{app.icon}
+						<div class="app-icon w-16 h-16 rounded-2xl flex items-center justify-center" style="background: {app.color}20;">
+							<svelte:component this={app.iconComponent} class="w-8 h-8" style="color: {app.color};" />
 						</div>
 						<div class="flex-1">
 							<div class="flex items-center gap-2 mb-1">
@@ -449,7 +461,7 @@
 	<section class="top-rated-section container mb-16 relative z-10">
 		<div class="section-header flex items-center justify-between mb-8">
 			<div>
-				<h2 class="text-3xl font-bold mb-2">⭐ Top Rated Apps</h2>
+				<h2 class="text-3xl font-bold mb-2 flex items-center gap-2"><Star class="w-8 h-8 text-primary fill-primary" /> Top Rated Apps</h2>
 				<p class="text-text-secondary">Highest rated by our privacy-conscious community</p>
 			</div>
 		</div>
@@ -458,8 +470,8 @@
 			{#each topRatedApps as app}
 				<a href="/apps/{app.id}" class="top-rated-card glass-card p-6 hover:border-primary/30 transition-all">
 					<div class="flex items-center gap-4 mb-4">
-						<div class="app-icon w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold" style="background: {app.color}20; color: {app.color};">
-							{app.icon}
+						<div class="app-icon w-14 h-14 rounded-xl flex items-center justify-center" style="background: {app.color}20;">
+							<svelte:component this={app.iconComponent} class="w-7 h-7" style="color: {app.color};" />
 						</div>
 						<div class="flex-1">
 							<h3 class="font-bold mb-1">{app.name}</h3>
@@ -490,15 +502,15 @@
 	<!-- New Releases -->
 	<section class="new-releases container mb-16 relative z-10">
 		<div class="section-header mb-8">
-			<h2 class="text-3xl font-bold mb-2">🆕 New Releases</h2>
+			<h2 class="text-3xl font-bold mb-2 flex items-center gap-2"><PlusCircle class="w-8 h-8 text-success" /> New Releases</h2>
 			<p class="text-text-secondary">Latest additions to the VU Suite</p>
 		</div>
 
 		<div class="new-releases-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			{#each newReleases as app}
 				<a href="/apps/{app.id}" class="new-release-card glass-card p-6 hover:border-primary/30 transition-all text-center">
-					<div class="app-icon w-20 h-20 rounded-2xl flex items-center justify-center text-4xl font-bold mx-auto mb-4" style="background: {app.color}20; color: {app.color};">
-						{app.icon}
+					<div class="app-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background: {app.color}20;">
+						<svelte:component this={app.iconComponent} class="w-10 h-10" style="color: {app.color};" />
 					</div>
 					<h3 class="font-bold mb-2">{app.name}</h3>
 					<p class="text-xs text-text-secondary mb-3 line-clamp-2">{app.tagline}</p>

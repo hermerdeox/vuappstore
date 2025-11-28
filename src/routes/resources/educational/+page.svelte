@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { BookOpen, Video, Headphones, FileText, ExternalLink, Download } from 'lucide-svelte';
+	import { BookOpen, Video, Headphones, FileText, ExternalLink, Download, Calendar, Clock, User } from 'lucide-svelte';
 
 	const resources = [
 		{
@@ -269,10 +269,10 @@
 							<div class="flex-1">
 								<h3 class="text-xl font-bold mb-2">{webinar.title}</h3>
 								<p class="text-text-secondary mb-4">{webinar.description}</p>
-								<div class="flex items-center gap-4 text-sm text-text-secondary">
-									<span>📅 {webinar.date}</span>
-									<span>🕐 {webinar.time}</span>
-									<span>👤 {webinar.speaker}</span>
+								<div class="flex items-center gap-4 text-sm text-text-secondary flex-wrap">
+									<span class="flex items-center gap-1"><Calendar class="w-3 h-3" /> {webinar.date}</span>
+									<span class="flex items-center gap-1"><Clock class="w-3 h-3" /> {webinar.time}</span>
+									<span class="flex items-center gap-1"><User class="w-3 h-3" /> {webinar.speaker}</span>
 								</div>
 							</div>
 							<div class="mt-4 lg:mt-0">

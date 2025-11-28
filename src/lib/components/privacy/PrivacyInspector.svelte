@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import { fade, slide } from 'svelte/transition';
-	import { Shield, Activity, Database, Globe, Lock, CheckCircle, X, AlertTriangle } from 'lucide-svelte';
+	import { Shield, Activity, Database, Globe, Lock, CheckCircle, X, AlertTriangle, Eye, Fingerprint, Zap, Cookie, Check } from 'lucide-svelte';
 	
 	export let isOpen = false;
 	
@@ -12,18 +12,243 @@
 	let activeTab = 'overview';
 	let performanceObserver: PerformanceObserver | null = null;
 	
-	// Privacy score calculation
+	// Real privacy detection results
+	let detectedTrackers: { name: string; url: string; category: string }[] = [];
+	let detectedAnalytics: { name: string; url: string }[] = [];
+	let detectedAds: { name: string; url: string }[] = [];
+	let detectedFingerprinting: { type: string; detected: boolean }[] = [];
+	let tlsInfo = { secure: false, protocol: 'Unknown' };
+	let externalRequests: any[] = [];
+	
+	// Known tracker domains database
+	const TRACKER_DOMAINS = [
+		// Google trackers
+		{ domain: 'google-analytics.com', name: 'Google Analytics', category: 'analytics' },
+		{ domain: 'googletagmanager.com', name: 'Google Tag Manager', category: 'analytics' },
+		{ domain: 'doubleclick.net', name: 'DoubleClick', category: 'ads' },
+		{ domain: 'googlesyndication.com', name: 'Google Ads', category: 'ads' },
+		{ domain: 'googleadservices.com', name: 'Google Ad Services', category: 'ads' },
+		// Facebook
+		{ domain: 'facebook.com/tr', name: 'Facebook Pixel', category: 'tracker' },
+		{ domain: 'connect.facebook.net', name: 'Facebook SDK', category: 'tracker' },
+		{ domain: 'facebook.net', name: 'Facebook', category: 'tracker' },
+		// Analytics platforms
+		{ domain: 'mixpanel.com', name: 'Mixpanel', category: 'analytics' },
+		{ domain: 'segment.com', name: 'Segment', category: 'analytics' },
+		{ domain: 'segment.io', name: 'Segment', category: 'analytics' },
+		{ domain: 'amplitude.com', name: 'Amplitude', category: 'analytics' },
+		{ domain: 'hotjar.com', name: 'Hotjar', category: 'analytics' },
+		{ domain: 'heapanalytics.com', name: 'Heap', category: 'analytics' },
+		{ domain: 'fullstory.com', name: 'FullStory', category: 'analytics' },
+		{ domain: 'mouseflow.com', name: 'Mouseflow', category: 'analytics' },
+		{ domain: 'clarity.ms', name: 'Microsoft Clarity', category: 'analytics' },
+		// Ad networks
+		{ domain: 'amazon-adsystem.com', name: 'Amazon Ads', category: 'ads' },
+		{ domain: 'criteo.com', name: 'Criteo', category: 'ads' },
+		{ domain: 'adnxs.com', name: 'AppNexus', category: 'ads' },
+		{ domain: 'taboola.com', name: 'Taboola', category: 'ads' },
+		{ domain: 'outbrain.com', name: 'Outbrain', category: 'ads' },
+		{ domain: 'pubmatic.com', name: 'PubMatic', category: 'ads' },
+		{ domain: 'rubiconproject.com', name: 'Rubicon', category: 'ads' },
+		// Other trackers
+		{ domain: 'twitter.com/i/jot', name: 'Twitter Analytics', category: 'tracker' },
+		{ domain: 'linkedin.com/px', name: 'LinkedIn Insight', category: 'tracker' },
+		{ domain: 'snap.licdn.com', name: 'LinkedIn', category: 'tracker' },
+		{ domain: 'tiktok.com', name: 'TikTok Pixel', category: 'tracker' },
+		{ domain: 'pinterest.com', name: 'Pinterest Tag', category: 'tracker' },
+		{ domain: 'intercom.io', name: 'Intercom', category: 'tracker' },
+		{ domain: 'sentry.io', name: 'Sentry', category: 'analytics' },
+		{ domain: 'newrelic.com', name: 'New Relic', category: 'analytics' },
+		{ domain: 'nr-data.net', name: 'New Relic', category: 'analytics' },
+		{ domain: 'sumologic.com', name: 'Sumo Logic', category: 'analytics' },
+	];
+	
+	// Privacy score calculation based on REAL data
 	$: privacyScore = calculatePrivacyScore();
 	
-	function calculatePrivacyScore() {
+	function calculatePrivacyScore(): number {
 		let score = 100;
+		let deductions: { reason: string; points: number }[] = [];
 		
-		// Deduct points for various privacy concerns
-		if (cookies.length > 0) score -= cookies.length * 10;
-		if (networkRequests.some(r => r.url.includes('google') || r.url.includes('facebook'))) score -= 50;
-		if (networkRequests.filter(r => !r.url.startsWith(window.location.origin)).length > 0) score -= 20;
+		// Deduct for cookies (5 points each, max 30)
+		if (cookies.length > 0) {
+			const cookieDeduction = Math.min(cookies.length * 5, 30);
+			score -= cookieDeduction;
+			deductions.push({ reason: `${cookies.length} cookie(s)`, points: cookieDeduction });
+		}
 		
-		return Math.max(0, score);
+		// Deduct for detected trackers (15 points each, max 45)
+		if (detectedTrackers.length > 0) {
+			const trackerDeduction = Math.min(detectedTrackers.length * 15, 45);
+			score -= trackerDeduction;
+			deductions.push({ reason: `${detectedTrackers.length} tracker(s)`, points: trackerDeduction });
+		}
+		
+		// Deduct for detected analytics (10 points each, max 30)
+		if (detectedAnalytics.length > 0) {
+			const analyticsDeduction = Math.min(detectedAnalytics.length * 10, 30);
+			score -= analyticsDeduction;
+			deductions.push({ reason: `${detectedAnalytics.length} analytics`, points: analyticsDeduction });
+		}
+		
+		// Deduct for detected ads (15 points each, max 45)
+		if (detectedAds.length > 0) {
+			const adsDeduction = Math.min(detectedAds.length * 15, 45);
+			score -= adsDeduction;
+			deductions.push({ reason: `${detectedAds.length} ad network(s)`, points: adsDeduction });
+		}
+		
+		// Deduct for external requests (1 point per 5 requests, max 10)
+		if (externalRequests.length > 0) {
+			const externalDeduction = Math.min(Math.floor(externalRequests.length / 5), 10);
+			if (externalDeduction > 0) {
+				score -= externalDeduction;
+				deductions.push({ reason: `${externalRequests.length} external requests`, points: externalDeduction });
+			}
+		}
+		
+		// Deduct for fingerprinting attempts (10 points each)
+		const fingerprintingFound = detectedFingerprinting.filter(f => f.detected);
+		if (fingerprintingFound.length > 0) {
+			const fpDeduction = Math.min(fingerprintingFound.length * 10, 20);
+			score -= fpDeduction;
+			deductions.push({ reason: 'Fingerprinting detected', points: fpDeduction });
+		}
+		
+		// Bonus for HTTPS
+		if (!tlsInfo.secure) {
+			score -= 15;
+			deductions.push({ reason: 'Not using HTTPS', points: 15 });
+		}
+		
+		return Math.max(0, Math.min(100, score));
+	}
+	
+	function detectTrackers(requests: any[]) {
+		detectedTrackers = [];
+		detectedAnalytics = [];
+		detectedAds = [];
+		
+		requests.forEach(request => {
+			const url = request.url.toLowerCase();
+			
+			TRACKER_DOMAINS.forEach(tracker => {
+				if (url.includes(tracker.domain)) {
+					const entry = { name: tracker.name, url: request.url };
+					
+					if (tracker.category === 'tracker') {
+						if (!detectedTrackers.some(t => t.name === tracker.name)) {
+							detectedTrackers.push({ ...entry, category: 'tracker' });
+						}
+					} else if (tracker.category === 'analytics') {
+						if (!detectedAnalytics.some(a => a.name === tracker.name)) {
+							detectedAnalytics.push(entry);
+						}
+					} else if (tracker.category === 'ads') {
+						if (!detectedAds.some(a => a.name === tracker.name)) {
+							detectedAds.push(entry);
+						}
+					}
+				}
+			});
+		});
+		
+		// Update arrays to trigger reactivity
+		detectedTrackers = [...detectedTrackers];
+		detectedAnalytics = [...detectedAnalytics];
+		detectedAds = [...detectedAds];
+	}
+	
+	function detectFingerprinting() {
+		detectedFingerprinting = [];
+		
+		// Check for canvas fingerprinting
+		const canvasDetected = checkCanvasFingerprinting();
+		detectedFingerprinting.push({ type: 'Canvas Fingerprinting', detected: canvasDetected });
+		
+		// Check for WebGL fingerprinting
+		const webglDetected = checkWebGLFingerprinting();
+		detectedFingerprinting.push({ type: 'WebGL Fingerprinting', detected: webglDetected });
+		
+		// Check for audio fingerprinting
+		const audioDetected = checkAudioFingerprinting();
+		detectedFingerprinting.push({ type: 'Audio Fingerprinting', detected: audioDetected });
+		
+		// Check for font fingerprinting
+		const fontDetected = checkFontFingerprinting();
+		detectedFingerprinting.push({ type: 'Font Fingerprinting', detected: fontDetected });
+		
+		detectedFingerprinting = [...detectedFingerprinting];
+	}
+	
+	function checkCanvasFingerprinting(): boolean {
+		// Check if any scripts are reading canvas data
+		// This is a heuristic - in real implementation, would need Content Security Policy monitoring
+		const scripts = document.querySelectorAll('script');
+		let detected = false;
+		scripts.forEach(script => {
+			const content = script.textContent || '';
+			if (content.includes('toDataURL') && content.includes('canvas')) {
+				detected = true;
+			}
+		});
+		return detected;
+	}
+	
+	function checkWebGLFingerprinting(): boolean {
+		const scripts = document.querySelectorAll('script');
+		let detected = false;
+		scripts.forEach(script => {
+			const content = script.textContent || '';
+			if (content.includes('WEBGL_debug_renderer_info') || 
+				(content.includes('getParameter') && content.includes('RENDERER'))) {
+				detected = true;
+			}
+		});
+		return detected;
+	}
+	
+	function checkAudioFingerprinting(): boolean {
+		const scripts = document.querySelectorAll('script');
+		let detected = false;
+		scripts.forEach(script => {
+			const content = script.textContent || '';
+			if (content.includes('AudioContext') && content.includes('createOscillator')) {
+				detected = true;
+			}
+		});
+		return detected;
+	}
+	
+	function checkFontFingerprinting(): boolean {
+		const scripts = document.querySelectorAll('script');
+		let detected = false;
+		scripts.forEach(script => {
+			const content = script.textContent || '';
+			if (content.includes('measureText') && content.includes('fonts')) {
+				detected = true;
+			}
+		});
+		return detected;
+	}
+	
+	function checkTLS() {
+		tlsInfo = {
+			secure: window.location.protocol === 'https:',
+			protocol: window.location.protocol === 'https:' ? 'TLS (HTTPS)' : 'Insecure (HTTP)'
+		};
+	}
+	
+	function categorizeExternalRequests(requests: any[]) {
+		const origin = typeof window !== 'undefined' ? window.location.origin : '';
+		externalRequests = requests.filter(r => {
+			try {
+				const url = new URL(r.url);
+				return url.origin !== origin;
+			} catch {
+				return false;
+			}
+		});
 	}
 	
 	onMount(() => {
@@ -41,13 +266,18 @@
 				entries.forEach(entry => {
 					if (entry.entryType === 'resource') {
 						const resourceEntry = entry as PerformanceResourceTiming;
-						networkRequests = [...networkRequests, {
+						const newRequest = {
 							url: resourceEntry.name,
 							type: resourceEntry.initiatorType,
 							size: resourceEntry.transferSize || 0,
 							duration: resourceEntry.duration,
 							timestamp: new Date().toLocaleTimeString()
-						}];
+						};
+						networkRequests = [...networkRequests, newRequest];
+						
+						// Re-analyze on new requests
+						detectTrackers(networkRequests);
+						categorizeExternalRequests(networkRequests);
 					}
 				});
 			});
@@ -55,7 +285,7 @@
 			try {
 				performanceObserver.observe({ entryTypes: ['resource'] });
 			} catch (e) {
-				console.log('Performance observer not supported');
+				// Performance observer not supported
 			}
 		}
 		
@@ -69,7 +299,7 @@
 	
 	function scanPrivacy() {
 		// Scan cookies
-		cookies = document.cookie ? document.cookie.split(';').map(c => c.trim()) : [];
+		cookies = document.cookie ? document.cookie.split(';').map(c => c.trim()).filter(c => c.length > 0) : [];
 		
 		// Scan localStorage
 		localStorageItems = Object.keys(localStorage).map(key => ({
@@ -96,6 +326,12 @@
 				timestamp: 'Initial load'
 			}));
 		}
+		
+		// Run all privacy checks
+		detectTrackers(networkRequests);
+		categorizeExternalRequests(networkRequests);
+		detectFingerprinting();
+		checkTLS();
 	}
 	
 	function closeInspector() {
@@ -112,6 +348,14 @@
 			scanPrivacy();
 		}
 	}
+	
+	// Helper to get score class
+	function getScoreClass(score: number): string {
+		if (score >= 90) return 'perfect';
+		if (score >= 70) return 'good';
+		if (score >= 50) return 'warning';
+		return 'poor';
+	}
 </script>
 
 {#if isOpen}
@@ -122,7 +366,7 @@
 		transition:fade={{ duration: 200 }}
 		role="button"
 		tabindex="-1"
-	/>
+	></div>
 	
 	<div 
 		class="privacy-inspector"
@@ -132,7 +376,7 @@
 			<div class="header-title">
 				<Shield class="w-6 h-6 text-primary" />
 				<h2 class="text-xl font-bold">Privacy Inspector</h2>
-				<span class="privacy-score" class:perfect={privacyScore === 100} class:good={privacyScore >= 80 && privacyScore < 100} class:poor={privacyScore < 80}>
+				<span class="privacy-score {getScoreClass(privacyScore)}">
 					Score: {privacyScore}%
 				</span>
 			</div>
@@ -174,64 +418,157 @@
 				class:active={activeTab === 'cookies'}
 				on:click={() => activeTab = 'cookies'}
 			>
-				🍪 Cookies ({cookies.length})
+				<Cookie class="w-4 h-4" /> Cookies ({cookies.length})
 			</button>
 		</div>
 		
 		<div class="inspector-content">
 			{#if activeTab === 'overview'}
 				<div class="overview-content">
+					<!-- VERIFIED PRIVACY FACTS - All values are REAL and detected -->
 					<div class="privacy-manifest">
-						<h3 class="manifest-title">VU PRIVACY FACTS</h3>
-						<div class="manifest-grid">
-							<div class="manifest-item">
-								<span class="item-label">Cookies:</span>
-								<span class="item-value" class:zero={cookies.length === 0}>
-									{cookies.length === 0 ? 'ZERO' : cookies.length}
-								</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">External Requests:</span>
-								<span class="item-value" class:zero={networkRequests.filter(r => !r.url.startsWith(window.location.origin)).length === 0}>
-									{networkRequests.filter(r => !r.url.startsWith(window.location.origin)).length === 0 ? 'ZERO' : networkRequests.filter(r => !r.url.startsWith(window.location.origin)).length}
-								</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">Trackers:</span>
-								<span class="item-value zero">ZERO</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">Analytics:</span>
-								<span class="item-value zero">ZERO</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">Data Shared:</span>
-								<span class="item-value zero">ZERO</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">Data Sold:</span>
-								<span class="item-value zero">ZERO</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">Logs Kept:</span>
-								<span class="item-value zero">ZERO</span>
-							</div>
-							<div class="manifest-item">
-								<span class="item-label">Ads:</span>
-								<span class="item-value zero">ZERO</span>
+						<h3 class="manifest-title">
+							<span class="verified-badge flex items-center gap-1"><Check class="w-3 h-3" /> VERIFIED</span>
+							PRIVACY SCAN RESULTS
+						</h3>
+						
+						<!-- Client-side verifiable metrics -->
+						<div class="manifest-section">
+							<h4 class="section-label">CLIENT-SIDE DETECTION</h4>
+							<div class="manifest-grid">
+								<div class="manifest-item">
+									<span class="item-label">Cookies:</span>
+									<span class="item-value" class:zero={cookies.length === 0} class:warning={cookies.length > 0}>
+										{cookies.length === 0 ? 'ZERO' : cookies.length}
+									</span>
+								</div>
+								<div class="manifest-item">
+									<span class="item-label">External Requests:</span>
+									<span class="item-value" class:zero={externalRequests.length === 0} class:neutral={externalRequests.length > 0}>
+										{externalRequests.length === 0 ? 'ZERO' : externalRequests.length}
+									</span>
+								</div>
+								<div class="manifest-item">
+									<span class="item-label">Trackers Detected:</span>
+									<span class="item-value" class:zero={detectedTrackers.length === 0} class:danger={detectedTrackers.length > 0}>
+										{detectedTrackers.length === 0 ? 'ZERO' : detectedTrackers.length}
+									</span>
+								</div>
+								<div class="manifest-item">
+									<span class="item-label">Analytics:</span>
+									<span class="item-value" class:zero={detectedAnalytics.length === 0} class:warning={detectedAnalytics.length > 0}>
+										{detectedAnalytics.length === 0 ? 'ZERO' : detectedAnalytics.length}
+									</span>
+								</div>
+								<div class="manifest-item">
+									<span class="item-label">Ad Networks:</span>
+									<span class="item-value" class:zero={detectedAds.length === 0} class:danger={detectedAds.length > 0}>
+										{detectedAds.length === 0 ? 'ZERO' : detectedAds.length}
+									</span>
+								</div>
+								<div class="manifest-item">
+									<span class="item-label">Connection:</span>
+									<span class="item-value" class:success={tlsInfo.secure} class:danger={!tlsInfo.secure}>
+										{tlsInfo.secure ? 'HTTPS SECURE' : 'HTTP WARNING'}
+									</span>
+								</div>
 							</div>
 						</div>
-						<div class="manifest-footer">
-							<div class="manifest-item">
-								<span class="item-label">Encryption:</span>
-								<span class="item-value success">256-bit</span>
+						
+						<!-- Fingerprinting detection -->
+						<div class="manifest-section">
+							<h4 class="section-label">FINGERPRINTING SCAN</h4>
+							<div class="fingerprint-grid">
+								{#each detectedFingerprinting as fp}
+									<div class="fingerprint-item">
+										<Fingerprint class="w-4 h-4" />
+										<span class="fp-type">{fp.type}:</span>
+										<span class="fp-status" class:safe={!fp.detected} class:danger={fp.detected}>
+											{fp.detected ? 'DETECTED' : 'Not Found'}
+										</span>
+									</div>
+								{/each}
 							</div>
-							<div class="manifest-item">
-								<span class="item-label">Your Control:</span>
-								<span class="item-value success">100%</span>
+						</div>
+						
+						<!-- Server-side claims - clearly labeled as unverifiable -->
+						<div class="manifest-section server-claims">
+							<h4 class="section-label">
+								<Eye class="w-4 h-4" />
+								VU SERVER COMMITMENTS
+								<span class="unverifiable-label">(Cannot verify client-side)</span>
+							</h4>
+							<div class="manifest-grid claims-grid">
+								<div class="manifest-item claim">
+									<span class="item-label">Data Shared:</span>
+									<span class="item-value claim-value">ZERO (claimed)</span>
+								</div>
+								<div class="manifest-item claim">
+									<span class="item-label">Data Sold:</span>
+									<span class="item-value claim-value">ZERO (claimed)</span>
+								</div>
+								<div class="manifest-item claim">
+									<span class="item-label">Server Logs:</span>
+									<span class="item-value claim-value">None (claimed)</span>
+								</div>
+								<div class="manifest-item claim">
+									<span class="item-label">Encryption:</span>
+									<span class="item-value claim-value">E2E (claimed)</span>
+								</div>
 							</div>
+							<p class="claims-note">
+								<AlertTriangle class="w-3 h-3" />
+								These are VU's commitments. Server-side practices cannot be verified from your browser.
+								<a href="/legal/privacy" class="privacy-link">Read our Privacy Policy →</a>
+							</p>
 						</div>
 					</div>
+					
+					<!-- Detailed findings if any threats detected -->
+					{#if detectedTrackers.length > 0 || detectedAnalytics.length > 0 || detectedAds.length > 0}
+						<div class="threats-detected">
+							<h3 class="threats-title">
+								<AlertTriangle class="w-5 h-5" />
+								Privacy Concerns Detected
+							</h3>
+							
+							{#if detectedTrackers.length > 0}
+								<div class="threat-section">
+									<h4>Trackers ({detectedTrackers.length})</h4>
+									{#each detectedTrackers as tracker}
+										<div class="threat-item">
+											<span class="threat-name">{tracker.name}</span>
+											<span class="threat-url">{tracker.url.substring(0, 50)}...</span>
+										</div>
+									{/each}
+								</div>
+							{/if}
+							
+							{#if detectedAnalytics.length > 0}
+								<div class="threat-section">
+									<h4>Analytics ({detectedAnalytics.length})</h4>
+									{#each detectedAnalytics as analytics}
+										<div class="threat-item">
+											<span class="threat-name">{analytics.name}</span>
+											<span class="threat-url">{analytics.url.substring(0, 50)}...</span>
+										</div>
+									{/each}
+								</div>
+							{/if}
+							
+							{#if detectedAds.length > 0}
+								<div class="threat-section">
+									<h4>Ad Networks ({detectedAds.length})</h4>
+									{#each detectedAds as ad}
+										<div class="threat-item">
+											<span class="threat-name">{ad.name}</span>
+											<span class="threat-url">{ad.url.substring(0, 50)}...</span>
+										</div>
+									{/each}
+								</div>
+							{/if}
+						</div>
+					{/if}
 					
 					<div class="quick-actions">
 						<button class="action-btn" on:click={() => activeTab = 'network'}>
@@ -434,6 +771,12 @@
 		color: #ffb800;
 	}
 	
+	.privacy-score.warning {
+		background: rgba(255, 184, 0, 0.2);
+		border-color: rgba(255, 184, 0, 0.3);
+		color: #ffb800;
+	}
+	
 	.privacy-score.poor {
 		background: rgba(239, 68, 68, 0.2);
 		border-color: rgba(239, 68, 68, 0.3);
@@ -515,12 +858,58 @@
 	}
 	
 	.manifest-title {
-		text-align: center;
-		font-size: 18px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		font-size: 16px;
 		font-weight: 700;
 		color: #00d4ff;
 		margin-bottom: 20px;
-		letter-spacing: 2px;
+		letter-spacing: 1px;
+	}
+	
+	.verified-badge {
+		background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+		color: #000;
+		padding: 2px 8px;
+		border-radius: 4px;
+		font-size: 10px;
+		font-weight: 800;
+		letter-spacing: 0.5px;
+	}
+	
+	.manifest-section {
+		margin-bottom: 16px;
+		padding-bottom: 16px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	
+	.manifest-section:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+	
+	.section-label {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 11px;
+		font-weight: 600;
+		color: #888;
+		margin-bottom: 10px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	
+	.unverifiable-label {
+		font-size: 9px;
+		font-weight: 400;
+		color: #666;
+		font-style: italic;
+		letter-spacing: 0;
+		text-transform: none;
 	}
 	
 	.manifest-grid {
@@ -565,6 +954,155 @@
 	
 	.item-value.success {
 		color: #00d4ff;
+	}
+	
+	.item-value.warning {
+		color: #ffb800;
+	}
+	
+	.item-value.danger {
+		color: #ef4444;
+	}
+	
+	.item-value.neutral {
+		color: #888;
+	}
+	
+	/* Server claims section */
+	.server-claims {
+		background: rgba(255, 184, 0, 0.05);
+		border: 1px dashed rgba(255, 184, 0, 0.3);
+		border-radius: 8px;
+		padding: 12px;
+		margin-top: 4px;
+	}
+	
+	.claims-grid .manifest-item.claim {
+		background: rgba(0, 0, 0, 0.3);
+		border: 1px dashed rgba(255, 255, 255, 0.1);
+	}
+	
+	.claim-value {
+		color: #888 !important;
+		font-style: italic;
+		font-size: 12px !important;
+	}
+	
+	.claims-note {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		font-size: 10px;
+		color: #666;
+		margin-top: 10px;
+		padding-top: 10px;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	
+	.privacy-link {
+		color: #00d4ff;
+		text-decoration: none;
+		margin-left: auto;
+	}
+	
+	.privacy-link:hover {
+		text-decoration: underline;
+	}
+	
+	/* Fingerprinting section */
+	.fingerprint-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+	}
+	
+	.fingerprint-item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 10px;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 6px;
+		font-size: 12px;
+	}
+	
+	.fp-type {
+		color: #888;
+	}
+	
+	.fp-status {
+		margin-left: auto;
+		font-weight: 600;
+		font-size: 10px;
+		padding: 2px 6px;
+		border-radius: 4px;
+	}
+	
+	.fp-status.safe {
+		background: rgba(34, 197, 94, 0.2);
+		color: #22c55e;
+	}
+	
+	.fp-status.danger {
+		background: rgba(239, 68, 68, 0.2);
+		color: #ef4444;
+	}
+	
+	/* Threats detected section */
+	.threats-detected {
+		background: rgba(239, 68, 68, 0.1);
+		border: 1px solid rgba(239, 68, 68, 0.3);
+		border-radius: 12px;
+		padding: 16px;
+		margin-top: 16px;
+	}
+	
+	.threats-title {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 14px;
+		font-weight: 700;
+		color: #ef4444;
+		margin-bottom: 12px;
+	}
+	
+	.threat-section {
+		margin-bottom: 12px;
+	}
+	
+	.threat-section:last-child {
+		margin-bottom: 0;
+	}
+	
+	.threat-section h4 {
+		font-size: 12px;
+		font-weight: 600;
+		color: #ffb800;
+		margin-bottom: 8px;
+	}
+	
+	.threat-item {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		padding: 8px;
+		background: rgba(0, 0, 0, 0.3);
+		border-radius: 4px;
+		margin-bottom: 4px;
+	}
+	
+	.threat-name {
+		font-weight: 600;
+		font-size: 12px;
+		color: #fff;
+	}
+	
+	.threat-url {
+		font-size: 10px;
+		font-family: 'IBM Plex Mono', monospace;
+		color: #666;
 	}
 	
 	.quick-actions {
@@ -814,12 +1352,32 @@
 			max-height: 90vh;
 		}
 		
-		.manifest-grid {
+		.manifest-grid,
+		.fingerprint-grid {
 			grid-template-columns: 1fr;
 		}
 		
 		.quick-actions {
 			flex-direction: column;
+		}
+		
+		.manifest-title {
+			flex-direction: column;
+			font-size: 14px;
+		}
+		
+		.fingerprint-item {
+			flex-wrap: wrap;
+		}
+		
+		.claims-note {
+			flex-direction: column;
+			text-align: center;
+		}
+		
+		.privacy-link {
+			margin-left: 0;
+			margin-top: 8px;
 		}
 	}
 </style>

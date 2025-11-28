@@ -48,10 +48,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All data encrypted locally, zero server-side access',
 		techStack: ['Svelte', 'TypeScript', 'IndexedDB', 'AES-256'],
 		features: [
-			{ icon: '🔒', title: 'E2E Encryption', desc: 'Military-grade encryption for all notes' },
-			{ icon: '📝', title: 'Markdown Support', desc: 'Rich text editing with markdown' },
-			{ icon: '📱', title: 'Cross-Device Sync', desc: 'Seamless sync across all devices' },
-			{ icon: '🔍', title: 'Full-Text Search', desc: 'Lightning-fast encrypted search' }
+			{ icon: 'Lock', title: 'E2E Encryption', desc: 'Military-grade encryption for all notes' },
+			{ icon: 'FileText', title: 'Markdown Support', desc: 'Rich text editing with markdown' },
+			{ icon: 'Smartphone', title: 'Cross-Device Sync', desc: 'Seamless sync across all devices' },
+			{ icon: 'Search', title: 'Full-Text Search', desc: 'Lightning-fast encrypted search' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -77,10 +77,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Non-custodial, keys never leave your device',
 		techStack: ['Go', 'WebAssembly', 'React', 'Blockchain'],
 		features: [
-			{ icon: '🔐', title: 'Hardware Wallet Support', desc: 'Connect Ledger, Trezor, and more' },
-			{ icon: '💰', title: 'Multi-Currency', desc: 'Support for 100+ cryptocurrencies' },
-			{ icon: '🛡️', title: 'Privacy Transactions', desc: 'Built-in privacy protocols' },
-			{ icon: '📊', title: 'Portfolio Tracking', desc: 'Real-time market data' }
+			{ icon: 'Key', title: 'Hardware Wallet Support', desc: 'Connect Ledger, Trezor, and more' },
+			{ icon: 'DollarSign', title: 'Multi-Currency', desc: 'Support for 100+ cryptocurrencies' },
+			{ icon: 'Shield', title: 'Privacy Transactions', desc: 'Built-in privacy protocols' },
+			{ icon: 'BarChart2', title: 'Portfolio Tracking', desc: 'Real-time market data' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -104,10 +104,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Events encrypted on device, private scheduling links',
 		techStack: ['SvelteKit', 'TypeScript', 'PostgreSQL', 'WebRTC'],
 		features: [
-			{ icon: '📅', title: 'Smart Scheduling', desc: 'AI-powered scheduling without tracking' },
-			{ icon: '🔗', title: 'Private Links', desc: 'Share availability securely' },
-			{ icon: '⏰', title: 'Smart Reminders', desc: 'Local notifications, no cloud' },
-			{ icon: '🌐', title: 'CalDAV Sync', desc: 'Standard calendar protocol support' }
+			{ icon: 'Calendar', title: 'Smart Scheduling', desc: 'AI-powered scheduling without tracking' },
+			{ icon: 'Link', title: 'Private Links', desc: 'Share availability securely' },
+			{ icon: 'Clock', title: 'Smart Reminders', desc: 'Local notifications, no cloud' },
+			{ icon: 'Globe', title: 'CalDAV Sync', desc: 'Standard calendar protocol support' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -131,10 +131,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All health data stored locally, no cloud sync',
 		techStack: ['Swift', 'HealthKit', 'CoreML', 'SQLite'],
 		features: [
-			{ icon: '💪', title: 'Workout Tracking', desc: 'Track runs, cycles, and workouts' },
-			{ icon: '⌚', title: 'Wearable Integration', desc: 'Connect Apple Watch, Garmin, Fitbit' },
-			{ icon: '📈', title: 'Progress Analytics', desc: 'Local AI-powered insights' },
-			{ icon: '🎯', title: 'Goal Setting', desc: 'Personalized fitness goals' }
+			{ icon: 'Dumbbell', title: 'Workout Tracking', desc: 'Track runs, cycles, and workouts' },
+			{ icon: 'Watch', title: 'Wearable Integration', desc: 'Connect Apple Watch, Garmin, Fitbit' },
+			{ icon: 'TrendingUp', title: 'Progress Analytics', desc: 'Local AI-powered insights' },
+			{ icon: 'Target', title: 'Goal Setting', desc: 'Personalized fitness goals' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -158,10 +158,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Documents encrypted locally, zero server access',
 		techStack: ['Electron', 'Vue', 'Monaco Editor', 'CRDTs'],
 		features: [
-			{ icon: '✍️', title: 'Distraction-Free', desc: 'Minimalist writing interface' },
-			{ icon: '📚', title: 'Version Control', desc: 'Git-like versioning for documents' },
-			{ icon: '🎨', title: 'Beautiful Themes', desc: '20+ editor themes included' },
-			{ icon: '📤', title: 'Export Anywhere', desc: 'PDF, DOCX, Markdown, HTML' }
+			{ icon: 'PenLine', title: 'Distraction-Free', desc: 'Minimalist writing interface' },
+			{ icon: 'Book', title: 'Version Control', desc: 'Git-like versioning for documents' },
+			{ icon: 'Palette', title: 'Beautiful Themes', desc: '20+ editor themes included' },
+			{ icon: 'Upload', title: 'Export Anywhere', desc: 'PDF, DOCX, Markdown, HTML' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -185,10 +185,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All ML processing happens locally, no cloud uploads',
 		techStack: ['React Native', 'TensorFlow Lite', 'SQLite', 'C++'],
 		features: [
-			{ icon: '🤖', title: 'Smart Albums', desc: 'AI organization without cloud' },
-			{ icon: '👤', title: 'Face Recognition', desc: 'On-device facial detection' },
-			{ icon: '🔍', title: 'Object Search', desc: 'Find photos by content locally' },
-			{ icon: '🌍', title: 'Location Tags', desc: 'GPS tagging without sharing' }
+			{ icon: 'Bot', title: 'Smart Albums', desc: 'AI organization without cloud' },
+			{ icon: 'User', title: 'Face Recognition', desc: 'On-device facial detection' },
+			{ icon: 'Search', title: 'Object Search', desc: 'Find photos by content locally' },
+			{ icon: 'MapPin', title: 'Location Tags', desc: 'GPS tagging without sharing' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -212,10 +212,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Peer-to-peer calls, no server-side logs',
 		techStack: ['WebRTC', 'Go', 'STUN/TURN', 'Opus Codec'],
 		features: [
-			{ icon: '📞', title: 'HD Voice', desc: 'Crystal-clear audio quality' },
-			{ icon: '📹', title: 'Video Calls', desc: '4K video support' },
-			{ icon: '👥', title: 'Group Calls', desc: 'Up to 50 participants' },
-			{ icon: '💬', title: 'Screen Sharing', desc: 'Share screen securely' }
+			{ icon: 'Phone', title: 'HD Voice', desc: 'Crystal-clear audio quality' },
+			{ icon: 'Video', title: 'Video Calls', desc: '4K video support' },
+			{ icon: 'Users', title: 'Group Calls', desc: 'Up to 50 participants' },
+			{ icon: 'MessageSquare', title: 'Screen Sharing', desc: 'Share screen securely' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -239,10 +239,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All text recognition happens locally',
 		techStack: ['Swift', 'Vision Framework', 'CoreML', 'PDFKit'],
 		features: [
-			{ icon: '📄', title: 'Smart Scanning', desc: 'Auto-crop and enhance' },
-			{ icon: '🔤', title: 'OCR', desc: 'Extract text from images' },
-			{ icon: '📋', title: 'Multi-Page', desc: 'Scan multi-page documents' },
-			{ icon: '📊', title: 'Export', desc: 'PDF, JPEG, or searchable PDF' }
+			{ icon: 'FileText', title: 'Smart Scanning', desc: 'Auto-crop and enhance' },
+			{ icon: 'Type', title: 'OCR', desc: 'Extract text from images' },
+			{ icon: 'Clipboard', title: 'Multi-Page', desc: 'Scan multi-page documents' },
+			{ icon: 'BarChart2', title: 'Export', desc: 'PDF, JPEG, or searchable PDF' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -266,10 +266,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Client-side encryption, we can\'t access your files',
 		techStack: ['Go', 'WebAssembly', 'AES-256-GCM', 'IPFS'],
 		features: [
-			{ icon: '🔐', title: 'Zero-Knowledge', desc: 'We can\'t access your files' },
-			{ icon: '📦', title: 'File Versioning', desc: 'Keep history of changes' },
-			{ icon: '🔗', title: 'Secure Sharing', desc: 'Share with encrypted links' },
-			{ icon: '☁️', title: 'Auto Backup', desc: 'Automatic encrypted backups' }
+			{ icon: 'Key', title: 'Zero-Knowledge', desc: 'We can\'t access your files' },
+			{ icon: 'Package', title: 'File Versioning', desc: 'Keep history of changes' },
+			{ icon: 'Link', title: 'Secure Sharing', desc: 'Share with encrypted links' },
+			{ icon: 'Cloud', title: 'Auto Backup', desc: 'Automatic encrypted backups' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -293,10 +293,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Future-proof encryption, no metadata',
 		techStack: ['Rust', 'Signal Protocol', 'KYBER', 'Tokio'],
 		features: [
-			{ icon: '🔒', title: 'Quantum-Resistant', desc: 'Future-proof encryption' },
-			{ icon: '⏰', title: 'Self-Destruct', desc: 'Messages disappear automatically' },
-			{ icon: '🕵️', title: 'Anonymous', desc: 'No phone number required' },
-			{ icon: '👁️', title: 'Screenshot Alert', desc: 'Know when screenshots are taken' }
+			{ icon: 'Lock', title: 'Quantum-Resistant', desc: 'Future-proof encryption' },
+			{ icon: 'Clock', title: 'Self-Destruct', desc: 'Messages disappear automatically' },
+			{ icon: 'UserX', title: 'Anonymous', desc: 'No phone number required' },
+			{ icon: 'Eye', title: 'Screenshot Alert', desc: 'Know when screenshots are taken' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -322,10 +322,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'End-to-end email encryption, no tracking',
 		techStack: ['Go', 'OpenPGP', 'React', 'PostgreSQL'],
 		features: [
-			{ icon: '✉️', title: 'PGP Built-in', desc: 'Automatic encryption' },
-			{ icon: '🎭', title: 'Email Aliases', desc: 'Unlimited disposable addresses' },
-			{ icon: '🚫', title: 'Spam Filter', desc: 'AI-powered local filtering' },
-			{ icon: '📬', title: 'Custom Domain', desc: 'Use your own domain' }
+			{ icon: 'Mail', title: 'PGP Built-in', desc: 'Automatic encryption' },
+			{ icon: 'Mask', title: 'Email Aliases', desc: 'Unlimited disposable addresses' },
+			{ icon: 'Ban', title: 'Spam Filter', desc: 'AI-powered local filtering' },
+			{ icon: 'Inbox', title: 'Custom Domain', desc: 'Use your own domain' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -350,10 +350,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Local storage, encrypted sync',
 		techStack: ['Svelte', 'IndexedDB', 'CRDTs', 'WebSocket'],
 		features: [
-			{ icon: '✅', title: 'Smart Lists', desc: 'Auto-organize tasks' },
-			{ icon: '🔄', title: 'Recurring Tasks', desc: 'Set it and forget it' },
-			{ icon: '🏷️', title: 'Tags & Filters', desc: 'Powerful organization' },
-			{ icon: '📊', title: 'Analytics', desc: 'Track productivity locally' }
+			{ icon: 'CheckCircle', title: 'Smart Lists', desc: 'Auto-organize tasks' },
+			{ icon: 'RefreshCw', title: 'Recurring Tasks', desc: 'Set it and forget it' },
+			{ icon: 'Tag', title: 'Tags & Filters', desc: 'Powerful organization' },
+			{ icon: 'BarChart2', title: 'Analytics', desc: 'Track productivity locally' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -378,10 +378,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'No telemetry, advanced fingerprint protection',
 		techStack: ['Chromium', 'C++', 'Rust', 'V8'],
 		features: [
-			{ icon: '🛡️', title: 'Ad Blocker', desc: 'Block ads and trackers' },
-			{ icon: '🔒', title: 'Built-in VPN', desc: 'Browse anonymously' },
-			{ icon: '🌐', title: 'HTTPS Everywhere', desc: 'Always secure' },
-			{ icon: '👻', title: 'Anti-Fingerprint', desc: 'Advanced protection' }
+			{ icon: 'Shield', title: 'Ad Blocker', desc: 'Block ads and trackers' },
+			{ icon: 'Lock', title: 'Built-in VPN', desc: 'Browse anonymously' },
+			{ icon: 'Globe', title: 'HTTPS Everywhere', desc: 'Always secure' },
+			{ icon: 'Ghost', title: 'Anti-Fingerprint', desc: 'Advanced protection' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -406,10 +406,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Master password never leaves your device',
 		techStack: ['Rust', 'Tauri', 'AES-256', 'Argon2'],
 		features: [
-			{ icon: '🔑', title: 'Password Generator', desc: 'Strong random passwords' },
-			{ icon: '👆', title: 'Biometric Unlock', desc: 'Face ID, Touch ID support' },
-			{ icon: '🚨', title: 'Breach Monitor', desc: 'Check for compromised passwords' },
-			{ icon: '👨‍👩‍👧‍👦', title: 'Family Sharing', desc: 'Share securely with family' }
+			{ icon: 'Key', title: 'Password Generator', desc: 'Strong random passwords' },
+			{ icon: 'Fingerprint', title: 'Biometric Unlock', desc: 'Face ID, Touch ID support' },
+			{ icon: 'AlertTriangle', title: 'Breach Monitor', desc: 'Check for compromised passwords' },
+			{ icon: 'Users', title: 'Family Sharing', desc: 'Share securely with family' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -434,10 +434,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Files encrypted before upload',
 		techStack: ['Go', 'IPFS', 'WebAssembly', 'AES-256-GCM'],
 		features: [
-			{ icon: '☁️', title: 'Auto Sync', desc: 'Automatic backup' },
-			{ icon: '📁', title: 'File Versioning', desc: 'Access previous versions' },
-			{ icon: '🔗', title: 'Secure Sharing', desc: 'Share with expiring links' },
-			{ icon: '📱', title: 'Cross-Platform', desc: 'All devices supported' }
+			{ icon: 'Cloud', title: 'Auto Sync', desc: 'Automatic backup' },
+			{ icon: 'Folder', title: 'File Versioning', desc: 'Access previous versions' },
+			{ icon: 'Link', title: 'Secure Sharing', desc: 'Share with expiring links' },
+			{ icon: 'Smartphone', title: 'Cross-Platform', desc: 'All devices supported' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -462,10 +462,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'AI runs on device, encrypted Git',
 		techStack: ['Electron', 'Monaco', 'LSP', 'Git'],
 		features: [
-			{ icon: '🤖', title: 'Local AI', desc: 'Code suggestions without cloud' },
-			{ icon: '🔐', title: 'Encrypted Git', desc: 'Private repositories' },
-			{ icon: '👥', title: 'Live Collab', desc: 'Real-time pair programming' },
-			{ icon: '🎨', title: 'Themes', desc: '100+ beautiful themes' }
+			{ icon: 'Bot', title: 'Local AI', desc: 'Code suggestions without cloud' },
+			{ icon: 'Key', title: 'Encrypted Git', desc: 'Private repositories' },
+			{ icon: 'Users', title: 'Live Collab', desc: 'Real-time pair programming' },
+			{ icon: 'Palette', title: 'Themes', desc: '100+ beautiful themes' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'beta',
@@ -490,10 +490,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'No streaming analytics, no tracking',
 		techStack: ['Swift', 'CoreAudio', 'MusicKit', 'SQLite'],
 		features: [
-			{ icon: '🎵', title: 'Smart Playlists', desc: 'Auto-generated playlists' },
-			{ icon: '🎤', title: 'Lyrics', desc: 'Synced lyrics support' },
-			{ icon: '🎛️', title: 'Equalizer', desc: '10-band equalizer' },
-			{ icon: '☁️', title: 'Self-Host', desc: 'Host your own music server' }
+			{ icon: 'Music', title: 'Smart Playlists', desc: 'Auto-generated playlists' },
+			{ icon: 'Mic', title: 'Lyrics', desc: 'Synced lyrics support' },
+			{ icon: 'Sliders', title: 'Equalizer', desc: '10-band equalizer' },
+			{ icon: 'Cloud', title: 'Self-Host', desc: 'Host your own music server' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -518,10 +518,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'No listening data collected',
 		techStack: ['React Native', 'SQLite', 'RSS', 'AudioWorklet'],
 		features: [
-			{ icon: '📻', title: 'Subscribe', desc: 'Follow unlimited podcasts' },
-			{ icon: '⬇️', title: 'Offline', desc: 'Download episodes' },
-			{ icon: '⏩', title: 'Variable Speed', desc: '0.5x to 3x playback' },
-			{ icon: '😴', title: 'Sleep Timer', desc: 'Auto-stop playback' }
+			{ icon: 'Radio', title: 'Subscribe', desc: 'Follow unlimited podcasts' },
+			{ icon: 'Download', title: 'Offline', desc: 'Download episodes' },
+			{ icon: 'FastForward', title: 'Variable Speed', desc: '0.5x to 3x playback' },
+			{ icon: 'Moon', title: 'Sleep Timer', desc: 'Auto-stop playback' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -546,10 +546,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All learning data stored locally',
 		techStack: ['Svelte', 'IndexedDB', 'Web Workers', 'Canvas'],
 		features: [
-			{ icon: '🧠', title: 'Spaced Repetition', desc: 'Science-backed learning' },
-			{ icon: '🎴', title: 'Custom Cards', desc: 'Create any flashcard' },
-			{ icon: '📊', title: 'Progress Tracking', desc: 'Local analytics' },
-			{ icon: '🎯', title: 'Study Goals', desc: 'Set daily targets' }
+			{ icon: 'Brain', title: 'Spaced Repetition', desc: 'Science-backed learning' },
+			{ icon: 'Layers', title: 'Custom Cards', desc: 'Create any flashcard' },
+			{ icon: 'BarChart2', title: 'Progress Tracking', desc: 'Local analytics' },
+			{ icon: 'Target', title: 'Study Goals', desc: 'Set daily targets' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -574,10 +574,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All editing happens on device',
 		techStack: ['WebAssembly', 'LibreOffice Core', 'React', 'IndexedDB'],
 		features: [
-			{ icon: '📄', title: 'Word Compatible', desc: 'Edit .docx files' },
-			{ icon: '📊', title: 'Spreadsheets', desc: 'Excel compatibility' },
-			{ icon: '📽️', title: 'Presentations', desc: 'PowerPoint support' },
-			{ icon: '☁️', title: 'Auto-Save', desc: 'Never lose work' }
+			{ icon: 'FileText', title: 'Word Compatible', desc: 'Edit .docx files' },
+			{ icon: 'Table2', title: 'Spreadsheets', desc: 'Excel compatibility' },
+			{ icon: 'Presentation', title: 'Presentations', desc: 'PowerPoint support' },
+			{ icon: 'Cloud', title: 'Auto-Save', desc: 'Never lose work' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -602,10 +602,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Navigation without server-side tracking',
 		techStack: ['OpenStreetMap', 'Mapbox', 'Rust', 'OSRM'],
 		features: [
-			{ icon: '🗺️', title: 'Offline Maps', desc: 'Download entire regions' },
-			{ icon: '🧭', title: 'Turn-by-Turn', desc: 'Voice navigation' },
-			{ icon: '🚗', title: 'Traffic', desc: 'Real-time updates (optional)' },
-			{ icon: '📍', title: 'Bookmarks', desc: 'Save favorite places' }
+			{ icon: 'Map', title: 'Offline Maps', desc: 'Download entire regions' },
+			{ icon: 'Compass', title: 'Turn-by-Turn', desc: 'Voice navigation' },
+			{ icon: 'Car', title: 'Traffic', desc: 'Real-time updates (optional)' },
+			{ icon: 'MapPin', title: 'Bookmarks', desc: 'Save favorite places' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -630,10 +630,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All translation happens locally',
 		techStack: ['TensorFlow Lite', 'React Native', 'CoreML', 'ONNX'],
 		features: [
-			{ icon: '🌍', title: '100+ Languages', desc: 'Comprehensive coverage' },
-			{ icon: '📷', title: 'Camera Translate', desc: 'Point and translate' },
-			{ icon: '🎤', title: 'Voice Input', desc: 'Speak to translate' },
-			{ icon: '💬', title: 'Conversations', desc: 'Real-time chat translation' }
+			{ icon: 'Globe', title: '100+ Languages', desc: 'Comprehensive coverage' },
+			{ icon: 'Camera', title: 'Camera Translate', desc: 'Point and translate' },
+			{ icon: 'Mic', title: 'Voice Input', desc: 'Speak to translate' },
+			{ icon: 'MessageSquare', title: 'Conversations', desc: 'Real-time chat translation' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -658,10 +658,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Habit data never leaves your device',
 		techStack: ['Swift', 'SwiftUI', 'CoreData', 'HealthKit'],
 		features: [
-			{ icon: '📅', title: 'Streak Tracking', desc: 'Never break the chain' },
-			{ icon: '📊', title: 'Analytics', desc: 'Beautiful progress charts' },
-			{ icon: '🏆', title: 'Achievements', desc: 'Celebrate milestones' },
-			{ icon: '⏰', title: 'Reminders', desc: 'Local notifications' }
+			{ icon: 'Calendar', title: 'Streak Tracking', desc: 'Never break the chain' },
+			{ icon: 'BarChart2', title: 'Analytics', desc: 'Beautiful progress charts' },
+			{ icon: 'Trophy', title: 'Achievements', desc: 'Celebrate milestones' },
+			{ icon: 'Clock', title: 'Reminders', desc: 'Local notifications' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -686,10 +686,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Focus time stored locally only',
 		techStack: ['Electron', 'React', 'SQLite', 'Native APIs'],
 		features: [
-			{ icon: '⏱️', title: 'Pomodoro Timer', desc: 'Customizable intervals' },
-			{ icon: '🚫', title: 'Website Blocker', desc: 'Block distractions' },
-			{ icon: '🎯', title: 'Deep Work', desc: 'Track focus sessions' },
-			{ icon: '📈', title: 'Insights', desc: 'Local productivity analytics' }
+			{ icon: 'Timer', title: 'Pomodoro Timer', desc: 'Customizable intervals' },
+			{ icon: 'Ban', title: 'Website Blocker', desc: 'Block distractions' },
+			{ icon: 'Target', title: 'Deep Work', desc: 'Track focus sessions' },
+			{ icon: 'TrendingUp', title: 'Insights', desc: 'Local productivity analytics' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -714,10 +714,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Recipes and meal data stored locally',
 		techStack: ['React Native', 'SQLite', 'WebScraper', 'Spoonacular API (optional)'],
 		features: [
-			{ icon: '📖', title: 'Recipe Manager', desc: 'Organize all recipes' },
-			{ icon: '🛒', title: 'Shopping Lists', desc: 'Auto-generate lists' },
-			{ icon: '📅', title: 'Meal Planning', desc: 'Plan weekly meals' },
-			{ icon: '🥗', title: 'Nutrition Info', desc: 'Calculate nutrition locally' }
+			{ icon: 'BookOpen', title: 'Recipe Manager', desc: 'Organize all recipes' },
+			{ icon: 'ShoppingCart', title: 'Shopping Lists', desc: 'Auto-generate lists' },
+			{ icon: 'Calendar', title: 'Meal Planning', desc: 'Plan weekly meals' },
+			{ icon: 'Apple', title: 'Nutrition Info', desc: 'Calculate nutrition locally' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -742,10 +742,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Financial data never leaves device',
 		techStack: ['React', 'IndexedDB', 'Chart.js', 'Plaid SDK (optional)'],
 		features: [
-			{ icon: '💰', title: 'Budget Tracking', desc: 'Set and track budgets' },
-			{ icon: '📊', title: 'Expense Reports', desc: 'Beautiful visualizations' },
-			{ icon: '🏷️', title: 'Auto-Categorize', desc: 'AI categorization locally' },
-			{ icon: '💳', title: 'Bank Sync', desc: 'Optional encrypted sync' }
+			{ icon: 'DollarSign', title: 'Budget Tracking', desc: 'Set and track budgets' },
+			{ icon: 'BarChart2', title: 'Expense Reports', desc: 'Beautiful visualizations' },
+			{ icon: 'Tag', title: 'Auto-Categorize', desc: 'AI categorization locally' },
+			{ icon: 'CreditCard', title: 'Bank Sync', desc: 'Optional encrypted sync' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -770,10 +770,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Journal entries encrypted locally',
 		techStack: ['Svelte', 'IndexedDB', 'CryptoJS', 'Markdown'],
 		features: [
-			{ icon: '📔', title: 'Daily Journal', desc: 'Write daily entries' },
-			{ icon: '😊', title: 'Mood Tracking', desc: 'Track your emotions' },
-			{ icon: '💭', title: 'Prompts', desc: 'Guided journaling' },
-			{ icon: '🎨', title: 'Templates', desc: 'Beautiful journal themes' }
+			{ icon: 'Book', title: 'Daily Journal', desc: 'Write daily entries' },
+			{ icon: 'Smile', title: 'Mood Tracking', desc: 'Track your emotions' },
+			{ icon: 'MessageCircle', title: 'Prompts', desc: 'Guided journaling' },
+			{ icon: 'Palette', title: 'Templates', desc: 'Beautiful journal themes' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -798,10 +798,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Reading habits stay private',
 		techStack: ['React Native', 'EPUB.js', 'PDF.js', 'SQLite'],
 		features: [
-			{ icon: '📚', title: 'Library', desc: 'Organize your books' },
-			{ icon: '✏️', title: 'Annotations', desc: 'Highlight and note' },
-			{ icon: '🌙', title: 'Night Mode', desc: 'Eye-friendly reading' },
-			{ icon: '☁️', title: 'Sync', desc: 'Encrypted cloud sync' }
+			{ icon: 'Library', title: 'Library', desc: 'Organize your books' },
+			{ icon: 'Pencil', title: 'Annotations', desc: 'Highlight and note' },
+			{ icon: 'Moon', title: 'Night Mode', desc: 'Eye-friendly reading' },
+			{ icon: 'Cloud', title: 'Sync', desc: 'Encrypted cloud sync' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -826,10 +826,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'All artwork stays on device',
 		techStack: ['WebGL', 'Canvas', 'TensorFlow.js', 'IndexedDB'],
 		features: [
-			{ icon: '🎨', title: 'Pro Brushes', desc: '100+ realistic brushes' },
-			{ icon: '📐', title: 'Layers', desc: 'Unlimited layers' },
-			{ icon: '🤖', title: 'AI Tools', desc: 'Local AI assistance' },
-			{ icon: '📤', title: 'Export', desc: 'PNG, PSD, SVG support' }
+			{ icon: 'Palette', title: 'Pro Brushes', desc: '100+ realistic brushes' },
+			{ icon: 'Layers', title: 'Layers', desc: 'Unlimited layers' },
+			{ icon: 'Bot', title: 'AI Tools', desc: 'Local AI assistance' },
+			{ icon: 'Upload', title: 'Export', desc: 'PNG, PSD, SVG support' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'beta',
@@ -854,10 +854,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'Independently audited zero-logs policy',
 		techStack: ['WireGuard', 'Go', 'OpenVPN', 'IPSec'],
 		features: [
-			{ icon: '🌐', title: '60+ Countries', desc: 'Global server network' },
-			{ icon: '⚡', title: 'WireGuard', desc: 'Lightning-fast protocol' },
-			{ icon: '🛡️', title: 'Kill Switch', desc: 'Auto-disconnect protection' },
-			{ icon: '🚫', title: 'Ad Blocking', desc: 'Block ads at VPN level' }
+			{ icon: 'Globe', title: '60+ Countries', desc: 'Global server network' },
+			{ icon: 'Zap', title: 'WireGuard', desc: 'Lightning-fast protocol' },
+			{ icon: 'Shield', title: 'Kill Switch', desc: 'Auto-disconnect protection' },
+			{ icon: 'Ban', title: 'Ad Blocking', desc: 'Block ads at VPN level' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',
@@ -882,10 +882,10 @@ export const vuApps: Record<string, VuApp> = {
 		privacyDesc: 'No server-side recording or storage',
 		techStack: ['WebRTC', 'Go', 'React', 'Jitsi'],
 		features: [
-			{ icon: '👥', title: '100 Participants', desc: 'Large meetings supported' },
-			{ icon: '🖥️', title: 'Screen Share', desc: 'Share your screen' },
-			{ icon: '💬', title: 'Chat', desc: 'Encrypted text chat' },
-			{ icon: '🎙️', title: 'Background Blur', desc: 'Privacy in public spaces' }
+			{ icon: 'Users', title: '100 Participants', desc: 'Large meetings supported' },
+			{ icon: 'Monitor', title: 'Screen Share', desc: 'Share your screen' },
+			{ icon: 'MessageSquare', title: 'Chat', desc: 'Encrypted text chat' },
+			{ icon: 'Mic', title: 'Background Blur', desc: 'Privacy in public spaces' }
 		],
 		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
 		status: 'available',

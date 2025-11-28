@@ -694,15 +694,15 @@
 	/* Back Button */
 	.back-button {
 		position: fixed;
-		top: var(--spacing-lg, 16px);
-		left: var(--spacing-lg, 16px);
-		padding: var(--spacing-sm, 8px) var(--spacing-md, 12px);
+		top: 12px;
+		left: 12px;
+		padding: 6px 10px;
 		background: var(--color-glass, rgba(255, 255, 255, 0.05));
 		backdrop-filter: blur(10px);
 		border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
 		border-radius: var(--border-radius, 8px);
 		color: var(--color-text-secondary, #888888);
-		font-size: 14px;
+		font-size: 12px;
 		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.2s ease;
@@ -711,6 +711,15 @@
 		align-items: center;
 		gap: 4px;
 		z-index: 1000;
+	}
+
+	@media (min-width: 768px) {
+		.back-button {
+			top: 16px;
+			left: 16px;
+			padding: 8px 12px;
+			font-size: 14px;
+		}
 	}
 
 	.back-button:hover {
@@ -753,33 +762,60 @@
 	/* Hero Section */
 	.hero {
 		text-align: center;
-		padding: 96px 0 64px;
+		padding: 64px 16px 32px;
+	}
+
+	@media (min-width: 768px) {
+		.hero {
+			padding: 96px 0 64px;
+		}
 	}
 
 	.hero h1 {
-		font-size: clamp(48px, 8vw, 96px);
+		font-size: clamp(32px, 6vw, 96px);
 		font-weight: 900;
-		line-height: 1;
-		margin-bottom: 24px;
+		line-height: 1.1;
+		margin-bottom: 16px;
 		background: linear-gradient(135deg, var(--color-text-primary, #ffffff) 0%, var(--color-primary, #00d4ff) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
-		letter-spacing: -2px;
+		letter-spacing: -1px;
+	}
+
+	@media (min-width: 768px) {
+		.hero h1 {
+			margin-bottom: 24px;
+			letter-spacing: -2px;
+		}
 	}
 
 	.hero-subtitle {
-		font-size: 24px;
+		font-size: 16px;
 		color: var(--color-text-secondary, #888888);
-		margin-bottom: 32px;
+		margin-bottom: 20px;
+	}
+
+	@media (min-width: 768px) {
+		.hero-subtitle {
+			font-size: 24px;
+			margin-bottom: 32px;
+		}
 	}
 
 	.hero-dramatic {
-		font-size: 20px;
+		font-size: 14px;
 		color: var(--color-primary, #00d4ff);
 		font-weight: 600;
-		margin-bottom: 48px;
+		margin-bottom: 32px;
 		line-height: 1.6;
+	}
+
+	@media (min-width: 768px) {
+		.hero-dramatic {
+			font-size: 20px;
+			margin-bottom: 48px;
+		}
 	}
 
 	/* Level Cards */
@@ -787,11 +823,19 @@
 		background: var(--color-glass, rgba(255, 255, 255, 0.05));
 		backdrop-filter: blur(10px);
 		border: 2px solid var(--color-border, rgba(255, 255, 255, 0.1));
-		border-radius: 24px;
-		padding: 48px;
-		margin-bottom: 48px;
+		border-radius: 16px;
+		padding: 20px;
+		margin-bottom: 24px;
 		position: relative;
 		overflow: hidden;
+	}
+
+	@media (min-width: 768px) {
+		.level-card {
+			border-radius: 24px;
+			padding: 48px;
+			margin-bottom: 48px;
+		}
 	}
 
 	.level-card::before {
@@ -818,36 +862,65 @@
 	}
 
 	.level-number {
-		width: 80px;
-		height: 80px;
+		width: 50px;
+		height: 50px;
 		background: linear-gradient(135deg, var(--level-color) 0%, var(--level-color-dark) 100%);
-		border-radius: 24px;
+		border-radius: 16px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 48px;
+		font-size: 28px;
 		font-weight: 900;
 		color: white;
-		box-shadow: 0 0 40px rgba(var(--level-color-rgb), 0.3);
+		box-shadow: 0 0 20px rgba(var(--level-color-rgb), 0.3);
+	}
+
+	@media (min-width: 768px) {
+		.level-number {
+			width: 80px;
+			height: 80px;
+			font-size: 48px;
+			border-radius: 24px;
+			box-shadow: 0 0 40px rgba(var(--level-color-rgb), 0.3);
+		}
 	}
 
 	.level-name {
-		font-size: 32px;
+		font-size: 20px;
 		font-weight: 700;
 		margin-bottom: 4px;
 	}
 
+	@media (min-width: 768px) {
+		.level-name {
+			font-size: 32px;
+		}
+	}
+
 	.level-tagline {
-		font-size: 18px;
+		font-size: 14px;
 		color: var(--level-color);
 		font-weight: 600;
 	}
 
+	@media (min-width: 768px) {
+		.level-tagline {
+			font-size: 18px;
+		}
+	}
+
 	.level-description {
-		font-size: 18px;
+		font-size: 14px;
 		line-height: 1.6;
 		color: var(--color-text-secondary, #888888);
-		margin-bottom: 32px;
+		margin-bottom: 20px;
+	}
+
+	@media (min-width: 768px) {
+		.level-description {
+			font-size: 18px;
+			margin-bottom: 32px;
+		}
 	}
 
 	/* Privacy Grid */
@@ -1151,7 +1224,7 @@
 	}
 
 	.level-5-number::after {
-		content: '✗';
+		content: '×';
 		position: absolute;
 		top: 50%;
 		left: 50%;

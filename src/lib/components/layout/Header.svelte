@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { ShieldCheck, Search, User } from 'lucide-svelte';
+	import { ShieldCheck, Search } from 'lucide-svelte';
 	import SearchModal from '$lib/components/search/SearchModal.svelte';
 	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
+	import AuthButton from '$lib/components/auth/AuthButton.svelte';
 
 	let isScrolled = false;
 	let showSearchModal = false;
@@ -72,10 +73,8 @@
 					<Search class="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
 				</button>
 				
-				<!-- Account Button - Always visible -->
-				<a href="/account" class="icon-btn flex-shrink-0" aria-label="Account">
-					<User class="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-				</a>
+				<!-- Auth Button - Sovereign Identity -->
+				<AuthButton />
 			</div>
 		</div>
 	</div>

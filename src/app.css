@@ -1,10 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
-
 @layer base {
+	/* ========================================
+	   MODERN THEME (Default) - CSS Variables
+	   ======================================== */
+	:root {
+		--color-primary: #00d4ff;
+		--color-primary-dark: #00b8d9;
+		--color-background: #0a0a0a;
+		--color-surface: #111111;
+		--color-glass: rgba(255, 255, 255, 0.05);
+		--color-text-primary: #ffffff;
+		--color-text-secondary: rgba(255, 255, 255, 0.7);
+		--color-text-tertiary: rgba(255, 255, 255, 0.4);
+		--color-border: rgba(255, 255, 255, 0.1);
+		--color-border-hover: rgba(255, 255, 255, 0.2);
+	}
+
 	body {
 		@apply bg-black text-white;
 		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
