@@ -165,7 +165,9 @@ function createAuthStore() {
 		/**
 		 * Create proof for server authentication
 		 */
-		async createProof(challenge: AuthChallenge): Promise<ReturnType<typeof createAuthProof> | null> {
+		async createProof(
+			challenge: AuthChallenge
+		): Promise<ReturnType<typeof createAuthProof> | null> {
 			const state = get({ subscribe });
 			if (!state.identity) return null;
 
@@ -238,10 +240,7 @@ function createAuthStore() {
 		/**
 		 * Update privacy level
 		 */
-		async updatePrivacyLevel(
-			newLevel: 0 | 1 | 2 | 3 | 4,
-			passphrase: string
-		): Promise<void> {
+		async updatePrivacyLevel(newLevel: 0 | 1 | 2 | 3 | 4, passphrase: string): Promise<void> {
 			const state = get({ subscribe });
 			const stored = await loadIdentity();
 
@@ -315,4 +314,3 @@ export const authError = derived(auth, ($auth) => $auth.error);
 
 /** Has stored identity? */
 export const hasStoredIdentity = derived(auth, ($auth) => $auth.hasStoredIdentity);
-

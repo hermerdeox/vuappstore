@@ -25,13 +25,16 @@
 			filteredApps = allApps.slice(0, 8); // Show first 8 apps as suggestions
 		} else {
 			const query = searchQuery.toLowerCase();
-			filteredApps = allApps.filter(app => 
-				app.name.toLowerCase().includes(query) ||
-				app.tagline.toLowerCase().includes(query) ||
-				app.description.toLowerCase().includes(query) ||
-				app.category.toLowerCase().includes(query) ||
-				app.techStack.some(tech => tech.toLowerCase().includes(query))
-			).slice(0, 8); // Limit to 8 results
+			filteredApps = allApps
+				.filter(
+					(app) =>
+						app.name.toLowerCase().includes(query) ||
+						app.tagline.toLowerCase().includes(query) ||
+						app.description.toLowerCase().includes(query) ||
+						app.category.toLowerCase().includes(query) ||
+						app.techStack.some((tech) => tech.toLowerCase().includes(query))
+				)
+				.slice(0, 8); // Limit to 8 results
 		}
 		selectedIndex = 0; // Reset selection when results change
 	}
@@ -73,7 +76,16 @@
 </script>
 
 {#if isOpen}
-	<div class="search-modal" transition:fade={{ duration: 200 }} on:click={handleBackdropClick} on:keydown={handleKeydown} role="dialog" aria-modal="true" aria-labelledby="search-title" tabindex="-1">
+	<div
+		class="search-modal"
+		transition:fade={{ duration: 200 }}
+		on:click={handleBackdropClick}
+		on:keydown={handleKeydown}
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="search-title"
+		tabindex="-1"
+	>
 		<div class="modal-content" transition:fly={{ y: -50, duration: 300 }}>
 			<!-- Search Header -->
 			<div class="search-header">
@@ -105,7 +117,7 @@
 									class="app-result"
 									class:selected={index === selectedIndex}
 									on:click={() => navigateToApp(app.id)}
-									on:mouseenter={() => selectedIndex = index}
+									on:mouseenter={() => (selectedIndex = index)}
 								>
 									<div class="app-icon" style="color: {app.color};">{app.icon}</div>
 									<div class="app-info">
@@ -125,14 +137,16 @@
 					</div>
 				{:else if filteredApps.length > 0}
 					<div class="search-results-list">
-						<p class="results-title">{filteredApps.length} result{filteredApps.length !== 1 ? 's' : ''} for "{searchQuery}"</p>
+						<p class="results-title">
+							{filteredApps.length} result{filteredApps.length !== 1 ? 's' : ''} for "{searchQuery}"
+						</p>
 						<div class="results-grid">
 							{#each filteredApps as app, index}
 								<button
 									class="app-result"
 									class:selected={index === selectedIndex}
 									on:click={() => navigateToApp(app.id)}
-									on:mouseenter={() => selectedIndex = index}
+									on:mouseenter={() => (selectedIndex = index)}
 								>
 									<div class="app-icon" style="color: {app.color};">{app.icon}</div>
 									<div class="app-info">
@@ -156,7 +170,12 @@
 							<Search class="w-16 h-16 opacity-50 mx-auto" />
 						</div>
 						<h3>No apps found</h3>
-						<p>Try searching for something else, or <a href="/apps" class="text-primary hover:underline">browse all apps</a></p>
+						<p>
+							Try searching for something else, or <a
+								href="/apps"
+								class="text-primary hover:underline">browse all apps</a
+							>
+						</p>
 					</div>
 				{/if}
 			</div>
@@ -502,4 +521,3 @@
 		}
 	}
 </style>
-

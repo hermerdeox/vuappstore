@@ -1,6 +1,41 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { TrendingUp, Star, Download, Users, MessageSquare, Lightbulb, Trophy, Github, Twitter, DollarSign, ArrowRight, Shield, Zap, Coins, Sparkles, Lock, Globe, Eye, Ghost, LockKeyhole, Mail, StickyNote, Cloud, BarChart3, Calendar, CheckCircle, Wallet, Dumbbell, Monitor, Music, FileText, Flame, Rocket, PlusCircle } from 'lucide-svelte';
+	import {
+		TrendingUp,
+		Star,
+		Download,
+		Users,
+		MessageSquare,
+		Lightbulb,
+		Trophy,
+		Github,
+		Twitter,
+		DollarSign,
+		ArrowRight,
+		Shield,
+		Zap,
+		Coins,
+		Sparkles,
+		Lock,
+		Globe,
+		Eye,
+		Ghost,
+		LockKeyhole,
+		Mail,
+		StickyNote,
+		Cloud,
+		BarChart3,
+		Calendar,
+		CheckCircle,
+		Wallet,
+		Dumbbell,
+		Monitor,
+		Music,
+		FileText,
+		Flame,
+		Rocket,
+		PlusCircle
+	} from 'lucide-svelte';
 
 	// Third-party developer apps (mockup data)
 	const trendingApps = [
@@ -17,7 +52,8 @@
 			reviews: 3421,
 			pricing: { monthly: 2.56 },
 			privacyLevel: 0,
-			description: 'Military-grade encrypted messaging with zero metadata collection. Built by the community, for the community.'
+			description:
+				'Military-grade encrypted messaging with zero metadata collection. Built by the community, for the community.'
 		},
 		{
 			id: 'shieldvpn',
@@ -78,7 +114,7 @@
 			pricing: { monthly: 2.56 },
 			privacyLevel: 0,
 			description: 'End-to-end encrypted email with self-hosted option and PGP support.'
-		},
+		}
 	];
 
 	// Top Rated Community Apps
@@ -154,7 +190,7 @@
 			pricing: { monthly: 2.56 },
 			privacyLevel: 0,
 			description: 'Multi-currency wallet with hardware security key support.'
-		},
+		}
 	];
 
 	// New Releases from different developers
@@ -198,7 +234,7 @@
 			rating: 4.8,
 			pricing: { monthly: 2.56 },
 			tagline: 'Document editor with zero-knowledge sync'
-		},
+		}
 	];
 
 	// Community Bounties
@@ -226,21 +262,42 @@
 			reward: '$4,000',
 			status: 'in_progress',
 			submissions: 12
-		},
+		}
 	];
 
 	// Community Channels
 	const channels = [
-		{ name: 'GitHub', icon: Github, url: 'https://github.com/vuappstore', members: '2.5K', description: 'Open source contributions' },
-		{ name: 'Discord', icon: MessageSquare, url: '#', members: '15K', description: 'Real-time community chat' },
-		{ name: 'X (Twitter)', icon: Twitter, url: '#', members: '8K', description: 'Updates & announcements' },
-		{ name: 'Forum', icon: Users, url: '#', members: '12K', description: 'Community discussions' },
+		{
+			name: 'GitHub',
+			icon: Github,
+			url: 'https://github.com/vuappstore',
+			members: '2.5K',
+			description: 'Open source contributions'
+		},
+		{
+			name: 'Discord',
+			icon: MessageSquare,
+			url: '#',
+			members: '15K',
+			description: 'Real-time community chat'
+		},
+		{
+			name: 'X (Twitter)',
+			icon: Twitter,
+			url: '#',
+			members: '8K',
+			description: 'Updates & announcements'
+		},
+		{ name: 'Forum', icon: Users, url: '#', members: '12K', description: 'Community discussions' }
 	];
 </script>
 
 <svelte:head>
 	<title>VU Store - Privacy-First App Marketplace | VuAppStore</title>
-	<meta name="description" content="Explore the complete VU Store marketplace. Trending apps, top rated, bounties, and community. $2.56 per app with crypto payments." />
+	<meta
+		name="description"
+		content="Explore the complete VU Store marketplace. Trending apps, top rated, bounties, and community. $2.56 per app with crypto payments."
+	/>
 </svelte:head>
 
 <div class="store-page">
@@ -249,72 +306,118 @@
 		<div class="hero-content max-w-5xl mx-auto">
 			<!-- Animated Badge -->
 			<div class="text-center mb-4 md:mb-8">
-				<div class="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-primary/20 to-purple/20 border-2 border-primary/40 rounded-full mb-3 md:mb-4 animate-pulse-slow">
+				<div
+					class="inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-primary/20 to-purple/20 border-2 border-primary/40 rounded-full mb-3 md:mb-4 animate-pulse-slow"
+				>
 					<Sparkles class="w-4 h-4 md:w-5 md:h-5 text-primary" />
-					<span class="text-xs md:text-sm font-black text-primary uppercase tracking-wider">The Privacy Revolution</span>
+					<span class="text-xs md:text-sm font-black text-primary uppercase tracking-wider"
+						>The Privacy Revolution</span
+					>
 					<Sparkles class="w-4 h-4 md:w-5 md:h-5 text-primary" />
 				</div>
 			</div>
 
 			<!-- Hero Title -->
-			<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-center mb-4 md:mb-6 leading-tight">
+			<h1
+				class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-center mb-4 md:mb-6 leading-tight"
+			>
 				<span class="text-gradient block mb-1 md:mb-2">The VU Store</span>
-				<span class="text-text-secondary text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold">Where Privacy Meets Innovation</span>
+				<span
+					class="text-text-secondary text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold"
+					>Where Privacy Meets Innovation</span
+				>
 			</h1>
 
 			<!-- Hero Description -->
-			<p class="text-sm sm:text-base md:text-xl lg:text-2xl text-text-secondary text-center max-w-3xl mx-auto mb-6 md:mb-8 lg:mb-12 leading-relaxed">
-				<strong class="text-primary">500+ privacy-first apps</strong> from <strong class="text-success">independent developers worldwide</strong>.  
-				All at <strong class="text-primary">$2.56/month</strong>. Pay with <strong class="text-info">crypto</strong>. <strong class="text-success">Zero tracking</strong>.
+			<p
+				class="text-sm sm:text-base md:text-xl lg:text-2xl text-text-secondary text-center max-w-3xl mx-auto mb-6 md:mb-8 lg:mb-12 leading-relaxed"
+			>
+				<strong class="text-primary">500+ privacy-first apps</strong> from
+				<strong class="text-success">independent developers worldwide</strong>. All at
+				<strong class="text-primary">$2.56/month</strong>. Pay with
+				<strong class="text-info">crypto</strong>.
+				<strong class="text-success">Zero tracking</strong>.
 			</p>
 
 			<!-- Hero Stats Grid -->
 			<div class="hero-stats grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-6 md:mb-8 lg:mb-12">
-				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-primary/20 hover:border-primary/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+				<div
+					class="stat-card glass-card p-3 md:p-6 text-center border-2 border-primary/20 hover:border-primary/40 transition-all hover:-translate-y-1"
+				>
+					<div
+						class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center"
+					>
 						<Shield class="w-6 h-6 md:w-10 md:h-10 text-primary" />
 					</div>
 					<div class="text-2xl md:text-4xl font-black text-primary mb-0.5 md:mb-1">500+</div>
-					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Privacy Apps</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">
+						Privacy Apps
+					</div>
 				</div>
-				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-success/20 hover:border-success/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+				<div
+					class="stat-card glass-card p-3 md:p-6 text-center border-2 border-success/20 hover:border-success/40 transition-all hover:-translate-y-1"
+				>
+					<div
+						class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center"
+					>
 						<DollarSign class="w-6 h-6 md:w-10 md:h-10 text-success" />
 					</div>
 					<div class="text-2xl md:text-4xl font-black text-success mb-0.5 md:mb-1">$2.56</div>
-					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Per App/Month</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">
+						Per App/Month
+					</div>
 				</div>
-				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-info/20 hover:border-info/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+				<div
+					class="stat-card glass-card p-3 md:p-6 text-center border-2 border-info/20 hover:border-info/40 transition-all hover:-translate-y-1"
+				>
+					<div
+						class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center"
+					>
 						<Rocket class="w-6 h-6 md:w-10 md:h-10 text-info" />
 					</div>
 					<div class="text-2xl md:text-4xl font-black text-info mb-0.5 md:mb-1">1.2M</div>
-					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Total Downloads</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">
+						Total Downloads
+					</div>
 				</div>
-				<div class="stat-card glass-card p-3 md:p-6 text-center border-2 border-warning/20 hover:border-warning/40 transition-all hover:-translate-y-1">
-					<div class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center">
+				<div
+					class="stat-card glass-card p-3 md:p-6 text-center border-2 border-warning/20 hover:border-warning/40 transition-all hover:-translate-y-1"
+				>
+					<div
+						class="stat-icon w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 flex items-center justify-center"
+					>
 						<Users class="w-6 h-6 md:w-10 md:h-10 text-warning" />
 					</div>
 					<div class="text-2xl md:text-4xl font-black text-warning mb-0.5 md:mb-1">50K+</div>
-					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">Developers</div>
+					<div class="text-[10px] md:text-xs text-text-secondary uppercase tracking-wide">
+						Developers
+					</div>
 				</div>
 			</div>
 
 			<!-- Hero CTAs -->
 			<div class="flex justify-center gap-3 md:gap-6 flex-wrap mb-6 md:mb-8 lg:mb-12">
-				<a href="/apps" class="btn btn-primary text-sm md:text-lg px-4 py-3 md:px-10 md:py-5 shadow-lg hover:shadow-xl">
+				<a
+					href="/apps"
+					class="btn btn-primary text-sm md:text-lg px-4 py-3 md:px-10 md:py-5 shadow-lg hover:shadow-xl"
+				>
 					<Shield class="w-4 h-4 md:w-6 md:h-6" />
 					Browse All Apps
 					<ArrowRight class="w-4 h-4 md:w-6 md:h-6" />
 				</a>
-				<a href="/developers/contribute" class="btn btn-secondary text-sm md:text-lg px-4 py-3 md:px-10 md:py-5">
+				<a
+					href="/developers/contribute"
+					class="btn btn-secondary text-sm md:text-lg px-4 py-3 md:px-10 md:py-5"
+				>
 					<Lightbulb class="w-4 h-4 md:w-6 md:h-6" />
 					Submit Your App
 				</a>
 			</div>
 
 			<!-- Trust Badges -->
-			<div class="trust-badges flex justify-center gap-4 md:gap-8 flex-wrap text-xs md:text-sm text-text-tertiary">
+			<div
+				class="trust-badges flex justify-center gap-4 md:gap-8 flex-wrap text-xs md:text-sm text-text-tertiary"
+			>
 				<div class="flex items-center gap-2">
 					<Lock class="w-4 h-4 text-success" />
 					<span>Zero Tracking</span>
@@ -339,13 +442,17 @@
 	<section class="vutoken-banner container mb-8 md:mb-16 relative z-10 px-4">
 		<div class="glass-card p-4 md:p-8 lg:p-12 relative overflow-hidden border-2 border-warning/30">
 			<!-- Background Gradient -->
-			<div class="absolute inset-0 bg-gradient-to-r from-warning/10 via-primary/10 to-success/10 pointer-events-none"></div>
-			
+			<div
+				class="absolute inset-0 bg-gradient-to-r from-warning/10 via-primary/10 to-success/10 pointer-events-none"
+			></div>
+
 			<div class="relative z-10">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
 					<!-- VuToken Icon -->
 					<div class="text-center lg:text-left">
-						<div class="inline-flex items-center justify-center w-24 h-24 bg-warning/20 border-4 border-warning rounded-full mb-4">
+						<div
+							class="inline-flex items-center justify-center w-24 h-24 bg-warning/20 border-4 border-warning rounded-full mb-4"
+						>
 							<Coins class="w-12 h-12 text-warning" />
 						</div>
 						<h3 class="text-2xl font-black text-warning uppercase">VuToken</h3>
@@ -355,9 +462,13 @@
 					<!-- VuToken Info -->
 					<div class="lg:col-span-2">
 						<div class="mb-6">
-							<div class="inline-flex items-center gap-2 px-4 py-2 bg-warning/20 border border-warning/40 rounded-full mb-3">
+							<div
+								class="inline-flex items-center gap-2 px-4 py-2 bg-warning/20 border border-warning/40 rounded-full mb-3"
+							>
 								<Sparkles class="w-4 h-4 text-warning" />
-								<span class="text-xs font-bold text-warning uppercase tracking-wide">Coming Q1 2026</span>
+								<span class="text-xs font-bold text-warning uppercase tracking-wide"
+									>Coming Q1 2026</span
+								>
 							</div>
 							<h2 class="text-3xl md:text-4xl font-black mb-4">
 								Earn VuTokens for Supporting Privacy
@@ -384,11 +495,15 @@
 								</li>
 							</ul>
 							<p class="text-sm text-text-tertiary italic flex items-start gap-2">
-								<Lightbulb class="w-4 h-4 flex-shrink-0 mt-0.5" /> VuToken: Privacy-preserving blockchain rewards. Trade tokens for subscriptions, discounts, or cash out anonymously.
+								<Lightbulb class="w-4 h-4 flex-shrink-0 mt-0.5" /> VuToken: Privacy-preserving blockchain
+								rewards. Trade tokens for subscriptions, discounts, or cash out anonymously.
 							</p>
 						</div>
-						
-						<a href="/vutoken" class="btn bg-warning text-background hover:bg-warning/80 inline-flex items-center gap-2 font-bold">
+
+						<a
+							href="/vutoken"
+							class="btn bg-warning text-background hover:bg-warning/80 inline-flex items-center gap-2 font-bold"
+						>
 							<Coins class="w-5 h-5" />
 							Learn About VuToken
 							<ArrowRight class="w-5 h-5" />
@@ -403,7 +518,9 @@
 	<section class="trending-section container mb-16 relative z-10">
 		<div class="section-header flex items-center justify-between mb-8">
 			<div>
-				<h2 class="text-3xl font-bold mb-2 flex items-center gap-2"><Flame class="w-8 h-8 text-warning" /> Trending This Week</h2>
+				<h2 class="text-3xl font-bold mb-2 flex items-center gap-2">
+					<Flame class="w-8 h-8 text-warning" /> Trending This Week
+				</h2>
 				<p class="text-text-secondary">Most downloaded privacy apps in the last 7 days</p>
 			</div>
 			<a href="/apps" class="text-primary font-semibold hover:underline">View All →</a>
@@ -411,15 +528,27 @@
 
 		<div class="trending-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			{#each trendingApps as app, index}
-				<a href="/apps/{app.id}" class="trending-card glass-card p-6 hover:border-primary/30 transition-all relative">
+				<a
+					href="/apps/{app.id}"
+					class="trending-card glass-card p-6 hover:border-primary/30 transition-all relative"
+				>
 					<!-- Rank Badge -->
-					<div class="rank-badge absolute top-4 left-4 w-10 h-10 bg-primary/20 border-2 border-primary rounded-full flex items-center justify-center font-black text-primary">
+					<div
+						class="rank-badge absolute top-4 left-4 w-10 h-10 bg-primary/20 border-2 border-primary rounded-full flex items-center justify-center font-black text-primary"
+					>
 						#{index + 1}
 					</div>
 
 					<div class="flex items-start gap-4 mt-8">
-						<div class="app-icon w-16 h-16 rounded-2xl flex items-center justify-center" style="background: {app.color}20;">
-							<svelte:component this={app.iconComponent} class="w-8 h-8" style="color: {app.color};" />
+						<div
+							class="app-icon w-16 h-16 rounded-2xl flex items-center justify-center"
+							style="background: {app.color}20;"
+						>
+							<svelte:component
+								this={app.iconComponent}
+								class="w-8 h-8"
+								style="color: {app.color};"
+							/>
 						</div>
 						<div class="flex-1">
 							<div class="flex items-center gap-2 mb-1">
@@ -427,7 +556,7 @@
 								<span class="text-xs text-primary font-mono">{app.developer}</span>
 							</div>
 							<p class="text-sm text-text-secondary mb-3">{app.tagline}</p>
-							
+
 							<div class="stats flex items-center gap-4 text-xs text-text-tertiary mb-3">
 								<span class="flex items-center gap-1">
 									<Download class="w-3 h-3" />
@@ -448,7 +577,9 @@
 
 							<div class="flex items-center justify-between">
 								<span class="text-lg font-bold text-primary">${app.pricing.monthly}/mo</span>
-								<span class="text-xs text-text-tertiary">{app.reviews.toLocaleString()} reviews</span>
+								<span class="text-xs text-text-tertiary"
+									>{app.reviews.toLocaleString()} reviews</span
+								>
 							</div>
 						</div>
 					</div>
@@ -461,17 +592,29 @@
 	<section class="top-rated-section container mb-16 relative z-10">
 		<div class="section-header flex items-center justify-between mb-8">
 			<div>
-				<h2 class="text-3xl font-bold mb-2 flex items-center gap-2"><Star class="w-8 h-8 text-primary fill-primary" /> Top Rated Apps</h2>
+				<h2 class="text-3xl font-bold mb-2 flex items-center gap-2">
+					<Star class="w-8 h-8 text-primary fill-primary" /> Top Rated Apps
+				</h2>
 				<p class="text-text-secondary">Highest rated by our privacy-conscious community</p>
 			</div>
 		</div>
 
 		<div class="top-rated-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			{#each topRatedApps as app}
-				<a href="/apps/{app.id}" class="top-rated-card glass-card p-6 hover:border-primary/30 transition-all">
+				<a
+					href="/apps/{app.id}"
+					class="top-rated-card glass-card p-6 hover:border-primary/30 transition-all"
+				>
 					<div class="flex items-center gap-4 mb-4">
-						<div class="app-icon w-14 h-14 rounded-xl flex items-center justify-center" style="background: {app.color}20;">
-							<svelte:component this={app.iconComponent} class="w-7 h-7" style="color: {app.color};" />
+						<div
+							class="app-icon w-14 h-14 rounded-xl flex items-center justify-center"
+							style="background: {app.color}20;"
+						>
+							<svelte:component
+								this={app.iconComponent}
+								class="w-7 h-7"
+								style="color: {app.color};"
+							/>
 						</div>
 						<div class="flex-1">
 							<h3 class="font-bold mb-1">{app.name}</h3>
@@ -479,7 +622,11 @@
 							<div class="flex items-center gap-2">
 								<div class="flex items-center gap-1">
 									{#each Array(5) as _, i}
-										<Star class="w-4 h-4 {i < Math.floor(app.rating) ? 'fill-primary text-primary' : 'text-text-tertiary'}" />
+										<Star
+											class="w-4 h-4 {i < Math.floor(app.rating)
+												? 'fill-primary text-primary'
+												: 'text-text-tertiary'}"
+										/>
 									{/each}
 								</div>
 								<span class="text-sm font-bold text-primary">{app.rating}</span>
@@ -502,15 +649,27 @@
 	<!-- New Releases -->
 	<section class="new-releases container mb-16 relative z-10">
 		<div class="section-header mb-8">
-			<h2 class="text-3xl font-bold mb-2 flex items-center gap-2"><PlusCircle class="w-8 h-8 text-success" /> New Releases</h2>
+			<h2 class="text-3xl font-bold mb-2 flex items-center gap-2">
+				<PlusCircle class="w-8 h-8 text-success" /> New Releases
+			</h2>
 			<p class="text-text-secondary">Latest additions to the VU Suite</p>
 		</div>
 
 		<div class="new-releases-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			{#each newReleases as app}
-				<a href="/apps/{app.id}" class="new-release-card glass-card p-6 hover:border-primary/30 transition-all text-center">
-					<div class="app-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4" style="background: {app.color}20;">
-						<svelte:component this={app.iconComponent} class="w-10 h-10" style="color: {app.color};" />
+				<a
+					href="/apps/{app.id}"
+					class="new-release-card glass-card p-6 hover:border-primary/30 transition-all text-center"
+				>
+					<div
+						class="app-icon w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4"
+						style="background: {app.color}20;"
+					>
+						<svelte:component
+							this={app.iconComponent}
+							class="w-10 h-10"
+							style="color: {app.color};"
+						/>
 					</div>
 					<h3 class="font-bold mb-2">{app.name}</h3>
 					<p class="text-xs text-text-secondary mb-3 line-clamp-2">{app.tagline}</p>
@@ -528,31 +687,44 @@
 	<section class="bounties-section container mb-16 relative z-10">
 		<div class="glass-card p-12">
 			<div class="text-center mb-12">
-				<div class="inline-flex items-center gap-2 px-4 py-2 bg-success/20 border border-success/40 rounded-full mb-4">
+				<div
+					class="inline-flex items-center gap-2 px-4 py-2 bg-success/20 border border-success/40 rounded-full mb-4"
+				>
 					<Trophy class="w-4 h-4 text-success" />
-					<span class="text-xs font-bold text-success uppercase tracking-wide">Community Bounties</span>
+					<span class="text-xs font-bold text-success uppercase tracking-wide"
+						>Community Bounties</span
+					>
 				</div>
 				<h2 class="text-3xl md:text-4xl font-bold mb-4">Build Apps, Earn Rewards</h2>
 				<p class="text-lg text-text-secondary max-w-2xl mx-auto">
-					Have an idea for a privacy-first app? Build it and earn rewards. The VU community funds development of privacy-focused applications.
+					Have an idea for a privacy-first app? Build it and earn rewards. The VU community funds
+					development of privacy-focused applications.
 				</p>
 			</div>
 
 			<div class="bounties-grid grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
 				{#each bounties as bounty}
-					<div class="bounty-card glass-card p-6 border-l-4 {bounty.status === 'open' ? 'border-success' : 'border-warning'}">
+					<div
+						class="bounty-card glass-card p-6 border-l-4 {bounty.status === 'open'
+							? 'border-success'
+							: 'border-warning'}"
+					>
 						<div class="flex items-start justify-between mb-4">
 							<div class="bounty-reward text-2xl font-black text-primary">
 								{bounty.reward}
 							</div>
-							<span class="px-3 py-1 {bounty.status === 'open' ? 'bg-success/20 text-success' : 'bg-warning/20 text-warning'} rounded-full text-xs font-bold uppercase">
+							<span
+								class="px-3 py-1 {bounty.status === 'open'
+									? 'bg-success/20 text-success'
+									: 'bg-warning/20 text-warning'} rounded-full text-xs font-bold uppercase"
+							>
 								{bounty.status === 'open' ? 'Open' : 'In Progress'}
 							</span>
 						</div>
-						
+
 						<h3 class="font-bold text-lg mb-2">{bounty.title}</h3>
 						<p class="text-sm text-text-secondary mb-4 leading-relaxed">{bounty.description}</p>
-						
+
 						<div class="flex items-center justify-between text-xs text-text-tertiary">
 							<span class="flex items-center gap-1">
 								<Users class="w-4 h-4" />
@@ -579,17 +751,15 @@
 		<div class="glass-card p-8 md:p-12 text-center border-2 border-primary/30">
 			<h2 class="text-2xl md:text-3xl font-bold mb-4">Have an App Idea?</h2>
 			<p class="text-lg text-text-secondary max-w-2xl mx-auto mb-6">
-				The VU community decides what gets built next. Submit your privacy-first app idea, 
-				vote on others, and help shape the future of private computing.
+				The VU community decides what gets built next. Submit your privacy-first app idea, vote on
+				others, and help shape the future of private computing.
 			</p>
 			<div class="flex justify-center gap-4 flex-wrap">
 				<a href="/developers/contribute" class="btn btn-primary">
 					<Lightbulb class="w-5 h-5" />
 					Submit App Idea
 				</a>
-				<a href="/developers" class="btn btn-secondary">
-					Browse Submitted Ideas
-				</a>
+				<a href="/developers" class="btn btn-secondary"> Browse Submitted Ideas </a>
 			</div>
 		</div>
 	</section>
@@ -597,21 +767,31 @@
 	<!-- Community Channels -->
 	<section class="community-section container mb-16 relative z-10">
 		<div class="text-center mb-12">
-			<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full mb-4">
+			<div
+				class="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/40 rounded-full mb-4"
+			>
 				<Users class="w-4 h-4 text-primary" />
-				<span class="text-xs font-bold text-primary uppercase tracking-wide">Join The Movement</span>
+				<span class="text-xs font-bold text-primary uppercase tracking-wide">Join The Movement</span
+				>
 			</div>
 			<h2 class="text-3xl md:text-4xl font-bold mb-4">Community Channels</h2>
 			<p class="text-lg text-text-secondary max-w-2xl mx-auto">
-				Connect with privacy advocates, developers, and VU enthusiasts worldwide. 
-				All channels respect your privacy - no tracking, no data mining.
+				Connect with privacy advocates, developers, and VU enthusiasts worldwide. All channels
+				respect your privacy - no tracking, no data mining.
 			</p>
 		</div>
 
 		<div class="channels-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			{#each channels as channel}
-				<a href={channel.url} target="_blank" rel="noopener noreferrer" class="channel-card glass-card p-6 hover:border-primary/30 transition-all text-center">
-					<div class="channel-icon w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+				<a
+					href={channel.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="channel-card glass-card p-6 hover:border-primary/30 transition-all text-center"
+				>
+					<div
+						class="channel-icon w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4"
+					>
 						<svelte:component this={channel.icon} class="w-8 h-8 text-primary" />
 					</div>
 					<h3 class="font-bold text-lg mb-1">{channel.name}</h3>
@@ -643,10 +823,13 @@
 				<DollarSign class="w-12 h-12 text-success mb-4" />
 				<h3 class="text-2xl font-bold mb-3">Earn from Bounties</h3>
 				<p class="text-text-secondary mb-6">
-					Build privacy-first apps and earn up to $5,000 per bounty. 
-					Open to all developers worldwide.
+					Build privacy-first apps and earn up to $5,000 per bounty. Open to all developers
+					worldwide.
 				</p>
-				<a href="/developers/contribute" class="text-primary font-semibold hover:underline flex items-center gap-2">
+				<a
+					href="/developers/contribute"
+					class="text-primary font-semibold hover:underline flex items-center gap-2"
+				>
 					View All Bounties
 					<ArrowRight class="w-4 h-4" />
 				</a>
@@ -656,10 +839,13 @@
 				<Lightbulb class="w-12 h-12 text-primary mb-4" />
 				<h3 class="text-2xl font-bold mb-3">Submit Your Idea</h3>
 				<p class="text-text-secondary mb-6">
-					Got a privacy app concept? Share it with the community. 
-					Top-voted ideas get funded and built.
+					Got a privacy app concept? Share it with the community. Top-voted ideas get funded and
+					built.
 				</p>
-				<a href="/developers/contribute" class="text-primary font-semibold hover:underline flex items-center gap-2">
+				<a
+					href="/developers/contribute"
+					class="text-primary font-semibold hover:underline flex items-center gap-2"
+				>
 					Submit Idea
 					<ArrowRight class="w-4 h-4" />
 				</a>
@@ -682,8 +868,13 @@
 	}
 
 	@keyframes pulse {
-		0%, 100% { transform: scale(1); }
-		50% { transform: scale(1.05); }
+		0%,
+		100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.05);
+		}
 	}
 
 	.line-clamp-2 {
@@ -698,7 +889,7 @@
 		animation: none;
 		border-radius: 0px;
 		border: 3px solid #000000;
-		background: #FFFF00;
+		background: #ffff00;
 		color: #000000;
 	}
 
@@ -712,4 +903,3 @@
 		border: 3px solid #000000;
 	}
 </style>
-

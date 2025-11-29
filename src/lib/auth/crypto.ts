@@ -1,6 +1,6 @@
 /**
  * VU Cryptographic Primitives
- * 
+ *
  * All cryptographic operations for the Sovereign Identity system.
  * Uses Web Crypto API for maximum security and browser compatibility.
  */
@@ -67,13 +67,9 @@ export async function exportPublicKey(key: CryptoKey): Promise<string> {
  */
 export async function importPublicKey(base64Key: string): Promise<CryptoKey> {
 	const keyData = base64ToArrayBuffer(base64Key);
-	return crypto.subtle.importKey(
-		'spki',
-		keyData,
-		CRYPTO_CONFIG.SIGNING_ALGORITHM,
-		true,
-		['verify']
-	);
+	return crypto.subtle.importKey('spki', keyData, CRYPTO_CONFIG.SIGNING_ALGORITHM, true, [
+		'verify'
+	]);
 }
 
 /**
@@ -107,10 +103,7 @@ export async function importPrivateKey(base64Key: string): Promise<CryptoKey> {
  * Format: VU-XXXX-XXXX-XXXX
  */
 export async function generateFingerprint(publicKeyBase64: string): Promise<string> {
-	const hash = await crypto.subtle.digest(
-		'SHA-256',
-		new TextEncoder().encode(publicKeyBase64)
-	);
+	const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(publicKeyBase64));
 
 	const bytes = new Uint8Array(hash).slice(0, 6);
 	const hex = Array.from(bytes)
@@ -331,4 +324,3 @@ export function validatePassphrase(passphrase: string): {
 export function generateSalt(): Uint8Array {
 	return crypto.getRandomValues(new Uint8Array(32));
 }
-

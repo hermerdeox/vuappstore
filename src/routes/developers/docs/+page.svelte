@@ -16,77 +16,85 @@
 
 	const docSections: DocSection[] = [
 		{
-			title: "Getting Started",
+			title: 'Getting Started',
 			icon: Zap,
-			description: "Quick start guides and basic concepts",
+			description: 'Quick start guides and basic concepts',
 			links: [
-				{ title: "API Overview", href: "/developers/api" },
-				{ title: "Authentication", href: "/developers/docs/auth" },
-				{ title: "Rate Limits", href: "/developers/docs/rate-limits" },
-				{ title: "Error Handling", href: "/developers/docs/errors" }
+				{ title: 'API Overview', href: '/developers/api' },
+				{ title: 'Authentication', href: '/developers/docs/auth' },
+				{ title: 'Rate Limits', href: '/developers/docs/rate-limits' },
+				{ title: 'Error Handling', href: '/developers/docs/errors' }
 			]
 		},
 		{
-			title: "API Reference",
+			title: 'API Reference',
 			icon: Code,
-			description: "Complete API endpoint documentation",
+			description: 'Complete API endpoint documentation',
 			links: [
-				{ title: "Apps API", href: "/developers/docs/apps-api" },
-				{ title: "Users API", href: "/developers/docs/users-api" },
-				{ title: "Subscriptions API", href: "/developers/docs/subscriptions-api" },
-				{ title: "Downloads API", href: "/developers/docs/downloads-api" }
+				{ title: 'Apps API', href: '/developers/docs/apps-api' },
+				{ title: 'Users API', href: '/developers/docs/users-api' },
+				{ title: 'Subscriptions API', href: '/developers/docs/subscriptions-api' },
+				{ title: 'Downloads API', href: '/developers/docs/downloads-api' }
 			]
 		},
 		{
-			title: "SDKs & Libraries",
+			title: 'SDKs & Libraries',
 			icon: Download,
-			description: "Official SDKs and community libraries",
+			description: 'Official SDKs and community libraries',
 			links: [
-				{ title: "JavaScript/TypeScript SDK", href: "/developers/docs/javascript" },
-				{ title: "Python SDK", href: "/developers/docs/python" },
-				{ title: "Go SDK", href: "/developers/docs/go" },
-				{ title: "Community Libraries", href: "/developers/docs/community" }
+				{ title: 'JavaScript/TypeScript SDK', href: '/developers/docs/javascript' },
+				{ title: 'Python SDK', href: '/developers/docs/python' },
+				{ title: 'Go SDK', href: '/developers/docs/go' },
+				{ title: 'Community Libraries', href: '/developers/docs/community' }
 			]
 		},
 		{
-			title: "Privacy & Security",
+			title: 'Privacy & Security',
 			icon: Shield,
-			description: "Privacy-first development guidelines",
+			description: 'Privacy-first development guidelines',
 			links: [
-				{ title: "Privacy by Design", href: "/developers/docs/privacy-design" },
-				{ title: "Zero-Knowledge Architecture", href: "/developers/docs/zero-knowledge" },
-				{ title: "Encryption Standards", href: "/developers/docs/encryption" },
-				{ title: "Security Best Practices", href: "/developers/docs/security" }
+				{ title: 'Privacy by Design', href: '/developers/docs/privacy-design' },
+				{ title: 'Zero-Knowledge Architecture', href: '/developers/docs/zero-knowledge' },
+				{ title: 'Encryption Standards', href: '/developers/docs/encryption' },
+				{ title: 'Security Best Practices', href: '/developers/docs/security' }
 			]
 		},
 		{
-			title: "Integration Guides",
+			title: 'Integration Guides',
 			icon: GitBranch,
-			description: "Step-by-step integration tutorials",
+			description: 'Step-by-step integration tutorials',
 			links: [
-				{ title: "Web App Integration", href: "/developers/docs/web-integration" },
-				{ title: "Mobile App Integration", href: "/developers/docs/mobile-integration" },
-				{ title: "Server-to-Server", href: "/developers/docs/server-integration" },
-				{ title: "Webhook Setup", href: "/developers/docs/webhooks" }
+				{ title: 'Web App Integration', href: '/developers/docs/web-integration' },
+				{ title: 'Mobile App Integration', href: '/developers/docs/mobile-integration' },
+				{ title: 'Server-to-Server', href: '/developers/docs/server-integration' },
+				{ title: 'Webhook Setup', href: '/developers/docs/webhooks' }
 			]
 		},
 		{
-			title: "Community",
+			title: 'Community',
 			icon: Users,
-			description: "Connect with other developers",
+			description: 'Connect with other developers',
 			links: [
-				{ title: "Developer Forum", href: "https://forum.vuappstore.com", external: true },
-				{ title: "GitHub Discussions", href: "https://github.com/vuappstore/discussions", external: true },
-				{ title: "Discord Community", href: "https://discord.gg/vuappstore", external: true },
-				{ title: "Stack Overflow", href: "https://stackoverflow.com/questions/tagged/vuappstore", external: true }
+				{ title: 'Developer Forum', href: 'https://forum.vuappstore.com', external: true },
+				{
+					title: 'GitHub Discussions',
+					href: 'https://github.com/vuappstore/discussions',
+					external: true
+				},
+				{ title: 'Discord Community', href: 'https://discord.gg/vuappstore', external: true },
+				{
+					title: 'Stack Overflow',
+					href: 'https://stackoverflow.com/questions/tagged/vuappstore',
+					external: true
+				}
 			]
 		}
 	];
 
 	const codeExamples = [
 		{
-			title: "Fetch All Apps",
-			language: "javascript",
+			title: 'Fetch All Apps',
+			language: 'javascript',
 			code: `import { VuAppStore } from '@vuappstore/sdk';
 
 const client = new VuAppStore({
@@ -101,8 +109,8 @@ const apps = await client.apps.list({
 console.log(apps);`
 		},
 		{
-			title: "Check Subscription",
-			language: "python",
+			title: 'Check Subscription',
+			language: 'python',
 			code: `from vuappstore import VuAppStore
 
 client = VuAppStore(api_key='your_api_key_here')
@@ -117,8 +125,8 @@ if subscription.is_active:
     print(f"Apps: {len(subscription.apps)}")`
 		},
 		{
-			title: "Generate Download Link",
-			language: "go",
+			title: 'Generate Download Link',
+			language: 'go',
 			code: `package main
 
 import (
@@ -147,23 +155,30 @@ func main() {
 
 <svelte:head>
 	<title>Technical Documentation - VuAppStore Developers</title>
-	<meta name="description" content="Complete technical documentation for VuAppStore API, SDKs, and privacy-first development practices." />
+	<meta
+		name="description"
+		content="Complete technical documentation for VuAppStore API, SDKs, and privacy-first development practices."
+	/>
 </svelte:head>
 
 <div class="container py-16">
 	<div class="max-w-6xl mx-auto">
 		<!-- Header -->
 		<div class="text-center mb-16">
-			<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
+			<div
+				class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6"
+			>
 				<Book class="w-4 h-4 text-primary" />
-				<span class="text-xs font-semibold text-primary uppercase tracking-wide">Technical Documentation</span>
+				<span class="text-xs font-semibold text-primary uppercase tracking-wide"
+					>Technical Documentation</span
+				>
 			</div>
 			<h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 text-gradient">
 				Developer Documentation
 			</h1>
 			<p class="text-xl text-text-secondary leading-relaxed max-w-3xl mx-auto">
-				Everything you need to build privacy-first applications with VuAppStore. 
-				From quick start guides to advanced privacy engineering concepts.
+				Everything you need to build privacy-first applications with VuAppStore. From quick start
+				guides to advanced privacy engineering concepts.
 			</p>
 		</div>
 
@@ -181,11 +196,11 @@ func main() {
 					<ul class="space-y-2">
 						{#each section.links as link}
 							<li>
-								<a 
-									href={link.href} 
+								<a
+									href={link.href}
 									class="text-sm text-primary hover:text-primary-dark transition-colors flex items-center gap-2"
-									target={link.external ? "_blank" : undefined}
-									rel={link.external ? "noopener noreferrer" : undefined}
+									target={link.external ? '_blank' : undefined}
+									rel={link.external ? 'noopener noreferrer' : undefined}
 								>
 									{link.title}
 									{#if link.external}
@@ -217,15 +232,18 @@ func main() {
 		<!-- Privacy-First Development -->
 		<div class="glass-card p-8 md:p-12 mb-16">
 			<div class="text-center mb-8">
-				<div class="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
+				<div
+					class="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4"
+				>
 					<Shield class="w-8 h-8 text-success" />
 				</div>
 				<h2 class="text-3xl font-bold mb-4">Privacy-First Development</h2>
 				<p class="text-text-secondary max-w-2xl mx-auto">
-					Learn how to build applications that respect user privacy by design, not as an afterthought.
+					Learn how to build applications that respect user privacy by design, not as an
+					afterthought.
 				</p>
 			</div>
-			
+
 			<div class="grid md:grid-cols-2 gap-8">
 				<div>
 					<h3 class="text-xl font-bold mb-4">Core Principles</h3>
@@ -257,7 +275,9 @@ func main() {
 						</li>
 						<li class="flex items-start gap-3">
 							<div class="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
-							<span><strong>Zero-Knowledge Architecture:</strong> Server cannot access user data</span>
+							<span
+								><strong>Zero-Knowledge Architecture:</strong> Server cannot access user data</span
+							>
 						</li>
 						<li class="flex items-start gap-3">
 							<div class="w-2 h-2 bg-success rounded-full mt-2 flex-shrink-0"></div>
@@ -276,18 +296,21 @@ func main() {
 		<div class="text-center">
 			<h2 class="text-3xl font-bold mb-6">Developer Support</h2>
 			<p class="text-text-secondary mb-8 max-w-2xl mx-auto">
-				Our team of privacy engineers and developer advocates is here to help you build 
-				amazing privacy-first applications. Get support, share ideas, and connect with the community.
+				Our team of privacy engineers and developer advocates is here to help you build amazing
+				privacy-first applications. Get support, share ideas, and connect with the community.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="/developers/api" class="btn btn-primary">
 					<Code class="w-4 h-4" />
 					API Reference
 				</a>
-				<a href="/support/contact" class="btn btn-secondary">
-					Technical Support
-				</a>
-				<a href="https://github.com/vuappstore" class="btn btn-secondary" target="_blank" rel="noopener">
+				<a href="/support/contact" class="btn btn-secondary"> Technical Support </a>
+				<a
+					href="https://github.com/vuappstore"
+					class="btn btn-secondary"
+					target="_blank"
+					rel="noopener"
+				>
 					<ExternalLink class="w-4 h-4" />
 					GitHub
 				</a>

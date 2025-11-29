@@ -39,7 +39,6 @@
 				navigator.serviceWorker.addEventListener('message', (event) => {
 					console.log('[PWA] Message from service worker:', event.data);
 				});
-
 			} catch (error) {
 				console.error('[PWA] Service worker registration failed:', error);
 			}
@@ -54,7 +53,7 @@
 			console.log('[PWA] Install prompt available');
 			e.preventDefault();
 			deferredPrompt = e;
-			
+
 			// Could show custom install button here
 			showInstallPromotion();
 		});
@@ -81,7 +80,10 @@
 
 <svelte:head>
 	<title>VuAppStore - Privacy-First App Marketplace</title>
-	<meta name="description" content="Discover 30+ privacy-focused apps that respect your data. No tracking, no surveillance, just powerful software that works for you." />
+	<meta
+		name="description"
+		content="Discover 30+ privacy-focused apps that respect your data. No tracking, no surveillance, just powerful software that works for you."
+	/>
 	<!-- Custom VU Privacy Headers (for documentation) -->
 	<meta name="vu-privacy" content="No-Cookies-Ever" />
 	<meta name="vu-tracking" content="Absolutely-None" />
@@ -128,8 +130,15 @@
 	}
 
 	@keyframes floatLight {
-		0%, 100% { transform: translate(0, 0) scale(1); }
-		33% { transform: translate(100px, 50px) scale(1.1); }
-		66% { transform: translate(-50px, 100px) scale(0.9); }
+		0%,
+		100% {
+			transform: translate(0, 0) scale(1);
+		}
+		33% {
+			transform: translate(100px, 50px) scale(1.1);
+		}
+		66% {
+			transform: translate(-50px, 100px) scale(0.9);
+		}
 	}
 </style>

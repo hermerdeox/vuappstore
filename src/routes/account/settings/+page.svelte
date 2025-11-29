@@ -1,5 +1,23 @@
 <script lang="ts">
-	import { User, CreditCard, Download, Settings, LogOut, Shield, Mail, Lock, Eye, EyeOff, Trash2, AlertTriangle, CheckCircle, Globe, LockKeyhole, Lightbulb, Check } from 'lucide-svelte';
+	import {
+		User,
+		CreditCard,
+		Download,
+		Settings,
+		LogOut,
+		Shield,
+		Mail,
+		Lock,
+		Eye,
+		EyeOff,
+		Trash2,
+		AlertTriangle,
+		CheckCircle,
+		Globe,
+		LockKeyhole,
+		Lightbulb,
+		Check
+	} from 'lucide-svelte';
 
 	// VU Philosophy: No real names, only @usernames and @vumail.app addresses
 	const user = {
@@ -37,7 +55,10 @@
 
 <svelte:head>
 	<title>Settings - My Account | VuAppStore</title>
-	<meta name="description" content="Manage your VuAppStore account settings with complete privacy control. No tracking, no data collection." />
+	<meta
+		name="description"
+		content="Manage your VuAppStore account settings with complete privacy control. No tracking, no data collection."
+	/>
 </svelte:head>
 
 <div class="account-page container py-16 max-w-6xl relative z-10">
@@ -48,9 +69,7 @@
 				← Back to Account
 			</a>
 		</div>
-		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">
-			Account Settings
-		</h1>
+		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">Account Settings</h1>
 		<p class="text-lg text-text-secondary">
 			Your account, your rules. Complete control over your privacy and preferences.
 		</p>
@@ -67,33 +86,51 @@
 					<h2 class="text-xl font-semibold mb-1">{user.username}</h2>
 					<p class="text-sm text-text-secondary mb-2">{user.email}</p>
 					<div class="flex gap-2">
-						<div class="badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full">
+						<div
+							class="badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full"
+						>
 							{user.plan} Plan
 						</div>
-						<div class="badge inline-block px-3 py-1 bg-info/20 text-info text-xs font-bold rounded-full">
+						<div
+							class="badge inline-block px-3 py-1 bg-info/20 text-info text-xs font-bold rounded-full"
+						>
 							Level {user.privacyLevel}
 						</div>
 					</div>
 				</div>
 
 				<nav class="space-y-2">
-					<a href="/account" class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/account"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors"
+					>
 						<User class="w-5 h-5" />
 						<span>Overview</span>
 					</a>
-					<a href="/account/subscriptions" class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/account/subscriptions"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors"
+					>
 						<CreditCard class="w-5 h-5" />
 						<span>Subscription</span>
 					</a>
-					<a href="/account/downloads" class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/account/downloads"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors"
+					>
 						<Download class="w-5 h-5" />
 						<span>Downloads</span>
 					</a>
-					<a href="/account/settings" class="nav-item flex items-center gap-3 p-3 rounded-lg bg-glass-heavy text-primary">
+					<a
+						href="/account/settings"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg bg-glass-heavy text-primary"
+					>
 						<Settings class="w-5 h-5" />
 						<span>Settings</span>
 					</a>
-					<button class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors w-full text-left text-error">
+					<button
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors w-full text-left text-error"
+					>
 						<LogOut class="w-5 h-5" />
 						<span>Sign Out</span>
 					</button>
@@ -106,14 +143,14 @@
 			<!-- Account Information -->
 			<div class="glass-card p-8">
 				<h2 class="text-2xl font-bold mb-6">Account Information</h2>
-				
+
 				<div class="space-y-6">
 					<!-- Username (VU Philosophy: @username, not real name) -->
 					<div>
 						<label class="block text-sm font-semibold mb-2">Username</label>
 						<div class="flex gap-3">
-							<input 
-								type="text" 
+							<input
+								type="text"
 								value={user.username}
 								class="flex-1 px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none"
 								placeholder="@username"
@@ -129,8 +166,8 @@
 					<div>
 						<label class="block text-sm font-semibold mb-2">VuMail Address</label>
 						<div class="flex gap-3">
-							<input 
-								type="email" 
+							<input
+								type="email"
 								value={user.email}
 								class="flex-1 px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none"
 								placeholder="username@vumail.app"
@@ -139,7 +176,8 @@
 							<button class="btn btn-secondary" disabled>Verified</button>
 						</div>
 						<p class="text-xs text-text-tertiary mt-2 flex items-center gap-1">
-							<Check class="w-3 h-3" /> Only @vumail.app addresses allowed for maximum privacy. No external email tracking.
+							<Check class="w-3 h-3" /> Only @vumail.app addresses allowed for maximum privacy. No external
+							email tracking.
 						</p>
 					</div>
 
@@ -148,13 +186,13 @@
 						<label class="block text-sm font-semibold mb-2">Password</label>
 						<div class="flex gap-3">
 							<div class="relative flex-1">
-								<input 
+								<input
 									type={showPassword ? 'text' : 'password'}
 									value="••••••••••••"
 									class="w-full px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none pr-12"
 								/>
-								<button 
-									on:click={() => showPassword = !showPassword}
+								<button
+									on:click={() => (showPassword = !showPassword)}
 									class="absolute right-3 top-1/2 -translate-y-1/2 text-text-secondary hover:text-text-primary"
 								>
 									{#if showPassword}
@@ -167,7 +205,8 @@
 							<button class="btn btn-secondary">Change</button>
 						</div>
 						<p class="text-xs text-text-tertiary mt-2 flex items-center gap-1">
-							<LockKeyhole class="w-3 h-3" /> Your password is hashed with Argon2id and never stored in plain text.
+							<LockKeyhole class="w-3 h-3" /> Your password is hashed with Argon2id and never stored in
+							plain text.
 						</p>
 					</div>
 				</div>
@@ -195,7 +234,9 @@
 						</div>
 						{#if twoFactorEnabled}
 							<div class="mt-4 p-3 bg-success/10 border border-success/30 rounded-lg">
-								<p class="text-sm text-success font-medium flex items-center gap-1"><Check class="w-3 h-3" /> 2FA is enabled</p>
+								<p class="text-sm text-success font-medium flex items-center gap-1">
+									<Check class="w-3 h-3" /> 2FA is enabled
+								</p>
 								<button class="text-xs text-primary hover:underline mt-2">View Backup Codes</button>
 							</div>
 						{:else}
@@ -268,10 +309,14 @@
 					</div>
 
 					<!-- Security Alerts (ON by default - essential) -->
-					<div class="flex items-center justify-between p-4 bg-glass rounded-lg border-l-4 border-success">
+					<div
+						class="flex items-center justify-between p-4 bg-glass rounded-lg border-l-4 border-success"
+					>
 						<div class="flex-1">
 							<p class="font-medium">Security Alerts</p>
-							<p class="text-sm text-text-secondary">Critical security notifications (recommended)</p>
+							<p class="text-sm text-text-secondary">
+								Critical security notifications (recommended)
+							</p>
 						</div>
 						<label class="switch">
 							<input type="checkbox" bind:checked={settings.securityAlerts} />
@@ -283,7 +328,9 @@
 					<div class="flex items-center justify-between p-4 bg-glass rounded-lg">
 						<div class="flex-1">
 							<p class="font-medium">Anonymous Usage Analytics</p>
-							<p class="text-sm text-text-secondary">Help improve VU (100% anonymous, aggregated only)</p>
+							<p class="text-sm text-text-secondary">
+								Help improve VU (100% anonymous, aggregated only)
+							</p>
 						</div>
 						<label class="switch">
 							<input type="checkbox" bind:checked={settings.anonymousAnalytics} />
@@ -295,7 +342,9 @@
 					<div class="flex items-center justify-between p-4 bg-glass rounded-lg">
 						<div class="flex-1">
 							<p class="font-medium">Crash Report Sharing</p>
-							<p class="text-sm text-text-secondary">Share anonymous crash logs to improve stability</p>
+							<p class="text-sm text-text-secondary">
+								Share anonymous crash logs to improve stability
+							</p>
 						</div>
 						<label class="switch">
 							<input type="checkbox" bind:checked={settings.crashReports} />
@@ -317,9 +366,7 @@
 				</div>
 
 				<div class="mt-6">
-					<button on:click={handleSaveSettings} class="btn btn-primary">
-						Save Preferences
-					</button>
+					<button on:click={handleSaveSettings} class="btn btn-primary"> Save Preferences </button>
 				</div>
 			</div>
 
@@ -333,7 +380,9 @@
 				<div class="space-y-4">
 					<div>
 						<label class="block text-sm font-semibold mb-2">Interface Language</label>
-						<select class="language-select w-full px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none">
+						<select
+							class="language-select w-full px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none"
+						>
 							<option value="en">English</option>
 							<option value="es">Español</option>
 							<option value="fr">Français</option>
@@ -342,7 +391,9 @@
 
 					<div>
 						<label class="block text-sm font-semibold mb-2">Timezone</label>
-						<select class="w-full px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none">
+						<select
+							class="w-full px-4 py-3 bg-surface border border-border rounded-lg focus:border-primary focus:outline-none"
+						>
 							<option value="auto">Auto-detect (Privacy-safe)</option>
 							<option value="utc">UTC (Recommended for privacy)</option>
 							<option value="us-eastern">US Eastern</option>
@@ -371,8 +422,8 @@
 							<div class="flex-1">
 								<p class="font-semibold mb-1">Export Your Data</p>
 								<p class="text-sm text-text-secondary">
-									Download all data we have about you (spoiler: it's minimal). 
-									GDPR compliant, delivered in JSON format.
+									Download all data we have about you (spoiler: it's minimal). GDPR compliant,
+									delivered in JSON format.
 								</p>
 							</div>
 						</div>
@@ -442,9 +493,7 @@
 									See exactly what data we collect (spoiler: almost nothing)
 								</p>
 							</div>
-							<a href="/legal/privacy" class="btn btn-secondary text-sm">
-								View Manifest
-							</a>
+							<a href="/legal/privacy" class="btn btn-secondary text-sm"> View Manifest </a>
 						</div>
 					</div>
 				</div>
@@ -463,22 +512,40 @@
 						<div class="mb-4">
 							<p class="font-semibold mb-2">Delete Account</p>
 							<p class="text-sm text-text-secondary leading-relaxed">
-								Permanently delete your VuAppStore account and all associated data. 
-								This action cannot be undone. Your subscription will be cancelled immediately.
+								Permanently delete your VuAppStore account and all associated data. This action
+								cannot be undone. Your subscription will be cancelled immediately.
 							</p>
 						</div>
 						<div class="mb-4 p-3 bg-background/50 rounded border border-error/30">
-							<p class="text-xs font-mono text-text-secondary mb-2">What happens when you delete:</p>
+							<p class="text-xs font-mono text-text-secondary mb-2">
+								What happens when you delete:
+							</p>
 							<ul class="space-y-1 text-xs text-text-secondary">
-								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Your @username becomes available again</li>
-								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Your @vumail.app address is permanently deleted</li>
-								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Subscription cancelled (prorated refund if applicable)</li>
-								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Download access revoked immediately</li>
-								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> All server-side data purged within 24 hours</li>
-								<li class="flex items-start gap-1"><Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Billing records retained for 7 years (legal requirement)</li>
+								<li class="flex items-start gap-1">
+									<Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Your @username becomes available again
+								</li>
+								<li class="flex items-start gap-1">
+									<Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Your @vumail.app address is permanently
+									deleted
+								</li>
+								<li class="flex items-start gap-1">
+									<Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Subscription cancelled (prorated refund
+									if applicable)
+								</li>
+								<li class="flex items-start gap-1">
+									<Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Download access revoked immediately
+								</li>
+								<li class="flex items-start gap-1">
+									<Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> All server-side data purged within 24
+									hours
+								</li>
+								<li class="flex items-start gap-1">
+									<Check class="w-3 h-3 flex-shrink-0 mt-0.5" /> Billing records retained for 7 years
+									(legal requirement)
+								</li>
 							</ul>
 						</div>
-						<button 
+						<button
 							on:click={handleDeleteAccount}
 							class="btn bg-error text-white hover:bg-error/80"
 						>
@@ -491,12 +558,8 @@
 
 			<!-- Save Actions -->
 			<div class="flex gap-4">
-				<button on:click={handleSaveSettings} class="btn btn-primary">
-					Save All Changes
-				</button>
-				<button class="btn btn-secondary">
-					Cancel
-				</button>
+				<button on:click={handleSaveSettings} class="btn btn-primary"> Save All Changes </button>
+				<button class="btn btn-secondary"> Cancel </button>
 			</div>
 		</div>
 	</div>
@@ -545,7 +608,7 @@
 
 	.slider:before {
 		position: absolute;
-		content: "";
+		content: '';
 		height: 18px;
 		width: 18px;
 		left: 3px;
@@ -570,4 +633,3 @@
 		cursor: not-allowed;
 	}
 </style>
-

@@ -1,5 +1,21 @@
 <script lang="ts">
-	import { User, CreditCard, Download, Settings, LogOut, Shield, Calendar, CheckCircle, AlertCircle, ExternalLink, XCircle, Zap, Lightbulb, AlertTriangle, Check } from 'lucide-svelte';
+	import {
+		User,
+		CreditCard,
+		Download,
+		Settings,
+		LogOut,
+		Shield,
+		Calendar,
+		CheckCircle,
+		AlertCircle,
+		ExternalLink,
+		XCircle,
+		Zap,
+		Lightbulb,
+		AlertTriangle,
+		Check
+	} from 'lucide-svelte';
 
 	// VU Philosophy: No real names, only @usernames and @vumail.app addresses
 	const user = {
@@ -33,10 +49,12 @@
 
 		// In production, this would call the account deletion API
 		console.log('Exiting Movement: Immediate account destruction initiated');
-		
+
 		// Simulate API call
 		setTimeout(() => {
-			alert('Account destroyed. Thank you for your time with VU. Your privacy journey continues elsewhere.');
+			alert(
+				'Account destroyed. Thank you for your time with VU. Your privacy journey continues elsewhere.'
+			);
 			// Would redirect to goodbye page or homepage
 			window.location.href = '/';
 		}, 2000);
@@ -47,7 +65,7 @@
 		plan: 'VU Suite Complete',
 		status: 'active',
 		amount: 768, // $76.80/mo × 12 = $921.60, discounted to $768/year
-		amountMonthly: 76.80, // 30 apps × $2.56
+		amountMonthly: 76.8, // 30 apps × $2.56
 		perAppCost: 2.56,
 		currency: 'USD',
 		interval: 'year',
@@ -61,14 +79,29 @@
 	};
 
 	const billingHistory = [
-		{ date: 'January 15, 2024', amount: 768, method: 'Monero (XMR)', status: 'paid', invoice: 'INV-2024-001' },
-		{ date: 'January 15, 2023', amount: 768, method: 'Monero (XMR)', status: 'paid', invoice: 'INV-2023-001' }
+		{
+			date: 'January 15, 2024',
+			amount: 768,
+			method: 'Monero (XMR)',
+			status: 'paid',
+			invoice: 'INV-2024-001'
+		},
+		{
+			date: 'January 15, 2023',
+			amount: 768,
+			method: 'Monero (XMR)',
+			status: 'paid',
+			invoice: 'INV-2023-001'
+		}
 	];
 </script>
 
 <svelte:head>
 	<title>Subscription - My Account | VuAppStore</title>
-	<meta name="description" content="Manage your VU Suite subscription. Upgrade, downgrade, or cancel anytime with full transparency." />
+	<meta
+		name="description"
+		content="Manage your VU Suite subscription. Upgrade, downgrade, or cancel anytime with full transparency."
+	/>
 </svelte:head>
 
 <div class="account-page container py-16 max-w-6xl relative z-10">
@@ -79,9 +112,7 @@
 				← Back to Account
 			</a>
 		</div>
-		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">
-			Subscription Management
-		</h1>
+		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">Subscription Management</h1>
 		<p class="text-lg text-text-secondary">
 			Full control over your subscription. Change, pause, or cancel anytime.
 		</p>
@@ -98,33 +129,51 @@
 					<h2 class="text-xl font-semibold mb-1">{user.username}</h2>
 					<p class="text-sm text-text-secondary mb-2">{user.email}</p>
 					<div class="flex gap-2">
-						<div class="badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full">
+						<div
+							class="badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full"
+						>
 							{user.plan} Plan
 						</div>
-						<div class="badge inline-block px-3 py-1 bg-info/20 text-info text-xs font-bold rounded-full">
+						<div
+							class="badge inline-block px-3 py-1 bg-info/20 text-info text-xs font-bold rounded-full"
+						>
 							Level {user.privacyLevel}
 						</div>
 					</div>
 				</div>
 
 				<nav class="space-y-2">
-					<a href="/account" class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/account"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors"
+					>
 						<User class="w-5 h-5" />
 						<span>Overview</span>
 					</a>
-					<a href="/account/subscriptions" class="nav-item flex items-center gap-3 p-3 rounded-lg bg-glass-heavy text-primary">
+					<a
+						href="/account/subscriptions"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg bg-glass-heavy text-primary"
+					>
 						<CreditCard class="w-5 h-5" />
 						<span>Subscription</span>
 					</a>
-					<a href="/account/downloads" class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/account/downloads"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors"
+					>
 						<Download class="w-5 h-5" />
 						<span>Downloads</span>
 					</a>
-					<a href="/account/settings" class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/account/settings"
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors"
+					>
 						<Settings class="w-5 h-5" />
 						<span>Settings</span>
 					</a>
-					<button class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors w-full text-left text-error">
+					<button
+						class="nav-item flex items-center gap-3 p-3 rounded-lg hover:bg-glass transition-colors w-full text-left text-error"
+					>
 						<LogOut class="w-5 h-5" />
 						<span>Sign Out</span>
 					</button>
@@ -178,12 +227,8 @@
 				</div>
 
 				<div class="flex flex-wrap gap-4">
-					<a href="/pricing" class="btn btn-primary">
-						Change Plan
-					</a>
-					<button class="btn btn-secondary">
-						Pause Subscription
-					</button>
+					<a href="/pricing" class="btn btn-primary"> Change Plan </a>
+					<button class="btn btn-secondary"> Pause Subscription </button>
 					<button class="btn btn-secondary text-error border-error/30 hover:bg-error/10">
 						Cancel Subscription
 					</button>
@@ -199,14 +244,19 @@
 						<div>
 							<h3 class="font-semibold text-primary mb-2">Crypto-Only Payments</h3>
 							<p class="text-sm text-text-secondary leading-relaxed mb-3">
-								In line with VU's privacy-first philosophy, we <strong class="text-text-primary">accept cryptocurrency payments only</strong>. 
-								Your payment history is completely private. No credit cards, no PayPal, no transaction tracking.
+								In line with VU's privacy-first philosophy, we <strong class="text-text-primary"
+									>accept cryptocurrency payments only</strong
+								>. Your payment history is completely private. No credit cards, no PayPal, no
+								transaction tracking.
 							</p>
 							<p class="text-sm text-text-secondary mb-2">
-								Current subscription paid with: <span class="font-semibold text-primary">{subscription.paymentProcessor}</span>
+								Current subscription paid with: <span class="font-semibold text-primary"
+									>{subscription.paymentProcessor}</span
+								>
 							</p>
 							<p class="text-xs text-text-tertiary flex items-start gap-1">
-								<Lightbulb class="w-3 h-3 flex-shrink-0 mt-0.5" /> Monero (Level 0) provides complete transaction privacy with zero traceability
+								<Lightbulb class="w-3 h-3 flex-shrink-0 mt-0.5" /> Monero (Level 0) provides complete
+								transaction privacy with zero traceability
 							</p>
 						</div>
 					</div>
@@ -237,7 +287,8 @@
 				</div>
 
 				<p class="text-sm text-text-secondary mb-4">
-					Your next billing will use the same payment method, or you can choose a different cryptocurrency.
+					Your next billing will use the same payment method, or you can choose a different
+					cryptocurrency.
 				</p>
 
 				<a href="/pricing" class="btn btn-secondary inline-flex items-center gap-2">
@@ -249,7 +300,7 @@
 			<!-- Billing History -->
 			<div class="glass-card p-8">
 				<h2 class="text-2xl font-bold mb-6">Billing History</h2>
-				
+
 				<div class="space-y-3">
 					{#each billingHistory as bill}
 						<div class="billing-row flex items-center justify-between p-4 bg-glass rounded-lg">
@@ -264,11 +315,11 @@
 							<div class="flex items-center gap-4">
 								<div class="text-right">
 									<p class="font-semibold">${bill.amount}.00</p>
-									<p class="text-xs text-success uppercase flex items-center gap-1"><Check class="w-3 h-3" /> Confirmed</p>
+									<p class="text-xs text-success uppercase flex items-center gap-1">
+										<Check class="w-3 h-3" /> Confirmed
+									</p>
 								</div>
-								<button class="btn btn-secondary text-sm">
-									Download Invoice
-								</button>
+								<button class="btn btn-secondary text-sm"> Download Invoice </button>
 							</div>
 						</div>
 					{/each}
@@ -276,8 +327,9 @@
 
 				<div class="mt-6 p-4 bg-glass rounded-lg">
 					<p class="text-xs text-text-tertiary flex items-start gap-1">
-						<Lightbulb class="w-3 h-3 flex-shrink-0 mt-0.5" /> All invoices are available for download anytime. We retain billing records 
-						as required by law, but no usage data or personal details beyond your @vumail.app address.
+						<Lightbulb class="w-3 h-3 flex-shrink-0 mt-0.5" /> All invoices are available for download
+						anytime. We retain billing records as required by law, but no usage data or personal details
+						beyond your @vumail.app address.
 					</p>
 				</div>
 			</div>
@@ -338,7 +390,9 @@
 					<div>
 						<h2 class="text-2xl font-bold text-error mb-3">Exit Movement</h2>
 						<p class="text-sm text-text-secondary leading-relaxed mb-3">
-							Ready to leave VU? We respect your sovereignty. This will <strong class="text-error">immediately and permanently destroy your account</strong>.
+							Ready to leave VU? We respect your sovereignty. This will <strong class="text-error"
+								>immediately and permanently destroy your account</strong
+							>.
 						</p>
 					</div>
 				</div>
@@ -347,10 +401,15 @@
 					<!-- Initial Button -->
 					<div class="mb-6">
 						<p class="text-sm text-text-secondary mb-4">
-							Before you exit, check out our <a href="/support/faq" class="text-primary hover:underline">FAQ</a> or 
-							<a href="/support/contact" class="text-primary hover:underline">contact support</a> - we might be able to help!
+							Before you exit, check out our <a
+								href="/support/faq"
+								class="text-primary hover:underline">FAQ</a
+							>
+							or
+							<a href="/support/contact" class="text-primary hover:underline">contact support</a> - we
+							might be able to help!
 						</p>
-						<button 
+						<button
 							on:click={initiateExitMovement}
 							class="btn bg-error text-white hover:bg-error/80 inline-flex items-center gap-2"
 						>
@@ -360,52 +419,80 @@
 					</div>
 				{:else}
 					<!-- Confirmation Section -->
-					<div class="confirmation-section p-6 bg-error/10 border-2 border-error/30 rounded-lg mb-6">
-						<h3 class="text-xl font-bold text-error mb-4 flex items-center gap-2"><AlertTriangle class="w-5 h-5" /> Final Confirmation Required</h3>
-						
+					<div
+						class="confirmation-section p-6 bg-error/10 border-2 border-error/30 rounded-lg mb-6"
+					>
+						<h3 class="text-xl font-bold text-error mb-4 flex items-center gap-2">
+							<AlertTriangle class="w-5 h-5" /> Final Confirmation Required
+						</h3>
+
 						<!-- Disclaimer -->
 						<div class="disclaimer mb-6 p-4 bg-background/50 border border-error/50 rounded">
 							<h4 class="font-semibold text-error mb-3">What Happens When You Exit:</h4>
 							<ul class="space-y-2 text-sm text-text-secondary mb-4">
 								<li class="flex items-start gap-2">
 									<Check class="w-4 h-4 text-error flex-shrink-0" />
-									<span>Your <strong class="text-text-primary">@{user.username.slice(1)}</strong> account will be <strong class="text-error">destroyed immediately</strong></span>
+									<span
+										>Your <strong class="text-text-primary">@{user.username.slice(1)}</strong>
+										account will be <strong class="text-error">destroyed immediately</strong></span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<Check class="w-4 h-4 text-error flex-shrink-0" />
-									<span>Your <strong class="text-text-primary">{user.email}</strong> address will be <strong class="text-error">permanently deleted</strong></span>
+									<span
+										>Your <strong class="text-text-primary">{user.email}</strong> address will be
+										<strong class="text-error">permanently deleted</strong></span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<Check class="w-4 h-4 text-error flex-shrink-0" />
-									<span>All server-side data will be <strong class="text-error">purged within 24 hours</strong></span>
+									<span
+										>All server-side data will be <strong class="text-error"
+											>purged within 24 hours</strong
+										></span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<Check class="w-4 h-4 text-error flex-shrink-0" />
-									<span>Subscription will be <strong class="text-error">cancelled immediately</strong></span>
+									<span
+										>Subscription will be <strong class="text-error">cancelled immediately</strong
+										></span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<Check class="w-4 h-4 text-error flex-shrink-0" />
-									<span>Download access will be <strong class="text-error">revoked instantly</strong></span>
+									<span
+										>Download access will be <strong class="text-error">revoked instantly</strong
+										></span
+									>
 								</li>
 								<li class="flex items-start gap-2">
 									<Check class="w-4 h-4 text-error flex-shrink-0" />
-									<span>Current billing period will <strong class="text-error">end automatically</strong></span>
+									<span
+										>Current billing period will <strong class="text-error"
+											>end automatically</strong
+										></span
+									>
 								</li>
 							</ul>
 
 							<div class="p-3 bg-warning/10 border border-warning/30 rounded mb-3">
-								<p class="text-sm font-semibold text-warning mb-2 flex items-center gap-1"><AlertTriangle class="w-4 h-4" /> NO REFUNDS FOR UNUSED TIME</p>
+								<p class="text-sm font-semibold text-warning mb-2 flex items-center gap-1">
+									<AlertTriangle class="w-4 h-4" /> NO REFUNDS FOR UNUSED TIME
+								</p>
 								<p class="text-xs text-text-secondary leading-relaxed">
-									Due to our privacy protocols, we cannot track usage or calculate prorated refunds. 
-									When you exit, your remaining subscription time is forfeited. This is the price of 
+									Due to our privacy protocols, we cannot track usage or calculate prorated refunds.
+									When you exit, your remaining subscription time is forfeited. This is the price of
 									zero-knowledge architecture - we literally cannot see how much you've used.
 								</p>
 							</div>
 
 							<div class="p-3 bg-error/10 border border-error/30 rounded">
-								<p class="text-sm font-semibold text-error mb-2 flex items-center gap-1"><XCircle class="w-4 h-4" /> THIS ACTION CANNOT BE UNDONE</p>
+								<p class="text-sm font-semibold text-error mb-2 flex items-center gap-1">
+									<XCircle class="w-4 h-4" /> THIS ACTION CANNOT BE UNDONE
+								</p>
 								<p class="text-xs text-text-secondary">
-									Once confirmed, your account will be destroyed permanently. There is no recovery, 
+									Once confirmed, your account will be destroyed permanently. There is no recovery,
 									no restoration, no going back. Your privacy journey with VU ends here.
 								</p>
 							</div>
@@ -416,8 +503,8 @@
 							<label class="block text-sm font-semibold mb-2 text-text-primary">
 								Type <span class="text-error font-mono">EXIT MOVEMENT</span> to confirm:
 							</label>
-							<input 
-								type="text" 
+							<input
+								type="text"
 								bind:value={exitConfirmationText}
 								placeholder="Type EXIT MOVEMENT in all caps"
 								class="w-full px-4 py-3 bg-surface border-2 border-error/50 rounded-lg focus:border-error focus:outline-none font-mono text-error"
@@ -427,20 +514,22 @@
 
 						<!-- Action Buttons -->
 						<div class="flex gap-4">
-							<button 
+							<button
 								on:click={confirmExitMovement}
 								disabled={exitConfirmationText !== 'EXIT MOVEMENT' || isExitingMovement}
 								class="btn bg-error text-white hover:bg-error/80 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center gap-2"
 							>
 								{#if isExitingMovement}
-									<span class="spinner w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+									<span
+										class="spinner w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"
+									></span>
 									Destroying Account...
 								{:else}
 									<XCircle class="w-5 h-5" />
 									Confirm: Exit Movement
 								{/if}
 							</button>
-							<button 
+							<button
 								on:click={cancelExitMovement}
 								disabled={isExitingMovement}
 								class="btn btn-secondary disabled:opacity-50"
@@ -470,7 +559,9 @@
 	}
 
 	@keyframes spin {
-		to { transform: rotate(360deg); }
+		to {
+			transform: rotate(360deg);
+		}
 	}
 
 	.animate-spin {
@@ -492,4 +583,3 @@
 		}
 	}
 </style>
-

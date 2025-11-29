@@ -322,4 +322,3 @@ export async function updatePrivacyLevel(
 		privacyLevel: newLevel
 	};
 }
-

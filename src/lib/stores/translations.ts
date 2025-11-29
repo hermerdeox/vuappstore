@@ -34,10 +34,11 @@ export const translations: Record<Language, Record<string, string>> = {
 		'common.email': 'Email',
 		'common.name': 'Name',
 		'common.message': 'Message',
-		
+
 		// Footer
 		'footer.tagline': 'Your Privacy, Our Priority',
-		'footer.description': 'Premium privacy-focused applications that respect your data. No tracking, no surveillance, just powerful software.',
+		'footer.description':
+			'Premium privacy-focused applications that respect your data. No tracking, no surveillance, just powerful software.',
 		'footer.trust.ssl': 'SSL Secured',
 		'footer.trust.pci': 'PCI Compliant',
 		'footer.trust.gdpr': 'GDPR Compliant',
@@ -77,22 +78,25 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.copyright': '© 2024 VuAppStore. All rights reserved.',
 		'footer.company-info': 'VU Technologies | Delaware, USA',
 		'footer.theme': 'Theme',
-		
+
 		// About Pages
 		'about.title': 'About Us',
 		'about.subtitle': 'Building the future of privacy-first technology',
-		'about.intro': 'VuAppStore is more than a marketplace — it\'s a movement. We believe technology should empower, not exploit.',
+		'about.intro':
+			"VuAppStore is more than a marketplace — it's a movement. We believe technology should empower, not exploit.",
 		'about.mission.title': 'Our Mission',
 		'about.mission.subtitle': 'The Greatest Privacy Journey In Technology History',
-		'about.mission.intro': 'We\'re on a mission to prove that privacy and convenience aren\'t mutually exclusive.',
+		'about.mission.intro':
+			"We're on a mission to prove that privacy and convenience aren't mutually exclusive.",
 		'about.team.title': 'Our Team',
 		'about.team.subtitle': 'Meet the privacy pioneers building the future',
-		
+
 		// Support Pages
 		'support.title': 'Support Center',
 		'support.subtitle': 'How can we help you today?',
 		'support.faq.title': 'Frequently Asked Questions',
-		'support.faq.subtitle': 'Find quick answers to your questions about VuAppStore, our privacy-first apps, billing, and support.',
+		'support.faq.subtitle':
+			'Find quick answers to your questions about VuAppStore, our privacy-first apps, billing, and support.',
 		'support.contact.title': 'Contact Support',
 		'support.contact.subtitle': 'Get in touch with our support team',
 		'support.contact.name': 'Your Name',
@@ -100,7 +104,7 @@ export const translations: Record<Language, Record<string, string>> = {
 		'support.contact.subject': 'Subject',
 		'support.contact.message': 'Message',
 		'support.contact.send': 'Send Message',
-		
+
 		// Legal Pages
 		'legal.terms.title': 'Terms of Service',
 		'legal.privacy.title': 'Privacy Policy',
@@ -112,19 +116,21 @@ export const translations: Record<Language, Record<string, string>> = {
 		'legal.last-updated': 'Last Updated',
 		'legal.contact.title': 'Contact Us',
 		'legal.contact.text': 'If you have any questions about this policy, please contact us:',
-		
+
 		// Developer Pages
 		'dev.title': 'Developer Portal',
 		'dev.subtitle': 'Build privacy-first applications with VU',
 		'dev.api.title': 'API Documentation',
-		'dev.api.subtitle': 'Build privacy-first integrations with our secure, well-documented REST API.',
+		'dev.api.subtitle':
+			'Build privacy-first integrations with our secure, well-documented REST API.',
 		'dev.docs.title': 'Technical Documentation',
 		'dev.docs.subtitle': 'Comprehensive guides and references for developers',
 		'dev.contribute.title': 'Contribute',
 		'dev.contribute.subtitle': 'Join the privacy revolution',
 		'dev.bug-bounty.title': 'Bug Bounty Program',
-		'dev.bug-bounty.subtitle': 'Help secure privacy-first applications and earn rewards up to $50,000 for critical vulnerabilities.',
-		
+		'dev.bug-bounty.subtitle':
+			'Help secure privacy-first applications and earn rewards up to $50,000 for critical vulnerabilities.',
+
 		// Resource Pages
 		'resources.privacy-guide.title': 'Privacy Guide',
 		'resources.privacy-guide.subtitle': 'Complete guide to digital privacy',
@@ -133,10 +139,12 @@ export const translations: Record<Language, Record<string, string>> = {
 		'resources.comparison.title': 'VU vs Big Tech',
 		'resources.comparison.subtitle': 'Privacy Comparison',
 		'resources.migration.title': 'Migration Guide',
-		'resources.migration.subtitle': 'Complete guide to migrating from Big Tech apps to privacy-first VU Suite alternatives.',
+		'resources.migration.subtitle':
+			'Complete guide to migrating from Big Tech apps to privacy-first VU Suite alternatives.',
 		'resources.educational.title': 'Educational Resources',
-		'resources.educational.subtitle': 'Free educational resources about digital privacy and security',
-		
+		'resources.educational.subtitle':
+			'Free educational resources about digital privacy and security',
+
 		// Other Pages
 		'pricing.title': 'Pricing',
 		'pricing.subtitle': 'Choose the plan that works for you',
@@ -162,10 +170,11 @@ export const translations: Record<Language, Record<string, string>> = {
 		'common.email': 'Correo Electrónico',
 		'common.name': 'Nombre',
 		'common.message': 'Mensaje',
-		
+
 		// Footer
 		'footer.tagline': 'Tu Privacidad, Nuestra Prioridad',
-		'footer.description': 'Aplicaciones premium enfocadas en la privacidad que respetan tus datos. Sin rastreo, sin vigilancia, solo software poderoso.',
+		'footer.description':
+			'Aplicaciones premium enfocadas en la privacidad que respetan tus datos. Sin rastreo, sin vigilancia, solo software poderoso.',
 		'footer.trust.ssl': 'SSL Seguro',
 		'footer.trust.pci': 'Cumple PCI',
 		'footer.trust.gdpr': 'Cumple GDPR',
@@ -205,22 +214,25 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.copyright': '© 2024 VuAppStore. Todos los derechos reservados.',
 		'footer.company-info': 'VU Technologies | Delaware, EE.UU.',
 		'footer.theme': 'Tema',
-		
+
 		// About Pages
 		'about.title': 'Sobre Nosotros',
 		'about.subtitle': 'Construyendo el futuro de la tecnología centrada en la privacidad',
-		'about.intro': 'VuAppStore es más que un mercado: es un movimiento. Creemos que la tecnología debe empoderar, no explotar.',
+		'about.intro':
+			'VuAppStore es más que un mercado: es un movimiento. Creemos que la tecnología debe empoderar, no explotar.',
 		'about.mission.title': 'Nuestra Misión',
 		'about.mission.subtitle': 'El Mayor Viaje de Privacidad en la Historia de la Tecnología',
-		'about.mission.intro': 'Estamos en una misión para demostrar que la privacidad y la conveniencia no son mutuamente excluyentes.',
+		'about.mission.intro':
+			'Estamos en una misión para demostrar que la privacidad y la conveniencia no son mutuamente excluyentes.',
 		'about.team.title': 'Nuestro Equipo',
 		'about.team.subtitle': 'Conoce a los pioneros de la privacidad que construyen el futuro',
-		
+
 		// Support Pages
 		'support.title': 'Centro de Soporte',
 		'support.subtitle': '¿Cómo podemos ayudarte hoy?',
 		'support.faq.title': 'Preguntas Frecuentes',
-		'support.faq.subtitle': 'Encuentra respuestas rápidas a tus preguntas sobre VuAppStore, nuestras aplicaciones centradas en la privacidad, facturación y soporte.',
+		'support.faq.subtitle':
+			'Encuentra respuestas rápidas a tus preguntas sobre VuAppStore, nuestras aplicaciones centradas en la privacidad, facturación y soporte.',
 		'support.contact.title': 'Contactar Soporte',
 		'support.contact.subtitle': 'Ponte en contacto con nuestro equipo de soporte',
 		'support.contact.name': 'Tu Nombre',
@@ -228,7 +240,7 @@ export const translations: Record<Language, Record<string, string>> = {
 		'support.contact.subject': 'Asunto',
 		'support.contact.message': 'Mensaje',
 		'support.contact.send': 'Enviar Mensaje',
-		
+
 		// Legal Pages
 		'legal.terms.title': 'Términos de Servicio',
 		'legal.privacy.title': 'Política de Privacidad',
@@ -240,19 +252,21 @@ export const translations: Record<Language, Record<string, string>> = {
 		'legal.last-updated': 'Última Actualización',
 		'legal.contact.title': 'Contáctanos',
 		'legal.contact.text': 'Si tienes alguna pregunta sobre esta política, contáctanos:',
-		
+
 		// Developer Pages
 		'dev.title': 'Portal de Desarrolladores',
 		'dev.subtitle': 'Construye aplicaciones centradas en la privacidad con VU',
 		'dev.api.title': 'Documentación de API',
-		'dev.api.subtitle': 'Construye integraciones centradas en la privacidad con nuestra API REST segura y bien documentada.',
+		'dev.api.subtitle':
+			'Construye integraciones centradas en la privacidad con nuestra API REST segura y bien documentada.',
 		'dev.docs.title': 'Documentación Técnica',
 		'dev.docs.subtitle': 'Guías y referencias completas para desarrolladores',
 		'dev.contribute.title': 'Contribuir',
 		'dev.contribute.subtitle': 'Únete a la revolución de la privacidad',
 		'dev.bug-bounty.title': 'Programa de Recompensas',
-		'dev.bug-bounty.subtitle': 'Ayuda a asegurar aplicaciones centradas en la privacidad y gana recompensas de hasta $50,000 por vulnerabilidades críticas.',
-		
+		'dev.bug-bounty.subtitle':
+			'Ayuda a asegurar aplicaciones centradas en la privacidad y gana recompensas de hasta $50,000 por vulnerabilidades críticas.',
+
 		// Resource Pages
 		'resources.privacy-guide.title': 'Guía de Privacidad',
 		'resources.privacy-guide.subtitle': 'Guía completa sobre privacidad digital',
@@ -261,10 +275,12 @@ export const translations: Record<Language, Record<string, string>> = {
 		'resources.comparison.title': 'VU vs Big Tech',
 		'resources.comparison.subtitle': 'Comparación de Privacidad',
 		'resources.migration.title': 'Guía de Migración',
-		'resources.migration.subtitle': 'Guía completa para migrar de aplicaciones Big Tech a alternativas VU Suite centradas en la privacidad.',
+		'resources.migration.subtitle':
+			'Guía completa para migrar de aplicaciones Big Tech a alternativas VU Suite centradas en la privacidad.',
 		'resources.educational.title': 'Recursos Educativos',
-		'resources.educational.subtitle': 'Recursos educativos gratuitos sobre privacidad y seguridad digital',
-		
+		'resources.educational.subtitle':
+			'Recursos educativos gratuitos sobre privacidad y seguridad digital',
+
 		// Other Pages
 		'pricing.title': 'Precios',
 		'pricing.subtitle': 'Elige el plan que funcione para ti',
@@ -290,10 +306,11 @@ export const translations: Record<Language, Record<string, string>> = {
 		'common.email': 'Email',
 		'common.name': 'Nom',
 		'common.message': 'Message',
-		
+
 		// Footer
 		'footer.tagline': 'Votre Vie Privée, Notre Priorité',
-		'footer.description': 'Applications premium axées sur la confidentialité qui respectent vos données. Pas de suivi, pas de surveillance, juste des logiciels puissants.',
+		'footer.description':
+			'Applications premium axées sur la confidentialité qui respectent vos données. Pas de suivi, pas de surveillance, juste des logiciels puissants.',
 		'footer.trust.ssl': 'Sécurisé SSL',
 		'footer.trust.pci': 'Conforme PCI',
 		'footer.trust.gdpr': 'Conforme RGPD',
@@ -308,18 +325,18 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.link.comparison': 'VU vs Big Tech',
 		'footer.link.migration': 'Guides de Migration',
 		'footer.link.educational': 'Ressources Éducatives',
-		'footer.link.affiliate': 'Programme d\'Affiliation',
+		'footer.link.affiliate': "Programme d'Affiliation",
 		'footer.link.about': 'À Propos',
 		'footer.link.mission': 'Notre Mission',
 		'footer.link.team': 'Équipe',
 		'footer.link.blog': 'Blog',
 		'footer.link.contact': 'Contact',
-		'footer.link.support': 'Centre d\'Assistance',
+		'footer.link.support': "Centre d'Assistance",
 		'footer.link.faq': 'FAQ',
 		'footer.link.terms': 'Conditions de Service',
 		'footer.link.privacy': 'Politique de Confidentialité',
 		'footer.link.refund': 'Politique de Remboursement',
-		'footer.link.acceptable-use': 'Politique d\'Utilisation Acceptable',
+		'footer.link.acceptable-use': "Politique d'Utilisation Acceptable",
 		'footer.link.gdpr-compliance': 'Conformité RGPD',
 		'footer.link.ccpa': 'Conformité CCPA',
 		'footer.link.data-processing': 'Accord de Traitement des Données',
@@ -333,71 +350,83 @@ export const translations: Record<Language, Record<string, string>> = {
 		'footer.copyright': '© 2024 VuAppStore. Tous droits réservés.',
 		'footer.company-info': 'VU Technologies | Delaware, États-Unis',
 		'footer.theme': 'Thème',
-		
+
 		// About Pages
 		'about.title': 'À Propos',
-		'about.subtitle': 'Construire l\'avenir de la technologie axée sur la confidentialité',
-		'about.intro': 'VuAppStore est plus qu\'un marché — c\'est un mouvement. Nous croyons que la technologie devrait autonomiser, pas exploiter.',
+		'about.subtitle': "Construire l'avenir de la technologie axée sur la confidentialité",
+		'about.intro':
+			"VuAppStore est plus qu'un marché — c'est un mouvement. Nous croyons que la technologie devrait autonomiser, pas exploiter.",
 		'about.mission.title': 'Notre Mission',
-		'about.mission.subtitle': 'Le Plus Grand Voyage de Confidentialité de l\'Histoire de la Technologie',
-		'about.mission.intro': 'Nous sommes en mission pour prouver que la confidentialité et la commodité ne s\'excluent pas mutuellement.',
+		'about.mission.subtitle':
+			"Le Plus Grand Voyage de Confidentialité de l'Histoire de la Technologie",
+		'about.mission.intro':
+			"Nous sommes en mission pour prouver que la confidentialité et la commodité ne s'excluent pas mutuellement.",
 		'about.team.title': 'Notre Équipe',
-		'about.team.subtitle': 'Rencontrez les pionniers de la confidentialité qui construisent l\'avenir',
-		
+		'about.team.subtitle':
+			"Rencontrez les pionniers de la confidentialité qui construisent l'avenir",
+
 		// Support Pages
-		'support.title': 'Centre d\'Assistance',
-		'support.subtitle': 'Comment pouvons-nous vous aider aujourd\'hui?',
+		'support.title': "Centre d'Assistance",
+		'support.subtitle': "Comment pouvons-nous vous aider aujourd'hui?",
 		'support.faq.title': 'Questions Fréquemment Posées',
-		'support.faq.subtitle': 'Trouvez des réponses rapides à vos questions sur VuAppStore, nos applications axées sur la confidentialité, la facturation et l\'assistance.',
-		'support.contact.title': 'Contacter l\'Assistance',
-		'support.contact.subtitle': 'Contactez notre équipe d\'assistance',
+		'support.faq.subtitle':
+			"Trouvez des réponses rapides à vos questions sur VuAppStore, nos applications axées sur la confidentialité, la facturation et l'assistance.",
+		'support.contact.title': "Contacter l'Assistance",
+		'support.contact.subtitle': "Contactez notre équipe d'assistance",
 		'support.contact.name': 'Votre Nom',
 		'support.contact.email': 'Adresse Email',
 		'support.contact.subject': 'Sujet',
 		'support.contact.message': 'Message',
 		'support.contact.send': 'Envoyer le Message',
-		
+
 		// Legal Pages
 		'legal.terms.title': 'Conditions de Service',
 		'legal.privacy.title': 'Politique de Confidentialité',
 		'legal.refund.title': 'Politique de Remboursement',
-		'legal.acceptable-use.title': 'Politique d\'Utilisation Acceptable',
+		'legal.acceptable-use.title': "Politique d'Utilisation Acceptable",
 		'legal.gdpr.title': 'Conformité RGPD',
 		'legal.ccpa.title': 'Conformité CCPA',
 		'legal.data-processing.title': 'Accord de Traitement des Données',
 		'legal.last-updated': 'Dernière Mise à Jour',
 		'legal.contact.title': 'Contactez-Nous',
-		'legal.contact.text': 'Si vous avez des questions sur cette politique, veuillez nous contacter:',
-		
+		'legal.contact.text':
+			'Si vous avez des questions sur cette politique, veuillez nous contacter:',
+
 		// Developer Pages
 		'dev.title': 'Portail Développeurs',
 		'dev.subtitle': 'Créez des applications axées sur la confidentialité avec VU',
 		'dev.api.title': 'Documentation API',
-		'dev.api.subtitle': 'Créez des intégrations axées sur la confidentialité avec notre API REST sécurisée et bien documentée.',
+		'dev.api.subtitle':
+			'Créez des intégrations axées sur la confidentialité avec notre API REST sécurisée et bien documentée.',
 		'dev.docs.title': 'Documentation Technique',
 		'dev.docs.subtitle': 'Guides et références complets pour les développeurs',
 		'dev.contribute.title': 'Contribuer',
 		'dev.contribute.subtitle': 'Rejoignez la révolution de la confidentialité',
 		'dev.bug-bounty.title': 'Programme de Primes',
-		'dev.bug-bounty.subtitle': 'Aidez à sécuriser les applications axées sur la confidentialité et gagnez des récompenses jusqu\'à 50 000 $ pour les vulnérabilités critiques.',
-		
+		'dev.bug-bounty.subtitle':
+			"Aidez à sécuriser les applications axées sur la confidentialité et gagnez des récompenses jusqu'à 50 000 $ pour les vulnérabilités critiques.",
+
 		// Resource Pages
 		'resources.privacy-guide.title': 'Guide de Confidentialité',
 		'resources.privacy-guide.subtitle': 'Guide complet sur la confidentialité numérique',
 		'resources.security.title': 'Meilleures Pratiques de Sécurité',
-		'resources.security.subtitle': 'Pratiques de sécurité essentielles pour la confidentialité numérique',
+		'resources.security.subtitle':
+			'Pratiques de sécurité essentielles pour la confidentialité numérique',
 		'resources.comparison.title': 'VU vs Big Tech',
 		'resources.comparison.subtitle': 'Comparaison de Confidentialité',
 		'resources.migration.title': 'Guide de Migration',
-		'resources.migration.subtitle': 'Guide complet pour migrer des applications Big Tech vers des alternatives VU Suite axées sur la confidentialité.',
+		'resources.migration.subtitle':
+			'Guide complet pour migrer des applications Big Tech vers des alternatives VU Suite axées sur la confidentialité.',
 		'resources.educational.title': 'Ressources Éducatives',
-		'resources.educational.subtitle': 'Ressources éducatives gratuites sur la confidentialité et la sécurité numériques',
-		
+		'resources.educational.subtitle':
+			'Ressources éducatives gratuites sur la confidentialité et la sécurité numériques',
+
 		// Other Pages
 		'pricing.title': 'Tarifs',
 		'pricing.subtitle': 'Choisissez le plan qui vous convient',
-		'affiliate.title': 'Programme d\'Affiliation',
-		'affiliate.subtitle': 'Gagnez des commissions en promouvant des applications axées sur la confidentialité',
+		'affiliate.title': "Programme d'Affiliation",
+		'affiliate.subtitle':
+			'Gagnez des commissions en promouvant des applications axées sur la confidentialité',
 		'blog.title': 'Blog',
 		'blog.subtitle': 'Dernières nouvelles et mises à jour de VuAppStore',
 		'account.title': 'Mon Compte',
@@ -417,12 +446,12 @@ export function t(key: string, lang: Language = 'en'): string {
  */
 export function getCurrentLanguage(): Language {
 	if (typeof window === 'undefined') return 'en';
-	
+
 	const saved = localStorage.getItem('vu-language') as Language;
 	if (saved && SUPPORTED_LANGUAGES.includes(saved)) {
 		return saved;
 	}
-	
+
 	// Check browser language
 	const browserLang = navigator.language.split('-')[0] as Language;
 	return SUPPORTED_LANGUAGES.includes(browserLang) ? browserLang : 'en';
@@ -435,4 +464,3 @@ export function setLanguage(lang: Language): void {
 	if (typeof window === 'undefined') return;
 	localStorage.setItem('vu-language', lang);
 }
-

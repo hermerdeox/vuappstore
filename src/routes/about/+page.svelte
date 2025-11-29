@@ -4,20 +4,27 @@
 
 <svelte:head>
 	<title>About Us - VuAppStore</title>
-	<meta name="description" content="Learn about VuAppStore's mission to revolutionize privacy in the digital age." />
+	<meta
+		name="description"
+		content="Learn about VuAppStore's mission to revolutionize privacy in the digital age."
+	/>
 </svelte:head>
 
 <div class="about-page container py-16 max-w-6xl relative z-10">
 	<!-- Hero Section -->
 	<section class="hero mb-16 text-center">
-		<div class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
-			<span class="text-xs font-semibold text-primary uppercase tracking-wide">About VuAppStore</span>
+		<div
+			class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6"
+		>
+			<span class="text-xs font-semibold text-primary uppercase tracking-wide"
+				>About VuAppStore</span
+			>
 		</div>
 		<h1 class="text-4xl md:text-6xl font-black mb-6 text-gradient">
-			Privacy Isn't a Feature.<br>It's Our Foundation.
+			Privacy Isn't a Feature.<br />It's Our Foundation.
 		</h1>
 		<p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
-			VuAppStore was born from a simple belief: technology should empower people, not exploit them. 
+			VuAppStore was born from a simple belief: technology should empower people, not exploit them.
 			We're building the future where your data stays yours.
 		</p>
 	</section>
@@ -30,13 +37,11 @@
 				<h2 class="text-3xl font-bold">Our Mission</h2>
 			</div>
 			<p class="text-lg text-text-secondary leading-relaxed mb-6">
-				To create a world where privacy is the default, not the exception. We believe that powerful 
-				software doesn't require surveillance, and that users shouldn't have to choose between 
+				To create a world where privacy is the default, not the exception. We believe that powerful
+				software doesn't require surveillance, and that users shouldn't have to choose between
 				functionality and privacy.
 			</p>
-			<a href="/about/mission" class="btn btn-primary">
-				Read Full Mission Statement
-			</a>
+			<a href="/about/mission" class="btn btn-primary"> Read Full Mission Statement </a>
 		</div>
 	</section>
 
@@ -81,17 +86,18 @@
 			<h2 class="text-3xl font-bold mb-6">Our Story</h2>
 			<div class="prose prose-invert max-w-none">
 				<p class="text-text-secondary leading-relaxed mb-4">
-					VuAppStore started in 2024 when a group of privacy advocates and developers came together 
-					with a shared frustration: why does every app need to track, monitor, and monetize our data?
+					VuAppStore started in 2024 when a group of privacy advocates and developers came together
+					with a shared frustration: why does every app need to track, monitor, and monetize our
+					data?
 				</p>
 				<p class="text-text-secondary leading-relaxed mb-4">
-					We realized that the problem wasn't technology—it was the business model. So we built a 
-					different one. A model where users pay for software, not with their privacy, but with a 
+					We realized that the problem wasn't technology—it was the business model. So we built a
+					different one. A model where users pay for software, not with their privacy, but with a
 					fair subscription that respects the value exchange.
 				</p>
 				<p class="text-text-secondary leading-relaxed">
-					Today, VuAppStore hosts 30+ privacy-first applications, each built with zero-knowledge 
-					architecture. We're not just creating apps; we're leading a movement towards a more 
+					Today, VuAppStore hosts 30+ privacy-first applications, each built with zero-knowledge
+					architecture. We're not just creating apps; we're leading a movement towards a more
 					private digital future.
 				</p>
 			</div>
@@ -103,11 +109,10 @@
 		<div class="glass-card p-8 md:p-12">
 			<h2 class="text-3xl font-bold mb-4">Meet Our Team</h2>
 			<p class="text-lg text-text-secondary mb-6">
-				We're a diverse group of privacy advocates, developers, and designers united by a common goal.
+				We're a diverse group of privacy advocates, developers, and designers united by a common
+				goal.
 			</p>
-			<a href="/about/team" class="btn btn-primary">
-				Meet the Team
-			</a>
+			<a href="/about/team" class="btn btn-primary"> Meet the Team </a>
 		</div>
 	</section>
 
@@ -119,15 +124,15 @@
 				<div>
 					<h3 class="font-semibold mb-2">Legal Entity</h3>
 					<p class="text-text-secondary">
-						VU Technologies<br>
+						VU Technologies<br />
 						A Delaware Limited Liability Company
 					</p>
 				</div>
 				<div>
 					<h3 class="font-semibold mb-2">Headquarters</h3>
 					<p class="text-text-secondary">
-						1209 Orange Street<br>
-						Wilmington, DE 19801<br>
+						1209 Orange Street<br />
+						Wilmington, DE 19801<br />
 						United States
 					</p>
 				</div>
@@ -138,8 +143,8 @@
 				<div>
 					<h3 class="font-semibold mb-2">Contact</h3>
 					<p class="text-text-secondary">
-						Email: hello@vuappstore.com<br>
-						Support: support@vuappstore.com<br>
+						Email: hello@vuappstore.com<br />
+						Support: support@vuappstore.com<br />
 						Phone: +1-302-555-0100
 					</p>
 				</div>

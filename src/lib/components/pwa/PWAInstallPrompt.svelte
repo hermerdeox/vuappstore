@@ -3,7 +3,7 @@
 	import { Download, X, Smartphone, Monitor, Shield } from 'lucide-svelte';
 
 	export let show = false;
-	
+
 	let deferredPrompt: any = null;
 	let isInstallable = false;
 	let isInstalled = false;
@@ -53,16 +53,16 @@
 		try {
 			console.log('[PWA Install] Showing install prompt');
 			deferredPrompt.prompt();
-			
+
 			const { outcome } = await deferredPrompt.userChoice;
 			console.log('[PWA Install] User choice:', outcome);
-			
+
 			if (outcome === 'accepted') {
 				console.log('[PWA Install] User accepted installation');
 			} else {
 				console.log('[PWA Install] User dismissed installation');
 			}
-			
+
 			deferredPrompt = null;
 			show = false;
 		} catch (error) {
@@ -107,12 +107,21 @@
 		}
 	};
 
-	$: currentInstructions = installInstructions[platform as keyof typeof installInstructions] || installInstructions.desktop;
+	$: currentInstructions =
+		installInstructions[platform as keyof typeof installInstructions] ||
+		installInstructions.desktop;
 </script>
 
 {#if show && !isInstalled}
 	<div class="pwa-install-prompt">
-		<div class="prompt-backdrop" on:click={dismissPrompt} on:keydown={(e) => e.key === 'Escape' && dismissPrompt()} role="button" tabindex="-1" aria-label="Close prompt"></div>
+		<div
+			class="prompt-backdrop"
+			on:click={dismissPrompt}
+			on:keydown={(e) => e.key === 'Escape' && dismissPrompt()}
+			role="button"
+			tabindex="-1"
+			aria-label="Close prompt"
+		></div>
 		<div class="prompt-content glass-card">
 			<div class="prompt-header">
 				<div class="prompt-icon">
@@ -149,9 +158,7 @@
 						<Download class="w-5 h-5" />
 						Install App
 					</button>
-					<button class="btn btn-secondary" on:click={dismissPrompt}>
-						Maybe Later
-					</button>
+					<button class="btn btn-secondary" on:click={dismissPrompt}> Maybe Later </button>
 				</div>
 			{:else}
 				<!-- Manual install instructions -->
@@ -164,9 +171,7 @@
 					</ol>
 				</div>
 				<div class="prompt-actions">
-					<button class="btn btn-secondary" on:click={dismissPrompt}>
-						Got it!
-					</button>
+					<button class="btn btn-secondary" on:click={dismissPrompt}> Got it! </button>
 				</div>
 			{/if}
 		</div>

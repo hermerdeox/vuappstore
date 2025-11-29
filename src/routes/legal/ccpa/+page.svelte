@@ -7,14 +7,14 @@
 	<section>
 		<h2>CALIFORNIA CONSUMER PRIVACY ACT (CCPA) COMPLIANCE</h2>
 		<p>
-			This section applies to California residents and describes your rights under the 
-			California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA).
+			This section applies to California residents and describes your rights under the California
+			Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA).
 		</p>
 	</section>
 
 	<section>
 		<h2>YOUR CCPA RIGHTS</h2>
-		
+
 		<h3>1. Right to Know</h3>
 		<p>You can request information about:</p>
 		<ul>
@@ -30,7 +30,7 @@
 
 		<h3>3. Right to Opt-Out of Sale</h3>
 		<p class="bg-success/10 border border-success/30 rounded-lg p-4 my-4">
-			<strong>We Do Not Sell Your Personal Information</strong><br/>
+			<strong>We Do Not Sell Your Personal Information</strong><br />
 			VuAppStore has never sold and will never sell your personal information.
 		</p>
 
@@ -46,7 +46,7 @@
 
 	<section>
 		<h2>PERSONAL INFORMATION WE COLLECT</h2>
-		
+
 		<h3>Categories of Information:</h3>
 		<table class="w-full my-4">
 			<thead>
@@ -88,7 +88,7 @@
 
 	<section>
 		<h2>HOW TO EXERCISE YOUR RIGHTS</h2>
-		
+
 		<h3>Verified Requests:</h3>
 		<p>To exercise your CCPA rights, you can:</p>
 		<ul>
@@ -116,17 +116,15 @@
 	<section>
 		<h2>DO NOT SELL MY PERSONAL INFORMATION</h2>
 		<p class="bg-primary/10 border border-primary/30 rounded-lg p-4 my-4">
-			<strong>We don't sell your information, period.</strong><br/>
-			We have never sold personal information in the past 12 months, and we never will. 
-			Therefore, we do not offer an opt-out mechanism because there is nothing to opt out of.
+			<strong>We don't sell your information, period.</strong><br />
+			We have never sold personal information in the past 12 months, and we never will. Therefore, we
+			do not offer an opt-out mechanism because there is nothing to opt out of.
 		</p>
 	</section>
 
 	<section>
 		<h2>AUTHORIZED AGENTS</h2>
-		<p>
-			You may designate an authorized agent to make requests on your behalf. The agent must:
-		</p>
+		<p>You may designate an authorized agent to make requests on your behalf. The agent must:</p>
 		<ul>
 			<li>Provide written authorization signed by you</li>
 			<li>Verify their own identity</li>
@@ -137,21 +135,22 @@
 	<section>
 		<h2>CALIFORNIA "SHINE THE LIGHT" LAW</h2>
 		<p>
-			Under California Civil Code Section 1798.83, California residents can request information 
+			Under California Civil Code Section 1798.83, California residents can request information
 			about disclosure of personal information to third parties for direct marketing purposes.
 		</p>
 		<p>
-			<strong>Our Response:</strong> We do not share personal information with third parties for 
-			their direct marketing purposes.
+			<strong>Our Response:</strong> We do not share personal information with third parties for their
+			direct marketing purposes.
 		</p>
 	</section>
 
 	<section>
 		<h2>CONTACT FOR CALIFORNIA RESIDENTS</h2>
 		<p>
-			<strong>California Privacy Rights Coordinator</strong><br/>
-			Email: <a href="mailto:california-privacy@vuappstore.com">california-privacy@vuappstore.com</a><br/>
-			Phone: 1-800-882-7771 (toll-free)<br/>
+			<strong>California Privacy Rights Coordinator</strong><br />
+			Email:
+			<a href="mailto:california-privacy@vuappstore.com">california-privacy@vuappstore.com</a><br />
+			Phone: 1-800-882-7771 (toll-free)<br />
 			Response Time: Within 10 business days
 		</p>
 	</section>
@@ -161,13 +160,12 @@
 	table {
 		@apply text-sm;
 	}
-	
+
 	th {
 		@apply font-semibold text-text-primary;
 	}
-	
+
 	td {
 		@apply text-text-secondary;
 	}
 </style>
-

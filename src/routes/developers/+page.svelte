@@ -31,19 +31,24 @@
 
 <svelte:head>
 	<title>Developer Portal - VuAppStore</title>
-	<meta name="description" content="Developer resources, API documentation, and tools for building privacy-first applications." />
+	<meta
+		name="description"
+		content="Developer resources, API documentation, and tools for building privacy-first applications."
+	/>
 </svelte:head>
 
 <div class="developers-page container py-16 max-w-6xl relative z-10">
 	<!-- Hero Section -->
 	<section class="hero mb-16 text-center">
-		<div class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
+		<div
+			class="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6"
+		>
 			<Code class="w-4 h-4" />
-			<span class="text-xs font-semibold text-primary uppercase tracking-wide">Developer Portal</span>
+			<span class="text-xs font-semibold text-primary uppercase tracking-wide"
+				>Developer Portal</span
+			>
 		</div>
-		<h1 class="text-4xl md:text-6xl font-black mb-6 text-gradient">
-			Build Privacy-First Apps
-		</h1>
+		<h1 class="text-4xl md:text-6xl font-black mb-6 text-gradient">Build Privacy-First Apps</h1>
 		<p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto">
 			Join the movement. Build applications that respect user privacy by default.
 		</p>
@@ -53,7 +58,10 @@
 	<section class="resources mb-16">
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 			{#each resources as resource}
-				<a href={resource.link} class="resource-card glass-card p-8 hover:-translate-y-1 transition-all">
+				<a
+					href={resource.link}
+					class="resource-card glass-card p-8 hover:-translate-y-1 transition-all"
+				>
 					<svelte:component this={resource.icon} class="w-12 h-12 text-primary mb-4" />
 					<h3 class="text-xl font-bold mb-2">{resource.title}</h3>
 					<p class="text-text-secondary">{resource.description}</p>
@@ -67,7 +75,8 @@
 		<div class="glass-card p-8">
 			<h2 class="text-2xl font-bold mb-6">Quick Start</h2>
 			<div class="code-block bg-black/50 rounded-lg p-6 overflow-x-auto">
-				<pre><code class="text-sm text-gray-300">{`# Install VU SDK
+				<pre><code class="text-sm text-gray-300"
+						>{`# Install VU SDK
 npm install @vuappstore/sdk
 
 # Initialize your app
@@ -81,7 +90,8 @@ const app = new VuApp({
 
 // All data encrypted locally before sync
 await app.encrypt(userData);
-await app.sync(); // Zero-knowledge sync`}</code></pre>
+await app.sync(); // Zero-knowledge sync`}</code
+					></pre>
 			</div>
 		</div>
 	</section>
@@ -100,9 +110,7 @@ await app.sync(); // Zero-knowledge sync`}</code></pre>
 			<div class="principle-card glass-card p-6 text-center">
 				<Zap class="w-12 h-12 text-primary mx-auto mb-4" />
 				<h3 class="text-lg font-bold mb-2">Zero-Knowledge</h3>
-				<p class="text-sm text-text-secondary">
-					We can't access user data, even if we wanted to
-				</p>
+				<p class="text-sm text-text-secondary">We can't access user data, even if we wanted to</p>
 			</div>
 			<div class="principle-card glass-card p-6 text-center">
 				<Code class="w-12 h-12 text-primary mx-auto mb-4" />
@@ -121,7 +129,12 @@ await app.sync(); // Zero-knowledge sync`}</code></pre>
 			<p class="text-text-secondary mb-6">
 				Many of our tools and SDKs are open source. Contribute to the privacy revolution.
 			</p>
-			<a href="https://github.com/vuappstore" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+			<a
+				href="https://github.com/vuappstore"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn btn-primary"
+			>
 				<GitBranch class="w-4 h-4" />
 				View on GitHub
 			</a>

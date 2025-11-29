@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { auth, isAuthenticated, fingerprint, isLocked, handle, hasStoredIdentity } from '$lib/stores/auth';
+	import {
+		auth,
+		isAuthenticated,
+		fingerprint,
+		isLocked,
+		handle,
+		hasStoredIdentity
+	} from '$lib/stores/auth';
 	import { loadIdentity } from '$lib/auth/storage';
 	import { User, Key, LogOut, Settings, ChevronDown, Shield } from 'lucide-svelte';
 	import CreateIdentityModal from './CreateIdentityModal.svelte';
@@ -147,4 +154,3 @@
 		}
 	}
 </style>
-

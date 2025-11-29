@@ -86,21 +86,36 @@
 			<div class="footer-main grid grid-cols-1 lg:grid-cols-6 gap-8 mb-8">
 				<div class="footer-brand lg:col-span-2">
 					<div class="brand-logo flex items-center gap-3 mb-4">
-						<span class="v-letter flex items-center justify-center w-10 h-10 bg-primary rounded-lg font-bold text-xl text-background">V</span>
+						<span
+							class="v-letter flex items-center justify-center w-10 h-10 bg-primary rounded-lg font-bold text-xl text-background"
+							>V</span
+						>
 						<span class="brand-text text-xl font-bold">VuAppStore</span>
 					</div>
-					<p class="brand-tagline text-primary text-sm font-semibold mb-2" data-i18n="footer.tagline">Your Privacy, Our Priority</p>
-					<p class="brand-description text-text-secondary text-sm leading-relaxed mb-6" data-i18n="footer.description">
-						Premium privacy-focused applications that respect your data. 
-						No tracking, no surveillance, just powerful software.
+					<p
+						class="brand-tagline text-primary text-sm font-semibold mb-2"
+						data-i18n="footer.tagline"
+					>
+						Your Privacy, Our Priority
 					</p>
-					
+					<p
+						class="brand-description text-text-secondary text-sm leading-relaxed mb-6"
+						data-i18n="footer.description"
+					>
+						Premium privacy-focused applications that respect your data. No tracking, no
+						surveillance, just powerful software.
+					</p>
+
 					<!-- Trust Badges -->
 					<div class="trust-badges grid grid-cols-2 gap-3">
 						{#each trustBadges as badge}
-							<div class="badge flex items-center gap-2 p-2 bg-glass rounded-lg border border-border">
+							<div
+								class="badge flex items-center gap-2 p-2 bg-glass rounded-lg border border-border"
+							>
 								<svelte:component this={badge.icon} class="w-4 h-4 text-success" />
-								<span class="badge-text text-xs text-text-secondary" data-i18n={badge.nameKey}>SSL Secured</span>
+								<span class="badge-text text-xs text-text-secondary" data-i18n={badge.nameKey}
+									>SSL Secured</span
+								>
 							</div>
 						{/each}
 					</div>
@@ -109,14 +124,16 @@
 				<!-- Footer Links Grid -->
 				{#each footerSections as section}
 					<div class="footer-section">
-						<h4 class="text-sm font-semibold mb-4 text-text-primary" data-i18n={section.titleKey}>Resources</h4>
+						<h4 class="text-sm font-semibold mb-4 text-text-primary" data-i18n={section.titleKey}>
+							Resources
+						</h4>
 						<ul class="space-y-3">
 							{#each section.links as link}
 								<li>
 									{#if link.external}
-										<a 
-											href={link.href} 
-											target="_blank" 
+										<a
+											href={link.href}
+											target="_blank"
 											rel="noopener noreferrer"
 											class="footer-link text-sm text-text-secondary hover:text-text-primary transition-colors flex items-center gap-1"
 											data-i18n={link.labelKey}
@@ -125,9 +142,11 @@
 											<span class="external-icon text-xs">↗</span>
 										</a>
 									{:else}
-										<a 
-											href={link.href} 
-											class="footer-link text-sm transition-colors {link.featured ? 'text-primary font-semibold hover:text-primary-dark flex items-center gap-1' : 'text-text-secondary hover:text-text-primary'}"
+										<a
+											href={link.href}
+											class="footer-link text-sm transition-colors {link.featured
+												? 'text-primary font-semibold hover:text-primary-dark flex items-center gap-1'
+												: 'text-text-secondary hover:text-text-primary'}"
 											class:active={$page.url.pathname === link.href}
 											data-i18n={link.labelKey}
 										>
@@ -144,10 +163,15 @@
 			<!-- Payment Methods & Certifications -->
 			<div class="footer-payment grid grid-cols-1 md:grid-cols-2 gap-6 py-6 border-t border-border">
 				<div class="payment-methods">
-					<span class="payment-label text-xs text-text-tertiary mb-2 block" data-i18n="footer.payments">Privacy Payments via</span>
+					<span
+						class="payment-label text-xs text-text-tertiary mb-2 block"
+						data-i18n="footer.payments">Privacy Payments via</span
+					>
 					<div class="payment-icons flex items-center gap-4 flex-wrap">
 						<span class="payment-brand text-sm font-semibold" style="color: #3b82f6;">Monero</span>
-						<span class="payment-brand text-sm font-semibold" style="color: #22c55e;">Lightning</span>
+						<span class="payment-brand text-sm font-semibold" style="color: #22c55e;"
+							>Lightning</span
+						>
 						<span class="payment-types text-xs text-text-tertiary">Bitcoin</span>
 						<span class="payment-types text-xs text-text-tertiary">Ethereum</span>
 						<span class="payment-types text-xs text-primary font-semibold">Crypto Only</span>
@@ -161,16 +185,22 @@
 			</div>
 
 			<!-- Bottom Bar -->
-			<div class="footer-bottom flex flex-col md:flex-row justify-between items-center gap-4 py-6 border-t border-border">
+			<div
+				class="footer-bottom flex flex-col md:flex-row justify-between items-center gap-4 py-6 border-t border-border"
+			>
 				<div class="footer-copyright text-center md:text-left">
-					<p class="text-sm text-text-secondary mb-1" data-i18n="footer.copyright">© 2024 VuAppStore. All rights reserved.</p>
+					<p class="text-sm text-text-secondary mb-1" data-i18n="footer.copyright">
+						© 2024 VuAppStore. All rights reserved.
+					</p>
 					<p class="footer-company text-xs text-text-tertiary" data-i18n="footer.company-info">
 						VU Technologies | Delaware, USA
 					</p>
 				</div>
 				<div class="footer-actions flex items-center gap-4">
 					<ThemeToggle variant="footer" />
-					<select class="language-select px-3 py-1.5 bg-glass border border-border rounded-lg text-xs text-text-secondary">
+					<select
+						class="language-select px-3 py-1.5 bg-glass border border-border rounded-lg text-xs text-text-secondary"
+					>
 						<option value="en">English</option>
 						<option value="es">Español</option>
 						<option value="fr">Français</option>
@@ -191,4 +221,3 @@
 		color: var(--color-primary);
 	}
 </style>
-

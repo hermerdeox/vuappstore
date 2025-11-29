@@ -7,8 +7,8 @@
 	<section>
 		<h2>GENERAL DATA PROTECTION REGULATION (GDPR) COMPLIANCE</h2>
 		<p>
-			VuAppStore is committed to full compliance with the European Union's General Data Protection 
-			Regulation (GDPR). This document outlines how we meet GDPR requirements and protect the rights 
+			VuAppStore is committed to full compliance with the European Union's General Data Protection
+			Regulation (GDPR). This document outlines how we meet GDPR requirements and protect the rights
 			of EU residents.
 		</p>
 	</section>
@@ -45,7 +45,9 @@
 		<p>You can limit how we process your data.</p>
 
 		<h3>5. Right to Data Portability (Article 20)</h3>
-		<p>You can receive your data in a machine-readable format and transfer it to another service.</p>
+		<p>
+			You can receive your data in a machine-readable format and transfer it to another service.
+		</p>
 
 		<h3>6. Right to Object (Article 21)</h3>
 		<p>You can object to specific types of data processing.</p>
@@ -67,11 +69,11 @@
 
 	<section>
 		<h2>DATA TRANSFERS OUTSIDE THE EU</h2>
-		<p>
-			Your data may be transferred to the United States. We ensure GDPR compliance through:
-		</p>
+		<p>Your data may be transferred to the United States. We ensure GDPR compliance through:</p>
 		<ul>
-			<li><strong>Standard Contractual Clauses (SCCs):</strong> EU-approved data transfer mechanisms</li>
+			<li>
+				<strong>Standard Contractual Clauses (SCCs):</strong> EU-approved data transfer mechanisms
+			</li>
 			<li><strong>Encryption:</strong> All data encrypted in transit and at rest</li>
 			<li><strong>Limited Transfers:</strong> Only when necessary for service provision</li>
 			<li><strong>Adequacy Decisions:</strong> We monitor EU adequacy decisions</li>
@@ -80,24 +82,23 @@
 
 	<section>
 		<h2>DATA PROTECTION OFFICER (DPO)</h2>
+		<p>Our Data Protection Officer oversees GDPR compliance:</p>
 		<p>
-			Our Data Protection Officer oversees GDPR compliance:
-		</p>
-		<p>
-			<strong>Email:</strong> <a href="mailto:dpo@vuappstore.com">dpo@vuappstore.com</a><br/>
-			<strong>Response Time:</strong> Within 72 hours<br/>
+			<strong>Email:</strong> <a href="mailto:dpo@vuappstore.com">dpo@vuappstore.com</a><br />
+			<strong>Response Time:</strong> Within 72 hours<br />
 			<strong>Phone:</strong> +1-302-555-0100 (EU hours: 14:00-23:00 CET)
 		</p>
 	</section>
 
 	<section>
 		<h2>SUPERVISORY AUTHORITY</h2>
+		<p>You have the right to lodge a complaint with a supervisory authority:</p>
 		<p>
-			You have the right to lodge a complaint with a supervisory authority:
-		</p>
-		<p>
-			<strong>Lead Supervisory Authority:</strong> Irish Data Protection Commission<br/>
-			<strong>Website:</strong> <a href="https://www.dataprotection.ie" target="_blank" rel="noopener">www.dataprotection.ie</a><br/>
+			<strong>Lead Supervisory Authority:</strong> Irish Data Protection Commission<br />
+			<strong>Website:</strong>
+			<a href="https://www.dataprotection.ie" target="_blank" rel="noopener"
+				>www.dataprotection.ie</a
+			><br />
 			<strong>Email:</strong> info@dataprotection.ie
 		</p>
 	</section>
@@ -105,9 +106,8 @@
 	<section>
 		<h2>CHILDREN'S DATA</h2>
 		<p>
-			We do not knowingly process data of individuals under 16 years old without parental consent, 
+			We do not knowingly process data of individuals under 16 years old without parental consent,
 			in compliance with GDPR Article 8.
 		</p>
 	</section>
 </LegalLayout>
-

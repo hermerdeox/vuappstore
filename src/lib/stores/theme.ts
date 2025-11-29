@@ -11,12 +11,12 @@ export type Theme = 'modern' | 'brutalist';
 // Initialize theme from localStorage or default to modern
 function getInitialTheme(): Theme {
 	if (!browser) return 'modern';
-	
+
 	const saved = localStorage.getItem('vu-theme');
 	if (saved === 'brutalist' || saved === 'modern') {
 		return saved as Theme;
 	}
-	
+
 	return 'modern';
 }
 
@@ -28,7 +28,7 @@ if (browser) {
 	currentTheme.subscribe((theme) => {
 		// Save to localStorage
 		localStorage.setItem('vu-theme', theme);
-		
+
 		// Update body class
 		if (theme === 'brutalist') {
 			document.body.classList.add('theme-brutalist');
@@ -38,7 +38,7 @@ if (browser) {
 			document.body.classList.remove('theme-brutalist');
 		}
 	});
-	
+
 	// Apply initial theme class
 	const initial = getInitialTheme();
 	if (initial === 'brutalist') {
@@ -52,7 +52,7 @@ if (browser) {
  * Toggle between Modern and Brutalist themes
  */
 export function toggleTheme(): void {
-	currentTheme.update(current => current === 'modern' ? 'brutalist' : 'modern');
+	currentTheme.update((current) => (current === 'modern' ? 'brutalist' : 'modern'));
 }
 
 /**
@@ -67,6 +67,5 @@ export function setTheme(theme: Theme): void {
  */
 export function getTheme(): Theme {
 	if (!browser) return 'modern';
-	return localStorage.getItem('vu-theme') as Theme || 'modern';
+	return (localStorage.getItem('vu-theme') as Theme) || 'modern';
 }
-

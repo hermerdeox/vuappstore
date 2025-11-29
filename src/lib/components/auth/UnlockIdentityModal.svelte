@@ -80,9 +80,7 @@
 		>
 			<div class="flex items-center justify-between p-6 border-b border-white/10">
 				<div class="flex items-center gap-3">
-					<div
-						class="w-10 h-10 rounded-xl bg-cyan-400/20 flex items-center justify-center"
-					>
+					<div class="w-10 h-10 rounded-xl bg-cyan-400/20 flex items-center justify-center">
 						<Unlock class="text-cyan-400" size={20} />
 					</div>
 					<div>
@@ -187,4 +185,3 @@
 		overflow-y: auto;
 	}
 </style>
-

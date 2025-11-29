@@ -28,7 +28,7 @@
 		cards.forEach((card, index) => {
 			(card as HTMLElement).style.opacity = '0';
 			(card as HTMLElement).style.transform = 'translateY(30px)';
-			
+
 			setTimeout(() => {
 				(card as HTMLElement).style.transition = 'opacity 0.6s ease, transform 0.6s ease';
 				(card as HTMLElement).style.opacity = '1';
@@ -57,10 +57,10 @@
 				const windowCenterY = window.innerHeight / 2;
 				const distance = Math.abs(centerY - windowCenterY);
 				const maxDistance = window.innerHeight / 2;
-				
+
 				const opacity = Math.max(0.3, 1 - (distance / maxDistance) * 0.5);
 				subzeroCard.style.opacity = opacity.toString();
-				
+
 				if (Math.abs(window.scrollY - lastScrollY) > 5) {
 					subzeroCard.classList.add('glitching');
 					setTimeout(() => {
@@ -69,7 +69,7 @@
 				}
 				lastScrollY = window.scrollY;
 			};
-			
+
 			window.addEventListener('scroll', scrollHandler);
 
 			// Hover effect for invitation input
@@ -86,7 +86,7 @@
 			// Random text corruption for blurred elements
 			const blurredElements = subzeroCard.querySelectorAll('.blurred-text');
 			const blurInterval = setInterval(() => {
-				blurredElements.forEach(element => {
+				blurredElements.forEach((element) => {
 					if (Math.random() > 0.98) {
 						(element as HTMLElement).style.filter = 'blur(1.5px)';
 						(element as HTMLElement).style.opacity = '0.6';
@@ -109,13 +109,24 @@
 
 <svelte:head>
 	<title>VU Privacy Transparency Protocol - Your Data, Your Rules | VuAppStore</title>
-	<meta name="description" content="Understand the VU Zero-Level System. From Basic Privacy to True Zero-Knowledge. Every app rated, every rating verified, every choice yours." />
+	<meta
+		name="description"
+		content="Understand the VU Zero-Level System. From Basic Privacy to True Zero-Knowledge. Every app rated, every rating verified, every choice yours."
+	/>
 </svelte:head>
 
 <!-- Back Button -->
 <a href="/" class="back-button">
-	<svg class="icon icon-sm" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-		<path d="M19 12H5M5 12L12 19M5 12L12 5"/>
+	<svg
+		class="icon icon-sm"
+		width="20"
+		height="20"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+	>
+		<path d="M19 12H5M5 12L12 19M5 12L12 5" />
 	</svg>
 	<span>Back to Store</span>
 </a>
@@ -129,16 +140,21 @@
 <div class="container">
 	<!-- Hero Section -->
 	<section class="hero">
-		<h1>Privacy Transparency<br>Protocol</h1>
-		<p class="hero-subtitle">The VU Zero-Level System: Where Every Bit of Your Data Has a Guardian Angel</p>
+		<h1>Privacy Transparency<br />Protocol</h1>
+		<p class="hero-subtitle">
+			The VU Zero-Level System: Where Every Bit of Your Data Has a Guardian Angel
+		</p>
 		<p class="hero-dramatic">
-			In a world where your data is currency, we're creating a new economy.<br>
+			In a world where your data is currency, we're creating a new economy.<br />
 			One where YOU are the central bank.
 		</p>
 	</section>
 
 	<!-- Level 5 (Conventional "Privacy" - Not VU Standard) -->
-	<div class="level-card level-5-conventional" style="--level-color: #6b7280; --level-color-dark: #4b5563; --level-color-rgb: 107, 116, 128;">
+	<div
+		class="level-card level-5-conventional"
+		style="--level-color: #6b7280; --level-color-dark: #4b5563; --level-color-rgb: 107, 116, 128;"
+	>
 		<div class="level-header">
 			<div class="level-info">
 				<div class="level-number level-5-number">5</div>
@@ -155,8 +171,8 @@
 			</div>
 		</div>
 		<p class="level-description">
-			This represents what most "privacy-focused" apps claim to offer. While marketed as private, 
-			these solutions still collect metadata, require trust in centralized servers, and often have 
+			This represents what most "privacy-focused" apps claim to offer. While marketed as private,
+			these solutions still collect metadata, require trust in centralized servers, and often have
 			backdoors for "lawful access." <strong>VU doesn't recognize this as true privacy.</strong>
 		</p>
 		<div class="privacy-grid">
@@ -206,7 +222,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="examples-section conventional-examples" style="--level-color: #6b7280; --level-color-rgb: 107, 116, 128;">
+		<div
+			class="examples-section conventional-examples"
+			style="--level-color: #6b7280; --level-color-rgb: 107, 116, 128;"
+		>
 			<div class="examples-title">Popular Apps at This Level:</div>
 			<div class="example-apps">
 				<span class="example-app">ProtonMail</span>
@@ -221,7 +240,11 @@
 					<X class="w-5 h-5 text-error" />
 					<div>
 						<strong>Why VU Doesn't Accept This Standard:</strong>
-						<p>These apps still require trust in centralized infrastructure, collect metadata that can reveal your entire digital life, and often have government backdoors or "lawful access" provisions. True privacy shouldn't require trust.</p>
+						<p>
+							These apps still require trust in centralized infrastructure, collect metadata that
+							can reveal your entire digital life, and often have government backdoors or "lawful
+							access" provisions. True privacy shouldn't require trust.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -229,7 +252,10 @@
 	</div>
 
 	<!-- Level 4 (Basic Privacy - Lowest) -->
-	<div class="level-card" style="--level-color: #ef4444; --level-color-dark: #dc2626; --level-color-rgb: 239, 68, 68;">
+	<div
+		class="level-card"
+		style="--level-color: #ef4444; --level-color-dark: #dc2626; --level-color-rgb: 239, 68, 68;"
+	>
 		<div class="level-header">
 			<div class="level-info">
 				<div class="level-number">4</div>
@@ -240,9 +266,9 @@
 			</div>
 		</div>
 		<p class="level-description">
-			The foundation of trust. Even at our most basic level, you have more privacy than most "premium" services offer. 
-			Your data is encrypted in transit, and we promise not to sell it. But let's be honest - in 2025, this should be 
-			the bare minimum, not a feature.
+			The foundation of trust. Even at our most basic level, you have more privacy than most
+			"premium" services offer. Your data is encrypted in transit, and we promise not to sell it.
+			But let's be honest - in 2025, this should be the bare minimum, not a feature.
 		</p>
 		<div class="privacy-grid">
 			<div class="privacy-item can-control">
@@ -250,45 +276,35 @@
 					<Check class="w-5 h-5" />
 					<span>What You Control</span>
 				</div>
-				<div class="privacy-item-desc">
-					Account deletion, data export, basic privacy settings
-				</div>
+				<div class="privacy-item-desc">Account deletion, data export, basic privacy settings</div>
 			</div>
 			<div class="privacy-item cannot-see">
 				<div class="privacy-item-header">
 					<X class="w-5 h-5" />
 					<span>What We Can't See</span>
 				</div>
-				<div class="privacy-item-desc">
-					Your passwords (hashed), payment details (tokenized)
-				</div>
+				<div class="privacy-item-desc">Your passwords (hashed), payment details (tokenized)</div>
 			</div>
 			<div class="privacy-item server-sees">
 				<div class="privacy-item-header">
 					<Circle class="w-5 h-5" />
 					<span>What Servers See</span>
 				</div>
-				<div class="privacy-item-desc">
-					Encrypted data, basic metadata, usage timestamps
-				</div>
+				<div class="privacy-item-desc">Encrypted data, basic metadata, usage timestamps</div>
 			</div>
 			<div class="privacy-item never-keep">
 				<div class="privacy-item-header">
 					<Ban class="w-5 h-5" />
 					<span>What We Never Keep</span>
 				</div>
-				<div class="privacy-item-desc">
-					Deleted data, expired sessions, declined permissions
-				</div>
+				<div class="privacy-item-desc">Deleted data, expired sessions, declined permissions</div>
 			</div>
 			<div class="privacy-item offline">
 				<div class="privacy-item-header">
 					<Zap class="w-5 h-5" />
 					<span>Offline Capability</span>
 				</div>
-				<div class="privacy-item-desc">
-					Limited offline access, sync required for full features
-				</div>
+				<div class="privacy-item-desc">Limited offline access, sync required for full features</div>
 			</div>
 		</div>
 		<div class="examples-section" style="--level-color: #ef4444; --level-color-rgb: 239, 68, 68;">
@@ -302,7 +318,10 @@
 	</div>
 
 	<!-- Level 3 (Enhanced Privacy) -->
-	<div class="level-card" style="--level-color: #f97316; --level-color-dark: #ea580c; --level-color-rgb: 249, 115, 22;">
+	<div
+		class="level-card"
+		style="--level-color: #f97316; --level-color-dark: #ea580c; --level-color-rgb: 249, 115, 22;"
+	>
 		<div class="level-header">
 			<div class="level-info">
 				<div class="level-number">3</div>
@@ -313,9 +332,9 @@
 			</div>
 		</div>
 		<p class="level-description">
-			Now we're talking. End-to-end encryption becomes standard, not premium. Your data is encrypted before it even 
-			leaves your device. We can't read it, hackers can't steal it, governments can't demand it. This is privacy 
-			that actually means something.
+			Now we're talking. End-to-end encryption becomes standard, not premium. Your data is encrypted
+			before it even leaves your device. We can't read it, hackers can't steal it, governments can't
+			demand it. This is privacy that actually means something.
 		</p>
 		<div class="privacy-grid">
 			<div class="privacy-item can-control">
@@ -332,18 +351,14 @@
 					<X class="w-5 h-5" />
 					<span>What We Can't See</span>
 				</div>
-				<div class="privacy-item-desc">
-					Message content, file contents, user-generated data
-				</div>
+				<div class="privacy-item-desc">Message content, file contents, user-generated data</div>
 			</div>
 			<div class="privacy-item server-sees">
 				<div class="privacy-item-header">
 					<Circle class="w-5 h-5" />
 					<span>What Servers See</span>
 				</div>
-				<div class="privacy-item-desc">
-					Encrypted blobs, connection times, data size
-				</div>
+				<div class="privacy-item-desc">Encrypted blobs, connection times, data size</div>
 			</div>
 			<div class="privacy-item never-keep">
 				<div class="privacy-item-header">
@@ -359,9 +374,7 @@
 					<Zap class="w-5 h-5" />
 					<span>Offline Capability</span>
 				</div>
-				<div class="privacy-item-desc">
-					Most features work offline, periodic sync for updates
-				</div>
+				<div class="privacy-item-desc">Most features work offline, periodic sync for updates</div>
 			</div>
 		</div>
 		<div class="examples-section" style="--level-color: #f97316; --level-color-rgb: 249, 115, 22;">
@@ -375,7 +388,10 @@
 	</div>
 
 	<!-- Level 2 -->
-	<div class="level-card" style="--level-color: #eab308; --level-color-dark: #ca8a04; --level-color-rgb: 234, 179, 8;">
+	<div
+		class="level-card"
+		style="--level-color: #eab308; --level-color-dark: #ca8a04; --level-color-rgb: 234, 179, 8;"
+	>
 		<div class="level-header">
 			<div class="level-info">
 				<div class="level-number">2</div>
@@ -386,9 +402,9 @@
 			</div>
 		</div>
 		<p class="level-description">
-			The paradigm shift. We don't just encrypt your data - we architect entire systems to never need it in the first place. 
-			Federated learning, differential privacy, homomorphic encryption. Your data becomes a ghost that can compute 
-			without ever materializing.
+			The paradigm shift. We don't just encrypt your data - we architect entire systems to never
+			need it in the first place. Federated learning, differential privacy, homomorphic encryption.
+			Your data becomes a ghost that can compute without ever materializing.
 		</p>
 		<div class="privacy-grid">
 			<div class="privacy-item can-control">
@@ -423,9 +439,7 @@
 					<Ban class="w-5 h-5" />
 					<span>What We Never Keep</span>
 				</div>
-				<div class="privacy-item-desc">
-					Individual records, personal identifiers, raw data
-				</div>
+				<div class="privacy-item-desc">Individual records, personal identifiers, raw data</div>
 			</div>
 			<div class="privacy-item offline">
 				<div class="privacy-item-header">
@@ -448,7 +462,10 @@
 	</div>
 
 	<!-- Level 1 (Local-First Computing) -->
-	<div class="level-card" style="--level-color: #22c55e; --level-color-dark: #16a34a; --level-color-rgb: 34, 197, 94;">
+	<div
+		class="level-card"
+		style="--level-color: #22c55e; --level-color-dark: #16a34a; --level-color-rgb: 34, 197, 94;"
+	>
 		<div class="level-header">
 			<div class="level-info">
 				<div class="level-number">1</div>
@@ -459,9 +476,9 @@
 			</div>
 		</div>
 		<p class="level-description">
-			Welcome to the revolution. Your device becomes a fortress. All computation happens locally. AI runs on YOUR hardware. 
-			The cloud becomes optional, not essential. This isn't just privacy - it's digital sovereignty. Your data never leaves 
-			home unless you explicitly pack its bags.
+			Welcome to the revolution. Your device becomes a fortress. All computation happens locally. AI
+			runs on YOUR hardware. The cloud becomes optional, not essential. This isn't just privacy -
+			it's digital sovereignty. Your data never leaves home unless you explicitly pack its bags.
 		</p>
 		<div class="privacy-grid">
 			<div class="privacy-item can-control">
@@ -478,36 +495,28 @@
 					<X class="w-5 h-5" />
 					<span>What We Can't See</span>
 				</div>
-				<div class="privacy-item-desc">
-					Everything. Your data never reaches our servers
-				</div>
+				<div class="privacy-item-desc">Everything. Your data never reaches our servers</div>
 			</div>
 			<div class="privacy-item server-sees">
 				<div class="privacy-item-header">
 					<Circle class="w-5 h-5" />
 					<span>What Servers See</span>
 				</div>
-				<div class="privacy-item-desc">
-					Nothing. Optional anonymous telemetry if you consent
-				</div>
+				<div class="privacy-item-desc">Nothing. Optional anonymous telemetry if you consent</div>
 			</div>
 			<div class="privacy-item never-keep">
 				<div class="privacy-item-header">
 					<Ban class="w-5 h-5" />
 					<span>What We Never Keep</span>
 				</div>
-				<div class="privacy-item-desc">
-					We never receive your data in the first place
-				</div>
+				<div class="privacy-item-desc">We never receive your data in the first place</div>
 			</div>
 			<div class="privacy-item offline">
 				<div class="privacy-item-header">
 					<Zap class="w-5 h-5" />
 					<span>Offline Capability</span>
 				</div>
-				<div class="privacy-item-desc">
-					100% offline. Internet is optional for updates only
-				</div>
+				<div class="privacy-item-desc">100% offline. Internet is optional for updates only</div>
 			</div>
 		</div>
 		<div class="examples-section" style="--level-color: #22c55e; --level-color-rgb: 34, 197, 94;">
@@ -522,7 +531,10 @@
 	</div>
 
 	<!-- Level 0 (True Zero-Knowledge - Highest Standard) -->
-	<div class="level-card" style="--level-color: #3b82f6; --level-color-dark: #2563eb; --level-color-rgb: 59, 130, 246;">
+	<div
+		class="level-card"
+		style="--level-color: #3b82f6; --level-color-dark: #2563eb; --level-color-rgb: 59, 130, 246;"
+	>
 		<div class="level-header">
 			<div class="level-info">
 				<div class="level-number">0</div>
@@ -533,10 +545,11 @@
 			</div>
 		</div>
 		<p class="level-description">
-			The holy grail of privacy. True zero-knowledge architecture where even the existence of your data is unknowable to us. 
-			Peer-to-peer when connected, completely autonomous when not. Your device isn't just a fortress - it's a sovereign nation 
-			in the digital realm. This is privacy so absolute, even quantum computers of the future can't break it. 
-			Welcome to digital immortality.
+			The holy grail of privacy. True zero-knowledge architecture where even the existence of your
+			data is unknowable to us. Peer-to-peer when connected, completely autonomous when not. Your
+			device isn't just a fortress - it's a sovereign nation in the digital realm. This is privacy
+			so absolute, even quantum computers of the future can't break it. Welcome to digital
+			immortality.
 		</p>
 		<div class="privacy-grid">
 			<div class="privacy-item can-control">
@@ -553,36 +566,28 @@
 					<X class="w-5 h-5" />
 					<span>What We Can't See</span>
 				</div>
-				<div class="privacy-item-desc">
-					We don't even know you exist as a user
-				</div>
+				<div class="privacy-item-desc">We don't even know you exist as a user</div>
 			</div>
 			<div class="privacy-item server-sees">
 				<div class="privacy-item-header">
 					<Circle class="w-5 h-5" />
 					<span>What Servers See</span>
 				</div>
-				<div class="privacy-item-desc">
-					No servers involved. Pure P2P or offline operation
-				</div>
+				<div class="privacy-item-desc">No servers involved. Pure P2P or offline operation</div>
 			</div>
 			<div class="privacy-item never-keep">
 				<div class="privacy-item-header">
 					<Ban class="w-5 h-5" />
 					<span>What We Never Keep</span>
 				</div>
-				<div class="privacy-item-desc">
-					There's nothing to keep. You're a ghost in the machine
-				</div>
+				<div class="privacy-item-desc">There's nothing to keep. You're a ghost in the machine</div>
 			</div>
 			<div class="privacy-item offline">
 				<div class="privacy-item-header">
 					<Zap class="w-5 h-5" />
 					<span>Offline Capability</span>
 				</div>
-				<div class="privacy-item-desc">
-					Perfect offline operation. P2P sync when desired
-				</div>
+				<div class="privacy-item-desc">Perfect offline operation. P2P sync when desired</div>
 			</div>
 		</div>
 		<div class="examples-section" style="--level-color: #3b82f6; --level-color-rgb: 59, 130, 246;">
@@ -612,13 +617,14 @@
 				</div>
 			</div>
 			<p class="level-description blurred-text">
-				Beyond zero-knowledge lies negative entropy - a system that generates false signals for every real action, 
-				creating an impenetrable fog of war around your digital presence. SubZero employs polymorphic encryption 
-				that mutates its own algorithms after each operation, time-dilated data sharding across ephemeral nodes, 
-				and steganographic channels hidden within legitimate traffic. Your real data becomes indistinguishable from 
-				millions of synthetic decoys, each with perfect behavioral signatures. This isn't just privacy - it's 
-				active counter-surveillance where every tracker becomes poisoned with false positives until the signal 
-				drowns in self-generated noise.
+				Beyond zero-knowledge lies negative entropy - a system that generates false signals for
+				every real action, creating an impenetrable fog of war around your digital presence. SubZero
+				employs polymorphic encryption that mutates its own algorithms after each operation,
+				time-dilated data sharding across ephemeral nodes, and steganographic channels hidden within
+				legitimate traffic. Your real data becomes indistinguishable from millions of synthetic
+				decoys, each with perfect behavioral signatures. This isn't just privacy - it's active
+				counter-surveillance where every tracker becomes poisoned with false positives until the
+				signal drowns in self-generated noise.
 			</p>
 			<div class="privacy-grid subzero-grid">
 				<div class="privacy-item subzero-item">
@@ -669,7 +675,7 @@
 			</div>
 			<div class="invitation-section">
 				<p class="invitation-text">By Invitation Only</p>
-				<input type="email" class="invitation-input" placeholder="Enter access code..." disabled>
+				<input type="email" class="invitation-input" placeholder="Enter access code..." disabled />
 			</div>
 		</div>
 		<div class="static-overlay"></div>
@@ -678,7 +684,9 @@
 	<!-- Call to Action -->
 	<div class="cta-section">
 		<h2 class="cta-title">Your Privacy Journey Starts Here</h2>
-		<p class="cta-subtitle">Join the revolution. Choose apps that respect your digital sovereignty.</p>
+		<p class="cta-subtitle">
+			Join the revolution. Choose apps that respect your digital sovereignty.
+		</p>
 		<a href="/apps" class="cta-button">Explore VU Suite Apps</a>
 	</div>
 </div>
@@ -776,7 +784,11 @@
 		font-weight: 900;
 		line-height: 1.1;
 		margin-bottom: 16px;
-		background: linear-gradient(135deg, var(--color-text-primary, #ffffff) 0%, var(--color-primary, #00d4ff) 100%);
+		background: linear-gradient(
+			135deg,
+			var(--color-text-primary, #ffffff) 0%,
+			var(--color-primary, #00d4ff) 100%
+		);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -1012,12 +1024,25 @@
 	}
 
 	@keyframes flicker {
-		0%, 100% { opacity: 1; }
-		92% { opacity: 1; }
-		93% { opacity: 0.8; }
-		94% { opacity: 1; }
-		95% { opacity: 0.9; }
-		96% { opacity: 1; }
+		0%,
+		100% {
+			opacity: 1;
+		}
+		92% {
+			opacity: 1;
+		}
+		93% {
+			opacity: 0.8;
+		}
+		94% {
+			opacity: 1;
+		}
+		95% {
+			opacity: 0.9;
+		}
+		96% {
+			opacity: 1;
+		}
 	}
 
 	.subzero-logo {
@@ -1028,8 +1053,13 @@
 	}
 
 	@keyframes pulse-border {
-		0%, 100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
-		50% { box-shadow: 0 0 50px rgba(255, 255, 255, 0.6); }
+		0%,
+		100% {
+			box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+		}
+		50% {
+			box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+		}
 	}
 
 	.vu-text {
@@ -1101,14 +1131,13 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: 
-			repeating-linear-gradient(
-				0deg,
-				transparent,
-				transparent 2px,
-				rgba(255, 255, 255, 0.03) 2px,
-				rgba(255, 255, 255, 0.03) 4px
-			);
+		background-image: repeating-linear-gradient(
+			0deg,
+			transparent,
+			transparent 2px,
+			rgba(255, 255, 255, 0.03) 2px,
+			rgba(255, 255, 255, 0.03) 4px
+		);
 		pointer-events: none;
 		opacity: 0.3;
 	}
@@ -1173,22 +1202,34 @@
 	}
 
 	@keyframes intense-glitch {
-		0%, 100% { transform: translateX(0) skewX(0deg); }
-		20% { transform: translateX(-2px) skewX(2deg); }
-		40% { transform: translateX(2px) skewX(-2deg); }
-		60% { transform: translateX(-1px) skewX(1deg); }
-		80% { transform: translateX(1px) skewX(-1deg); }
+		0%,
+		100% {
+			transform: translateX(0) skewX(0deg);
+		}
+		20% {
+			transform: translateX(-2px) skewX(2deg);
+		}
+		40% {
+			transform: translateX(2px) skewX(-2deg);
+		}
+		60% {
+			transform: translateX(-1px) skewX(1deg);
+		}
+		80% {
+			transform: translateX(1px) skewX(-1deg);
+		}
 	}
 
 	/* ========================================
 	   LEVEL 5 - CONVENTIONAL "PRIVACY" STYLES
 	   ======================================== */
-	
+
 	.level-5-conventional {
 		position: relative;
 		border: 2px dashed var(--level-color) !important;
-		background: linear-gradient(135deg, 
-			rgba(var(--level-color-rgb), 0.05), 
+		background: linear-gradient(
+			135deg,
+			rgba(var(--level-color-rgb), 0.05),
 			rgba(var(--level-color-rgb), 0.02)
 		);
 		opacity: 0.85;
@@ -1346,4 +1387,3 @@
 		}
 	}
 </style>
-

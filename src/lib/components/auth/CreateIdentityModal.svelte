@@ -121,9 +121,16 @@
 		aria-labelledby="modal-title"
 		tabindex="-1"
 	>
-		<div class="modal-content" style="width: 100%; max-width: 480px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: 0 25px 80px rgba(0,0,0,0.6); flex-shrink: 0;" transition:fly={{ y: -50, duration: 300 }}>
+		<div
+			class="modal-content"
+			style="width: 100%; max-width: 480px; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: 0 25px 80px rgba(0,0,0,0.6); flex-shrink: 0;"
+			transition:fly={{ y: -50, duration: 300 }}
+		>
 			<!-- Header -->
-			<div class="modal-header" style="display: flex; align-items: center; justify-content: space-between; padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); background: #0a0a0a;">
+			<div
+				class="modal-header"
+				style="display: flex; align-items: center; justify-content: space-between; padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); background: #0a0a0a;"
+			>
 				<div class="header-content">
 					<div class="header-icon">
 						<Key class="text-cyan-400" size={20} />
@@ -160,7 +167,10 @@
 			</div>
 
 			<!-- Body -->
-			<div class="modal-body" style="padding: 24px; display: flex; flex-direction: column; gap: 20px; background: #0a0a0a;">
+			<div
+				class="modal-body"
+				style="padding: 24px; display: flex; flex-direction: column; gap: 20px; background: #0a0a0a;"
+			>
 				{#if step === 'create'}
 					<!-- Warning -->
 					<div class="warning-box">
@@ -194,9 +204,7 @@
 							placeholder="How should we address you?"
 							class="form-input"
 						/>
-						<p class="form-hint">
-							This is just for display. It's not unique or verified.
-						</p>
+						<p class="form-hint">This is just for display. It's not unique or verified.</p>
 					</div>
 
 					<!-- Privacy Level -->
@@ -213,11 +221,7 @@
 
 					<!-- Understanding Checkbox -->
 					<label class="checkbox-label">
-						<input
-							type="checkbox"
-							bind:checked={understood}
-							class="checkbox-input"
-						/>
+						<input type="checkbox" bind:checked={understood} class="checkbox-input" />
 						<span class="checkbox-text">
 							I understand that my passphrase cannot be recovered. I will save a backup of my
 							identity.
@@ -226,7 +230,10 @@
 				{:else if step === 'confirm'}
 					<div class="form-group">
 						<label class="form-label">Confirm Your Passphrase</label>
-						<PassphraseInput bind:value={confirmPassphrase} placeholder="Re-enter your passphrase" />
+						<PassphraseInput
+							bind:value={confirmPassphrase}
+							placeholder="Re-enter your passphrase"
+						/>
 
 						{#if confirmPassphrase && !passphrasesMatch}
 							<p class="error-text">Passphrases do not match</p>
@@ -282,22 +289,17 @@
 			</div>
 
 			<!-- Footer -->
-			<div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 12px; padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.1); background: #0a0a0a;">
+			<div
+				class="modal-footer"
+				style="display: flex; justify-content: flex-end; gap: 12px; padding: 20px 24px; border-top: 1px solid rgba(255,255,255,0.1); background: #0a0a0a;"
+			>
 				{#if step === 'create'}
-					<button class="btn-secondary" on:click={close}>
-						Cancel
-					</button>
-					<button
-						class="btn-primary"
-						disabled={!canProceed}
-						on:click={handleCreate}
-					>
+					<button class="btn-secondary" on:click={close}> Cancel </button>
+					<button class="btn-primary" disabled={!canProceed} on:click={handleCreate}>
 						Continue
 					</button>
 				{:else if step === 'confirm'}
-					<button class="btn-secondary" on:click={() => (step = 'create')}>
-						Back
-					</button>
+					<button class="btn-secondary" on:click={() => (step = 'create')}> Back </button>
 					<button
 						class="btn-primary"
 						disabled={!passphrasesMatch || isCreating}
@@ -315,9 +317,7 @@
 						I've Saved My Backup
 					</button>
 				{:else}
-					<button class="btn-primary" on:click={complete}>
-						Get Started
-					</button>
+					<button class="btn-primary" on:click={complete}> Get Started </button>
 				{/if}
 			</div>
 		</div>

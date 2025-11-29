@@ -12,11 +12,7 @@
 
 {#if variant === 'footer'}
 	<!-- Footer variant - larger, more prominent -->
-	<button 
-		on:click={handleToggle} 
-		class="theme-toggle-footer"
-		aria-label="Toggle theme"
-	>
+	<button on:click={handleToggle} class="theme-toggle-footer" aria-label="Toggle theme">
 		<Palette class="w-5 h-5" />
 		{#if showLabel}
 			<span class="theme-label">
@@ -145,4 +141,3 @@
 		background: rgba(0, 0, 0, 0.05);
 	}
 </style>
-

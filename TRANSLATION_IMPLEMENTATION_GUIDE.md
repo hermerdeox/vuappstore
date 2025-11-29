@@ -3,6 +3,7 @@
 ## Architecture Overview
 
 ### Zero-Knowledge Translation System
+
 - **Client-side only**: All translations embedded in the application
 - **No external API calls**: Complete privacy compliance
 - **localStorage**: Language preference stored locally
@@ -34,7 +35,7 @@ For each page:
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { initTranslation } from '$lib/utils/i18n';
-	
+
 	onMount(() => {
 		setTimeout(initTranslation, 100);
 	});
@@ -50,6 +51,7 @@ For each page:
 Format: `section.subsection.element`
 
 Examples:
+
 - `footer.tagline` - Footer tagline
 - `about.title` - About page title
 - `about.mission.intro` - About mission introduction
@@ -59,10 +61,12 @@ Examples:
 ## Translation Status
 
 ### ✅ Completed
+
 1. **Footer Component** - All sections, links, and UI elements
 2. **VuChat App Page** - Full page translation with all features
 
 ### 🔄 In Progress
+
 3. **About Pages** (/about, /about/mission, /about/team)
 4. **Support Pages** (/support, /support/faq, /support/contact)
 5. **Legal Pages** (All 7 legal documents)
@@ -73,16 +77,19 @@ Examples:
 ## Pages to Translate
 
 ### About Section (3 pages)
+
 - `/about` - Main about page
 - `/about/mission` - Mission statement
 - `/about/team` - Team page
 
 ### Support Section (3 pages)
+
 - `/support` - Support center main
 - `/support/faq` - FAQ page
 - `/support/contact` - Contact form
 
 ### Legal Section (7 pages)
+
 - `/legal/terms` - Terms of Service
 - `/legal/privacy` - Privacy Policy
 - `/legal/refund` - Refund Policy
@@ -92,6 +99,7 @@ Examples:
 - `/legal/data-processing` - Data Processing Agreement
 
 ### Developer Section (5 pages)
+
 - `/developers` - Developer portal main
 - `/developers/api` - API Documentation
 - `/developers/docs` - Technical Docs
@@ -99,6 +107,7 @@ Examples:
 - `/developers/bug-bounty` - Bug Bounty program
 
 ### Resource Section (5 pages)
+
 - `/resources/privacy-guide` - Privacy Guide
 - `/resources/security-best-practices` - Security Best Practices
 - `/resources/comparison` - VU vs Big Tech
@@ -106,6 +115,7 @@ Examples:
 - `/resources/educational` - Educational Resources
 
 ### Other Pages (4 pages)
+
 - `/pricing` - Pricing page
 - `/affiliate` - Affiliate program
 - `/blog` - Blog listing
@@ -116,11 +126,14 @@ Examples:
 ## Translation Keys Required
 
 ### Common Keys (already in translations.ts)
+
 - `common.*` - Buttons, labels, form fields
 - `footer.*` - Footer content, links, badges
 
 ### Page-Specific Keys to Add
+
 Each page section needs approximately 10-30 translation keys for:
+
 - Page title and subtitle
 - Section headings
 - Body content
@@ -131,6 +144,7 @@ Each page section needs approximately 10-30 translation keys for:
 ## Quality Assurance
 
 ### Translation Checklist
+
 - [ ] All visible text has data-i18n attributes
 - [ ] Translation keys exist in translations.ts for all 3 languages
 - [ ] initTranslation() called in onMount()
@@ -140,6 +154,7 @@ Each page section needs approximately 10-30 translation keys for:
 - [ ] HTML content support (data-i18n-html where needed)
 
 ### Testing Checklist
+
 - [ ] Test in English (default)
 - [ ] Test in Spanish
 - [ ] Test in French
@@ -151,11 +166,13 @@ Each page section needs approximately 10-30 translation keys for:
 ## Performance Considerations
 
 ### Bundle Size
+
 - All translations embedded: ~50-100KB additional
 - Minimal impact on initial load
 - No runtime overhead from API calls
 
 ### Optimization
+
 - Lazy loading not needed (translations are small)
 - All languages loaded upfront for instant switching
 - No network requests = maximum privacy + speed
@@ -163,6 +180,7 @@ Each page section needs approximately 10-30 translation keys for:
 ## Future Enhancements
 
 ### Potential Additions
+
 - German (de) - Already in language selector, translations needed
 - Portuguese (pt)
 - Italian (it)
@@ -170,6 +188,7 @@ Each page section needs approximately 10-30 translation keys for:
 - Chinese (zh)
 
 ### Technical Improvements
+
 - Translation management UI for non-developers
 - Automated translation key extraction
 - Translation coverage reports
@@ -178,7 +197,9 @@ Each page section needs approximately 10-30 translation keys for:
 ## Notes
 
 ### Brand Names & Technical Terms
+
 Do NOT translate:
+
 - VuAppStore
 - VU Suite
 - App names (VuChat, VuMail, etc.)
@@ -187,6 +208,7 @@ Do NOT translate:
 - Stripe, Visa, Mastercard, etc.
 
 ### Cultural Adaptations
+
 - Date formats remain US format (consistency)
 - Currency symbols remain $ (USD)
 - Legal language follows EN originals (for accuracy)
@@ -194,6 +216,7 @@ Do NOT translate:
 ## Success Metrics
 
 ### Completion Criteria
+
 - ✅ All 27 pages fully translated
 - ✅ All 3 languages functional
 - ✅ No translation errors or missing keys
@@ -202,6 +225,7 @@ Do NOT translate:
 - ✅ Browser testing confirms functionality
 
 ### Expected User Impact
+
 - **Accessibility**: Reach Spanish and French speaking users
 - **Trust**: Demonstrates commitment to global privacy
 - **Engagement**: Lower barrier to entry for non-English users
@@ -213,4 +237,3 @@ Do NOT translate:
 **Next Steps**: Continue with About pages, then Support, Legal, Developers, Resources, and Other pages
 **Timeline**: Comprehensive implementation requires systematic approach
 **Priority**: High - Supports VuAppStore's global privacy mission
-

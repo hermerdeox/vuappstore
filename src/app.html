@@ -2,13 +2,16 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		
+
 		<!-- Viewport & PWA Meta Tags -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+		/>
 		<meta name="theme-color" content="#000000" />
 		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
 		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-		
+
 		<!-- PWA Application Meta Tags -->
 		<meta name="application-name" content="VuAppStore" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -17,13 +20,13 @@
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="msapplication-TileColor" content="#000000" />
 		<meta name="msapplication-config" content="/browserconfig.xml" />
-		
+
 		<!-- Comprehensive Favicon System -->
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="48x48" href="/icons/icon-48x48.png" />
-		
+
 		<!-- Apple Touch Icons -->
 		<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 		<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-touch-icon-57x57.png" />
@@ -35,7 +38,7 @@
 		<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-touch-icon-144x144.png" />
 		<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
-		
+
 		<!-- Android Chrome Icons -->
 		<link rel="icon" type="image/png" sizes="36x36" href="/icons/android-chrome-36x36.png" />
 		<link rel="icon" type="image/png" sizes="48x48" href="/icons/android-chrome-48x48.png" />
@@ -46,28 +49,35 @@
 		<link rel="icon" type="image/png" sizes="256x256" href="/icons/android-chrome-256x256.png" />
 		<link rel="icon" type="image/png" sizes="384x384" href="/icons/android-chrome-384x384.png" />
 		<link rel="icon" type="image/png" sizes="512x512" href="/icons/android-chrome-512x512.png" />
-		
+
 		<!-- Safari Pinned Tab -->
 		<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#00d4ff" />
-		
+
 		<!-- Microsoft Tiles -->
 		<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png" />
 		<meta name="msapplication-square70x70logo" content="/icons/mstile-70x70.png" />
 		<meta name="msapplication-square150x150logo" content="/icons/mstile-150x150.png" />
 		<meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
 		<meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
-		
+
 		<!-- PWA Manifest -->
 		<link rel="manifest" href="/manifest.json" />
-		
+
 		<!-- Preload Critical Resources -->
-		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" as="style" />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
-		
+		<link
+			rel="preload"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+			as="style"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+			rel="stylesheet"
+		/>
+
 		<!-- DNS Prefetch for Performance -->
 		<link rel="dns-prefetch" href="//fonts.googleapis.com" />
 		<link rel="dns-prefetch" href="//fonts.gstatic.com" />
-		
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

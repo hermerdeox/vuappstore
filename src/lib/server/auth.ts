@@ -30,12 +30,9 @@ export function createChallenge(identifier: string): { nonce: string; expiresAt:
 	challenges.set(identifier, challenge);
 
 	// Auto-cleanup after expiry
-	setTimeout(
-		() => {
-			challenges.delete(identifier);
-		},
-		CRYPTO_CONFIG.CHALLENGE_EXPIRY_MS + 1000
-	);
+	setTimeout(() => {
+		challenges.delete(identifier);
+	}, CRYPTO_CONFIG.CHALLENGE_EXPIRY_MS + 1000);
 
 	return challenge;
 }
@@ -173,4 +170,3 @@ export function extractTokenFromCookie(cookieHeader: string | null): string | nu
 
 	return tokenCookie.split('=')[1];
 }
-

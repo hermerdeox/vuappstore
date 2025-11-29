@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ShieldCheck } from 'lucide-svelte';
-	
+
 	export let size: 'xs' | 'sm' | 'md' | 'lg' = 'md';
 	export let showIcon: boolean = true;
 	export let variant: 'badge' | 'banner' = 'badge';
@@ -153,7 +153,7 @@
 
 	/* Brutalist Theme Overrides */
 	:global(body.theme-brutalist) .vulabs-badge {
-		background: #FFFFFF;
+		background: #ffffff;
 		border: 2px solid #000000;
 		border-radius: 0px;
 		box-shadow: 2px 2px 0 0 #000000;
@@ -175,7 +175,7 @@
 	}
 
 	:global(body.theme-brutalist) .vulabs-banner {
-		background: #FFFFFF;
+		background: #ffffff;
 		border: 3px solid #000000;
 		border-radius: 0px;
 		box-shadow: 6px 6px 0 0 #000000;
@@ -200,4 +200,3 @@
 		color: #000000;
 	}
 </style>
-

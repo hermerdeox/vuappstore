@@ -1,18 +1,155 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { getAppById } from '$lib/data/apps';
-	import { Download, Shield, Lock, Globe, Star, FileText, Smartphone, Search, Key, DollarSign, BarChart2, Calendar, Link, Clock, Dumbbell, Watch, TrendingUp, Target, PenLine, Book, Palette, Upload, Bot, User, MapPin, Phone, Video, Users, MessageSquare, Type, Clipboard, Package, Cloud, UserX, Eye, Mail, Mask, Ban, Inbox, CheckCircle, RefreshCw, Tag, Ghost, Fingerprint, AlertTriangle, Folder, Music, Mic, Sliders, Radio, FastForward, Moon, Brain, Layers, Table2, Presentation, Map, Compass, Car, Camera, Trophy, Timer, BookOpen, ShoppingCart, Apple, CreditCard, Smile, MessageCircle, Pencil, Library, Zap, Monitor } from 'lucide-svelte';
+	import {
+		Download,
+		Shield,
+		Lock,
+		Globe,
+		Star,
+		FileText,
+		Smartphone,
+		Search,
+		Key,
+		DollarSign,
+		BarChart2,
+		Calendar,
+		Link,
+		Clock,
+		Dumbbell,
+		Watch,
+		TrendingUp,
+		Target,
+		PenLine,
+		Book,
+		Palette,
+		Upload,
+		Bot,
+		User,
+		MapPin,
+		Phone,
+		Video,
+		Users,
+		MessageSquare,
+		Type,
+		Clipboard,
+		Package,
+		Cloud,
+		UserX,
+		Eye,
+		Mail,
+		Mask,
+		Ban,
+		Inbox,
+		CheckCircle,
+		RefreshCw,
+		Tag,
+		Ghost,
+		Fingerprint,
+		AlertTriangle,
+		Folder,
+		Music,
+		Mic,
+		Sliders,
+		Radio,
+		FastForward,
+		Moon,
+		Brain,
+		Layers,
+		Table2,
+		Presentation,
+		Map,
+		Compass,
+		Car,
+		Camera,
+		Trophy,
+		Timer,
+		BookOpen,
+		ShoppingCart,
+		Apple,
+		CreditCard,
+		Smile,
+		MessageCircle,
+		Pencil,
+		Library,
+		Zap,
+		Monitor
+	} from 'lucide-svelte';
 
 	// Icon map for dynamic icon rendering
 	const iconMap: Record<string, any> = {
-		Lock, FileText, Smartphone, Search, Key, DollarSign, Shield, BarChart2, Calendar,
-		Link, Clock, Globe, Dumbbell, Watch, TrendingUp, Target, PenLine, Book, Palette,
-		Upload, Bot, User, MapPin, Phone, Video, Users, MessageSquare, Type, Clipboard,
-		Package, Cloud, UserX, Eye, Mail, Mask, Ban, Inbox, CheckCircle, RefreshCw, Tag,
-		Ghost, Fingerprint, AlertTriangle, Folder, Music, Mic, Sliders, Radio, Download,
-		FastForward, Moon, Brain, Layers, Table2, Presentation, Map, Compass, Car, Camera,
-		Trophy, Timer, BookOpen, ShoppingCart, Apple, CreditCard, Smile, MessageCircle,
-		Pencil, Library, Zap, Monitor, Star
+		Lock,
+		FileText,
+		Smartphone,
+		Search,
+		Key,
+		DollarSign,
+		Shield,
+		BarChart2,
+		Calendar,
+		Link,
+		Clock,
+		Globe,
+		Dumbbell,
+		Watch,
+		TrendingUp,
+		Target,
+		PenLine,
+		Book,
+		Palette,
+		Upload,
+		Bot,
+		User,
+		MapPin,
+		Phone,
+		Video,
+		Users,
+		MessageSquare,
+		Type,
+		Clipboard,
+		Package,
+		Cloud,
+		UserX,
+		Eye,
+		Mail,
+		Mask,
+		Ban,
+		Inbox,
+		CheckCircle,
+		RefreshCw,
+		Tag,
+		Ghost,
+		Fingerprint,
+		AlertTriangle,
+		Folder,
+		Music,
+		Mic,
+		Sliders,
+		Radio,
+		Download,
+		FastForward,
+		Moon,
+		Brain,
+		Layers,
+		Table2,
+		Presentation,
+		Map,
+		Compass,
+		Car,
+		Camera,
+		Trophy,
+		Timer,
+		BookOpen,
+		ShoppingCart,
+		Apple,
+		CreditCard,
+		Smile,
+		MessageCircle,
+		Pencil,
+		Library,
+		Zap,
+		Monitor,
+		Star
 	};
 	import VuLabsCertified from '$lib/components/badges/VuLabsCertified.svelte';
 
@@ -25,18 +162,20 @@
 			'back-to-suite': 'Continue Exploring',
 			'key-features': 'Key Features',
 			'technology-stack': 'Technology Stack',
-			'pricing': 'Pricing',
+			pricing: 'Pricing',
 			'choose-monthly': 'Choose Monthly',
 			'choose-annual': 'Choose Annual',
 			'choose-lifetime': 'Choose Lifetime',
-			'downloads': 'Downloads',
-			'reviews': 'Reviews',
+			downloads: 'Downloads',
+			reviews: 'Reviews',
 			'get-app': 'Get {{appName}}',
 
 			// VuChat specific content
 			'vuchat-tagline': 'Chat with confidence',
-			'vuchat-description': 'Quantum-resistant messaging with perfect forward secrecy and no metadata collection.',
-			'vuchat-long-description': 'VuChat provides military-grade encrypted messaging with advanced privacy features. Self-destructing messages, screenshot detection, and anonymous accounts ensure your conversations stay private.',
+			'vuchat-description':
+				'Quantum-resistant messaging with perfect forward secrecy and no metadata collection.',
+			'vuchat-long-description':
+				'VuChat provides military-grade encrypted messaging with advanced privacy features. Self-destructing messages, screenshot detection, and anonymous accounts ensure your conversations stay private.',
 			'vuchat-privacy-name': 'Quantum-Resistant',
 			'vuchat-privacy-desc': 'Future-proof encryption, no metadata',
 
@@ -61,18 +200,20 @@
 			'back-to-suite': 'Continuar Explorando',
 			'key-features': 'Características Principales',
 			'technology-stack': 'Pila Tecnológica',
-			'pricing': 'Precios',
+			pricing: 'Precios',
 			'choose-monthly': 'Elegir Mensual',
 			'choose-annual': 'Elegir Anual',
 			'choose-lifetime': 'Elegir Vitalicio',
-			'downloads': 'Descargas',
-			'reviews': 'Reseñas',
+			downloads: 'Descargas',
+			reviews: 'Reseñas',
 			'get-app': 'Obtener {{appName}}',
 
 			// VuChat specific content
 			'vuchat-tagline': 'Chatea con confianza',
-			'vuchat-description': 'Mensajería resistente a la computación cuántica con secreto perfecto hacia adelante y sin recolección de metadatos.',
-			'vuchat-long-description': 'VuChat proporciona mensajería cifrada de grado militar con funciones avanzadas de privacidad. Los mensajes autodestructivos, la detección de capturas de pantalla y las cuentas anónimas garantizan que tus conversaciones se mantengan privadas.',
+			'vuchat-description':
+				'Mensajería resistente a la computación cuántica con secreto perfecto hacia adelante y sin recolección de metadatos.',
+			'vuchat-long-description':
+				'VuChat proporciona mensajería cifrada de grado militar con funciones avanzadas de privacidad. Los mensajes autodestructivos, la detección de capturas de pantalla y las cuentas anónimas garantizan que tus conversaciones se mantengan privadas.',
 			'vuchat-privacy-name': 'Resistente a Cuánticos',
 			'vuchat-privacy-desc': 'Cifrado a prueba de futuro, sin metadatos',
 
@@ -97,18 +238,20 @@
 			'back-to-suite': 'Continuer à Explorer',
 			'key-features': 'Fonctionnalités Clés',
 			'technology-stack': 'Pile Technologique',
-			'pricing': 'Tarifs',
+			pricing: 'Tarifs',
 			'choose-monthly': 'Choisir Mensuel',
 			'choose-annual': 'Choisir Annuel',
 			'choose-lifetime': 'Choisir À Vie',
-			'downloads': 'Téléchargements',
-			'reviews': 'Avis',
+			downloads: 'Téléchargements',
+			reviews: 'Avis',
 			'get-app': 'Obtenir {{appName}}',
 
 			// VuChat specific content
 			'vuchat-tagline': 'Discutez en toute confiance',
-			'vuchat-description': 'Messagerie résistante à l\'informatique quantique avec confidentialité parfaite en avant et aucune collecte de métadonnées.',
-			'vuchat-long-description': 'VuChat fournit une messagerie chiffrée de niveau militaire avec des fonctionnalités de confidentialité avancées. Les messages auto-destructeurs, la détection de captures d\'écran et les comptes anonymes garantissent que vos conversations restent privées.',
+			'vuchat-description':
+				"Messagerie résistante à l'informatique quantique avec confidentialité parfaite en avant et aucune collecte de métadonnées.",
+			'vuchat-long-description':
+				"VuChat fournit une messagerie chiffrée de niveau militaire avec des fonctionnalités de confidentialité avancées. Les messages auto-destructeurs, la détection de captures d'écran et les comptes anonymes garantissent que vos conversations restent privées.",
 			'vuchat-privacy-name': 'Résistant aux Quanta',
 			'vuchat-privacy-desc': 'Chiffrement futur-proof, sans métadonnées',
 
@@ -161,7 +304,7 @@
 
 	function translatePage() {
 		const elements = document.querySelectorAll('[data-i18n]');
-		elements.forEach(element => {
+		elements.forEach((element) => {
 			const key = element.getAttribute('data-i18n');
 			if (key && translations[currentLang] && translations[currentLang][key]) {
 				let text = translations[currentLang][key];
@@ -186,16 +329,32 @@
 
 <svelte:head>
 	<title>{app ? `${app.name} - VuAppStore` : 'App Not Found - VuAppStore'}</title>
-	<meta name="description" content={app ? app.description : 'The requested app could not be found.'} />
+	<meta
+		name="description"
+		content={app ? app.description : 'The requested app could not be found.'}
+	/>
 </svelte:head>
 
 {#if app}
-
 	<div class="app-detail-page">
 		<!-- Back Button -->
 		<div class="container pt-8 pb-4">
-			<a href="/apps" class="text-text-secondary hover:text-primary transition-colors flex items-center gap-2" data-i18n="back-to-suite">
-				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+			<a
+				href="/apps"
+				class="text-text-secondary hover:text-primary transition-colors flex items-center gap-2"
+				data-i18n="back-to-suite"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg
+				>
 				Continue Exploring
 			</a>
 		</div>
@@ -219,7 +378,9 @@
 								{/if}
 							</div>
 							{#if app.id === 'vuchat'}
-								<p class="text-lg text-text-secondary italic" data-i18n="vuchat-tagline">{app.tagline}</p>
+								<p class="text-lg text-text-secondary italic" data-i18n="vuchat-tagline">
+									{app.tagline}
+								</p>
 							{:else}
 								<p class="text-lg text-text-secondary italic">{app.tagline}</p>
 							{/if}
@@ -230,7 +391,10 @@
 					</div>
 
 					{#if app.id === 'vuchat'}
-						<p class="text-text-secondary text-lg leading-relaxed mb-6" data-i18n="vuchat-long-description">
+						<p
+							class="text-text-secondary text-lg leading-relaxed mb-6"
+							data-i18n="vuchat-long-description"
+						>
 							{app.longDescription}
 						</p>
 					{:else}
@@ -244,15 +408,21 @@
 							<Shield class="w-8 h-8 text-success" />
 							<div>
 								{#if app.id === 'vuchat'}
-									<div class="font-semibold text-success" data-i18n="vuchat-privacy-name">{app.privacyName}</div>
-									<div class="text-sm text-text-secondary" data-i18n="vuchat-privacy-desc">{app.privacyDesc}</div>
+									<div class="font-semibold text-success" data-i18n="vuchat-privacy-name">
+										{app.privacyName}
+									</div>
+									<div class="text-sm text-text-secondary" data-i18n="vuchat-privacy-desc">
+										{app.privacyDesc}
+									</div>
 								{:else}
 									<div class="font-semibold text-success">{app.privacyName}</div>
 									<div class="text-sm text-text-secondary">{app.privacyDesc}</div>
 								{/if}
 							</div>
 							<div class="ml-auto">
-								<div class="privacy-badge w-12 h-12 bg-success/20 rounded-full flex items-center justify-center text-xl font-bold text-success">
+								<div
+									class="privacy-badge w-12 h-12 bg-success/20 rounded-full flex items-center justify-center text-xl font-bold text-success"
+								>
 									{app.privacyLevel}
 								</div>
 							</div>
@@ -264,10 +434,14 @@
 							<div class="stat-value text-2xl font-bold text-primary mb-1">
 								{(app.downloads / 1000).toFixed(0)}K
 							</div>
-							<div class="stat-label text-xs text-text-secondary" data-i18n="downloads">Downloads</div>
+							<div class="stat-label text-xs text-text-secondary" data-i18n="downloads">
+								Downloads
+							</div>
 						</div>
 						<div class="stat glass-card p-4 text-center">
-							<div class="stat-value text-2xl font-bold text-primary mb-1 flex items-center justify-center gap-1">
+							<div
+								class="stat-value text-2xl font-bold text-primary mb-1 flex items-center justify-center gap-1"
+							>
 								{app.rating}
 								<Star class="w-4 h-4 fill-current" />
 							</div>
@@ -306,7 +480,11 @@
 						<div class="flex items-start gap-4">
 							<div class="feature-icon">
 								{#if iconMap[feature.icon]}
-									<svelte:component this={iconMap[feature.icon]} class="w-8 h-8" style="color: {app.color};" />
+									<svelte:component
+										this={iconMap[feature.icon]}
+										class="w-8 h-8"
+										style="color: {app.color};"
+									/>
 								{:else}
 									<span class="text-3xl" style="color: {app.color};">V</span>
 								{/if}
@@ -314,17 +492,33 @@
 							<div>
 								{#if app.id === 'vuchat'}
 									{#if index === 0}
-										<h3 class="text-lg font-semibold mb-2" data-i18n="quantum-resistant-feature">{feature.title}</h3>
-										<p class="text-sm text-text-secondary" data-i18n="quantum-resistant-desc">{feature.desc}</p>
+										<h3 class="text-lg font-semibold mb-2" data-i18n="quantum-resistant-feature">
+											{feature.title}
+										</h3>
+										<p class="text-sm text-text-secondary" data-i18n="quantum-resistant-desc">
+											{feature.desc}
+										</p>
 									{:else if index === 1}
-										<h3 class="text-lg font-semibold mb-2" data-i18n="self-destruct-feature">{feature.title}</h3>
-										<p class="text-sm text-text-secondary" data-i18n="self-destruct-desc">{feature.desc}</p>
+										<h3 class="text-lg font-semibold mb-2" data-i18n="self-destruct-feature">
+											{feature.title}
+										</h3>
+										<p class="text-sm text-text-secondary" data-i18n="self-destruct-desc">
+											{feature.desc}
+										</p>
 									{:else if index === 2}
-										<h3 class="text-lg font-semibold mb-2" data-i18n="anonymous-feature">{feature.title}</h3>
-										<p class="text-sm text-text-secondary" data-i18n="anonymous-desc">{feature.desc}</p>
+										<h3 class="text-lg font-semibold mb-2" data-i18n="anonymous-feature">
+											{feature.title}
+										</h3>
+										<p class="text-sm text-text-secondary" data-i18n="anonymous-desc">
+											{feature.desc}
+										</p>
 									{:else if index === 3}
-										<h3 class="text-lg font-semibold mb-2" data-i18n="screenshot-alert-feature">{feature.title}</h3>
-										<p class="text-sm text-text-secondary" data-i18n="screenshot-alert-desc">{feature.desc}</p>
+										<h3 class="text-lg font-semibold mb-2" data-i18n="screenshot-alert-feature">
+											{feature.title}
+										</h3>
+										<p class="text-sm text-text-secondary" data-i18n="screenshot-alert-desc">
+											{feature.desc}
+										</p>
 									{:else}
 										<h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
 										<p class="text-sm text-text-secondary">{feature.desc}</p>
@@ -346,7 +540,10 @@
 			<div class="tech-stack flex flex-wrap gap-3">
 				{#each app.techStack as tech, index}
 					{#if app.id === 'vuchat'}
-						<span class="tech-badge glass-card px-4 py-2 text-sm font-medium" data-i18n="vuchat-tech-{index + 1}">
+						<span
+							class="tech-badge glass-card px-4 py-2 text-sm font-medium"
+							data-i18n="vuchat-tech-{index + 1}"
+						>
 							{tech}
 						</span>
 					{:else}
@@ -368,10 +565,16 @@
 						<span class="text-3xl font-bold">${app.pricing.monthly}</span>
 						<span class="text-text-secondary">/month</span>
 					</div>
-					<a href="/pricing" class="btn btn-secondary w-full justify-center" data-i18n="choose-monthly">Choose Monthly</a>
+					<a
+						href="/pricing"
+						class="btn btn-secondary w-full justify-center"
+						data-i18n="choose-monthly">Choose Monthly</a
+					>
 				</div>
 				<div class="pricing-card glass-card p-6 border-primary/50">
-					<span class="popular-badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full mb-3">
+					<span
+						class="popular-badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full mb-3"
+					>
 						BEST VALUE
 					</span>
 					<h3 class="text-xl font-semibold mb-2" data-i18n="choose-annual">Annual</h3>
@@ -379,7 +582,9 @@
 						<span class="text-3xl font-bold">${app.pricing.yearly}</span>
 						<span class="text-text-secondary">/year</span>
 					</div>
-					<a href="/pricing" class="btn btn-primary w-full justify-center" data-i18n="choose-annual">Choose Annual</a>
+					<a href="/pricing" class="btn btn-primary w-full justify-center" data-i18n="choose-annual"
+						>Choose Annual</a
+					>
 				</div>
 				<div class="pricing-card glass-card p-6">
 					<h3 class="text-xl font-semibold mb-2" data-i18n="choose-lifetime">Lifetime</h3>
@@ -387,7 +592,11 @@
 						<span class="text-3xl font-bold">${app.pricing.lifetime}</span>
 						<span class="text-text-secondary">/once</span>
 					</div>
-					<a href="/pricing" class="btn btn-secondary w-full justify-center" data-i18n="choose-lifetime">Choose Lifetime</a>
+					<a
+						href="/pricing"
+						class="btn btn-secondary w-full justify-center"
+						data-i18n="choose-lifetime">Choose Lifetime</a
+					>
 				</div>
 			</div>
 		</section>
@@ -399,4 +608,3 @@
 		<a href="/apps" class="btn btn-primary">Browse All Apps</a>
 	</div>
 {/if}
-

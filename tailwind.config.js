@@ -3,13 +3,13 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		screens: {
-			'xs': '320px',    // Extra small phones
-			'sm': '375px',    // Small phones (iPhone SE)
-			'md': '768px',    // Tablets
-			'lg': '1024px',   // Small laptops
-			'xl': '1280px',   // Laptops
-			'2xl': '1536px',  // Large screens
-			'3xl': '1920px'   // Ultra-wide
+			xs: '320px', // Extra small phones
+			sm: '375px', // Small phones (iPhone SE)
+			md: '768px', // Tablets
+			lg: '1024px', // Small laptops
+			xl: '1280px', // Laptops
+			'2xl': '1536px', // Large screens
+			'3xl': '1920px' // Ultra-wide
 		},
 		extend: {
 			colors: {
@@ -28,7 +28,7 @@ export default {
 				success: '#22c55e',
 				warning: '#ffa500',
 				error: '#ef4444',
-				
+
 				// Stripe-friendly professional colors
 				'stripe-blue': '#635BFF',
 				'trust-green': '#00D924',
@@ -40,8 +40,8 @@ export default {
 			},
 			animation: {
 				'grid-move': 'gridMove 60s linear infinite',
-				'spotlight': 'spotlight 25s ease-in-out infinite',
-				'float': 'float 3s ease-in-out infinite',
+				spotlight: 'spotlight 25s ease-in-out infinite',
+				float: 'float 3s ease-in-out infinite',
 				'pulse-slow': 'pulse 3s ease-in-out infinite'
 			},
 			keyframes: {
@@ -61,9 +61,5 @@ export default {
 			}
 		}
 	},
-	plugins: [
-		require('@tailwindcss/typography'),
-		require('@tailwindcss/forms')
-	]
+	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
 };
-

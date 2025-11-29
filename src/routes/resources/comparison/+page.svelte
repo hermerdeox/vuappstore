@@ -1,196 +1,213 @@
 <script lang="ts">
-	import { Shield, Eye, DollarSign, Users, Lock, AlertTriangle, CheckCircle, X } from 'lucide-svelte';
+	import {
+		Shield,
+		Eye,
+		DollarSign,
+		Users,
+		Lock,
+		AlertTriangle,
+		CheckCircle,
+		X
+	} from 'lucide-svelte';
 
 	const comparisons = [
 		{
-			category: "Data Collection",
+			category: 'Data Collection',
 			vuApps: {
 				score: 5,
-				description: "Zero data collection",
-				details: "VU apps collect no personal data. Everything stays on your device.",
+				description: 'Zero data collection',
+				details: 'VU apps collect no personal data. Everything stays on your device.',
 				icon: CheckCircle,
-				color: "success"
+				color: 'success'
 			},
 			bigTech: {
 				score: 1,
-				description: "Extensive data collection",
-				details: "Collects personal data, browsing habits, location, contacts, and more for advertising.",
+				description: 'Extensive data collection',
+				details:
+					'Collects personal data, browsing habits, location, contacts, and more for advertising.',
 				icon: X,
-				color: "error"
+				color: 'error'
 			}
 		},
 		{
-			category: "Encryption",
+			category: 'Encryption',
 			vuApps: {
 				score: 5,
-				description: "End-to-end encryption",
-				details: "Military-grade encryption with zero-knowledge architecture.",
+				description: 'End-to-end encryption',
+				details: 'Military-grade encryption with zero-knowledge architecture.',
 				icon: CheckCircle,
-				color: "success"
+				color: 'success'
 			},
 			bigTech: {
 				score: 2,
-				description: "Basic encryption",
-				details: "Data encrypted in transit but accessible to the company.",
+				description: 'Basic encryption',
+				details: 'Data encrypted in transit but accessible to the company.',
 				icon: AlertTriangle,
-				color: "warning"
+				color: 'warning'
 			}
 		},
 		{
-			category: "Business Model",
+			category: 'Business Model',
 			vuApps: {
 				score: 5,
-				description: "Subscription-based",
-				details: "Transparent pricing. You pay for the service, not with your data.",
+				description: 'Subscription-based',
+				details: 'Transparent pricing. You pay for the service, not with your data.',
 				icon: CheckCircle,
-				color: "success"
+				color: 'success'
 			},
 			bigTech: {
 				score: 1,
-				description: "Advertising-based",
-				details: "Free services funded by selling your personal data to advertisers.",
+				description: 'Advertising-based',
+				details: 'Free services funded by selling your personal data to advertisers.',
 				icon: X,
-				color: "error"
+				color: 'error'
 			}
 		},
 		{
-			category: "Transparency",
+			category: 'Transparency',
 			vuApps: {
 				score: 5,
-				description: "Open source",
-				details: "Code is open source and auditable by security researchers.",
+				description: 'Open source',
+				details: 'Code is open source and auditable by security researchers.',
 				icon: CheckCircle,
-				color: "success"
+				color: 'success'
 			},
 			bigTech: {
 				score: 2,
-				description: "Closed source",
-				details: "Proprietary code with limited transparency about data practices.",
+				description: 'Closed source',
+				details: 'Proprietary code with limited transparency about data practices.',
 				icon: AlertTriangle,
-				color: "warning"
+				color: 'warning'
 			}
 		},
 		{
-			category: "User Control",
+			category: 'User Control',
 			vuApps: {
 				score: 5,
-				description: "Complete control",
-				details: "Users have full control over their data and privacy settings.",
+				description: 'Complete control',
+				details: 'Users have full control over their data and privacy settings.',
 				icon: CheckCircle,
-				color: "success"
+				color: 'success'
 			},
 			bigTech: {
 				score: 2,
-				description: "Limited control",
-				details: "Complex privacy settings with data collection continuing regardless.",
+				description: 'Limited control',
+				details: 'Complex privacy settings with data collection continuing regardless.',
 				icon: AlertTriangle,
-				color: "warning"
+				color: 'warning'
 			}
 		},
 		{
-			category: "Data Sharing",
+			category: 'Data Sharing',
 			vuApps: {
 				score: 5,
-				description: "No data sharing",
-				details: "Zero data sharing with third parties or advertisers.",
+				description: 'No data sharing',
+				details: 'Zero data sharing with third parties or advertisers.',
 				icon: CheckCircle,
-				color: "success"
+				color: 'success'
 			},
 			bigTech: {
 				score: 1,
-				description: "Extensive sharing",
-				details: "Data shared with hundreds of advertising partners and data brokers.",
+				description: 'Extensive sharing',
+				details: 'Data shared with hundreds of advertising partners and data brokers.',
 				icon: X,
-				color: "error"
+				color: 'error'
 			}
 		}
 	];
 
 	const bigTechCompanies = [
 		{
-			name: "Google",
+			name: 'Google',
 			issues: [
-				"Tracks users across 2+ billion websites",
-				"Collects location data even when disabled",
-				"Scans Gmail content for advertising",
-				"Stores voice recordings from Assistant"
+				'Tracks users across 2+ billion websites',
+				'Collects location data even when disabled',
+				'Scans Gmail content for advertising',
+				'Stores voice recordings from Assistant'
 			],
-			vuAlternative: "VuSearch, VuMail, VuAssistant"
+			vuAlternative: 'VuSearch, VuMail, VuAssistant'
 		},
 		{
-			name: "Facebook/Meta",
+			name: 'Facebook/Meta',
 			issues: [
-				"Tracks non-users with shadow profiles",
-				"Collects data from third-party apps",
-				"Facial recognition without consent",
-				"Psychological manipulation experiments"
+				'Tracks non-users with shadow profiles',
+				'Collects data from third-party apps',
+				'Facial recognition without consent',
+				'Psychological manipulation experiments'
 			],
-			vuAlternative: "VuSocial, VuChat, VuMeet"
+			vuAlternative: 'VuSocial, VuChat, VuMeet'
 		},
 		{
-			name: "Apple",
+			name: 'Apple',
 			issues: [
-				"App Store monopoly and censorship",
-				"Scans photos on device for content",
-				"Shares data with Chinese government",
-				"Expensive privacy as a luxury"
+				'App Store monopoly and censorship',
+				'Scans photos on device for content',
+				'Shares data with Chinese government',
+				'Expensive privacy as a luxury'
 			],
-			vuAlternative: "VuStore, VuPhoto, VuCloud"
+			vuAlternative: 'VuStore, VuPhoto, VuCloud'
 		},
 		{
-			name: "Amazon",
+			name: 'Amazon',
 			issues: [
-				"Alexa recordings shared with employees",
-				"Ring doorbell data shared with police",
-				"Marketplace surveillance of sellers",
-				"AWS hosts government surveillance"
+				'Alexa recordings shared with employees',
+				'Ring doorbell data shared with police',
+				'Marketplace surveillance of sellers',
+				'AWS hosts government surveillance'
 			],
-			vuAlternative: "VuAssistant, VuSecurity, VuMarket"
+			vuAlternative: 'VuAssistant, VuSecurity, VuMarket'
 		}
 	];
 
 	const migrationBenefits = [
 		{
 			icon: Shield,
-			title: "Reclaim Your Privacy",
-			description: "Stop being the product. Your data stays private and secure."
+			title: 'Reclaim Your Privacy',
+			description: 'Stop being the product. Your data stays private and secure.'
 		},
 		{
 			icon: DollarSign,
-			title: "Transparent Pricing",
+			title: 'Transparent Pricing',
 			description: "Know exactly what you're paying for. No hidden costs or data harvesting."
 		},
 		{
 			icon: Lock,
-			title: "Enhanced Security",
-			description: "Military-grade encryption protects you from data breaches and hackers."
+			title: 'Enhanced Security',
+			description: 'Military-grade encryption protects you from data breaches and hackers.'
 		},
 		{
 			icon: Users,
-			title: "Support Privacy Movement",
-			description: "Join millions fighting for digital rights and privacy-first technology."
+			title: 'Support Privacy Movement',
+			description: 'Join millions fighting for digital rights and privacy-first technology.'
 		}
 	];
 </script>
 
 <svelte:head>
 	<title>VU vs Big Tech - Privacy Comparison | VuAppStore</title>
-	<meta name="description" content="Compare VU Suite privacy-first apps with Big Tech alternatives. See why VuAppStore offers superior privacy, security, and user control." />
+	<meta
+		name="description"
+		content="Compare VU Suite privacy-first apps with Big Tech alternatives. See why VuAppStore offers superior privacy, security, and user control."
+	/>
 </svelte:head>
 
 <div class="container py-16">
 	<div class="max-w-6xl mx-auto">
 		<!-- Header -->
 		<div class="text-center mb-16">
-			<div class="inline-flex items-center gap-2 px-4 py-2 bg-error/10 border border-error/30 rounded-full mb-6">
+			<div
+				class="inline-flex items-center gap-2 px-4 py-2 bg-error/10 border border-error/30 rounded-full mb-6"
+			>
 				<AlertTriangle class="w-4 h-4 text-error" />
-				<span class="text-xs font-semibold text-error uppercase tracking-wide">Privacy Comparison</span>
+				<span class="text-xs font-semibold text-error uppercase tracking-wide"
+					>Privacy Comparison</span
+				>
 			</div>
 			<h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 text-gradient">
-				VU Suite vs<br>Big Tech Giants
+				VU Suite vs<br />Big Tech Giants
 			</h1>
 			<p class="text-xl text-text-secondary leading-relaxed max-w-3xl mx-auto">
-				See the stark difference between privacy-first VU applications and Big Tech alternatives. 
+				See the stark difference between privacy-first VU applications and Big Tech alternatives.
 				Discover why millions are making the switch to protect their digital rights.
 			</p>
 		</div>
@@ -205,7 +222,9 @@
 						<div class="grid md:grid-cols-2 gap-8">
 							<!-- VU Apps -->
 							<div class="text-center">
-								<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+								<div
+									class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+								>
 									<span class="text-2xl font-bold text-primary">VU</span>
 								</div>
 								<h4 class="text-xl font-bold mb-2 text-{comparison.vuApps.color}">
@@ -221,7 +240,9 @@
 
 							<!-- Big Tech -->
 							<div class="text-center">
-								<div class="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4">
+								<div
+									class="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4"
+								>
 									<Eye class="w-8 h-8 text-error" />
 								</div>
 								<h4 class="text-xl font-bold mb-2 text-{comparison.bigTech.color}">
@@ -260,7 +281,7 @@
 						</ul>
 						<div class="p-4 bg-success/10 border border-success/30 rounded-lg">
 							<p class="text-sm">
-								<strong class="text-success">VU Alternative:</strong> 
+								<strong class="text-success">VU Alternative:</strong>
 								<span class="text-text-secondary">{company.vuAlternative}</span>
 							</p>
 						</div>
@@ -275,7 +296,9 @@
 			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 				{#each migrationBenefits as benefit}
 					<div class="glass-card p-6 text-center">
-						<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+						<div
+							class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4"
+						>
 							<svelte:component this={benefit.icon} class="w-6 h-6 text-primary" />
 						</div>
 						<h3 class="text-lg font-bold mb-3">{benefit.title}</h3>
@@ -294,7 +317,7 @@
 					you're supporting a movement toward a more private, secure internet for everyone.
 				</p>
 			</div>
-			
+
 			<div class="grid md:grid-cols-3 gap-8">
 				<div class="text-center">
 					<div class="text-3xl font-bold text-primary mb-2">$0</div>
@@ -315,20 +338,16 @@
 		<div class="text-center">
 			<h2 class="text-3xl font-bold mb-6">Ready to Take Control?</h2>
 			<p class="text-text-secondary mb-8 max-w-2xl mx-auto">
-				Join millions who have already made the switch to privacy-first technology. 
-				Start your journey toward digital sovereignty today.
+				Join millions who have already made the switch to privacy-first technology. Start your
+				journey toward digital sovereignty today.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="/apps" class="btn btn-primary">
 					<Shield class="w-4 h-4" />
 					Explore VU Apps
 				</a>
-				<a href="/resources/migration" class="btn btn-secondary">
-					Migration Guide
-				</a>
-				<a href="/pricing" class="btn btn-secondary">
-					View Pricing
-				</a>
+				<a href="/resources/migration" class="btn btn-secondary"> Migration Guide </a>
+				<a href="/pricing" class="btn btn-secondary"> View Pricing </a>
 			</div>
 		</div>
 	</div>

@@ -46,26 +46,27 @@
 
 <svelte:head>
 	<title>Support Center - VuAppStore</title>
-	<meta name="description" content="Get help with VuAppStore. Browse FAQs, contact support, or access documentation." />
+	<meta
+		name="description"
+		content="Get help with VuAppStore. Browse FAQs, contact support, or access documentation."
+	/>
 </svelte:head>
 
 <div class="support-page container py-16 max-w-6xl relative z-10">
 	<!-- Hero Section -->
 	<section class="hero mb-16 text-center">
-		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">
-			How Can We Help?
-		</h1>
+		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">How Can We Help?</h1>
 		<p class="text-lg text-text-secondary max-w-2xl mx-auto mb-8">
 			Get support for VuAppStore and all your privacy-first applications.
 		</p>
-		
+
 		<!-- Search Bar -->
 		<div class="search-container max-w-2xl mx-auto">
 			<div class="search-bar glass-card p-4 flex items-center gap-3">
 				<HelpCircle class="w-6 h-6 text-text-secondary" />
-				<input 
-					type="text" 
-					placeholder="Search for help..." 
+				<input
+					type="text"
+					placeholder="Search for help..."
 					class="flex-1 bg-transparent outline-none text-text-primary placeholder:text-text-tertiary"
 				/>
 				<button class="btn btn-primary">Search</button>
@@ -78,7 +79,10 @@
 		<h2 class="text-2xl font-bold mb-8 text-center">Support Options</h2>
 		<div class="options-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 			{#each supportOptions as option}
-				<a href={option.link} class="support-card glass-card p-6 hover:-translate-y-1 transition-all">
+				<a
+					href={option.link}
+					class="support-card glass-card p-6 hover:-translate-y-1 transition-all"
+				>
 					<svelte:component this={option.icon} class="w-12 h-12 text-primary mb-4" />
 					<h3 class="text-lg font-semibold mb-2">{option.title}</h3>
 					<p class="text-sm text-text-secondary mb-4">{option.description}</p>
@@ -94,9 +98,14 @@
 			<h2 class="text-2xl font-bold mb-6">Common Topics</h2>
 			<div class="topics-grid grid grid-cols-1 md:grid-cols-2 gap-4">
 				{#each commonTopics as topic}
-					<a href="/support/faq" class="topic-item flex items-center gap-3 p-4 rounded-lg hover:bg-glass transition-colors">
+					<a
+						href="/support/faq"
+						class="topic-item flex items-center gap-3 p-4 rounded-lg hover:bg-glass transition-colors"
+					>
 						<div class="w-2 h-2 bg-primary rounded-full"></div>
-						<span class="text-text-secondary hover:text-text-primary transition-colors">{topic}</span>
+						<span class="text-text-secondary hover:text-text-primary transition-colors"
+							>{topic}</span
+						>
 					</a>
 				{/each}
 			</div>

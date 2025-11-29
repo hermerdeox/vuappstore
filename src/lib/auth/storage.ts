@@ -218,4 +218,3 @@ export async function updateStoredIdentity(
 
 	await saveIdentity(updated);
 }
-

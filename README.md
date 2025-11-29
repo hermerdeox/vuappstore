@@ -15,7 +15,7 @@ VuAppStore is a privacy-first app marketplace showcasing 30 privacy-focused appl
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - PostgreSQL 14+
 - npm or pnpm
 
@@ -199,7 +199,7 @@ Deploy to Vercel, Netlify, or any SvelteKit-compatible hosting.
 All required legal documentation is included:
 
 - **Terms of Service**: Clear subscription terms
-- **Privacy Policy**: Detailed data handling practices  
+- **Privacy Policy**: Detailed data handling practices
 - **Refund Policy**: 30-day money-back guarantee
 - **GDPR Compliance**: EU data protection rights
 - **CCPA Compliance**: California privacy rights

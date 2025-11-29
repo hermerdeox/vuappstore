@@ -11,6 +11,7 @@ Implement a privacy-first payment system that maintains VU's Zero-Knowledge phil
 ### The Honest Price: $2.56/month per app
 
 **Pricing Philosophy:**
+
 ```
 256 bits of encryption = $2.56 = 1¢ per bit
 
@@ -19,13 +20,14 @@ Implement a privacy-first payment system that maintains VU's Zero-Knowledge phil
 
 ### Pricing Tiers
 
-| Plan | Apps | Price | Annual | Calculation |
-|------|------|-------|--------|-------------|
-| **Single App** | 1 | $2.56/mo | $25.60/yr | 1 × $2.56 |
-| **VU Suite Complete** | 30 | $76.80/mo | $768/yr | 30 × $2.56 |
-| **Lifetime Access** | 30+ | $2,560 once | N/A | 1000 months upfront |
+| Plan                  | Apps | Price       | Annual    | Calculation         |
+| --------------------- | ---- | ----------- | --------- | ------------------- |
+| **Single App**        | 1    | $2.56/mo    | $25.60/yr | 1 × $2.56           |
+| **VU Suite Complete** | 30   | $76.80/mo   | $768/yr   | 30 × $2.56          |
+| **Lifetime Access**   | 30+  | $2,560 once | N/A       | 1000 months upfront |
 
 **Marketing Message:**
+
 - Single app: "Just $2.56/month for 256-bit encryption"
 - Complete Suite: "All 30 apps at $2.56 each = $76.80/month"
 - Lifetime: "Pay $2,560 once = 83+ years of access"
@@ -35,10 +37,12 @@ Implement a privacy-first payment system that maintains VU's Zero-Knowledge phil
 ## 🔐 Payment Hierarchy (Privacy Levels)
 
 ### Level 0: Monero (XMR) - RECOMMENDED
+
 **Privacy**: Zero-Knowledge  
 **Traceability**: None  
 **Speed**: ~2 minutes (10 confirmations)  
 **Features**:
+
 - Ring signatures hide sender
 - Stealth addresses hide receiver
 - Confidential transactions hide amount
@@ -48,10 +52,12 @@ Implement a privacy-first payment system that maintains VU's Zero-Knowledge phil
 **User Base**: Privacy maximalists
 
 ### Level 1: Bitcoin Lightning Network
+
 **Privacy**: Enhanced  
 **Traceability**: Low (off-chain)  
 **Speed**: Instant (<5 seconds)  
 **Features**:
+
 - Off-chain transactions
 - Minimal blockchain footprint
 - Near-instant confirmations
@@ -61,10 +67,12 @@ Implement a privacy-first payment system that maintains VU's Zero-Knowledge phil
 **User Base**: Speed + privacy seekers
 
 ### Level 2: Bitcoin/Ethereum (Standard)
+
 **Privacy**: Basic  
 **Traceability**: Public ledger  
 **Speed**: 10-30 minutes  
 **Features**:
+
 - Widely accepted
 - Easy to acquire
 - Transparent blockchain
@@ -74,6 +82,7 @@ Implement a privacy-first payment system that maintains VU's Zero-Knowledge phil
 **User Base**: Crypto beginners
 
 ### Level 3+: NOT ACCEPTED
+
 **Reason**: Credit cards, PayPal, etc. enable surveillance  
 **Alternative**: Educate users on acquiring crypto
 
@@ -171,6 +180,7 @@ vuappstore/
 ### Current Status: ✅ PRICING PAGE UPDATED
 
 **Completed:**
+
 - ✅ Updated pricing model to $2.56/app
 - ✅ Three pricing tiers: Single App, Complete Suite, Lifetime
 - ✅ Crypto payment methods section
@@ -178,6 +188,7 @@ vuappstore/
 - ✅ Updated FAQ with crypto information
 
 **Next Steps:**
+
 1. Create payment modal component
 2. Add crypto payment selection UI
 3. Implement QR code display
@@ -188,13 +199,16 @@ vuappstore/
 ## 📊 Pricing Display Updates
 
 ### Homepage
+
 **Before:**
+
 ```
 $2.56 per month
 1 cent per bit of encryption
 ```
 
 **After (✅ UPDATED):**
+
 ```
 $2.56 per app, per month
 256 bits = $2.56 = 1¢ per bit
@@ -202,7 +216,9 @@ Pay with crypto • Zero tracking
 ```
 
 ### Pricing Page
+
 **Before:**
+
 ```
 Monthly: $29.99
 Annual: $299.99
@@ -210,6 +226,7 @@ Lifetime: $999
 ```
 
 **After (✅ UPDATED):**
+
 ```
 Single App: $2.56/mo
 VU Suite Complete: $76.80/mo (30 × $2.56)
@@ -217,7 +234,9 @@ Lifetime Access: $2,560 once
 ```
 
 ### Individual App Pages
+
 **Current:**
+
 ```
 Monthly: varies per app
 Yearly: varies per app
@@ -225,6 +244,7 @@ Lifetime: varies per app
 ```
 
 **Should Be:**
+
 ```
 All apps: $2.56/month
 (Part of VU Suite Complete subscription)
@@ -235,6 +255,7 @@ All apps: $2.56/month
 ## 🛠️ Implementation Roadmap
 
 ### Phase 1: Frontend (1-2 weeks)
+
 - [x] Update pricing page
 - [x] Update homepage pricing display
 - [ ] Create payment modal component
@@ -244,6 +265,7 @@ All apps: $2.56/month
 - [ ] Create payment status polling
 
 ### Phase 2: Backend API (2-3 weeks)
+
 - [ ] Set up Express API server
 - [ ] Implement order creation endpoint
 - [ ] Create payment status endpoint
@@ -252,6 +274,7 @@ All apps: $2.56/month
 - [ ] Create fulfillment webhook
 
 ### Phase 3: Monero Integration (1-2 weeks)
+
 - [ ] Deploy Monero daemon (Docker)
 - [ ] Deploy Monero wallet-rpc
 - [ ] Implement subaddress generation
@@ -260,6 +283,7 @@ All apps: $2.56/month
 - [ ] Test on testnet first
 
 ### Phase 4: Lightning Integration (1-2 weeks)
+
 - [ ] Deploy LND node
 - [ ] Fund Lightning channels
 - [ ] Implement invoice generation
@@ -267,12 +291,14 @@ All apps: $2.56/month
 - [ ] Handle instant confirmations
 
 ### Phase 5: Standard Crypto (1 week)
+
 - [ ] Bitcoin address generation (HD wallet)
 - [ ] Ethereum address (single or HD)
 - [ ] Blockchain monitoring
 - [ ] Confirmation tracking
 
 ### Phase 6: Testing & Security (2 weeks)
+
 - [ ] End-to-end testing
 - [ ] Security audit
 - [ ] Penetration testing
@@ -280,6 +306,7 @@ All apps: $2.56/month
 - [ ] Disaster recovery planning
 
 ### Phase 7: Documentation (1 week)
+
 - [ ] User payment guides
 - [ ] Setup documentation
 - [ ] API documentation
@@ -346,18 +373,21 @@ All apps: $2.56/month
 ### Payment Privacy
 
 **Level 0 (Monero):**
+
 - ✅ Sender anonymous (ring signatures)
 - ✅ Receiver anonymous (stealth addresses)
 - ✅ Amount hidden (confidential transactions)
 - ✅ No transaction graph analysis possible
 
 **Level 1 (Lightning):**
+
 - ✅ Off-chain (not on public blockchain)
 - ✅ Recipient privacy enhanced
 - ✅ Payment routing obscured
 - ⚠️ Channel state visible to counterparties
 
 **Level 2 (BTC/ETH):**
+
 - ⚠️ Public blockchain (fully transparent)
 - ⚠️ Addresses can be linked
 - ⚠️ Amounts visible
@@ -366,6 +396,7 @@ All apps: $2.56/month
 ### Order Management Privacy
 
 **What We Store:**
+
 - Order ID (cryptographically random)
 - Product ID reference
 - Payment amount (USD equivalent)
@@ -374,6 +405,7 @@ All apps: $2.56/month
 - Expiration timestamp
 
 **What We DON'T Store:**
+
 - Customer identity
 - Payment address (generated per-transaction)
 - Transaction hashes (unless user requests)
@@ -381,6 +413,7 @@ All apps: $2.56/month
 - Browser fingerprints
 
 **Retention:**
+
 - Pending orders: 30 minutes
 - Confirmed orders: 1 hour (for fulfillment)
 - Expired orders: Immediately deleted
@@ -393,12 +426,14 @@ All apps: $2.56/month
 ### Payment Onboarding
 
 **Step 1: Why Crypto?**
+
 ```
 "Traditional payments track everything you buy.
 VU uses cryptocurrency to keep your purchases private."
 ```
 
 **Step 2: Getting Started**
+
 ```
 "New to crypto? No problem!
 1. Download a crypto wallet
@@ -408,6 +443,7 @@ Done!"
 ```
 
 **Step 3: Choosing Your Level**
+
 ```
 Level 0: Monero → Maximum Privacy
 Level 1: Lightning → Fast & Private
@@ -415,12 +451,13 @@ Level 2: BTC/ETH → Standard Crypto
 ```
 
 ### Recommended Exchanges (Privacy-Focused)
+
 - Bisq (decentralized, no KYC)
 - LocalMonero (P2P, private)
 - TradeOgre (minimal KYC)
 - KuCoin (less restrictive)
 
-*Note: No affiliate links, purely educational*
+_Note: No affiliate links, purely educational_
 
 ---
 
@@ -429,6 +466,7 @@ Level 2: BTC/ETH → Standard Crypto
 ### Revenue Model
 
 **Previous (Stripe):**
+
 - $29.99/month baseline
 - 2.9% + $0.30 per transaction
 - ~$0.87 + $0.30 = $1.17 per monthly charge
@@ -436,6 +474,7 @@ Level 2: BTC/ETH → Standard Crypto
 - Payment processor control
 
 **New (Crypto):**
+
 - $76.80/month for Complete Suite
 - Network fees only (~$0.50-5.00 depending on network)
 - No chargebacks
@@ -445,17 +484,20 @@ Level 2: BTC/ETH → Standard Crypto
 ### Customer Acquisition
 
 **Barriers:**
+
 - Learning curve for crypto
 - Exchange account needed
 - Wallet setup required
 
 **Solutions:**
+
 - Comprehensive guides
 - Video tutorials
 - Live support
 - Gradual onboarding
 
 **Benefits:**
+
 - Global accessibility
 - True financial privacy
 - Aligns with target audience
@@ -464,6 +506,7 @@ Level 2: BTC/ETH → Standard Crypto
 ### Competitive Advantage
 
 **Unique Selling Points:**
+
 - Only privacy-focused app store accepting crypto only
 - Transparent pricing ($2.56/app)
 - Three privacy levels for payments
@@ -477,6 +520,7 @@ Level 2: BTC/ETH → Standard Crypto
 ### Payment Modal Design
 
 **Layout:**
+
 ```
 ┌─────────────────────────────────────┐
 │  Select Privacy Level               │
@@ -495,6 +539,7 @@ Level 2: BTC/ETH → Standard Crypto
 ```
 
 **Payment Screen:**
+
 ```
 ┌─────────────────────────────────────┐
 │  Time Remaining: 28:45              │
@@ -514,6 +559,7 @@ Level 2: BTC/ETH → Standard Crypto
 ```
 
 **Confirmation Screen:**
+
 ```
 ┌─────────────────────────────────────┐
 │           ✅                        │
@@ -538,10 +584,10 @@ Level 2: BTC/ETH → Standard Crypto
 
 ```typescript
 function generateSecureOrderId(): string {
-  // Use cryptographically secure random
-  const randomBytes = crypto.randomBytes(32);
-  const hash = crypto.createHash('sha256').update(randomBytes).digest('hex');
-  return hash.substring(0, 64); // Full 256-bit order ID
+	// Use cryptographically secure random
+	const randomBytes = crypto.randomBytes(32);
+	const hash = crypto.createHash('sha256').update(randomBytes).digest('hex');
+	return hash.substring(0, 64); // Full 256-bit order ID
 }
 
 // Example: a3f5c891d2e4b7a8c9f0e1d3b5a7c9e1f3d5b7a9c1e3f5a7c9e1d3b5a7c9e1f3
@@ -551,85 +597,91 @@ function generateSecureOrderId(): string {
 
 ```typescript
 interface PriceQuote {
-  usd: number;
-  crypto: {
-    xmr?: number;
-    btc?: number;
-    sats?: number; // For Lightning
-    eth?: number;
-  };
-  timestamp: number;
-  expiresAt: number;
+	usd: number;
+	crypto: {
+		xmr?: number;
+		btc?: number;
+		sats?: number; // For Lightning
+		eth?: number;
+	};
+	timestamp: number;
+	expiresAt: number;
 }
 
 async function getPriceQuote(amountUSD: number, cryptoType: string): Promise<PriceQuote> {
-  const prices = await fetchCurrentPrices(); // From CoinGecko or similar
-  
-  const quote: PriceQuote = {
-    usd: amountUSD,
-    crypto: {},
-    timestamp: Date.now(),
-    expiresAt: Date.now() + (5 * 60 * 1000) // 5 minute quote validity
-  };
-  
-  switch(cryptoType) {
-    case 'monero':
-      quote.crypto.xmr = parseFloat((amountUSD / prices.monero).toFixed(12));
-      break;
-    case 'lightning':
-      quote.crypto.sats = Math.round((amountUSD / prices.bitcoin) * 100000000);
-      break;
-    case 'bitcoin':
-      quote.crypto.btc = parseFloat((amountUSD / prices.bitcoin).toFixed(8));
-      break;
-    case 'ethereum':
-      quote.crypto.eth = parseFloat((amountUSD / prices.ethereum).toFixed(18));
-      break;
-  }
-  
-  return quote;
+	const prices = await fetchCurrentPrices(); // From CoinGecko or similar
+
+	const quote: PriceQuote = {
+		usd: amountUSD,
+		crypto: {},
+		timestamp: Date.now(),
+		expiresAt: Date.now() + 5 * 60 * 1000 // 5 minute quote validity
+	};
+
+	switch (cryptoType) {
+		case 'monero':
+			quote.crypto.xmr = parseFloat((amountUSD / prices.monero).toFixed(12));
+			break;
+		case 'lightning':
+			quote.crypto.sats = Math.round((amountUSD / prices.bitcoin) * 100000000);
+			break;
+		case 'bitcoin':
+			quote.crypto.btc = parseFloat((amountUSD / prices.bitcoin).toFixed(8));
+			break;
+		case 'ethereum':
+			quote.crypto.eth = parseFloat((amountUSD / prices.ethereum).toFixed(18));
+			break;
+	}
+
+	return quote;
 }
 ```
 
 ### Payment Monitoring (Monero Example)
 
 ```typescript
-async function monitorMoneroPayment(orderId: string, subaddressIndex: number, expectedAmount: number) {
-  const checkInterval = setInterval(async () => {
-    try {
-      // Get transfers to this subaddress
-      const transfers = await moneroWallet.getIncomingTransfers({
-        accountIndex: 0,
-        subaddressIndices: [subaddressIndex]
-      });
-      
-      // Find matching transfer
-      const matchingTransfer = transfers.find(t => 
-        t.getAmount() >= BigInt(expectedAmount * 1e12) &&
-        t.getNumConfirmations() >= 10
-      );
-      
-      if (matchingTransfer) {
-        // Payment confirmed!
-        clearInterval(checkInterval);
-        await fulfillOrder(orderId);
-        
-        // Emit WebSocket event
-        io.to(`order_${orderId}`).emit('payment_confirmed', {
-          orderId,
-          confirmations: matchingTransfer.getNumConfirmations()
-        });
-      }
-    } catch (error) {
-      console.error('Monitoring error:', error);
-    }
-  }, 10000); // Check every 10 seconds
-  
-  // Set expiration timeout
-  setTimeout(() => {
-    clearInterval(checkInterval);
-    expireOrder(orderId);
-  }, 30 * 60 * 1000); // 30 minutes
+async function monitorMoneroPayment(
+	orderId: string,
+	subaddressIndex: number,
+	expectedAmount: number
+) {
+	const checkInterval = setInterval(async () => {
+		try {
+			// Get transfers to this subaddress
+			const transfers = await moneroWallet.getIncomingTransfers({
+				accountIndex: 0,
+				subaddressIndices: [subaddressIndex]
+			});
+
+			// Find matching transfer
+			const matchingTransfer = transfers.find(
+				(t) => t.getAmount() >= BigInt(expectedAmount * 1e12) && t.getNumConfirmations() >= 10
+			);
+
+			if (matchingTransfer) {
+				// Payment confirmed!
+				clearInterval(checkInterval);
+				await fulfillOrder(orderId);
+
+				// Emit WebSocket event
+				io.to(`order_${orderId}`).emit('payment_confirmed', {
+					orderId,
+					confirmations: matchingTransfer.getNumConfirmations()
+				});
+			}
+		} catch (error) {
+			console.error('Monitoring error:', error);
+		}
+	}, 10000); // Check every 10 seconds
+
+	// Set expiration timeout
+	setTimeout(
+		() => {
+			clearInterval(checkInterval);
+			expireOrder(orderId);
+		},
+		30 * 60 * 1000
+	); // 30 minutes
 }
 ```
 
@@ -641,10 +693,10 @@ async function monitorMoneroPayment(orderId: string, subaddressIndex: number, ex
 
 ```json
 {
-  "dependencies": {
-    "qrcode": "^1.5.3",
-    "socket.io-client": "^4.5.0"
-  }
+	"dependencies": {
+		"qrcode": "^1.5.3",
+		"socket.io-client": "^4.5.0"
+	}
 }
 ```
 
@@ -652,19 +704,19 @@ async function monitorMoneroPayment(orderId: string, subaddressIndex: number, ex
 
 ```json
 {
-  "dependencies": {
-    "express": "^4.18.0",
-    "socket.io": "^4.5.0",
-    "monero-javascript": "^0.9.0",
-    "lightning": "^9.0.0",
-    "bitcoinjs-lib": "^6.1.0",
-    "ethers": "^6.7.0",
-    "qrcode": "^1.5.3",
-    "dotenv": "^16.0.0",
-    "helmet": "^7.0.0",
-    "cors": "^2.8.5",
-    "uuid": "^9.0.0"
-  }
+	"dependencies": {
+		"express": "^4.18.0",
+		"socket.io": "^4.5.0",
+		"monero-javascript": "^0.9.0",
+		"lightning": "^9.0.0",
+		"bitcoinjs-lib": "^6.1.0",
+		"ethers": "^6.7.0",
+		"qrcode": "^1.5.3",
+		"dotenv": "^16.0.0",
+		"helmet": "^7.0.0",
+		"cors": "^2.8.5",
+		"uuid": "^9.0.0"
+	}
 }
 ```
 
@@ -685,8 +737,8 @@ services:
     volumes:
       - monero-blockchain:/home/monero/.bitmonero
     ports:
-      - "18080:18080"  # P2P
-      - "18081:18081"  # RPC
+      - '18080:18080' # P2P
+      - '18081:18081' # RPC
     command: >
       --rpc-bind-ip=0.0.0.0
       --rpc-bind-port=18081
@@ -704,7 +756,7 @@ services:
     volumes:
       - monero-wallet:/wallet
     ports:
-      - "18083:18083"
+      - '18083:18083'
     environment:
       - WALLET_NAME=vu_store
       - WALLET_PASSWORD=${MONERO_WALLET_PASSWORD}
@@ -717,8 +769,8 @@ services:
     volumes:
       - lightning-data:/home/lnd/.lnd
     ports:
-      - "10009:10009"  # gRPC
-      - "9735:9735"    # P2P
+      - '10009:10009' # gRPC
+      - '9735:9735' # P2P
     environment:
       - NETWORK=mainnet
     restart: unless-stopped
@@ -731,7 +783,7 @@ services:
       - monero-wallet-rpc
       - lightning
     ports:
-      - "3001:3001"
+      - '3001:3001'
     environment:
       - NODE_ENV=production
     env_file:
@@ -795,6 +847,7 @@ volumes:
 ### Metrics to Track
 
 **Business Metrics:**
+
 - Total orders created (count only)
 - Payment success rate (%)
 - Average confirmation time
@@ -802,12 +855,14 @@ volumes:
 - Refund rate
 
 **Technical Metrics:**
+
 - API response times
 - Blockchain sync status
 - Node uptime
 - Payment detection latency
 
 **What NOT to Track:**
+
 - Customer identity
 - Payment addresses
 - Transaction hashes (linked to customers)
@@ -932,17 +987,20 @@ volumes:
 ### Growth Targets
 
 **Month 1:**
+
 - 100 successful crypto payments
 - 70%+ Monero usage (privacy-aware audience)
 - <5% support tickets related to payments
 
 **Month 3:**
+
 - 500 successful payments
 - Payment success rate >95%
 - Educational content published
 - Community case studies
 
 **Month 6:**
+
 - 2000+ payments processed
 - Considered industry standard for privacy payments
 - Featured in crypto/privacy media
@@ -971,6 +1029,7 @@ A: Credit cards enable payment tracking, chargebacks, and compromise user privac
 ## 🏁 Current Status
 
 ### ✅ Completed (Frontend)
+
 - Pricing model updated to $2.56/app
 - Pricing page redesigned with crypto focus
 - Homepage updated with new pricing
@@ -979,12 +1038,14 @@ A: Credit cards enable payment tracking, chargebacks, and compromise user privac
 - Privacy levels integrated into payment flow
 
 ### 🔄 Next Priority
+
 - Create payment modal component
 - Build checkout page
 - Implement QR code generation
 - Add payment status polling
 
 ### ⏳ Future Work
+
 - Backend API implementation
 - Blockchain integration
 - Testing & security hardening
@@ -999,5 +1060,3 @@ A: Credit cards enable payment tracking, chargebacks, and compromise user privac
 **Reward**: High (unique market positioning)
 
 **"In a world where every payment is tracked, VU offers financial privacy."**
-
-

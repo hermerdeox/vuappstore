@@ -15,11 +15,11 @@
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
 		isSubmitting = true;
-		
+
 		// Simulate form submission
 		setTimeout(() => {
 			isSubmitting = false;
-			submitMessage = 'Thank you for contacting us! We\'ll respond within 24 hours.';
+			submitMessage = "Thank you for contacting us! We'll respond within 24 hours.";
 			formData = {
 				name: '',
 				email: '',
@@ -33,17 +33,19 @@
 
 <svelte:head>
 	<title>Contact Support - VuAppStore</title>
-	<meta name="description" content="Contact VuAppStore support team for help with your privacy-first applications." />
+	<meta
+		name="description"
+		content="Contact VuAppStore support team for help with your privacy-first applications."
+	/>
 </svelte:head>
 
 <div class="contact-page container py-16 max-w-6xl relative z-10">
 	<!-- Hero Section -->
 	<section class="hero mb-12 text-center">
-		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">
-			Get in Touch
-		</h1>
+		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">Get in Touch</h1>
 		<p class="text-lg text-text-secondary max-w-2xl mx-auto">
-			Our support team is here to help with any questions about VuAppStore and your privacy-first apps.
+			Our support team is here to help with any questions about VuAppStore and your privacy-first
+			apps.
 		</p>
 	</section>
 
@@ -52,7 +54,7 @@
 		<div class="lg:col-span-2">
 			<div class="glass-card p-8">
 				<h2 class="text-2xl font-bold mb-6">Send Us a Message</h2>
-				
+
 				{#if submitMessage}
 					<div class="success-message mb-6 p-4 bg-success/20 border border-success/50 rounded-lg">
 						<p class="text-success">{submitMessage}</p>
@@ -127,8 +129,8 @@
 						></textarea>
 					</div>
 
-					<button 
-						type="submit" 
+					<button
+						type="submit"
 						class="btn btn-primary w-full justify-center"
 						disabled={isSubmitting}
 					>
@@ -153,7 +155,10 @@
 						<Mail class="w-5 h-5 text-primary mt-1" />
 						<div>
 							<p class="font-medium">Email</p>
-							<a href="mailto:support@vuappstore.com" class="text-text-secondary hover:text-primary transition-colors">
+							<a
+								href="mailto:support@vuappstore.com"
+								class="text-text-secondary hover:text-primary transition-colors"
+							>
 								support@vuappstore.com
 							</a>
 						</div>
@@ -171,8 +176,8 @@
 						<div>
 							<p class="font-medium">Office</p>
 							<p class="text-text-secondary">
-								1209 Orange Street<br>
-								Wilmington, DE 19801<br>
+								1209 Orange Street<br />
+								Wilmington, DE 19801<br />
 								United States
 							</p>
 						</div>
@@ -207,15 +212,24 @@
 			<div class="glass-card p-6">
 				<h3 class="text-xl font-bold mb-4">Other Support Options</h3>
 				<div class="space-y-3">
-					<a href="/support/faq" class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
+					<a
+						href="/support/faq"
+						class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors"
+					>
 						<MessageCircle class="w-4 h-4" />
 						Browse FAQ
 					</a>
-					<a href="/developers/docs" class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
+					<a
+						href="/developers/docs"
+						class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors"
+					>
 						<MessageCircle class="w-4 h-4" />
 						Documentation
 					</a>
-					<a href="/support" class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors">
+					<a
+						href="/support"
+						class="flex items-center gap-2 text-text-secondary hover:text-primary transition-colors"
+					>
 						<MessageCircle class="w-4 h-4" />
 						Support Center
 					</a>

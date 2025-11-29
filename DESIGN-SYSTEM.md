@@ -10,16 +10,18 @@
 ## 1. PROJECT OVERVIEW
 
 ### Identity
+
 - **Name**: VuAppStore
 - **Version**: 0.0.1
 - **Description**: Privacy-first app marketplace showcasing 30+ zero-knowledge applications
 - **Purpose**: First app marketplace where privacy isn't a feature—it's the foundation
 - **Target Audience**: Privacy-conscious users, developers, enterprises
-- **URLs**: 
+- **URLs**:
   - Development: `http://localhost:3700`
   - Production: `https://vuappstore.com`
 
 ### Repository Structure
+
 - **Type**: Single SvelteKit application
 - **Key Directories**:
   - `/src/routes/` - Page routes and layouts
@@ -37,14 +39,14 @@
 
 ### Core
 
-| Layer | Technology | Version | Notes |
-|-------|------------|---------|-------|
-| Framework | SvelteKit | 2.47.1 | Build tool: Vite 7.1.10 |
-| Language | TypeScript | 5.9.3 | Strict mode enabled |
-| Styling | Tailwind CSS | 3.4.18 | Custom design system, PostCSS |
-| State | Svelte Stores | 5.41.0 | Writable/readable stores, localStorage persistence |
-| Database | PostgreSQL | 14+ | ORM: Prisma 6.18.0 |
-| Auth | JWT (planned) | - | Currently public marketplace |
+| Layer     | Technology    | Version | Notes                                              |
+| --------- | ------------- | ------- | -------------------------------------------------- |
+| Framework | SvelteKit     | 2.47.1  | Build tool: Vite 7.1.10                            |
+| Language  | TypeScript    | 5.9.3   | Strict mode enabled                                |
+| Styling   | Tailwind CSS  | 3.4.18  | Custom design system, PostCSS                      |
+| State     | Svelte Stores | 5.41.0  | Writable/readable stores, localStorage persistence |
+| Database  | PostgreSQL    | 14+     | ORM: Prisma 6.18.0                                 |
+| Auth      | JWT (planned) | -       | Currently public marketplace                       |
 
 ### Key Libraries
 
@@ -72,36 +74,37 @@
 
 ```css
 /* Primary Colors */
---color-primary: #00d4ff;              /* Cyan - Main brand color */
---color-primary-dark: #0099cc;        /* Darker cyan for hover states */
---color-background: #000000;          /* Pure black background */
---color-surface: rgba(0, 0, 0, 0.6);  /* Semi-transparent surface */
---color-glass: rgba(255, 255, 255, 0.05);      /* Glass morphism base */
+--color-primary: #00d4ff; /* Cyan - Main brand color */
+--color-primary-dark: #0099cc; /* Darker cyan for hover states */
+--color-background: #000000; /* Pure black background */
+--color-surface: rgba(0, 0, 0, 0.6); /* Semi-transparent surface */
+--color-glass: rgba(255, 255, 255, 0.05); /* Glass morphism base */
 --color-glass-heavy: rgba(255, 255, 255, 0.08); /* Glass morphism hover */
 
 /* Text Colors */
---color-text-primary: #ffffff;         /* Primary text */
---color-text-secondary: #888888;       /* Secondary text */
---color-text-tertiary: #666666;        /* Tertiary text */
+--color-text-primary: #ffffff; /* Primary text */
+--color-text-secondary: #888888; /* Secondary text */
+--color-text-tertiary: #666666; /* Tertiary text */
 
 /* Border Colors */
---color-border: rgba(255, 255, 255, 0.1);        /* Default border */
---color-border-hover: rgba(255, 255, 255, 0.2);  /* Hover border */
---color-accent-border: rgba(0, 212, 255, 0.1);  /* Accent border */
+--color-border: rgba(255, 255, 255, 0.1); /* Default border */
+--color-border-hover: rgba(255, 255, 255, 0.2); /* Hover border */
+--color-accent-border: rgba(0, 212, 255, 0.1); /* Accent border */
 
 /* Semantic Colors */
---color-success: #22c55e;              /* Green - Success states */
---color-warning: #ffa500;               /* Orange - Warning states */
---color-error: #ef4444;                 /* Red - Error states */
---color-info: #3b82f6;                  /* Blue - Info states */
+--color-success: #22c55e; /* Green - Success states */
+--color-warning: #ffa500; /* Orange - Warning states */
+--color-error: #ef4444; /* Red - Error states */
+--color-info: #3b82f6; /* Blue - Info states */
 
 /* Payment Colors (Stripe-friendly) */
---color-stripe-blue: #635BFF;
---color-trust-green: #00D924;
---color-secure-gold: #FFB800;
+--color-stripe-blue: #635bff;
+--color-trust-green: #00d924;
+--color-secure-gold: #ffb800;
 ```
 
 **Usage Context**:
+
 - `primary`: Buttons, links, accents, CTAs
 - `background`: Main page background
 - `glass`: Card backgrounds, modal overlays
@@ -128,17 +131,17 @@
 --font-black: 900;
 
 /* Font Sizes (Mobile-first) */
---text-xs: 0.75rem;      /* 12px */
---text-sm: 0.875rem;     /* 14px */
---text-base: 1rem;       /* 16px */
---text-lg: 1.125rem;     /* 18px */
---text-xl: 1.25rem;      /* 20px */
---text-2xl: 1.5rem;      /* 24px */
---text-3xl: 1.875rem;    /* 30px */
---text-4xl: 2.25rem;     /* 36px */
---text-5xl: 3rem;        /* 48px */
---text-6xl: 3.75rem;     /* 60px */
---text-7xl: 4.5rem;      /* 72px */
+--text-xs: 0.75rem; /* 12px */
+--text-sm: 0.875rem; /* 14px */
+--text-base: 1rem; /* 16px */
+--text-lg: 1.125rem; /* 18px */
+--text-xl: 1.25rem; /* 20px */
+--text-2xl: 1.5rem; /* 24px */
+--text-3xl: 1.875rem; /* 30px */
+--text-4xl: 2.25rem; /* 36px */
+--text-5xl: 3rem; /* 48px */
+--text-6xl: 3.75rem; /* 60px */
+--text-7xl: 4.5rem; /* 72px */
 
 /* Line Heights */
 --leading-none: 1;
@@ -158,6 +161,7 @@
 ```
 
 **Typography Scale**:
+
 - **Hero Headings**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl` (32px → 72px)
 - **Section Headings**: `text-xl md:text-2xl lg:text-3xl` (20px → 36px)
 - **Body Text**: `text-sm sm:text-base md:text-lg` (14px → 18px)
@@ -168,26 +172,26 @@
 ```css
 /* Spacing Scale (Tailwind default) */
 --space-0: 0;
---space-1: 0.25rem;    /* 4px */
---space-2: 0.5rem;     /* 8px */
---space-3: 0.75rem;    /* 12px */
---space-4: 1rem;       /* 16px */
---space-5: 1.25rem;    /* 20px */
---space-6: 1.5rem;     /* 24px */
---space-8: 2rem;       /* 32px */
---space-10: 2.5rem;    /* 40px */
---space-12: 3rem;      /* 48px */
---space-16: 4rem;      /* 64px */
---space-20: 5rem;      /* 80px */
---space-24: 6rem;      /* 96px */
+--space-1: 0.25rem; /* 4px */
+--space-2: 0.5rem; /* 8px */
+--space-3: 0.75rem; /* 12px */
+--space-4: 1rem; /* 16px */
+--space-5: 1.25rem; /* 20px */
+--space-6: 1.5rem; /* 24px */
+--space-8: 2rem; /* 32px */
+--space-10: 2.5rem; /* 40px */
+--space-12: 3rem; /* 48px */
+--space-16: 4rem; /* 64px */
+--space-20: 5rem; /* 80px */
+--space-24: 6rem; /* 96px */
 
 /* Border Radius */
 --radius-none: 0;
---radius-sm: 0.25rem;   /* 4px */
---radius-md: 0.5rem;    /* 8px */
---radius-lg: 0.75rem;   /* 12px */
---radius-xl: 1rem;      /* 16px */
---radius-2xl: 1.5rem;   /* 24px */
+--radius-sm: 0.25rem; /* 4px */
+--radius-md: 0.5rem; /* 8px */
+--radius-lg: 0.75rem; /* 12px */
+--radius-xl: 1rem; /* 16px */
+--radius-2xl: 1.5rem; /* 24px */
 --radius-full: 9999px;
 
 /* Shadows */
@@ -213,16 +217,17 @@
 
 ```css
 /* Responsive Breakpoints */
---breakpoint-xs: 320px;   /* Extra small phones */
---breakpoint-sm: 375px;   /* Small phones (iPhone SE) */
---breakpoint-md: 768px;   /* Tablets */
---breakpoint-lg: 1024px;  /* Small laptops */
---breakpoint-xl: 1280px;   /* Laptops */
+--breakpoint-xs: 320px; /* Extra small phones */
+--breakpoint-sm: 375px; /* Small phones (iPhone SE) */
+--breakpoint-md: 768px; /* Tablets */
+--breakpoint-lg: 1024px; /* Small laptops */
+--breakpoint-xl: 1280px; /* Laptops */
 --breakpoint-2xl: 1536px; /* Large screens */
---breakpoint-3xl: 1920px;  /* Ultra-wide */
+--breakpoint-3xl: 1920px; /* Ultra-wide */
 ```
 
 **Container Max Widths**:
+
 - Default: `max-w-7xl` (1280px)
 - Mobile padding: `1rem` (16px)
 - Tablet padding: `1.5rem` (24px)
@@ -253,6 +258,7 @@
 ```
 
 **Animations**:
+
 - `grid-move`: 60s linear infinite (background grid)
 - `spotlight`: 25s ease-in-out infinite (ambient light)
 - `float`: 3s ease-in-out infinite (floating elements)
@@ -271,6 +277,7 @@
 **Props**: None (uses SvelteKit `$page` store for active state)
 
 **Styling Specs**:
+
 - **Background**: `rgba(0, 0, 0, 0.8)` with `backdrop-filter: blur(20px)`
 - **Height**: `py-2 md:py-3 lg:py-4` (responsive vertical padding)
 - **Border**: `border-b border-white/10`
@@ -280,25 +287,30 @@
 - **Icon Buttons**: `w-32px h-32px sm:w-36px sm:h-36px md:w-40px md:h-40px` (touch-friendly 44px minimum)
 
 **States**:
+
 - **Default**: Transparent background with blur
 - **Scrolled**: Darker background with shadow
 - **Active Nav Tab**: `bg-white/5` background
 
 **Responsive**:
+
 - **Mobile (< 1024px)**: Horizontal scroll nav hidden, icon-only buttons
 - **Desktop (≥ 1024px)**: Full navigation tabs visible, larger touch targets
 
 **Usage Example**:
+
 ```svelte
 <Header />
 ```
 
-**Accessibility**: 
+**Accessibility**:
+
 - ARIA labels on icon buttons
 - Keyboard navigation support
 - Focus management for search modal
 
-**Dependencies**: 
+**Dependencies**:
+
 - `SearchModal` component
 - `ThemeToggle` component
 - `$page` store from SvelteKit
@@ -314,6 +326,7 @@
 **Props**: None
 
 **Styling Specs**:
+
 - **Layout**: `grid grid-cols-1 lg:grid-cols-6 gap-8`
 - **Background**: Inherits from body (black)
 - **Border**: `border-t border-border`
@@ -324,25 +337,30 @@
 - **Featured Links**: `text-primary font-semibold` (e.g., Privacy Levels)
 
 **States**:
+
 - **Default**: All links secondary color
 - **Hover**: Links transition to primary color
 - **Active**: Current page link highlighted with primary color
 
 **Responsive**:
+
 - **Mobile**: Single column, stacked sections
 - **Desktop**: 6-column grid layout
 
 **Usage Example**:
+
 ```svelte
 <Footer />
 ```
 
 **Accessibility**:
+
 - Semantic HTML (`<footer>`, `<nav>`, `<ul>`)
 - External links marked with `rel="noopener noreferrer"`
 - Language selector accessible via keyboard
 
 **Dependencies**:
+
 - `ThemeToggle` component
 - `initTranslation` utility
 - Translation store
@@ -356,14 +374,16 @@
 **Purpose**: Full-screen search modal with app filtering and keyboard navigation
 
 **Props**:
+
 ```typescript
 interface Props {
-  isOpen: boolean;        // Modal visibility
-  onClose: () => void;   // Close handler function
+	isOpen: boolean; // Modal visibility
+	onClose: () => void; // Close handler function
 }
 ```
 
 **Styling Specs**:
+
 - **Backdrop**: `rgba(0, 0, 0, 0.8)` with `backdrop-filter: blur(8px)`
 - **Modal**: `max-w-640px` width, `max-h-80vh` height
 - **Border**: `border border-white/10 rounded-16px`
@@ -373,26 +393,31 @@ interface Props {
 - **App Result**: `bg-glass border border-border rounded-12px` with hover `bg-primary/10 border-primary`
 
 **States**:
+
 - **Closed**: `opacity: 0`, `transform: translateY(-50px)`
 - **Open**: `opacity: 1`, `transform: translateY(0)`
 - **Selected Result**: `bg-primary/10 border-primary transform: translateX(4px)`
 
 **Responsive**:
+
 - **Mobile**: `w-95%`, smaller padding, compact results
 - **Desktop**: `w-90% max-w-640px`, full padding
 
 **Usage Example**:
+
 ```svelte
-<SearchModal isOpen={showSearch} onClose={() => showSearch = false} />
+<SearchModal isOpen={showSearch} onClose={() => (showSearch = false)} />
 ```
 
 **Accessibility**:
+
 - `role="dialog"` with `aria-modal="true"`
 - Keyboard navigation (Arrow keys, Enter, Escape)
 - Focus trap when open
 - Screen reader announcements
 
 **Dependencies**:
+
 - `getAllApps` from `$lib/data/apps`
 - Svelte transitions (`fade`, `fly`)
 
@@ -407,6 +432,7 @@ interface Props {
 **Props**: None
 
 **Styling Specs**:
+
 - **Position**: `fixed bottom-20px left-20px z-999`
 - **Badge**: `bg-gradient-to-br from-success/90 to-primary/90` with `border-radius: 30px`
 - **Padding**: `px-16px py-10px`
@@ -415,19 +441,23 @@ interface Props {
 - **Border**: `border border-success/30 rounded-16px`
 
 **States**:
+
 - **Collapsed**: Badge only, hover shows glow effect
 - **Expanded**: Dropdown appears above badge with privacy facts
 - **Hover**: `transform: translateY(-2px) scale(1.02)`
 
 **Responsive**:
+
 - **Mobile**: `bottom-70px left-10px`, dropdown `w-calc(100vw - 20px) max-w-320px`
 
 **Usage Example**:
+
 ```svelte
 <PrivacyShieldBadge />
 ```
 
 **Accessibility**:
+
 - `aria-label="Privacy Shield - Zero Tracking Guarantee"`
 - Keyboard accessible expand/collapse
 - High contrast for readability
@@ -443,10 +473,11 @@ interface Props {
 **Purpose**: Toggle between Modern and Brutalist themes
 
 **Props**:
+
 ```typescript
 interface Props {
-  variant?: 'header' | 'footer';  // Placement context
-  showLabel?: boolean;            // Show "Theme" label
+	variant?: 'header' | 'footer'; // Placement context
+	showLabel?: boolean; // Show "Theme" label
 }
 ```
 
@@ -455,11 +486,13 @@ interface Props {
 **States**: Toggles `theme-modern` / `theme-brutalist` classes on `<body>`
 
 **Usage Example**:
+
 ```svelte
 <ThemeToggle variant="header" showLabel={false} />
 ```
 
 **Dependencies**:
+
 - `currentTheme` store from `$lib/stores/theme`
 
 ---
@@ -471,6 +504,7 @@ interface Props {
 **Purpose**: Reusable glass morphism card component
 
 **Styling Specs**:
+
 - **Background**: `bg-white/5` with `backdrop-blur-sm`
 - **Border**: `border border-white/10`
 - **Border Radius**: `rounded-16px md:rounded-24px` (responsive)
@@ -479,9 +513,10 @@ interface Props {
 - **Transition**: `transition-all duration-200`
 
 **Usage Example**:
+
 ```html
 <div class="glass-card p-6">
-  <!-- Content -->
+	<!-- Content -->
 </div>
 ```
 
@@ -494,6 +529,7 @@ interface Props {
 **Purpose**: Consistent button styling across the application
 
 **Styling Specs**:
+
 - **Base**: `.btn` - `inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-200`
 - **Mobile**: `px-4 py-3 text-sm min-h-44px` (touch-friendly)
 - **Desktop**: `px-6 py-3 text-base`
@@ -502,12 +538,14 @@ interface Props {
 - **Large**: `.btn-lg` - `px-8 py-4 text-lg min-h-48px`
 
 **States**:
+
 - **Default**: Base styling
 - **Hover**: Background change, slight transform (`-translate-y-0.5`)
 - **Focus**: Outline ring (browser default)
 - **Disabled**: `opacity-50 cursor-not-allowed`
 
 **Usage Example**:
+
 ```html
 <button class="btn btn-primary">Get Started</button>
 <button class="btn btn-secondary">Learn More</button>
@@ -524,6 +562,7 @@ interface Props {
 **Auth**: Public
 
 **Layout Structure**:
+
 ```
 ┌─────────────────────────────────────┐
 │ Header (sticky)                     │
@@ -560,6 +599,7 @@ interface Props {
 ```
 
 **Components Used**:
+
 - `Header` - Navigation
 - `Footer` - Site footer
 - `VuLabsCertified` - Badge component
@@ -568,23 +608,26 @@ interface Props {
 - `PrivacyInspector` - Privacy verification tool
 
 **Data Flow**:
+
 ```typescript
 // Data loaded from static file
 import { getAllApps, getFeaturedApps, getPrivacyChampions } from '$lib/data/apps';
 
-const featuredApps = getFeaturedApps();        // Top 4 by downloads
+const featuredApps = getFeaturedApps(); // Top 4 by downloads
 const privacyChampions = getPrivacyChampions(); // Top 6 privacy level 5 apps
 const newAndNoteworthy = getAllApps()
-  .filter(app => app.status === 'available')
-  .slice(0, 4);
+	.filter((app) => app.status === 'available')
+	.slice(0, 4);
 ```
 
 **SEO**:
+
 - Title: "VuAppStore - Privacy-First App Marketplace"
 - Description: "Your Apps. Your Data. Your Life. Zero Surveillance."
 - Meta tags: Privacy headers (`vu-privacy`, `vu-tracking`, `vu-analytics`)
 
 **States**:
+
 - **Loading**: None (static data)
 - **Error**: None (static data)
 - **Empty**: Fallback to default apps
@@ -598,6 +641,7 @@ const newAndNoteworthy = getAllApps()
 **Auth**: Public
 
 **Layout Structure**:
+
 ```
 ┌─────────────────────────────────────┐
 │ Header                              │
@@ -615,9 +659,11 @@ const newAndNoteworthy = getAllApps()
 ```
 
 **Components Used**:
+
 - App cards with icon, name, description, privacy level, pricing
 
 **Data Flow**:
+
 ```typescript
 import { getAllApps } from '$lib/data/apps';
 const apps = getAllApps();
@@ -633,6 +679,7 @@ const apps = getAllApps();
 **Auth**: Public
 
 **Layout Structure**:
+
 ```
 ┌─────────────────────────────────────┐
 │ Header                              │
@@ -657,6 +704,7 @@ const apps = getAllApps();
 ```
 
 **Data Flow**:
+
 ```typescript
 import { getAppById } from '$lib/data/apps';
 const app = getAppById(params.slug);
@@ -711,20 +759,24 @@ const app = getAppById(params.slug);
 ```
 
 **Auth Requirements**:
+
 - **Public**: All routes except `/account/*`
 - **Protected**: `/account/*` (future JWT auth)
 
 **Layouts**:
+
 - **Root Layout** (`+layout.svelte`): Header, Footer, Privacy components, PWA prompt
 - **Legal Layout** (`legal/+layout.svelte`): Specialized layout for legal pages
 
 **Nav Items** (Desktop):
+
 - Discover (`/`)
 - All Apps (`/apps`)
 - Pricing (`/pricing`)
 - Developers (`/developers`)
 
 **Nav Items** (Mobile):
+
 - Icon buttons only (Search, Account)
 - Hamburger menu (future implementation)
 
@@ -739,6 +791,7 @@ const app = getAppById(params.slug);
 **Type**: `writable<Theme>`
 
 **Interface**:
+
 ```typescript
 type Theme = 'modern' | 'brutalist';
 ```
@@ -746,11 +799,13 @@ type Theme = 'modern' | 'brutalist';
 **Initial State**: `'modern'` (or from localStorage)
 
 **Actions**:
+
 - `toggleTheme()`: Switch between modern and brutalist
 - `setTheme(theme: Theme)`: Set specific theme
 - `getTheme()`: Get current theme (non-reactive)
 
-**Subscribers**: 
+**Subscribers**:
+
 - `ThemeToggle` component
 - Body class updates (automatic)
 
@@ -765,6 +820,7 @@ type Theme = 'modern' | 'brutalist';
 **Type**: Static object (not a store)
 
 **Interface**:
+
 ```typescript
 type Language = 'en' | 'es' | 'fr';
 const translations: Record<Language, Record<string, string>>;
@@ -773,11 +829,13 @@ const translations: Record<Language, Record<string, string>>;
 **Initial State**: English (`'en'`)
 
 **Actions**:
+
 - `t(key: string, lang?: Language)`: Get translation
 - `getCurrentLanguage()`: Get saved language
 - `setLanguage(lang: Language)`: Set language
 
-**Subscribers**: 
+**Subscribers**:
+
 - Components using `data-i18n` attribute
 - Footer language selector
 
@@ -792,30 +850,33 @@ const translations: Record<Language, Record<string, string>>;
 **Schema Location**: Inline in components or `/src/lib/schemas/` (future)
 
 **Standard Form Structure**:
+
 ```svelte
 <form on:submit={handleSubmit}>
-  <label>
-    <span>Label</span>
-    <input 
-      type="text" 
-      bind:value={formData.field}
-      class="input"
-      aria-invalid={errors.field ? 'true' : 'false'}
-    />
-    {#if errors.field}
-      <span class="error">{errors.field}</span>
-    {/if}
-  </label>
-  <button type="submit" class="btn btn-primary">Submit</button>
+	<label>
+		<span>Label</span>
+		<input
+			type="text"
+			bind:value={formData.field}
+			class="input"
+			aria-invalid={errors.field ? 'true' : 'false'}
+		/>
+		{#if errors.field}
+			<span class="error">{errors.field}</span>
+		{/if}
+	</label>
+	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 ```
 
 **Error Display Pattern**:
+
 - Red text (`text-error`)
 - Below input field
 - `aria-invalid` attribute for accessibility
 
 **Form Components**:
+
 - Native HTML inputs with Tailwind styling
 - Custom styling via `@tailwindcss/forms` plugin
 
@@ -823,7 +884,8 @@ const translations: Record<Language, Record<string, string>>;
 
 ## 9. API INTEGRATION
 
-**Client Config**: 
+**Client Config**:
+
 - Base URL: Relative paths (SvelteKit handles routing)
 - Headers: `Content-Type: application/json` (default)
 - Auth: None currently (public marketplace)
@@ -831,12 +893,12 @@ const translations: Record<Language, Record<string, string>>;
 
 **Endpoints** (Future/Planned):
 
-| Method | Path | Purpose | Auth |
-|--------|------|---------|------|
-| POST | `/api/subscribe` | Create subscription | JWT |
-| GET | `/api/user` | Get user data | JWT |
-| POST | `/api/support` | Submit support ticket | JWT |
-| GET | `/api/apps` | Get apps (currently static) | Public |
+| Method | Path             | Purpose                     | Auth   |
+| ------ | ---------------- | --------------------------- | ------ |
+| POST   | `/api/subscribe` | Create subscription         | JWT    |
+| GET    | `/api/user`      | Get user data               | JWT    |
+| POST   | `/api/support`   | Submit support ticket       | JWT    |
+| GET    | `/api/apps`      | Get apps (currently static) | Public |
 
 **Implementation Location**: `/src/routes/api/` (future)
 
@@ -851,6 +913,7 @@ const translations: Record<Language, Record<string, string>>;
 **Token Storage**: HttpOnly cookies (planned)
 
 **User Object Structure** (Prisma schema):
+
 ```typescript
 {
   id: string;
@@ -866,6 +929,7 @@ const translations: Record<Language, Record<string, string>>;
 **Role Definitions**: Not implemented (single user type planned)
 
 **Security Measures**:
+
 - **CSRF**: SvelteKit built-in protection
 - **XSS**: Svelte auto-escaping
 - **Rate Limiting**: Not implemented (future)
@@ -879,6 +943,7 @@ const translations: Record<Language, Record<string, string>>;
 **Error Page**: `/src/routes/+error.svelte` (SvelteKit default)
 
 **Error Types Handled**:
+
 - 404: Not found page
 - 500: Server error page
 - Network errors: User-friendly messages
@@ -893,19 +958,23 @@ const translations: Record<Language, Record<string, string>>;
 
 ### Performance
 
-**Code Splitting**: 
+**Code Splitting**:
+
 - SvelteKit automatic route-based splitting
 - Dynamic imports for heavy components (future)
 
 **Image Optimization**:
+
 - Static icons in `/static/icons/`
 - Lazy loading via `loading="lazy"` (future)
 
 **Caching**:
+
 - Service Worker (`/static/sw.js`) for PWA caching
 - Static assets cached by browser
 
 **Bundle Optimization**:
+
 - Vite production build with minification
 - Tree-shaking enabled
 - Tailwind CSS purging (automatic)
@@ -915,16 +984,19 @@ const translations: Record<Language, Record<string, string>>;
 **WCAG Target**: AA compliance
 
 **Keyboard Navigation**:
+
 - All interactive elements keyboard accessible
 - Focus management in modals
 - Skip links (future)
 
 **Screen Reader Support**:
+
 - Semantic HTML (`<nav>`, `<main>`, `<footer>`)
 - ARIA labels on icon buttons
 - Alt text on images (when added)
 
 **Contrast Compliance**:
+
 - Text on black: `#ffffff` (21:1 contrast)
 - Primary buttons: `#00d4ff` on black (4.5:1+)
 - Secondary text: `#888888` (meets AA for large text)
@@ -979,6 +1051,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 **Pre-commit Hooks**: Not configured
 
 **Conventions**:
+
 - Components: PascalCase (`Header.svelte`)
 - Files: kebab-case (`app-card.svelte`)
 - Functions: camelCase
@@ -993,13 +1066,15 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ### Build & Deploy
 
 **Build Command**:
+
 ```bash
 npm run build
 ```
 
 **Output**: `.svelte-kit/` directory
 
-**Hosting**: 
+**Hosting**:
+
 - Vercel (recommended, adapter-auto)
 - Netlify (adapter-auto)
 - Any Node.js hosting
@@ -1007,6 +1082,7 @@ npm run build
 **CI/CD**: Not configured
 
 **Deploy Steps**:
+
 1. `npm run build`
 2. Deploy `.svelte-kit/` to hosting platform
 3. Configure environment variables
@@ -1019,12 +1095,14 @@ npm run build
 ### Third-party Services
 
 **Stripe** (Currently disabled):
+
 - Purpose: Payment processing
 - Auth Method: API keys
 - Implementation: `/src/lib/server/stripe.ts`
 - Rate Limits: Stripe API limits
 
 **Google Fonts**:
+
 - Purpose: Inter font family
 - Auth Method: None (public CDN)
 - Implementation: `<link>` in `app.html`
@@ -1034,16 +1112,17 @@ npm run build
 
 ### Browser Support
 
-| Browser | Minimum Version | Notes |
-|---------|----------------|-------|
-| Chrome | 90+ | Full support |
-| Firefox | 88+ | Full support |
-| Safari | 14+ | Full support |
-| Edge | 90+ | Full support |
-| Mobile Safari | 14+ | Full support |
-| Chrome Mobile | 90+ | Full support |
+| Browser       | Minimum Version | Notes        |
+| ------------- | --------------- | ------------ |
+| Chrome        | 90+             | Full support |
+| Firefox       | 88+             | Full support |
+| Safari        | 14+             | Full support |
+| Edge          | 90+             | Full support |
+| Mobile Safari | 14+             | Full support |
+| Chrome Mobile | 90+             | Full support |
 
 **Features Used**:
+
 - CSS Grid (all browsers)
 - Flexbox (all browsers)
 - Backdrop Filter (Safari 9+, Chrome 76+)
@@ -1074,45 +1153,46 @@ npm run build
 
 ```svelte
 <script lang="ts">
-  // 1. Imports
-  import { onMount } from 'svelte';
-  
-  // 2. Props
-  export let prop: type;
-  
-  // 3. State
-  let localState = '';
-  
-  // 4. Computed
-  $: computed = prop + localState;
-  
-  // 5. Functions
-  function handleClick() {
-    // ...
-  }
-  
-  // 6. Lifecycle
-  onMount(() => {
-    // ...
-  });
+	// 1. Imports
+	import { onMount } from 'svelte';
+
+	// 2. Props
+	export let prop: type;
+
+	// 3. State
+	let localState = '';
+
+	// 4. Computed
+	$: computed = prop + localState;
+
+	// 5. Functions
+	function handleClick() {
+		// ...
+	}
+
+	// 6. Lifecycle
+	onMount(() => {
+		// ...
+	});
 </script>
 
 <!-- Markup -->
 <div class="component">
-  <!-- Content -->
+	<!-- Content -->
 </div>
 
 <style>
-  /* Component styles */
-  .component {
-    /* ... */
-  }
+	/* Component styles */
+	.component {
+		/* ... */
+	}
 </style>
 ```
 
 ### Common Code Patterns
 
 **Reactive Statements**:
+
 ```svelte
 $: if (condition) {
   // Reactive code
@@ -1120,28 +1200,32 @@ $: if (condition) {
 ```
 
 **Event Handlers**:
+
 ```svelte
 <button on:click={handleClick}>Click</button>
 ```
 
 **Conditional Rendering**:
+
 ```svelte
 {#if condition}
-  <div>Content</div>
+	<div>Content</div>
 {/if}
 ```
 
 **Loops**:
+
 ```svelte
 {#each items as item, index}
-  <div>{item.name}</div>
+	<div>{item.name}</div>
 {/each}
 ```
 
 **Slots**:
+
 ```svelte
 <Component>
-  <div slot="name">Slot content</div>
+	<div slot="name">Slot content</div>
 </Component>
 ```
 
@@ -1199,12 +1283,14 @@ npm run pwa:test            # Build and preview PWA
 When `body.theme-brutalist` class is active:
 
 **Color Overrides**:
+
 - Background: `#ffffff` (white)
 - Text: `#000000` (black)
 - Borders: `3px solid #000000`
 - Shadows: Hard shadows (`8px 8px 0 0 #000000`)
 
 **Design Principles**:
+
 - No rounded corners (`border-radius: 0`)
 - No transitions (`transition: none`)
 - No animations (`animation: none`)
@@ -1214,6 +1300,7 @@ When `body.theme-brutalist` class is active:
 - High contrast (black on white)
 
 **Component Overrides**:
+
 - `.glass-card`: White background, black border, hard shadow
 - `.btn-primary`: Black background, white text, no rounded corners
 - `.btn-secondary`: Transparent, black border, inverts on hover
@@ -1224,5 +1311,4 @@ When `body.theme-brutalist` class is active:
 
 **END OF DESIGN SYSTEM**
 
-*This document enables pixel-perfect recreation of any component or page in the VuAppStore application. All values are extracted from the actual codebase and represent the current implementation.*
-
+_This document enables pixel-perfect recreation of any component or page in the VuAppStore application. All values are extracted from the actual codebase and represent the current implementation._

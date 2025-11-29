@@ -7,7 +7,7 @@
 	<section>
 		<h2>ACCEPTABLE USE POLICY</h2>
 		<p>
-			This Acceptable Use Policy governs your use of VuAppStore and all applications available 
+			This Acceptable Use Policy governs your use of VuAppStore and all applications available
 			through our platform. By using our services, you agree to comply with this policy.
 		</p>
 	</section>
@@ -79,4 +79,3 @@
 		</ul>
 	</section>
 </LegalLayout>
-

@@ -23,14 +23,19 @@
 
 	body {
 		@apply bg-black text-white;
-		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+		font-family:
+			'Inter',
+			-apple-system,
+			BlinkMacSystemFont,
+			sans-serif;
 		min-height: 100vh;
 		overflow-x: hidden;
 		position: relative;
 	}
 
 	/* Mobile viewport fixes */
-	html, body {
+	html,
+	body {
 		max-width: 100vw;
 		overflow-x: hidden;
 	}
@@ -38,7 +43,7 @@
 	* {
 		box-sizing: border-box;
 	}
-	
+
 	/* Grid Background - Enhanced visibility (15% increase) */
 	body::before {
 		content: '';
@@ -47,7 +52,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: 
+		background-image:
 			linear-gradient(rgba(0, 212, 255, 0.023) 1px, transparent 1px),
 			linear-gradient(90deg, rgba(0, 212, 255, 0.023) 1px, transparent 1px);
 		background-size: 40px 40px;
@@ -55,10 +60,14 @@
 		z-index: 1;
 		animation: gridFloat 120s linear infinite;
 	}
-	
+
 	@keyframes gridFloat {
-		0% { transform: translate(0, 0); }
-		100% { transform: translate(40px, 40px); }
+		0% {
+			transform: translate(0, 0);
+		}
+		100% {
+			transform: translate(40px, 40px);
+		}
 	}
 }
 
@@ -69,157 +78,157 @@
 	.container {
 		@apply max-w-7xl mx-auto;
 		/* Mobile-first responsive padding */
-		padding-left: 1rem;   /* 16px on mobile */
+		padding-left: 1rem; /* 16px on mobile */
 		padding-right: 1rem;
 	}
-	
+
 	/* Responsive container padding */
 	@screen sm {
 		.container {
-			padding-left: 1.5rem;  /* 24px on small phones */
+			padding-left: 1.5rem; /* 24px on small phones */
 			padding-right: 1.5rem;
 		}
 	}
-	
+
 	@screen md {
 		.container {
-			padding-left: 2rem;    /* 32px on tablets */
+			padding-left: 2rem; /* 32px on tablets */
 			padding-right: 2rem;
 		}
 	}
-	
+
 	@screen lg {
 		.container {
-			padding-left: 1.5rem;  /* 24px on laptops (more content) */
+			padding-left: 1.5rem; /* 24px on laptops (more content) */
 			padding-right: 1.5rem;
 		}
 	}
-	
+
 	/* ========================================
 	   RESPONSIVE BUTTON SYSTEM
 	   ======================================== */
 	.btn {
 		@apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all duration-200;
 		/* Mobile-first sizing */
-		padding: 0.75rem 1rem;   /* 12px 16px on mobile */
-		font-size: 0.875rem;     /* 14px */
-		min-height: 44px;        /* Touch-friendly minimum */
+		padding: 0.75rem 1rem; /* 12px 16px on mobile */
+		font-size: 0.875rem; /* 14px */
+		min-height: 44px; /* Touch-friendly minimum */
 	}
-	
+
 	@screen sm {
 		.btn {
-			padding: 0.75rem 1.5rem;  /* 12px 24px */
+			padding: 0.75rem 1.5rem; /* 12px 24px */
 			font-size: 0.875rem;
 		}
 	}
-	
+
 	@screen md {
 		.btn {
-			padding: 0.75rem 1.5rem;  /* 12px 24px */
+			padding: 0.75rem 1.5rem; /* 12px 24px */
 			font-size: 0.875rem;
 		}
 	}
-	
+
 	.btn-primary {
 		@apply bg-cyan-400 text-black hover:bg-cyan-600 hover:-translate-y-0.5;
 	}
-	
+
 	.btn-secondary {
 		@apply bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20;
 	}
-	
+
 	/* Large button variant for mobile CTAs */
 	.btn-lg {
 		@apply btn;
-		padding: 1rem 2rem;      /* 16px 32px */
-		font-size: 1rem;         /* 16px */
+		padding: 1rem 2rem; /* 16px 32px */
+		font-size: 1rem; /* 16px */
 		min-height: 48px;
 	}
-	
+
 	/* ========================================
 	   RESPONSIVE CARD SYSTEM
 	   ======================================== */
 	.glass-card {
 		@apply bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-200;
 		/* Mobile-first border radius */
-		border-radius: 1rem;     /* 16px on mobile */
+		border-radius: 1rem; /* 16px on mobile */
 	}
-	
+
 	@screen md {
 		.glass-card {
-			border-radius: 1.5rem;   /* 24px on tablets+ */
+			border-radius: 1.5rem; /* 24px on tablets+ */
 		}
 	}
-	
+
 	.glass-card:hover {
 		@apply bg-white/10 border-white/20;
 	}
-	
+
 	/* ========================================
 	   RESPONSIVE GRID SYSTEMS
 	   ======================================== */
 	.app-grid {
 		display: grid;
-		gap: 1rem;               /* 16px gap on mobile */
-		grid-template-columns: 1fr;  /* Single column on mobile */
+		gap: 1rem; /* 16px gap on mobile */
+		grid-template-columns: 1fr; /* Single column on mobile */
 	}
-	
+
 	@screen sm {
 		.app-grid {
-			grid-template-columns: repeat(2, 1fr);  /* 2 columns on small phones */
+			grid-template-columns: repeat(2, 1fr); /* 2 columns on small phones */
 			gap: 1.25rem;
 		}
 	}
-	
+
 	@screen md {
 		.app-grid {
-			grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablets */
+			grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
 			gap: 1.5rem;
 		}
 	}
-	
+
 	@screen lg {
 		.app-grid {
-			grid-template-columns: repeat(3, 1fr);  /* 3 columns on laptops */
+			grid-template-columns: repeat(3, 1fr); /* 3 columns on laptops */
 			gap: 1.5rem;
 		}
 	}
-	
+
 	@screen xl {
 		.app-grid {
-			grid-template-columns: repeat(4, 1fr);  /* 4 columns on large screens */
+			grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
 			gap: 2rem;
 		}
 	}
-	
+
 	/* Mini app grid for VU Suite showcase */
 	.mini-app-grid {
 		display: grid;
-		gap: 0.75rem;            /* 12px gap on mobile */
-		grid-template-columns: repeat(3, 1fr);  /* 3 columns on mobile */
+		gap: 0.75rem; /* 12px gap on mobile */
+		grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
 	}
-	
+
 	@screen sm {
 		.mini-app-grid {
-			grid-template-columns: repeat(4, 1fr);  /* 4 columns */
+			grid-template-columns: repeat(4, 1fr); /* 4 columns */
 			gap: 1rem;
 		}
 	}
-	
+
 	@screen md {
 		.mini-app-grid {
-			grid-template-columns: repeat(5, 1fr);  /* 5 columns on tablets */
+			grid-template-columns: repeat(5, 1fr); /* 5 columns on tablets */
 			gap: 1rem;
 		}
 	}
-	
+
 	@screen lg {
 		.mini-app-grid {
-			grid-template-columns: repeat(5, 1fr);  /* 5 columns on laptops */
+			grid-template-columns: repeat(5, 1fr); /* 5 columns on laptops */
 			gap: 1.25rem;
 		}
 	}
-	
+
 	/* ========================================
 	   RESPONSIVE TYPOGRAPHY
 	   ======================================== */
@@ -227,111 +236,111 @@
 		font-weight: 900;
 		line-height: 1.1;
 		/* Mobile-first sizing */
-		font-size: 2rem;         /* 32px on mobile */
+		font-size: 2rem; /* 32px on mobile */
 	}
-	
+
 	@screen sm {
 		.heading-hero {
-			font-size: 2.5rem;       /* 40px */
+			font-size: 2.5rem; /* 40px */
 		}
 	}
-	
+
 	@screen md {
 		.heading-hero {
-			font-size: 3.5rem;       /* 56px */
+			font-size: 3.5rem; /* 56px */
 		}
 	}
-	
+
 	@screen lg {
 		.heading-hero {
-			font-size: 4rem;         /* 64px */
+			font-size: 4rem; /* 64px */
 		}
 	}
-	
+
 	@screen xl {
 		.heading-hero {
-			font-size: 4.5rem;       /* 72px */
+			font-size: 4.5rem; /* 72px */
 		}
 	}
-	
+
 	.heading-section {
 		font-weight: 800;
 		line-height: 1.2;
 		/* Mobile-first sizing */
-		font-size: 1.5rem;       /* 24px on mobile */
+		font-size: 1.5rem; /* 24px on mobile */
 	}
-	
+
 	@screen sm {
 		.heading-section {
-			font-size: 1.75rem;     /* 28px */
+			font-size: 1.75rem; /* 28px */
 		}
 	}
-	
+
 	@screen md {
 		.heading-section {
-			font-size: 2rem;        /* 32px */
+			font-size: 2rem; /* 32px */
 		}
 	}
-	
+
 	@screen lg {
 		.heading-section {
-			font-size: 2.25rem;     /* 36px */
+			font-size: 2.25rem; /* 36px */
 		}
 	}
-	
+
 	/* ========================================
 	   RESPONSIVE SPACING UTILITIES
 	   ======================================== */
 	.section-padding {
 		/* Mobile-first section padding */
-		padding-top: 2rem;       /* 32px */
+		padding-top: 2rem; /* 32px */
 		padding-bottom: 2rem;
 	}
-	
+
 	@screen sm {
 		.section-padding {
-			padding-top: 3rem;      /* 48px */
+			padding-top: 3rem; /* 48px */
 			padding-bottom: 3rem;
 		}
 	}
-	
+
 	@screen md {
 		.section-padding {
-			padding-top: 4rem;      /* 64px */
+			padding-top: 4rem; /* 64px */
 			padding-bottom: 4rem;
 		}
 	}
-	
+
 	@screen lg {
 		.section-padding {
-			padding-top: 5rem;      /* 80px */
+			padding-top: 5rem; /* 80px */
 			padding-bottom: 5rem;
 		}
 	}
-	
+
 	.hero-padding {
 		/* Mobile-first hero padding */
-		padding-top: 3rem;       /* 48px */
+		padding-top: 3rem; /* 48px */
 		padding-bottom: 3rem;
 	}
-	
+
 	@screen sm {
 		.hero-padding {
-			padding-top: 4rem;      /* 64px */
+			padding-top: 4rem; /* 64px */
 			padding-bottom: 4rem;
 		}
 	}
-	
+
 	@screen md {
 		.hero-padding {
-			padding-top: 5rem;      /* 80px */
+			padding-top: 5rem; /* 80px */
 			padding-bottom: 5rem;
 		}
 	}
-	
+
 	@screen lg {
 		.hero-padding {
-			padding-top: 6rem;      /* 96px */
+			padding-top: 6rem; /* 96px */
 			padding-bottom: 6rem;
 		}
 	}
@@ -352,7 +361,7 @@ body.theme-brutalist {
 	/* Base Colors - Invert to White Background */
 	background: #ffffff !important;
 	color: #000000 !important;
-	
+
 	/* Remove ambient effects */
 	--color-primary: #000000;
 	--color-primary-dark: #333333;
@@ -365,16 +374,16 @@ body.theme-brutalist {
 	--color-border: rgba(0, 0, 0, 0.2);
 	--color-border-hover: rgba(0, 0, 0, 0.3);
 	--color-accent-border: rgba(0, 0, 0, 0.8);
-	
+
 	/* Remove animations */
 	--transition-base: none;
 	--transition-medium: none;
-	
+
 	/* Thick borders */
 	--border-width: 3px;
 	--border-radius: 0px;
 	--border-radius-lg: 0px;
-	
+
 	/* Hard shadows */
 	--shadow-app: 6px 6px 0 0 #000000;
 	--shadow-hover: 10px 10px 0 0 #000000;
@@ -462,9 +471,9 @@ body.theme-brutalist .ambient-light {
 }
 
 /* Input fields - brutalist style */
-body.theme-brutalist input[type="text"],
-body.theme-brutalist input[type="email"],
-body.theme-brutalist input[type="password"],
+body.theme-brutalist input[type='text'],
+body.theme-brutalist input[type='email'],
+body.theme-brutalist input[type='password'],
 body.theme-brutalist textarea,
 body.theme-brutalist select {
 	background: #ffffff !important;
@@ -485,7 +494,7 @@ body.theme-brutalist select:focus {
 
 /* Badge styles */
 body.theme-brutalist .badge,
-body.theme-brutalist [class*="badge"] {
+body.theme-brutalist [class*='badge'] {
 	border-radius: 0px !important;
 	border: 2px solid #000000 !important;
 	font-weight: 700 !important;
@@ -495,11 +504,11 @@ body.theme-brutalist [class*="badge"] {
 
 /* Privacy Level colors in brutalist - use pure RGB */
 body.theme-brutalist .border-error {
-	border-color: #FF0000 !important;
+	border-color: #ff0000 !important;
 }
 
 body.theme-brutalist .border-warning {
-	border-color: #FFFF00 !important;
+	border-color: #ffff00 !important;
 }
 
 body.theme-brutalist .border-primary {
@@ -507,16 +516,16 @@ body.theme-brutalist .border-primary {
 }
 
 body.theme-brutalist .border-success {
-	border-color: #00FF00 !important;
+	border-color: #00ff00 !important;
 }
 
 body.theme-brutalist .border-info {
-	border-color: #0000FF !important;
+	border-color: #0000ff !important;
 }
 
 /* Text colors */
 body.theme-brutalist .text-error {
-	color: #FF0000 !important;
+	color: #ff0000 !important;
 }
 
 body.theme-brutalist .text-warning {
@@ -529,11 +538,11 @@ body.theme-brutalist .text-cyan-400 {
 }
 
 body.theme-brutalist .text-success {
-	color: #00FF00 !important;
+	color: #00ff00 !important;
 }
 
 body.theme-brutalist .text-info {
-	color: #0000FF !important;
+	color: #0000ff !important;
 }
 
 /* Background colors */
@@ -542,19 +551,19 @@ body.theme-brutalist .bg-primary {
 }
 
 body.theme-brutalist .bg-success {
-	background: #00FF00 !important;
+	background: #00ff00 !important;
 }
 
 body.theme-brutalist .bg-error {
-	background: #FF0000 !important;
+	background: #ff0000 !important;
 }
 
 body.theme-brutalist .bg-warning {
-	background: #FFFF00 !important;
+	background: #ffff00 !important;
 }
 
 /* All rounded elements become square */
-body.theme-brutalist [class*="rounded"] {
+body.theme-brutalist [class*='rounded'] {
 	border-radius: 0px !important;
 }
 
@@ -589,7 +598,7 @@ body.theme-brutalist .privacy-shield-badge {
 
 /* Modal/Dialog brutalist style */
 body.theme-brutalist dialog,
-body.theme-brutalist [role="dialog"] {
+body.theme-brutalist [role='dialog'] {
 	background: #ffffff !important;
 	border: 3px solid #000000 !important;
 	border-radius: 0px !important;
@@ -609,110 +618,110 @@ body.theme-brutalist .modal-content {
 	box-shadow: 12px 12px 0 0 #000000 !important;
 }
 
-	/* App icon cards brutalist */
-	body.theme-brutalist .app-icon,
-	body.theme-brutalist [class*="icon-wrapper"] {
-		border: 3px solid rgba(0, 0, 0, 0.3) !important;
-		border-radius: 0px !important;
-		box-shadow: none !important;
-	}
+/* App icon cards brutalist */
+body.theme-brutalist .app-icon,
+body.theme-brutalist [class*='icon-wrapper'] {
+	border: 3px solid rgba(0, 0, 0, 0.3) !important;
+	border-radius: 0px !important;
+	box-shadow: none !important;
+}
 
-	body.theme-brutalist .app-icon:hover {
-		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1) !important;
-	}
+body.theme-brutalist .app-icon:hover {
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1) !important;
+}
 
-	/* Mini-app cards - ensure readability in brutalist */
-	body.theme-brutalist .mini-app {
-		background: #ffffff !important;
-		border: 3px solid rgba(0, 0, 0, 0.2) !important;
-		border-radius: 0px !important;
-		box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.3) !important;
-		backdrop-filter: none !important;
-	}
+/* Mini-app cards - ensure readability in brutalist */
+body.theme-brutalist .mini-app {
+	background: #ffffff !important;
+	border: 3px solid rgba(0, 0, 0, 0.2) !important;
+	border-radius: 0px !important;
+	box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.3) !important;
+	backdrop-filter: none !important;
+}
 
-	body.theme-brutalist .mini-app:hover {
-		background: #ffffff !important;
-		border-color: rgba(0, 0, 0, 0.8) !important;
-		box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.5) !important;
-		transform: translate(-2px, -2px) !important;
-	}
+body.theme-brutalist .mini-app:hover {
+	background: #ffffff !important;
+	border-color: rgba(0, 0, 0, 0.8) !important;
+	box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.5) !important;
+	transform: translate(-2px, -2px) !important;
+}
 
-	/* Mini-app icons - force dark colors for light backgrounds */
-	body.theme-brutalist .mini-app-icon {
-		color: #000000 !important;
-		font-weight: 900 !important;
-		text-shadow: none !important;
-	}
+/* Mini-app icons - force dark colors for light backgrounds */
+body.theme-brutalist .mini-app-icon {
+	color: #000000 !important;
+	font-weight: 900 !important;
+	text-shadow: none !important;
+}
 
-	/* Override specific light colors that are unreadable on white */
-	body.theme-brutalist [style*="color: #f5f5f0"] .mini-app-icon,
-	body.theme-brutalist [style*="color: rgb(245, 245, 240)"] .mini-app-icon {
-		color: #2d2d2d !important;
-	}
+/* Override specific light colors that are unreadable on white */
+body.theme-brutalist [style*='color: #f5f5f0'] .mini-app-icon,
+body.theme-brutalist [style*='color: rgb(245, 245, 240)'] .mini-app-icon {
+	color: #2d2d2d !important;
+}
 
-	body.theme-brutalist [style*="color: #eab308"] .mini-app-icon,
-	body.theme-brutalist [style*="color: rgb(234, 179, 8)"] .mini-app-icon {
-		color: #ca8a04 !important;
-	}
+body.theme-brutalist [style*='color: #eab308'] .mini-app-icon,
+body.theme-brutalist [style*='color: rgb(234, 179, 8)'] .mini-app-icon {
+	color: #ca8a04 !important;
+}
 
-	body.theme-brutalist [style*="color: #f59e0b"] .mini-app-icon,
-	body.theme-brutalist [style*="color: rgb(245, 158, 11)"] .mini-app-icon {
-		color: #d97706 !important;
-	}
+body.theme-brutalist [style*='color: #f59e0b'] .mini-app-icon,
+body.theme-brutalist [style*='color: rgb(245, 158, 11)'] .mini-app-icon {
+	color: #d97706 !important;
+}
 
-	/* Mini-app names in brutalist */
-	body.theme-brutalist .mini-app-name {
-		color: #000000 !important;
-		font-weight: 700 !important;
-		text-transform: uppercase !important;
-		letter-spacing: 0.05em !important;
-	}
+/* Mini-app names in brutalist */
+body.theme-brutalist .mini-app-name {
+	color: #000000 !important;
+	font-weight: 700 !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.05em !important;
+}
 
-	/* App card icons - ensure visibility */
-	body.theme-brutalist .app-card-icon {
-		background: #ffffff !important;
-		border: 3px solid rgba(0, 0, 0, 0.3) !important;
-		border-radius: 0px !important;
-		color: #000000 !important;
-		font-weight: 900 !important;
-	}
+/* App card icons - ensure visibility */
+body.theme-brutalist .app-card-icon {
+	background: #ffffff !important;
+	border: 3px solid rgba(0, 0, 0, 0.3) !important;
+	border-radius: 0px !important;
+	color: #000000 !important;
+	font-weight: 900 !important;
+}
 
-	/* Override light app icon colors in all contexts */
-	body.theme-brutalist [style*="color: #f5f5f0"],
-	body.theme-brutalist [style*="color: rgb(245, 245, 240)"] {
-		color: #2d2d2d !important;
-	}
+/* Override light app icon colors in all contexts */
+body.theme-brutalist [style*='color: #f5f5f0'],
+body.theme-brutalist [style*='color: rgb(245, 245, 240)'] {
+	color: #2d2d2d !important;
+}
 
-	body.theme-brutalist [style*="color: #eab308"],
-	body.theme-brutalist [style*="color: rgb(234, 179, 8)"] {
-		color: #ca8a04 !important;
-	}
+body.theme-brutalist [style*='color: #eab308'],
+body.theme-brutalist [style*='color: rgb(234, 179, 8)'] {
+	color: #ca8a04 !important;
+}
 
-	body.theme-brutalist [style*="color: #f59e0b"],
-	body.theme-brutalist [style*="color: rgb(245, 158, 11)"] {
-		color: #d97706 !important;
-	}
+body.theme-brutalist [style*='color: #f59e0b'],
+body.theme-brutalist [style*='color: rgb(245, 158, 11)'] {
+	color: #d97706 !important;
+}
 
-	body.theme-brutalist [style*="color: #fbbf24"],
-	body.theme-brutalist [style*="color: rgb(251, 191, 36)"] {
-		color: #f59e0b !important;
-	}
+body.theme-brutalist [style*='color: #fbbf24'],
+body.theme-brutalist [style*='color: rgb(251, 191, 36)'] {
+	color: #f59e0b !important;
+}
 
-	/* Horizontal scroll app cards */
-	body.theme-brutalist .horizontal-card {
-		background: #ffffff !important;
-		border: 3px solid rgba(0, 0, 0, 0.2) !important;
-		border-radius: 0px !important;
-		box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.3) !important;
-		backdrop-filter: none !important;
-	}
+/* Horizontal scroll app cards */
+body.theme-brutalist .horizontal-card {
+	background: #ffffff !important;
+	border: 3px solid rgba(0, 0, 0, 0.2) !important;
+	border-radius: 0px !important;
+	box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.3) !important;
+	backdrop-filter: none !important;
+}
 
-	body.theme-brutalist .horizontal-card:hover {
-		background: #ffffff !important;
-		border-color: rgba(0, 0, 0, 0.8) !important;
-		box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.5) !important;
-		transform: translate(-2px, -2px) scale(1.02) !important;
-	}
+body.theme-brutalist .horizontal-card:hover {
+	background: #ffffff !important;
+	border-color: rgba(0, 0, 0, 0.8) !important;
+	box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.5) !important;
+	transform: translate(-2px, -2px) scale(1.02) !important;
+}
 
 /* Privacy Levels - keep colors but make brutalist */
 body.theme-brutalist .level-card {
@@ -728,80 +737,80 @@ body.theme-brutalist .level-number {
 	box-shadow: 4px 4px 0 0 black !important;
 }
 
-	/* Disable SubZero in brutalist (too advanced for brutalism) */
-	body.theme-brutalist .level-subzero {
-		display: none !important;
-	}
+/* Disable SubZero in brutalist (too advanced for brutalism) */
+body.theme-brutalist .level-subzero {
+	display: none !important;
+}
 
-	/* ========================================
+/* ========================================
 	   BRUTALIST THEME - MOBILE RESPONSIVENESS
 	   ======================================== */
-	
-	/* Mobile-first brutalist adjustments */
-	@screen xs {
-		body.theme-brutalist .glass-card {
-			border-width: 2px !important;
-			box-shadow: 3px 3px 0 0 #000000 !important;
-		}
-		
-		body.theme-brutalist .glass-card:hover {
-			box-shadow: 5px 5px 0 0 #000000 !important;
-			transform: translate(-1px, -1px) !important;
-		}
-		
-		body.theme-brutalist .btn-primary,
-		body.theme-brutalist .btn-secondary {
-			border-width: 2px !important;
-			font-size: 0.875rem !important;
-			padding: 0.75rem 1rem !important;
-		}
-		
-		body.theme-brutalist .mini-app {
-			border-width: 2px !important;
-			box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3) !important;
-		}
-		
-		body.theme-brutalist .mini-app:hover {
-			box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.5) !important;
-			transform: translate(-1px, -1px) !important;
-		}
+
+/* Mobile-first brutalist adjustments */
+@screen xs {
+	body.theme-brutalist .glass-card {
+		border-width: 2px !important;
+		box-shadow: 3px 3px 0 0 #000000 !important;
 	}
-	
-	/* Small phone adjustments */
-	@screen sm {
-		body.theme-brutalist .glass-card {
-			border-width: 3px !important;
-			box-shadow: 4px 4px 0 0 #000000 !important;
-		}
-		
-		body.theme-brutalist .glass-card:hover {
-			box-shadow: 6px 6px 0 0 #000000 !important;
-			transform: translate(-1px, -1px) !important;
-		}
+
+	body.theme-brutalist .glass-card:hover {
+		box-shadow: 5px 5px 0 0 #000000 !important;
+		transform: translate(-1px, -1px) !important;
 	}
-	
-	/* Tablet and up - full brutalist effect */
-	@screen md {
-		body.theme-brutalist .glass-card {
-			border-width: 3px !important;
-			box-shadow: 6px 6px 0 0 #000000 !important;
-		}
-		
-		body.theme-brutalist .glass-card:hover {
-			box-shadow: 10px 10px 0 0 #000000 !important;
-			transform: translate(-2px, -2px) !important;
-		}
-		
-		body.theme-brutalist .mini-app {
-			border-width: 3px !important;
-			box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.3) !important;
-		}
-		
-		body.theme-brutalist .mini-app:hover {
-			box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.5) !important;
-			transform: translate(-2px, -2px) !important;
-		}
+
+	body.theme-brutalist .btn-primary,
+	body.theme-brutalist .btn-secondary {
+		border-width: 2px !important;
+		font-size: 0.875rem !important;
+		padding: 0.75rem 1rem !important;
 	}
+
+	body.theme-brutalist .mini-app {
+		border-width: 2px !important;
+		box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.3) !important;
+	}
+
+	body.theme-brutalist .mini-app:hover {
+		box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.5) !important;
+		transform: translate(-1px, -1px) !important;
+	}
+}
+
+/* Small phone adjustments */
+@screen sm {
+	body.theme-brutalist .glass-card {
+		border-width: 3px !important;
+		box-shadow: 4px 4px 0 0 #000000 !important;
+	}
+
+	body.theme-brutalist .glass-card:hover {
+		box-shadow: 6px 6px 0 0 #000000 !important;
+		transform: translate(-1px, -1px) !important;
+	}
+}
+
+/* Tablet and up - full brutalist effect */
+@screen md {
+	body.theme-brutalist .glass-card {
+		border-width: 3px !important;
+		box-shadow: 6px 6px 0 0 #000000 !important;
+	}
+
+	body.theme-brutalist .glass-card:hover {
+		box-shadow: 10px 10px 0 0 #000000 !important;
+		transform: translate(-2px, -2px) !important;
+	}
+
+	body.theme-brutalist .mini-app {
+		border-width: 3px !important;
+		box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.3) !important;
+	}
+
+	body.theme-brutalist .mini-app:hover {
+		box-shadow: 8px 8px 0 0 rgba(0, 0, 0, 0.5) !important;
+		transform: translate(-2px, -2px) !important;
+	}
+}
 
 /* ========================================
    MOBILE OPTIMIZATIONS & VIEWPORT FIXES
@@ -820,7 +829,7 @@ body.theme-brutalist .level-number {
 		padding-right: 1rem;
 		max-width: 100%;
 	}
-	
+
 	/* Ensure no element exceeds viewport width */
 	.glass-card,
 	.mini-app,
@@ -829,37 +838,39 @@ body.theme-brutalist .level-number {
 		max-width: 100%;
 		word-wrap: break-word;
 	}
-	
+
 	/* Mobile-specific spacing */
 	.hero {
 		padding-top: 2rem;
 		padding-bottom: 2rem;
 	}
-	
+
 	.section {
 		margin-bottom: 2rem;
 	}
-	
+
 	/* Optimize horizontal scroll containers */
 	.horizontal-scroll {
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: none;
 		-ms-overflow-style: none;
 	}
-	
+
 	.horizontal-scroll::-webkit-scrollbar {
 		display: none;
 	}
-	
+
 	/* Touch-friendly buttons */
 	.btn {
 		min-height: 44px;
 		min-width: 44px;
 		touch-action: manipulation;
 	}
-	
+
 	/* Prevent zoom on input focus */
-	input, textarea, select {
+	input,
+	textarea,
+	select {
 		font-size: 16px;
 	}
 }
@@ -870,12 +881,12 @@ body.theme-brutalist .level-number {
 		padding-left: 0.75rem;
 		padding-right: 0.75rem;
 	}
-	
+
 	.hero {
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
 	}
-	
+
 	.glass-card {
 		padding: 0.75rem;
 	}

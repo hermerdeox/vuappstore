@@ -6,7 +6,15 @@ export interface VuApp {
 	color: string;
 	colorRgb: string;
 	tagline: string;
-	category: 'Productivity' | 'Communication' | 'Finance' | 'Health' | 'Creative' | 'Learning' | 'Utilities' | 'Security';
+	category:
+		| 'Productivity'
+		| 'Communication'
+		| 'Finance'
+		| 'Health'
+		| 'Creative'
+		| 'Learning'
+		| 'Utilities'
+		| 'Security';
 	description: string;
 	longDescription: string;
 	privacyLevel: number;
@@ -41,8 +49,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '0, 212, 255',
 		tagline: 'Your thoughts, encrypted',
 		category: 'Productivity',
-		description: 'Zero-knowledge note-taking with end-to-end encryption. Your notes never leave your device unencrypted.',
-		longDescription: 'VuNotes is a privacy-first note-taking application that uses zero-knowledge encryption. All your notes are encrypted on your device before syncing, ensuring that not even we can read them. Features include markdown support, offline-first architecture, and cross-device sync.',
+		description:
+			'Zero-knowledge note-taking with end-to-end encryption. Your notes never leave your device unencrypted.',
+		longDescription:
+			'VuNotes is a privacy-first note-taking application that uses zero-knowledge encryption. All your notes are encrypted on your device before syncing, ensuring that not even we can read them. Features include markdown support, offline-first architecture, and cross-device sync.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
 		privacyDesc: 'All data encrypted locally, zero server-side access',
@@ -53,7 +63,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Smartphone', title: 'Cross-Device Sync', desc: 'Seamless sync across all devices' },
 			{ icon: 'Search', title: 'Full-Text Search', desc: 'Lightning-fast encrypted search' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 125430,
 		rating: 4.8,
@@ -70,8 +80,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '147, 51, 234',
 		tagline: 'Your money, your control',
 		category: 'Finance',
-		description: 'Privacy-focused cryptocurrency wallet with zero-knowledge transactions and built-in security.',
-		longDescription: 'VuWallet is a non-custodial cryptocurrency wallet that puts you in complete control. With built-in privacy features, hardware wallet support, and zero-knowledge architecture, your financial data stays yours.',
+		description:
+			'Privacy-focused cryptocurrency wallet with zero-knowledge transactions and built-in security.',
+		longDescription:
+			'VuWallet is a non-custodial cryptocurrency wallet that puts you in complete control. With built-in privacy features, hardware wallet support, and zero-knowledge architecture, your financial data stays yours.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
 		privacyDesc: 'Non-custodial, keys never leave your device',
@@ -82,7 +94,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Shield', title: 'Privacy Transactions', desc: 'Built-in privacy protocols' },
 			{ icon: 'BarChart2', title: 'Portfolio Tracking', desc: 'Real-time market data' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 89234,
 		rating: 4.9,
@@ -97,19 +109,25 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '239, 68, 68',
 		tagline: 'Schedule with privacy',
 		category: 'Productivity',
-		description: 'Privacy-first calendar and scheduling app with encrypted events and zero tracking.',
-		longDescription: 'VuCalendar keeps your schedule private with end-to-end encryption. Share your availability without sharing your data. Perfect for professionals who value privacy.',
+		description:
+			'Privacy-first calendar and scheduling app with encrypted events and zero tracking.',
+		longDescription:
+			'VuCalendar keeps your schedule private with end-to-end encryption. Share your availability without sharing your data. Perfect for professionals who value privacy.',
 		privacyLevel: 5,
 		privacyName: 'End-to-End Encrypted',
 		privacyDesc: 'Events encrypted on device, private scheduling links',
 		techStack: ['SvelteKit', 'TypeScript', 'PostgreSQL', 'WebRTC'],
 		features: [
-			{ icon: 'Calendar', title: 'Smart Scheduling', desc: 'AI-powered scheduling without tracking' },
+			{
+				icon: 'Calendar',
+				title: 'Smart Scheduling',
+				desc: 'AI-powered scheduling without tracking'
+			},
 			{ icon: 'Link', title: 'Private Links', desc: 'Share availability securely' },
 			{ icon: 'Clock', title: 'Smart Reminders', desc: 'Local notifications, no cloud' },
 			{ icon: 'Globe', title: 'CalDAV Sync', desc: 'Standard calendar protocol support' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 76543,
 		rating: 4.7,
@@ -124,8 +142,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '34, 197, 94',
 		tagline: 'Fitness without surveillance',
 		category: 'Health',
-		description: 'Privacy-focused fitness and health tracking. Your health data stays on your device, always.',
-		longDescription: 'VuFit tracks your fitness goals without sharing your health data. All processing happens locally on your device. Connect wearables, track workouts, and achieve your goals privately.',
+		description:
+			'Privacy-focused fitness and health tracking. Your health data stays on your device, always.',
+		longDescription:
+			'VuFit tracks your fitness goals without sharing your health data. All processing happens locally on your device. Connect wearables, track workouts, and achieve your goals privately.',
 		privacyLevel: 5,
 		privacyName: 'Offline-First',
 		privacyDesc: 'All health data stored locally, no cloud sync',
@@ -136,7 +156,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'TrendingUp', title: 'Progress Analytics', desc: 'Local AI-powered insights' },
 			{ icon: 'Target', title: 'Goal Setting', desc: 'Personalized fitness goals' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 65432,
 		rating: 4.6,
@@ -151,8 +171,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '249, 115, 22',
 		tagline: 'Write privately',
 		category: 'Creative',
-		description: 'Distraction-free writing app with end-to-end encryption. For writers who value privacy.',
-		longDescription: 'VuText is a minimalist writing environment designed for privacy. Write novels, articles, or journals without worrying about data collection. Features version control, markdown, and beautiful themes.',
+		description:
+			'Distraction-free writing app with end-to-end encryption. For writers who value privacy.',
+		longDescription:
+			'VuText is a minimalist writing environment designed for privacy. Write novels, articles, or journals without worrying about data collection. Features version control, markdown, and beautiful themes.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
 		privacyDesc: 'Documents encrypted locally, zero server access',
@@ -163,7 +185,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Palette', title: 'Beautiful Themes', desc: '20+ editor themes included' },
 			{ icon: 'Upload', title: 'Export Anywhere', desc: 'PDF, DOCX, Markdown, HTML' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 54321,
 		rating: 4.8,
@@ -178,8 +200,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '234, 179, 8',
 		tagline: 'Photos, encrypted',
 		category: 'Creative',
-		description: 'Private photo library with AI-powered organization that runs entirely on your device.',
-		longDescription: 'VuPhoto uses on-device machine learning to organize your photos without uploading them to the cloud. Facial recognition, object detection, and smart albums, all private.',
+		description:
+			'Private photo library with AI-powered organization that runs entirely on your device.',
+		longDescription:
+			'VuPhoto uses on-device machine learning to organize your photos without uploading them to the cloud. Facial recognition, object detection, and smart albums, all private.',
 		privacyLevel: 5,
 		privacyName: 'On-Device AI',
 		privacyDesc: 'All ML processing happens locally, no cloud uploads',
@@ -190,7 +214,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Search', title: 'Object Search', desc: 'Find photos by content locally' },
 			{ icon: 'MapPin', title: 'Location Tags', desc: 'GPS tagging without sharing' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 87654,
 		rating: 4.9,
@@ -205,8 +229,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '59, 130, 246',
 		tagline: 'Calls without tracking',
 		category: 'Communication',
-		description: 'End-to-end encrypted voice and video calls. No servers, no logs, no surveillance.',
-		longDescription: 'VuCall provides crystal-clear voice and video communication with end-to-end encryption. Uses peer-to-peer connections whenever possible, with no call records or metadata collection.',
+		description:
+			'End-to-end encrypted voice and video calls. No servers, no logs, no surveillance.',
+		longDescription:
+			'VuCall provides crystal-clear voice and video communication with end-to-end encryption. Uses peer-to-peer connections whenever possible, with no call records or metadata collection.',
 		privacyLevel: 5,
 		privacyName: 'E2E Encrypted',
 		privacyDesc: 'Peer-to-peer calls, no server-side logs',
@@ -217,7 +243,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Users', title: 'Group Calls', desc: 'Up to 50 participants' },
 			{ icon: 'MessageSquare', title: 'Screen Sharing', desc: 'Share screen securely' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 134567,
 		rating: 4.7,
@@ -233,7 +259,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Scan without sharing',
 		category: 'Utilities',
 		description: 'Privacy-focused document scanner with on-device OCR and encryption.',
-		longDescription: 'VuScan turns your device into a powerful scanner with optical character recognition that happens entirely on your device. Scan documents, receipts, and business cards privately.',
+		longDescription:
+			'VuScan turns your device into a powerful scanner with optical character recognition that happens entirely on your device. Scan documents, receipts, and business cards privately.',
 		privacyLevel: 5,
 		privacyName: 'On-Device OCR',
 		privacyDesc: 'All text recognition happens locally',
@@ -244,7 +271,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Clipboard', title: 'Multi-Page', desc: 'Scan multi-page documents' },
 			{ icon: 'BarChart2', title: 'Export', desc: 'PDF, JPEG, or searchable PDF' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 45678,
 		rating: 4.6,
@@ -259,19 +286,21 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '245, 245, 240',
 		tagline: 'Your digital fortress',
 		category: 'Security',
-		description: 'Military-grade encrypted file storage. Zero-knowledge architecture ensures maximum privacy.',
-		longDescription: 'VuVault is your personal encrypted cloud storage with zero-knowledge architecture. We can\'t access your files even if we wanted to. Features automatic backup, file versioning, and secure sharing.',
+		description:
+			'Military-grade encrypted file storage. Zero-knowledge architecture ensures maximum privacy.',
+		longDescription:
+			"VuVault is your personal encrypted cloud storage with zero-knowledge architecture. We can't access your files even if we wanted to. Features automatic backup, file versioning, and secure sharing.",
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
-		privacyDesc: 'Client-side encryption, we can\'t access your files',
+		privacyDesc: "Client-side encryption, we can't access your files",
 		techStack: ['Go', 'WebAssembly', 'AES-256-GCM', 'IPFS'],
 		features: [
-			{ icon: 'Key', title: 'Zero-Knowledge', desc: 'We can\'t access your files' },
+			{ icon: 'Key', title: 'Zero-Knowledge', desc: "We can't access your files" },
 			{ icon: 'Package', title: 'File Versioning', desc: 'Keep history of changes' },
 			{ icon: 'Link', title: 'Secure Sharing', desc: 'Share with encrypted links' },
 			{ icon: 'Cloud', title: 'Auto Backup', desc: 'Automatic encrypted backups' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 234567,
 		rating: 4.9,
@@ -286,8 +315,10 @@ export const vuApps: Record<string, VuApp> = {
 		colorRgb: '139, 92, 246',
 		tagline: 'Chat with confidence',
 		category: 'Communication',
-		description: 'Quantum-resistant messaging with perfect forward secrecy and no metadata collection.',
-		longDescription: 'VuChat provides military-grade encrypted messaging with advanced privacy features. Self-destructing messages, screenshot detection, and anonymous accounts ensure your conversations stay private.',
+		description:
+			'Quantum-resistant messaging with perfect forward secrecy and no metadata collection.',
+		longDescription:
+			'VuChat provides military-grade encrypted messaging with advanced privacy features. Self-destructing messages, screenshot detection, and anonymous accounts ensure your conversations stay private.',
 		privacyLevel: 5,
 		privacyName: 'Quantum-Resistant',
 		privacyDesc: 'Future-proof encryption, no metadata',
@@ -298,7 +329,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'UserX', title: 'Anonymous', desc: 'No phone number required' },
 			{ icon: 'Eye', title: 'Screenshot Alert', desc: 'Know when screenshots are taken' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 198765,
 		rating: 4.8,
@@ -316,7 +347,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Email, encrypted',
 		category: 'Communication',
 		description: 'Privacy-focused email with built-in PGP encryption and anonymous aliases.',
-		longDescription: 'VuMail provides a secure email experience with automatic PGP encryption, disposable aliases, and zero tracking. Take back control of your inbox.',
+		longDescription:
+			'VuMail provides a secure email experience with automatic PGP encryption, disposable aliases, and zero tracking. Take back control of your inbox.',
 		privacyLevel: 5,
 		privacyName: 'PGP Encrypted',
 		privacyDesc: 'End-to-end email encryption, no tracking',
@@ -327,7 +359,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Ban', title: 'Spam Filter', desc: 'AI-powered local filtering' },
 			{ icon: 'Inbox', title: 'Custom Domain', desc: 'Use your own domain' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 156789,
 		rating: 4.7,
@@ -344,7 +376,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Tasks, organized privately',
 		category: 'Productivity',
 		description: 'Privacy-first task management with offline-first architecture and zero tracking.',
-		longDescription: 'VuTask helps you stay organized without compromising privacy. Features include smart lists, recurring tasks, and cross-device sync with end-to-end encryption.',
+		longDescription:
+			'VuTask helps you stay organized without compromising privacy. Features include smart lists, recurring tasks, and cross-device sync with end-to-end encryption.',
 		privacyLevel: 5,
 		privacyName: 'Offline-First',
 		privacyDesc: 'Local storage, encrypted sync',
@@ -355,7 +388,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Tag', title: 'Tags & Filters', desc: 'Powerful organization' },
 			{ icon: 'BarChart2', title: 'Analytics', desc: 'Track productivity locally' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 98765,
 		rating: 4.6,
@@ -372,7 +405,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Browse without footprints',
 		category: 'Security',
 		description: 'Privacy-focused browser with built-in ad blocking, tracker blocking, and VPN.',
-		longDescription: 'VuBrowser is built from the ground up for privacy. Features include advanced fingerprint protection, automatic HTTPS, and built-in VPN.',
+		longDescription:
+			'VuBrowser is built from the ground up for privacy. Features include advanced fingerprint protection, automatic HTTPS, and built-in VPN.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Tracking',
 		privacyDesc: 'No telemetry, advanced fingerprint protection',
@@ -383,7 +417,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Globe', title: 'HTTPS Everywhere', desc: 'Always secure' },
 			{ icon: 'Ghost', title: 'Anti-Fingerprint', desc: 'Advanced protection' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 345678,
 		rating: 4.9,
@@ -400,7 +434,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Passwords, secured',
 		category: 'Security',
 		description: 'Zero-knowledge password manager with biometric unlock and secure sharing.',
-		longDescription: 'VuPass securely stores all your passwords with zero-knowledge encryption. Features include password generator, breach monitoring, and secure family sharing.',
+		longDescription:
+			'VuPass securely stores all your passwords with zero-knowledge encryption. Features include password generator, breach monitoring, and secure family sharing.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
 		privacyDesc: 'Master password never leaves your device',
@@ -411,7 +446,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'AlertTriangle', title: 'Breach Monitor', desc: 'Check for compromised passwords' },
 			{ icon: 'Users', title: 'Family Sharing', desc: 'Share securely with family' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 234561,
 		rating: 4.9,
@@ -428,7 +463,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Cloud storage, zero knowledge',
 		category: 'Utilities',
 		description: 'Encrypted cloud storage with automatic backup and file versioning.',
-		longDescription: 'VuDrive provides secure cloud storage with zero-knowledge encryption. Your files are encrypted before leaving your device, ensuring complete privacy.',
+		longDescription:
+			'VuDrive provides secure cloud storage with zero-knowledge encryption. Your files are encrypted before leaving your device, ensuring complete privacy.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
 		privacyDesc: 'Files encrypted before upload',
@@ -439,7 +475,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Link', title: 'Secure Sharing', desc: 'Share with expiring links' },
 			{ icon: 'Smartphone', title: 'Cross-Platform', desc: 'All devices supported' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 187654,
 		rating: 4.8,
@@ -456,7 +492,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Code privately',
 		category: 'Productivity',
 		description: 'Privacy-focused code editor with encrypted Git integration and collaboration.',
-		longDescription: 'VuCode is a powerful code editor built for privacy. Features include AI-powered suggestions that run locally, encrypted Git, and private collaboration.',
+		longDescription:
+			'VuCode is a powerful code editor built for privacy. Features include AI-powered suggestions that run locally, encrypted Git, and private collaboration.',
 		privacyLevel: 4,
 		privacyName: 'Local Processing',
 		privacyDesc: 'AI runs on device, encrypted Git',
@@ -467,7 +504,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Users', title: 'Live Collab', desc: 'Real-time pair programming' },
 			{ icon: 'Palette', title: 'Themes', desc: '100+ beautiful themes' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'beta',
 		downloads: 67890,
 		rating: 4.7,
@@ -484,7 +521,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Music without tracking',
 		category: 'Creative',
 		description: 'Privacy-focused music player with local library management and no tracking.',
-		longDescription: 'VuMusic is a beautiful music player that respects your privacy. Features include smart playlists, lyrics, and equalizer, all without data collection.',
+		longDescription:
+			'VuMusic is a beautiful music player that respects your privacy. Features include smart playlists, lyrics, and equalizer, all without data collection.',
 		privacyLevel: 5,
 		privacyName: 'Offline-First',
 		privacyDesc: 'No streaming analytics, no tracking',
@@ -495,7 +533,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Sliders', title: 'Equalizer', desc: '10-band equalizer' },
 			{ icon: 'Cloud', title: 'Self-Host', desc: 'Host your own music server' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 123456,
 		rating: 4.6,
@@ -512,7 +550,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Podcasts, privately',
 		category: 'Learning',
 		description: 'Privacy-first podcast player with offline downloads and no tracking.',
-		longDescription: 'VuPodcast lets you listen to your favorite podcasts without being tracked. Features include variable speed, sleep timer, and chapter support.',
+		longDescription:
+			'VuPodcast lets you listen to your favorite podcasts without being tracked. Features include variable speed, sleep timer, and chapter support.',
 		privacyLevel: 5,
 		privacyName: 'No Analytics',
 		privacyDesc: 'No listening data collected',
@@ -523,7 +562,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'FastForward', title: 'Variable Speed', desc: '0.5x to 3x playback' },
 			{ icon: 'Moon', title: 'Sleep Timer', desc: 'Auto-stop playback' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 89012,
 		rating: 4.5,
@@ -540,7 +579,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Learn without surveillance',
 		category: 'Learning',
 		description: 'Privacy-focused flashcard and spaced repetition learning app.',
-		longDescription: 'VuLearn uses science-backed spaced repetition to help you learn anything. All your study data stays private on your device.',
+		longDescription:
+			'VuLearn uses science-backed spaced repetition to help you learn anything. All your study data stays private on your device.',
 		privacyLevel: 5,
 		privacyName: 'Local-Only',
 		privacyDesc: 'All learning data stored locally',
@@ -551,7 +591,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'BarChart2', title: 'Progress Tracking', desc: 'Local analytics' },
 			{ icon: 'Target', title: 'Study Goals', desc: 'Set daily targets' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 56789,
 		rating: 4.7,
@@ -568,7 +608,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Documents, encrypted',
 		category: 'Productivity',
 		description: 'Privacy-first document editor compatible with Microsoft Office files.',
-		longDescription: 'VuDocs is a powerful document editor that works with Word, Excel, and PowerPoint files, all while keeping your documents private with local processing.',
+		longDescription:
+			'VuDocs is a powerful document editor that works with Word, Excel, and PowerPoint files, all while keeping your documents private with local processing.',
 		privacyLevel: 4,
 		privacyName: 'Local Processing',
 		privacyDesc: 'All editing happens on device',
@@ -579,7 +620,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Presentation', title: 'Presentations', desc: 'PowerPoint support' },
 			{ icon: 'Cloud', title: 'Auto-Save', desc: 'Never lose work' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 145678,
 		rating: 4.6,
@@ -596,7 +637,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Navigate privately',
 		category: 'Utilities',
 		description: 'Privacy-focused maps and navigation with offline support and no tracking.',
-		longDescription: 'VuMap provides turn-by-turn navigation without tracking your location. Download maps for offline use and navigate without being surveilled.',
+		longDescription:
+			'VuMap provides turn-by-turn navigation without tracking your location. Download maps for offline use and navigate without being surveilled.',
 		privacyLevel: 5,
 		privacyName: 'No Location Tracking',
 		privacyDesc: 'Navigation without server-side tracking',
@@ -607,7 +649,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Car', title: 'Traffic', desc: 'Real-time updates (optional)' },
 			{ icon: 'MapPin', title: 'Bookmarks', desc: 'Save favorite places' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 198765,
 		rating: 4.8,
@@ -624,7 +666,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Translate privately',
 		category: 'Utilities',
 		description: 'Privacy-focused translation app with on-device AI and 100+ languages.',
-		longDescription: 'VuTranslate uses on-device machine learning to translate between 100+ languages without sending your text to servers.',
+		longDescription:
+			'VuTranslate uses on-device machine learning to translate between 100+ languages without sending your text to servers.',
 		privacyLevel: 5,
 		privacyName: 'On-Device AI',
 		privacyDesc: 'All translation happens locally',
@@ -635,7 +678,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Mic', title: 'Voice Input', desc: 'Speak to translate' },
 			{ icon: 'MessageSquare', title: 'Conversations', desc: 'Real-time chat translation' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 234567,
 		rating: 4.7,
@@ -652,7 +695,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Build habits privately',
 		category: 'Health',
 		description: 'Privacy-first habit tracker with local analytics and no behavioral tracking.',
-		longDescription: 'VuHabit helps you build better habits without surveillance. Track your progress with beautiful visualizations, all stored locally.',
+		longDescription:
+			'VuHabit helps you build better habits without surveillance. Track your progress with beautiful visualizations, all stored locally.',
 		privacyLevel: 5,
 		privacyName: 'Local-Only',
 		privacyDesc: 'Habit data never leaves your device',
@@ -663,7 +707,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Trophy', title: 'Achievements', desc: 'Celebrate milestones' },
 			{ icon: 'Clock', title: 'Reminders', desc: 'Local notifications' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 78901,
 		rating: 4.6,
@@ -680,7 +724,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Focus without tracking',
 		category: 'Productivity',
 		description: 'Privacy-focused Pomodoro timer and focus tracker with local analytics.',
-		longDescription: 'VuFocus helps you stay productive with Pomodoro technique, website blocking, and focus sessions, all without tracking your activity.',
+		longDescription:
+			'VuFocus helps you stay productive with Pomodoro technique, website blocking, and focus sessions, all without tracking your activity.',
 		privacyLevel: 5,
 		privacyName: 'No Activity Tracking',
 		privacyDesc: 'Focus time stored locally only',
@@ -691,7 +736,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Target', title: 'Deep Work', desc: 'Track focus sessions' },
 			{ icon: 'TrendingUp', title: 'Insights', desc: 'Local productivity analytics' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 67890,
 		rating: 4.5,
@@ -708,7 +753,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Cook without surveillance',
 		category: 'Health',
 		description: 'Privacy-focused recipe manager and meal planner with no tracking.',
-		longDescription: 'VuRecipe stores your favorite recipes and helps plan meals without collecting your dietary data. Features include shopping lists and nutrition info.',
+		longDescription:
+			'VuRecipe stores your favorite recipes and helps plan meals without collecting your dietary data. Features include shopping lists and nutrition info.',
 		privacyLevel: 5,
 		privacyName: 'Local-Only',
 		privacyDesc: 'Recipes and meal data stored locally',
@@ -719,7 +765,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Calendar', title: 'Meal Planning', desc: 'Plan weekly meals' },
 			{ icon: 'Apple', title: 'Nutrition Info', desc: 'Calculate nutrition locally' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 45678,
 		rating: 4.4,
@@ -736,7 +782,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Budget privately',
 		category: 'Finance',
 		description: 'Privacy-first budgeting and expense tracking with local data storage.',
-		longDescription: 'VuBudget helps you manage your money without sharing financial data. Features include automatic categorization, budgets, and financial insights.',
+		longDescription:
+			'VuBudget helps you manage your money without sharing financial data. Features include automatic categorization, budgets, and financial insights.',
 		privacyLevel: 5,
 		privacyName: 'Local-Only',
 		privacyDesc: 'Financial data never leaves device',
@@ -747,7 +794,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Tag', title: 'Auto-Categorize', desc: 'AI categorization locally' },
 			{ icon: 'CreditCard', title: 'Bank Sync', desc: 'Optional encrypted sync' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 112345,
 		rating: 4.7,
@@ -764,7 +811,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Journal privately',
 		category: 'Health',
 		description: 'Privacy-focused journaling app with mood tracking and encrypted entries.',
-		longDescription: 'VuJournal provides a safe space for your thoughts with end-to-end encryption. Features include mood tracking, prompts, and beautiful templates.',
+		longDescription:
+			'VuJournal provides a safe space for your thoughts with end-to-end encryption. Features include mood tracking, prompts, and beautiful templates.',
 		privacyLevel: 5,
 		privacyName: 'Zero-Knowledge',
 		privacyDesc: 'Journal entries encrypted locally',
@@ -775,7 +823,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'MessageCircle', title: 'Prompts', desc: 'Guided journaling' },
 			{ icon: 'Palette', title: 'Templates', desc: 'Beautiful journal themes' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 89012,
 		rating: 4.8,
@@ -792,7 +840,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Read without tracking',
 		category: 'Learning',
 		description: 'Privacy-focused eBook reader with annotation and library management.',
-		longDescription: 'VuRead is an elegant eBook reader that doesn\'t track what you read. Support for EPUB, PDF, and MOBI with highlighting and notes.',
+		longDescription:
+			"VuRead is an elegant eBook reader that doesn't track what you read. Support for EPUB, PDF, and MOBI with highlighting and notes.",
 		privacyLevel: 5,
 		privacyName: 'No Reading Analytics',
 		privacyDesc: 'Reading habits stay private',
@@ -803,7 +852,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Moon', title: 'Night Mode', desc: 'Eye-friendly reading' },
 			{ icon: 'Cloud', title: 'Sync', desc: 'Encrypted cloud sync' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 67890,
 		rating: 4.6,
@@ -820,7 +869,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Create without surveillance',
 		category: 'Creative',
 		description: 'Privacy-focused digital drawing and painting app with local processing.',
-		longDescription: 'VuDraw is a powerful digital art tool that keeps your creative process private. Features include layers, brushes, and AI-powered tools that run locally.',
+		longDescription:
+			'VuDraw is a powerful digital art tool that keeps your creative process private. Features include layers, brushes, and AI-powered tools that run locally.',
 		privacyLevel: 5,
 		privacyName: 'Local Processing',
 		privacyDesc: 'All artwork stays on device',
@@ -831,7 +881,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Bot', title: 'AI Tools', desc: 'Local AI assistance' },
 			{ icon: 'Upload', title: 'Export', desc: 'PNG, PSD, SVG support' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'beta',
 		downloads: 34567,
 		rating: 4.7,
@@ -848,7 +898,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Browse anonymously',
 		category: 'Security',
 		description: 'No-logs VPN with WireGuard protocol and distributed servers worldwide.',
-		longDescription: 'VuVPN provides military-grade encryption for your internet connection with a strict no-logs policy. Features include kill switch, split tunneling, and ad blocking.',
+		longDescription:
+			'VuVPN provides military-grade encryption for your internet connection with a strict no-logs policy. Features include kill switch, split tunneling, and ad blocking.',
 		privacyLevel: 5,
 		privacyName: 'No-Logs',
 		privacyDesc: 'Independently audited zero-logs policy',
@@ -859,7 +910,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'Shield', title: 'Kill Switch', desc: 'Auto-disconnect protection' },
 			{ icon: 'Ban', title: 'Ad Blocking', desc: 'Block ads at VPN level' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 456789,
 		rating: 4.9,
@@ -876,7 +927,8 @@ export const vuApps: Record<string, VuApp> = {
 		tagline: 'Meet privately',
 		category: 'Communication',
 		description: 'Privacy-focused video conferencing with end-to-end encryption and no recording.',
-		longDescription: 'VuMeet provides secure video conferencing for teams and individuals. Features include screen sharing, breakout rooms, and end-to-end encryption.',
+		longDescription:
+			'VuMeet provides secure video conferencing for teams and individuals. Features include screen sharing, breakout rooms, and end-to-end encryption.',
 		privacyLevel: 5,
 		privacyName: 'E2E Encrypted',
 		privacyDesc: 'No server-side recording or storage',
@@ -887,7 +939,7 @@ export const vuApps: Record<string, VuApp> = {
 			{ icon: 'MessageSquare', title: 'Chat', desc: 'Encrypted text chat' },
 			{ icon: 'Mic', title: 'Background Blur', desc: 'Privacy in public spaces' }
 		],
-		pricing: { monthly: 2.56, yearly: 25.60, lifetime: 2560 },
+		pricing: { monthly: 2.56, yearly: 25.6, lifetime: 2560 },
 		status: 'available',
 		downloads: 178901,
 		rating: 4.7,
@@ -905,11 +957,11 @@ export function getAppById(id: string): VuApp | undefined {
 }
 
 export function getAppsByCategory(category: VuApp['category']): VuApp[] {
-	return getAllApps().filter(app => app.category === category);
+	return getAllApps().filter((app) => app.category === category);
 }
 
 export function getAppsByStatus(status: VuApp['status']): VuApp[] {
-	return getAllApps().filter(app => app.status === status);
+	return getAllApps().filter((app) => app.status === status);
 }
 
 export function getFeaturedApps(): VuApp[] {
@@ -920,8 +972,7 @@ export function getFeaturedApps(): VuApp[] {
 
 export function getPrivacyChampions(): VuApp[] {
 	return getAllApps()
-		.filter(app => app.privacyLevel === 5)
+		.filter((app) => app.privacyLevel === 5)
 		.sort((a, b) => b.rating - a.rating)
 		.slice(0, 6);
 }
-

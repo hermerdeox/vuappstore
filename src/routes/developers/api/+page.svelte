@@ -10,7 +10,7 @@
 			response: 'Array of app objects'
 		},
 		{
-			method: 'GET', 
+			method: 'GET',
 			path: '/api/v1/apps/{id}',
 			description: 'Get detailed information about a specific app',
 			auth: 'API Key',
@@ -56,23 +56,31 @@
 
 <svelte:head>
 	<title>API Documentation - VuAppStore Developers</title>
-	<meta name="description" content="VuAppStore API documentation. Build privacy-first integrations with our secure, well-documented REST API." />
+	<meta
+		name="description"
+		content="VuAppStore API documentation. Build privacy-first integrations with our secure, well-documented REST API."
+	/>
 </svelte:head>
 
 <div class="container py-16">
 	<div class="max-w-6xl mx-auto">
 		<!-- Header -->
 		<div class="text-center mb-16">
-			<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6">
+			<div
+				class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full mb-6"
+			>
 				<Code class="w-4 h-4 text-primary" />
-				<span class="text-xs font-semibold text-primary uppercase tracking-wide">API Documentation</span>
+				<span class="text-xs font-semibold text-primary uppercase tracking-wide"
+					>API Documentation</span
+				>
 			</div>
 			<h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 text-gradient">
 				VuAppStore API
 			</h1>
 			<p class="text-xl text-text-secondary leading-relaxed max-w-3xl mx-auto">
-				Build privacy-first integrations with our secure, well-documented REST API. Access app metadata, 
-				manage subscriptions, and generate secure downloads—all while maintaining user privacy.
+				Build privacy-first integrations with our secure, well-documented REST API. Access app
+				metadata, manage subscriptions, and generate secure downloads—all while maintaining user
+				privacy.
 			</p>
 		</div>
 
@@ -88,15 +96,13 @@
 					<p class="text-text-secondary mb-4">
 						Generate your API key from the developer dashboard to authenticate your requests.
 					</p>
-					<a href="/account" class="btn btn-primary btn-sm">
-						Get API Key
-					</a>
+					<a href="/account" class="btn btn-primary btn-sm"> Get API Key </a>
 				</div>
 				<div>
 					<h3 class="text-lg font-semibold mb-4">2. Make Your First Request</h3>
 					<div class="bg-black/50 rounded-lg p-4 font-mono text-sm">
 						<div class="text-success">curl -H "X-API-Key: your_key_here" \</div>
-						<div class="text-primary">  https://api.vuappstore.com/v1/apps</div>
+						<div class="text-primary">https://api.vuappstore.com/v1/apps</div>
 					</div>
 				</div>
 			</div>
@@ -121,7 +127,8 @@
 				<div class="glass-card p-6">
 					<h3 class="text-xl font-semibold mb-4">Bearer Token Authentication</h3>
 					<p class="text-text-secondary mb-4">
-						For user-specific endpoints like subscriptions and downloads. Use OAuth 2.0 bearer tokens:
+						For user-specific endpoints like subscriptions and downloads. Use OAuth 2.0 bearer
+						tokens:
 					</p>
 					<div class="bg-black/50 rounded-lg p-4 font-mono text-sm">
 						<div class="text-success">Authorization: Bearer your_token_here</div>
@@ -167,9 +174,7 @@
 						<div class="bg-black/50 rounded-lg p-3 font-mono text-sm mb-4">
 							<div class="text-success">{sdk.install}</div>
 						</div>
-						<a href={sdk.docs} class="btn btn-secondary btn-sm w-full">
-							View Documentation
-						</a>
+						<a href={sdk.docs} class="btn btn-secondary btn-sm w-full"> View Documentation </a>
 					</div>
 				{/each}
 			</div>
@@ -212,31 +217,36 @@
 			<div class="glass-card p-6">
 				<h3 class="text-lg font-semibold mb-4">GET /api/v1/apps/vuvault</h3>
 				<div class="bg-black/50 rounded-lg p-6 font-mono text-sm overflow-x-auto">
-					<pre class="text-text-secondary">{JSON.stringify({
-						"id": "vuvault",
-						"name": "VuVault",
-						"tagline": "Military-grade encrypted file storage",
-						"category": "Security",
-						"privacy_score": 5,
-						"privacy_name": "Zero-Knowledge",
-						"description": "Military-grade encrypted file storage with zero-knowledge architecture",
-						"features": [
+					<pre class="text-text-secondary">{JSON.stringify(
 							{
-								"icon": "shield",
-								"title": "End-to-End Encryption",
-								"description": "AES-256 encryption with client-side key generation"
-							}
-						],
-						"pricing": {
-							"monthly": 9.99,
-							"yearly": 99.99,
-							"lifetime": 299.99
-						},
-						"status": "available",
-						"downloads": 15420,
-						"rating": 4.9,
-						"tech_stack": ["Rust", "WebAssembly", "React"]
-					}, null, 2)}</pre>
+								id: 'vuvault',
+								name: 'VuVault',
+								tagline: 'Military-grade encrypted file storage',
+								category: 'Security',
+								privacy_score: 5,
+								privacy_name: 'Zero-Knowledge',
+								description:
+									'Military-grade encrypted file storage with zero-knowledge architecture',
+								features: [
+									{
+										icon: 'shield',
+										title: 'End-to-End Encryption',
+										description: 'AES-256 encryption with client-side key generation'
+									}
+								],
+								pricing: {
+									monthly: 9.99,
+									yearly: 99.99,
+									lifetime: 299.99
+								},
+								status: 'available',
+								downloads: 15420,
+								rating: 4.9,
+								tech_stack: ['Rust', 'WebAssembly', 'React']
+							},
+							null,
+							2
+						)}</pre>
 				</div>
 			</div>
 		</div>
@@ -245,18 +255,21 @@
 		<div class="text-center">
 			<h2 class="text-3xl font-bold mb-6">Need Help?</h2>
 			<p class="text-text-secondary mb-8 max-w-2xl mx-auto">
-				Our developer support team is here to help you build amazing privacy-first integrations. 
-				Get in touch if you need assistance or have questions about the API.
+				Our developer support team is here to help you build amazing privacy-first integrations. Get
+				in touch if you need assistance or have questions about the API.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="/developers/docs" class="btn btn-primary">
 					<Book class="w-4 h-4" />
 					Full Documentation
 				</a>
-				<a href="/support/contact" class="btn btn-secondary">
-					Contact Support
-				</a>
-				<a href="https://github.com/vuappstore/api-examples" class="btn btn-secondary" target="_blank" rel="noopener">
+				<a href="/support/contact" class="btn btn-secondary"> Contact Support </a>
+				<a
+					href="https://github.com/vuappstore/api-examples"
+					class="btn btn-secondary"
+					target="_blank"
+					rel="noopener"
+				>
 					<ExternalLink class="w-4 h-4" />
 					Code Examples
 				</a>

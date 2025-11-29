@@ -193,15 +193,12 @@
 
 					<div class="mt-6 pt-6 border-t border-white/10">
 						<p class="text-sm text-white/40 mb-4">Or import a different identity:</p>
-						<label class="btn btn-secondary w-full flex items-center justify-center gap-2 cursor-pointer">
+						<label
+							class="btn btn-secondary w-full flex items-center justify-center gap-2 cursor-pointer"
+						>
 							<Upload class="w-5 h-5" />
 							Import Backup
-							<input
-								type="file"
-								accept=".vu,.txt"
-								class="hidden"
-								on:change={handleFileSelect}
-							/>
+							<input type="file" accept=".vu,.txt" class="hidden" on:change={handleFileSelect} />
 						</label>
 					</div>
 				{:else}
@@ -219,15 +216,12 @@
 							Create New Identity
 						</button>
 
-						<label class="btn btn-secondary w-full flex items-center justify-center gap-2 cursor-pointer">
+						<label
+							class="btn btn-secondary w-full flex items-center justify-center gap-2 cursor-pointer"
+						>
 							<Upload class="w-5 h-5" />
 							Import from Backup
-							<input
-								type="file"
-								accept=".vu,.txt"
-								class="hidden"
-								on:change={handleFileSelect}
-							/>
+							<input type="file" accept=".vu,.txt" class="hidden" on:change={handleFileSelect} />
 						</label>
 					</div>
 				{/if}
@@ -356,7 +350,17 @@
 						</div>
 						<div>
 							<p class="text-sm text-white/60 mb-1">Privacy Level</p>
-							<p class="text-lg text-white">Level {$privacyLevel} - {$privacyLevel === 0 ? 'Zero-Knowledge' : $privacyLevel === 1 ? 'Local-First' : $privacyLevel === 2 ? 'Privacy First' : $privacyLevel === 3 ? 'Enhanced' : 'Basic'}</p>
+							<p class="text-lg text-white">
+								Level {$privacyLevel} - {$privacyLevel === 0
+									? 'Zero-Knowledge'
+									: $privacyLevel === 1
+										? 'Local-First'
+										: $privacyLevel === 2
+											? 'Privacy First'
+											: $privacyLevel === 3
+												? 'Enhanced'
+												: 'Basic'}
+							</p>
 						</div>
 						<div>
 							<p class="text-sm text-white/60 mb-1">Authentication</p>
@@ -436,7 +440,10 @@
 									<button
 										class="flex-1 px-4 py-2 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 transition-colors disabled:opacity-50"
 										on:click={changePassphrase}
-										disabled={isChangingPassphrase || !oldPassphrase || !newPassphrase || !confirmNewPassphrase}
+										disabled={isChangingPassphrase ||
+											!oldPassphrase ||
+											!newPassphrase ||
+											!confirmNewPassphrase}
 									>
 										{#if isChangingPassphrase}
 											<Loader2 class="w-5 h-5 animate-spin inline" />
@@ -494,9 +501,9 @@
 					{:else}
 						<div class="p-4 rounded-xl bg-red-500/10 border border-red-500/20">
 							<p class="text-sm text-white mb-4">
-								This action is <strong class="text-red-400">irreversible</strong>. Your identity will
-								be permanently deleted. If you have no backup, you will lose access to all your data
-								and subscriptions.
+								This action is <strong class="text-red-400">irreversible</strong>. Your identity
+								will be permanently deleted. If you have no backup, you will lose access to all your
+								data and subscriptions.
 							</p>
 							<div class="flex gap-3">
 								<button

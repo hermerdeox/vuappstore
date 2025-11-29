@@ -7,7 +7,7 @@
 
 	let isScrolled = false;
 	let showSearchModal = false;
-	
+
 	// Show theme toggle on all pages
 	$: showThemeToggle = true;
 
@@ -39,18 +39,32 @@
 		<div class="navbar-content flex items-center justify-between py-2 md:py-3 lg:py-4">
 			<!-- Logo - Mobile optimized -->
 			<a href="/" class="logo flex items-center gap-2 no-underline flex-shrink-0">
-				<div class="logo-icon flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary rounded-md md:rounded-lg font-bold text-base sm:text-lg md:text-xl text-background flex-shrink-0">
+				<div
+					class="logo-icon flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-primary rounded-md md:rounded-lg font-bold text-base sm:text-lg md:text-xl text-background flex-shrink-0"
+				>
 					V
 				</div>
-				<div class="logo-text text-base sm:text-lg md:text-xl font-bold tracking-tight whitespace-nowrap">VU Store</div>
+				<div
+					class="logo-text text-base sm:text-lg md:text-xl font-bold tracking-tight whitespace-nowrap"
+				>
+					VU Store
+				</div>
 			</a>
 
 			<!-- Desktop Navigation -->
 			<div class="nav-center hidden lg:flex gap-1 bg-glass rounded-lg p-1">
 				<a href="/" class="nav-tab" class:active={$page.url.pathname === '/'}>Discover</a>
-				<a href="/apps" class="nav-tab" class:active={$page.url.pathname.startsWith('/apps')}>All Apps</a>
-				<a href="/pricing" class="nav-tab" class:active={$page.url.pathname === '/pricing'}>Pricing</a>
-				<a href="/developers" class="nav-tab" class:active={$page.url.pathname.startsWith('/developers')}>Developers</a>
+				<a href="/apps" class="nav-tab" class:active={$page.url.pathname.startsWith('/apps')}
+					>All Apps</a
+				>
+				<a href="/pricing" class="nav-tab" class:active={$page.url.pathname === '/pricing'}
+					>Pricing</a
+				>
+				<a
+					href="/developers"
+					class="nav-tab"
+					class:active={$page.url.pathname.startsWith('/developers')}>Developers</a
+				>
 			</div>
 
 			<!-- Mobile & Desktop Actions -->
@@ -61,18 +75,20 @@
 						<ThemeToggle variant="header" showLabel={false} />
 					</div>
 				{/if}
-				
+
 				<!-- Privacy Score - Hidden on mobile and small tablets -->
-				<div class="privacy-score hidden xl:flex items-center gap-2 px-3 py-2 bg-success/10 border border-success/30 rounded-lg flex-shrink-0">
+				<div
+					class="privacy-score hidden xl:flex items-center gap-2 px-3 py-2 bg-success/10 border border-success/30 rounded-lg flex-shrink-0"
+				>
 					<ShieldCheck class="w-4 h-4 text-success" />
 					<span class="text-xs font-semibold text-success">Privacy Score: A+</span>
 				</div>
-				
+
 				<!-- Search Button - Always visible -->
 				<button class="icon-btn flex-shrink-0" aria-label="Search" on:click={openSearch}>
 					<Search class="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5" />
 				</button>
-				
+
 				<!-- Auth Button - Sovereign Identity -->
 				<AuthButton />
 			</div>
@@ -187,7 +203,7 @@
 			height: 40px;
 			padding: 0;
 		}
-		
+
 		.container-nav {
 			padding-left: 1.5rem;
 			padding-right: 1.5rem;
@@ -224,28 +240,28 @@
 			padding-left: 0.75rem;
 			padding-right: 0.75rem;
 		}
-		
+
 		.logo {
 			max-width: 40%;
 		}
-		
+
 		.logo-text {
 			font-size: 0.875rem;
 		}
-		
+
 		.logo-icon {
 			width: 28px;
 			height: 28px;
 			font-size: 0.875rem;
 		}
-		
+
 		.icon-btn {
 			width: 28px;
 			height: 28px;
 			padding: 8px;
 			border-radius: 0.25rem;
 		}
-		
+
 		.nav-actions {
 			gap: 0.25rem;
 			max-width: 55%;
@@ -258,4 +274,3 @@
 		flex-shrink: 0;
 	}
 </style>
-

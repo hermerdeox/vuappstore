@@ -25,14 +25,14 @@
 	async function retryConnection() {
 		retryCount++;
 		console.log(`[PWA] Retry attempt ${retryCount}`);
-		
+
 		try {
 			// Try to fetch a small resource to test connectivity
-			const response = await fetch('/manifest.json', { 
+			const response = await fetch('/manifest.json', {
 				cache: 'no-cache',
 				mode: 'no-cors'
 			});
-			
+
 			if (response.ok || response.type === 'opaque') {
 				// Connection restored
 				window.location.reload();
@@ -49,7 +49,10 @@
 
 <svelte:head>
 	<title>Offline - VuAppStore</title>
-	<meta name="description" content="VuAppStore is currently offline. Your privacy-first apps are still protected." />
+	<meta
+		name="description"
+		content="VuAppStore is currently offline. Your privacy-first apps are still protected."
+	/>
 </svelte:head>
 
 <div class="offline-page">
@@ -75,8 +78,8 @@
 				{:else}
 					<h1 class="text-4xl font-black mb-4">You're Offline</h1>
 					<p class="text-lg text-text-secondary mb-6">
-						No worries! Your privacy is still protected. VuAppStore works offline 
-						with cached content, and your data never leaves your device.
+						No worries! Your privacy is still protected. VuAppStore works offline with cached
+						content, and your data never leaves your device.
 					</p>
 				{/if}
 			</div>
@@ -133,8 +136,9 @@
 			<div class="privacy-message mt-12 p-6 bg-primary/10 border border-primary/30 rounded-lg">
 				<Shield class="w-6 h-6 text-primary mx-auto mb-3" />
 				<p class="text-sm text-text-secondary">
-					<strong class="text-primary">Privacy Note:</strong> Even offline, VuAppStore maintains zero tracking. 
-					Your browsing data, preferences, and activity remain completely private and never leave your device.
+					<strong class="text-primary">Privacy Note:</strong> Even offline, VuAppStore maintains zero
+					tracking. Your browsing data, preferences, and activity remain completely private and never
+					leave your device.
 				</p>
 			</div>
 		</div>
@@ -203,7 +207,9 @@
 
 	/* Animation for retry button */
 	@keyframes spin {
-		to { transform: rotate(360deg); }
+		to {
+			transform: rotate(360deg);
+		}
 	}
 
 	.btn:disabled .lucide-refresh-cw {

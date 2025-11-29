@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Clock } from 'lucide-svelte';
-	
+
 	export let title: string;
 	export let lastUpdated: string;
 </script>
@@ -60,17 +60,17 @@
 		margin-left: 1.5rem;
 		list-style-type: disc;
 	}
-	
+
 	:global(.legal-content ol) {
 		margin-bottom: 1rem;
 		margin-left: 1.5rem;
 		list-style-type: decimal;
 	}
-	
+
 	:global(.legal-content ul li) {
 		margin-bottom: 0.5rem;
 	}
-	
+
 	:global(.legal-content ol li) {
 		margin-bottom: 0.5rem;
 	}
@@ -83,7 +83,7 @@
 		color: #00d4ff;
 		text-decoration: none;
 	}
-	
+
 	:global(.legal-content a:hover) {
 		text-decoration: underline;
 	}
@@ -93,4 +93,3 @@
 		font-weight: 600;
 	}
 </style>
-

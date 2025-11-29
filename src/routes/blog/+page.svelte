@@ -5,7 +5,8 @@
 		{
 			id: 'privacy-first-architecture',
 			title: 'Building Privacy-First Architecture from the Ground Up',
-			excerpt: 'Learn how we designed VuAppStore with zero-knowledge encryption as the foundation, not an afterthought.',
+			excerpt:
+				'Learn how we designed VuAppStore with zero-knowledge encryption as the foundation, not an afterthought.',
 			author: 'Sarah Chen',
 			date: 'November 1, 2024',
 			category: 'Engineering',
@@ -15,7 +16,8 @@
 		{
 			id: 'why-privacy-matters',
 			title: 'Why Privacy Matters More Than Ever in 2024',
-			excerpt: 'In an age of AI and mass surveillance, protecting personal data is not paranoia—it\'s prudence.',
+			excerpt:
+				"In an age of AI and mass surveillance, protecting personal data is not paranoia—it's prudence.",
 			author: 'Michael Torres',
 			date: 'October 28, 2024',
 			category: 'Privacy',
@@ -25,7 +27,8 @@
 		{
 			id: 'vu-suite-launch',
 			title: 'Introducing the VU Suite: 30 Apps, Zero Tracking',
-			excerpt: 'Today we\'re excited to announce the complete VU Suite—30 privacy-focused applications that prove you don\'t need surveillance to build great software.',
+			excerpt:
+				"Today we're excited to announce the complete VU Suite—30 privacy-focused applications that prove you don't need surveillance to build great software.",
 			author: 'Alex Kumar',
 			date: 'October 20, 2024',
 			category: 'Product',
@@ -35,7 +38,8 @@
 		{
 			id: 'gdpr-ccpa-compliance',
 			title: 'Beyond Compliance: How We Exceed GDPR and CCPA Requirements',
-			excerpt: 'Compliance is just the beginning. Learn how VuAppStore goes above and beyond privacy regulations.',
+			excerpt:
+				'Compliance is just the beginning. Learn how VuAppStore goes above and beyond privacy regulations.',
 			author: 'Emma Wilson',
 			date: 'October 15, 2024',
 			category: 'Legal',
@@ -45,7 +49,8 @@
 		{
 			id: 'encryption-explained',
 			title: 'End-to-End Encryption Explained: How VU Apps Protect Your Data',
-			excerpt: 'A deep dive into the encryption technologies that keep your data safe in every VU application.',
+			excerpt:
+				'A deep dive into the encryption technologies that keep your data safe in every VU application.',
 			author: 'David Park',
 			date: 'October 10, 2024',
 			category: 'Security',
@@ -55,7 +60,8 @@
 		{
 			id: 'privacy-vs-convenience',
 			title: 'The False Choice Between Privacy and Convenience',
-			excerpt: 'Why you shouldn\'t have to choose between powerful features and protecting your privacy.',
+			excerpt:
+				"Why you shouldn't have to choose between powerful features and protecting your privacy.",
 			author: 'Rachel Green',
 			date: 'October 5, 2024',
 			category: 'Opinion',
@@ -67,22 +73,24 @@
 	const categories = ['All', 'Engineering', 'Privacy', 'Product', 'Security', 'Legal', 'Opinion'];
 	let selectedCategory = 'All';
 
-	$: filteredPosts = selectedCategory === 'All' 
-		? blogPosts 
-		: blogPosts.filter(post => post.category === selectedCategory);
+	$: filteredPosts =
+		selectedCategory === 'All'
+			? blogPosts
+			: blogPosts.filter((post) => post.category === selectedCategory);
 </script>
 
 <svelte:head>
 	<title>Blog - VuAppStore</title>
-	<meta name="description" content="Insights on privacy, security, and building a surveillance-free digital future." />
+	<meta
+		name="description"
+		content="Insights on privacy, security, and building a surveillance-free digital future."
+	/>
 </svelte:head>
 
 <div class="blog-page container py-16 max-w-6xl relative z-10">
 	<!-- Hero Section -->
 	<section class="hero mb-12 text-center">
-		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">
-			VuAppStore Blog
-		</h1>
+		<h1 class="text-4xl md:text-5xl font-black mb-4 text-gradient">VuAppStore Blog</h1>
 		<p class="text-lg text-text-secondary max-w-2xl mx-auto">
 			Insights on privacy, security, and building a surveillance-free digital future.
 		</p>
@@ -92,10 +100,10 @@
 	<section class="category-filter mb-8">
 		<div class="flex flex-wrap gap-3 justify-center">
 			{#each categories as category}
-				<button 
+				<button
 					class="category-btn px-4 py-2 rounded-lg text-sm font-medium transition-all"
 					class:active={selectedCategory === category}
-					on:click={() => selectedCategory = category}
+					on:click={() => (selectedCategory = category)}
 				>
 					{category}
 				</button>
@@ -110,7 +118,9 @@
 				<div class="grid grid-cols-1 lg:grid-cols-2">
 					<div class="aspect-video bg-gradient-to-br from-primary/20 to-primary/5"></div>
 					<div class="p-8">
-						<span class="category-badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full mb-4">
+						<span
+							class="category-badge inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full mb-4"
+						>
 							{filteredPosts[0].category}
 						</span>
 						<h2 class="text-3xl font-bold mb-4">
@@ -132,7 +142,10 @@
 									{filteredPosts[0].date}
 								</span>
 							</div>
-							<a href="/blog/{filteredPosts[0].id}" class="text-primary font-medium flex items-center gap-2 hover:gap-3 transition-all">
+							<a
+								href="/blog/{filteredPosts[0].id}"
+								class="text-primary font-medium flex items-center gap-2 hover:gap-3 transition-all"
+							>
 								Read More
 								<ArrowRight class="w-4 h-4" />
 							</a>
@@ -150,7 +163,9 @@
 				<article class="blog-card glass-card overflow-hidden hover:-translate-y-1 transition-all">
 					<div class="aspect-video bg-gradient-to-br from-primary/10 to-transparent"></div>
 					<div class="p-6">
-						<span class="category-badge inline-block px-2 py-1 bg-glass text-primary text-xs font-semibold rounded mb-3">
+						<span
+							class="category-badge inline-block px-2 py-1 bg-glass text-primary text-xs font-semibold rounded mb-3"
+						>
 							{post.category}
 						</span>
 						<h3 class="text-lg font-bold mb-2">
@@ -185,13 +200,9 @@
 					class="flex-1 px-4 py-3 bg-glass border border-border rounded-lg focus:border-primary focus:outline-none transition-colors"
 					required
 				/>
-				<button type="submit" class="btn btn-primary">
-					Subscribe
-				</button>
+				<button type="submit" class="btn btn-primary"> Subscribe </button>
 			</form>
-			<p class="text-xs text-text-tertiary mt-4">
-				We respect your privacy. Unsubscribe anytime.
-			</p>
+			<p class="text-xs text-text-tertiary mt-4">We respect your privacy. Unsubscribe anytime.</p>
 		</div>
 	</section>
 </div>
