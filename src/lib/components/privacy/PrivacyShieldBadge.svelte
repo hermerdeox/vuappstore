@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import {
 		Shield,
 		Lock,
@@ -8,14 +9,33 @@
 		BarChart3,
 		EyeOff,
 		DollarSign,
-		FileText
+		FileText,
+		X
 	} from 'lucide-svelte';
 
 	let isHovered = false;
 	let isExpanded = false;
+	let isDismissed = false;
+
+	const DISMISS_KEY = 'vu-privacy-badge-dismissed';
+
+	onMount(() => {
+		// Check if badge was previously dismissed
+		if (typeof localStorage !== 'undefined') {
+			isDismissed = localStorage.getItem(DISMISS_KEY) === 'true';
+		}
+	});
 
 	function toggleExpanded() {
 		isExpanded = !isExpanded;
+	}
+
+	function dismissBadge(event: MouseEvent) {
+		event.stopPropagation();
+		isDismissed = true;
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem(DISMISS_KEY, 'true');
+		}
 	}
 
 	function openPrivacyInspector() {
@@ -23,6 +43,7 @@
 	}
 </script>
 
+{#if !isDismissed}
 <div
 	class="privacy-shield-container {isExpanded ? 'expanded' : ''}"
 	on:mouseenter={() => (isHovered = true)}
@@ -30,22 +51,31 @@
 	role="region"
 	aria-label="Privacy Shield Status"
 >
-	<button
-		class="privacy-shield-badge"
-		on:click={toggleExpanded}
-		aria-label="Privacy Shield - Zero Tracking Guarantee"
-	>
-		<div class="badge-icon">
-			<Shield class="w-4 h-4" />
-		</div>
-		<div class="badge-content">
-			<span class="badge-title">ZERO COOKIES</span>
-			<span class="badge-subtitle">No tracking • No analytics</span>
-		</div>
-		{#if isHovered || isExpanded}
-			<div class="badge-glow"></div>
-		{/if}
-	</button>
+	<div class="badge-wrapper">
+		<button
+			class="privacy-shield-badge"
+			on:click={toggleExpanded}
+			aria-label="Privacy Shield - Zero Tracking Guarantee"
+		>
+			<div class="badge-icon">
+				<Shield class="w-4 h-4" />
+			</div>
+			<div class="badge-content">
+				<span class="badge-title">ZERO COOKIES</span>
+				<span class="badge-subtitle">No tracking • No analytics</span>
+			</div>
+			{#if isHovered || isExpanded}
+				<div class="badge-glow"></div>
+			{/if}
+		</button>
+		<button
+			class="dismiss-btn"
+			on:click={dismissBadge}
+			aria-label="Dismiss privacy badge"
+		>
+			<X class="w-3 h-3" />
+		</button>
+	</div>
 
 	{#if isExpanded}
 		<div class="privacy-dropdown">
@@ -115,6 +145,7 @@
 		</div>
 	{/if}
 </div>
+{/if}
 
 <style>
 	.privacy-shield-container {
@@ -127,6 +158,39 @@
 
 	.privacy-shield-container.expanded {
 		z-index: 1001;
+	}
+
+	.badge-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		position: relative;
+	}
+
+	.dismiss-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		background: rgba(0, 0, 0, 0.7);
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		color: rgba(255, 255, 255, 0.8);
+		cursor: pointer;
+		transition: all 0.2s ease;
+		flex-shrink: 0;
+		position: absolute;
+		top: -8px;
+		right: -8px;
+		z-index: 10;
+	}
+
+	.dismiss-btn:hover {
+		background: rgba(239, 68, 68, 0.9);
+		border-color: rgba(239, 68, 68, 0.6);
+		color: #fff;
+		transform: scale(1.15);
 	}
 
 	.privacy-shield-badge {

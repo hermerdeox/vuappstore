@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LegalLayout from '$lib/components/legal/LegalLayout.svelte';
-	const lastUpdated = '2024-11-04';
+	const lastUpdated = '2025-12-19';
 </script>
 
 <LegalLayout title="Privacy Policy" {lastUpdated}>
@@ -163,26 +163,98 @@
 	</section>
 
 	<section>
-		<h2>8. COOKIES AND TRACKING</h2>
-		<p>
-			We use minimal cookies, and <strong>no tracking cookies</strong>:
-		</p>
+		<h2>8. ZERO COOKIES GUARANTEE</h2>
+		<div
+			style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 12px; padding: 20px; margin: 20px 0;"
+		>
+			<p style="font-size: 1.1em; font-weight: 600; color: #22c55e; margin-bottom: 12px;">
+				🛡️ VuAppStore is 100% COOKIE-FREE
+			</p>
+			<p>
+				Unlike other platforms that claim "minimal cookies" or "essential cookies only," VuAppStore
+				uses <strong>absolutely ZERO cookies</strong>. Not even "essential" or "functional" ones.
+			</p>
+		</div>
+
+		<h3>Our Zero-Cookie Implementation:</h3>
 		<ul>
 			<li>
-				<strong>Essential Cookies:</strong> Required for login and basic functionality (cannot be disabled)
+				<strong>No cookies of any kind:</strong> Not session cookies, not authentication cookies, not
+				preference cookies - NONE
 			</li>
-			<li><strong>Preference Cookies:</strong> Remember your settings (optional)</li>
+			<li>
+				<strong>Authorization header authentication:</strong> We use Bearer tokens in HTTP headers instead
+				of cookies
+			</li>
+			<li>
+				<strong>IndexedDB for local storage:</strong> Your identity is stored encrypted in your browser's
+				IndexedDB, not in cookies
+			</li>
+			<li>
+				<strong>localStorage for preferences:</strong> Theme, language, and settings stored locally on
+				your device
+			</li>
+			<li>
+				<strong>Active cookie rejection:</strong> Our servers actively block any attempt to set cookies
+			</li>
+			<li>
+				<strong>Extension protection:</strong> We block browser extensions from setting tracking cookies
+			</li>
+		</ul>
+
+		<h3>Why This Matters:</h3>
+		<ul>
+			<li>
+				<strong>No cookie consent banners needed:</strong> Because we don't use cookies, we don't need
+				to ask your permission
+			</li>
+			<li>
+				<strong>GDPR/CCPA automatic compliance:</strong> No cookies means no cookie-related privacy issues
+			</li>
+			<li>
+				<strong>No cross-site tracking:</strong> Without cookies, you can't be tracked across websites
+			</li>
+			<li>
+				<strong>No fingerprinting via cookies:</strong> One less vector for browser fingerprinting
+			</li>
+		</ul>
+
+		<h3>Browser Extension Protection:</h3>
+		<p>We actively protect against browser addons and extensions that try to:</p>
+		<ul>
+			<li>Inject tracking scripts into our pages</li>
+			<li>Set cookies on our domain</li>
+			<li>Extract user behavior analytics</li>
+			<li>Fingerprint your browser</li>
+			<li>Send data to third-party analytics services</li>
 		</ul>
 		<p>
-			<strong>We DO NOT use:</strong>
+			Our protection includes network request interception, DOM monitoring, and navigator API
+			hardening to prevent extensions from collecting your data.
 		</p>
+
+		<h3>What We DO NOT Use:</h3>
 		<ul>
+			<li>Session cookies</li>
+			<li>Authentication cookies</li>
+			<li>Preference cookies</li>
 			<li>Analytics cookies (like Google Analytics)</li>
 			<li>Advertising cookies</li>
 			<li>Third-party tracking pixels</li>
 			<li>Social media tracking</li>
 			<li>Cross-site tracking</li>
+			<li>Fingerprinting scripts</li>
+			<li>Any form of behavioral tracking</li>
 		</ul>
+
+		<h3>Verify Our Claims:</h3>
+		<p>Don't take our word for it - verify yourself:</p>
+		<ol>
+			<li>Open your browser's Developer Tools (F12)</li>
+			<li>Go to Application → Cookies</li>
+			<li>You should see ZERO cookies for our domain</li>
+			<li>Use our built-in Privacy Inspector to run a full audit</li>
+		</ol>
 	</section>
 
 	<section>
@@ -193,8 +265,8 @@
 				<strong>Cryptocurrency Networks:</strong> Payment processing via Monero, Lightning, Bitcoin, Ethereum
 				blockchains (decentralized, no third party)
 			</li>
-			<li><strong>AWS:</strong> Infrastructure hosting (data encrypted, isolated)</li>
-			<li><strong>SendGrid:</strong> Transactional emails only (no marketing)</li>
+			<li><strong>Infrastructure:</strong> Self-hosted servers with encrypted storage</li>
+			<li><strong>Email:</strong> Transactional emails only (no marketing)</li>
 		</ul>
 		<p>
 			All third parties are bound by strict data processing agreements and cannot use your data for

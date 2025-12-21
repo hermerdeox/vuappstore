@@ -467,7 +467,7 @@
 							</li>
 							<li class="flex items-start gap-2">
 								<CheckCircle class="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
-								<span><strong>NO</strong> payment method details (handled by Stripe)</span>
+								<span><strong>NO</strong> payment method details (anonymous crypto only)</span>
 							</li>
 							<li class="flex items-start gap-2">
 								<CheckCircle class="w-4 h-4 text-success flex-shrink-0 mt-0.5" />

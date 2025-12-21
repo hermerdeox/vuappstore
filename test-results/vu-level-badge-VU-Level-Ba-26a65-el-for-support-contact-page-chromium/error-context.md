@@ -1,0 +1,317 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "V VU Store" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: V
+          - generic [ref=e9]: VU Store
+        - generic [ref=e10]:
+          - link "Discover" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "All Apps" [ref=e12] [cursor=pointer]:
+            - /url: /apps
+          - link "Pricing" [ref=e13] [cursor=pointer]:
+            - /url: /pricing
+          - link "Developers" [ref=e14] [cursor=pointer]:
+            - /url: /developers
+        - generic [ref=e15]:
+          - generic [ref=e17]:
+            - button "Switch to Modern theme" [ref=e18] [cursor=pointer]: Modern
+            - button "Switch to Brutalist theme" [ref=e19] [cursor=pointer]: Brutal
+          - generic [ref=e20]:
+            - img [ref=e21]
+            - generic [ref=e24]: "Privacy Score: A+"
+          - button "Search" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+          - button "Create Identity" [ref=e30] [cursor=pointer]:
+            - img [ref=e31]
+            - generic [ref=e35]: Create Identity
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - heading "Get in Touch" [level=1] [ref=e39]
+          - paragraph [ref=e40]: Our support team is here to help with any questions about VuAppStore and your privacy-first apps.
+        - generic [ref=e41]:
+          - generic [ref=e43]:
+            - heading "Send Us a Message" [level=2] [ref=e44]
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - generic [ref=e47]:
+                  - generic [ref=e48]: Name *
+                  - textbox "Name *" [ref=e49]:
+                    - /placeholder: Your name
+                - generic [ref=e50]:
+                  - generic [ref=e51]: Email *
+                  - textbox "Email *" [ref=e52]:
+                    - /placeholder: your@email.com
+              - generic [ref=e53]:
+                - generic [ref=e54]: Category *
+                - combobox "Category *" [ref=e55]:
+                  - option "General Inquiry" [selected]
+                  - option "Technical Support"
+                  - option "Billing & Payments"
+                  - option "Refund Request"
+                  - option "Privacy & Security"
+                  - option "Feature Request"
+                  - option "Bug Report"
+              - generic [ref=e56]:
+                - generic [ref=e57]: Subject *
+                - textbox "Subject *" [ref=e58]:
+                  - /placeholder: Brief description of your issue
+              - generic [ref=e59]:
+                - generic [ref=e60]: Message *
+                - textbox "Message *" [ref=e61]:
+                  - /placeholder: Please describe your issue in detail...
+              - button "Send Message" [ref=e62] [cursor=pointer]:
+                - img [ref=e63]
+                - text: Send Message
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - heading "Quick Contact" [level=3] [ref=e68]
+              - generic [ref=e69]:
+                - generic [ref=e70]:
+                  - img [ref=e71]
+                  - generic [ref=e74]:
+                    - paragraph [ref=e75]: Email
+                    - link "support@vuappstore.com" [ref=e76] [cursor=pointer]:
+                      - /url: mailto:support@vuappstore.com
+                - generic [ref=e77]:
+                  - img [ref=e78]
+                  - generic [ref=e80]:
+                    - paragraph [ref=e81]: Phone
+                    - paragraph [ref=e82]: +1-302-555-0100
+                    - paragraph [ref=e83]: Mon-Fri, 9 AM - 6 PM ET
+                - generic [ref=e84]:
+                  - img [ref=e85]
+                  - generic [ref=e88]:
+                    - paragraph [ref=e89]: Office
+                    - paragraph [ref=e90]:
+                      - text: 1209 Orange Street
+                      - text: Wilmington, DE 19801
+                      - text: United States
+            - generic [ref=e91]:
+              - heading "Response Times" [level=3] [ref=e92]
+              - generic [ref=e93]:
+                - generic [ref=e94]:
+                  - generic [ref=e95]: General Inquiries
+                  - generic [ref=e96]: 24 hours
+                - generic [ref=e97]:
+                  - generic [ref=e98]: Technical Support
+                  - generic [ref=e99]: 4-6 hours
+                - generic [ref=e100]:
+                  - generic [ref=e101]: Billing Issues
+                  - generic [ref=e102]: 2-4 hours
+                - generic [ref=e103]:
+                  - generic [ref=e104]: Priority Support
+                  - generic [ref=e105]: 1-2 hours
+            - generic [ref=e106]:
+              - heading "Other Support Options" [level=3] [ref=e107]
+              - generic [ref=e108]:
+                - link "Browse FAQ" [ref=e109] [cursor=pointer]:
+                  - /url: /support/faq
+                  - img [ref=e110]
+                  - text: Browse FAQ
+                - link "Documentation" [ref=e112] [cursor=pointer]:
+                  - /url: /developers/docs
+                  - img [ref=e113]
+                  - text: Documentation
+                - link "Support Center" [ref=e115] [cursor=pointer]:
+                  - /url: /support
+                  - img [ref=e116]
+                  - text: Support Center
+    - contentinfo [ref=e118]:
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - generic [ref=e123]:
+              - generic [ref=e124]: V
+              - generic [ref=e125]: VuAppStore
+            - paragraph [ref=e126]: Your Privacy, Our Priority
+            - paragraph [ref=e127]: Premium privacy-focused applications that respect your data. No tracking, no surveillance, just powerful software.
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - img [ref=e130]
+                - generic [ref=e133]: SSL Secured
+              - generic [ref=e134]:
+                - img [ref=e135]
+                - generic [ref=e138]: PCI Compliant
+              - generic [ref=e139]:
+                - img [ref=e140]
+                - generic [ref=e144]: GDPR Compliant
+              - generic [ref=e145]:
+                - img [ref=e146]
+                - generic [ref=e151]: Zero Logs
+          - generic [ref=e152]:
+            - heading "Resources" [level=4] [ref=e153]
+            - list [ref=e154]:
+              - listitem [ref=e155]:
+                - link "VU Zero Privacy Levels" [ref=e156] [cursor=pointer]:
+                  - /url: /privacy-levels
+              - listitem [ref=e157]:
+                - link "Privacy Guide" [ref=e158] [cursor=pointer]:
+                  - /url: /resources/privacy-guide
+              - listitem [ref=e159]:
+                - link "Security Best Practices" [ref=e160] [cursor=pointer]:
+                  - /url: /resources/security-best-practices
+              - listitem [ref=e161]:
+                - link "VU vs Big Tech" [ref=e162] [cursor=pointer]:
+                  - /url: /resources/comparison
+              - listitem [ref=e163]:
+                - link "Migration Guides" [ref=e164] [cursor=pointer]:
+                  - /url: /resources/migration
+              - listitem [ref=e165]:
+                - link "Educational Resources" [ref=e166] [cursor=pointer]:
+                  - /url: /resources/educational
+              - listitem [ref=e167]:
+                - link "Affiliate Program" [ref=e168] [cursor=pointer]:
+                  - /url: /affiliate
+          - generic [ref=e169]:
+            - heading "Company" [level=4] [ref=e170]
+            - list [ref=e171]:
+              - listitem [ref=e172]:
+                - link "About Us" [ref=e173] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e174]:
+                - link "Our Mission" [ref=e175] [cursor=pointer]:
+                  - /url: /about/mission
+              - listitem [ref=e176]:
+                - link "Team" [ref=e177] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e178]:
+                - link "Blog" [ref=e179] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e180]:
+                - link "Contact" [ref=e181] [cursor=pointer]:
+                  - /url: /support/contact
+              - listitem [ref=e182]:
+                - link "Support Center" [ref=e183] [cursor=pointer]:
+                  - /url: /support
+              - listitem [ref=e184]:
+                - link "FAQ" [ref=e185] [cursor=pointer]:
+                  - /url: /support/faq
+          - generic [ref=e186]:
+            - heading "Legal & Compliance" [level=4] [ref=e187]
+            - list [ref=e188]:
+              - listitem [ref=e189]:
+                - link "Terms of Service" [ref=e190] [cursor=pointer]:
+                  - /url: /legal/terms
+              - listitem [ref=e191]:
+                - link "Privacy Policy" [ref=e192] [cursor=pointer]:
+                  - /url: /legal/privacy
+              - listitem [ref=e193]:
+                - link "Refund Policy" [ref=e194] [cursor=pointer]:
+                  - /url: /legal/refund
+              - listitem [ref=e195]:
+                - link "Acceptable Use Policy" [ref=e196] [cursor=pointer]:
+                  - /url: /legal/acceptable-use
+              - listitem [ref=e197]:
+                - link "GDPR Compliance" [ref=e198] [cursor=pointer]:
+                  - /url: /legal/gdpr
+              - listitem [ref=e199]:
+                - link "CCPA Compliance" [ref=e200] [cursor=pointer]:
+                  - /url: /legal/ccpa
+              - listitem [ref=e201]:
+                - link "Data Processing Agreement" [ref=e202] [cursor=pointer]:
+                  - /url: /legal/data-processing
+          - generic [ref=e203]:
+            - heading "Developers" [level=4] [ref=e204]
+            - list [ref=e205]:
+              - listitem [ref=e206]:
+                - link "Developer Portal" [ref=e207] [cursor=pointer]:
+                  - /url: /developers
+              - listitem [ref=e208]:
+                - link "API Documentation" [ref=e209] [cursor=pointer]:
+                  - /url: /developers/api
+              - listitem [ref=e210]:
+                - link "Technical Docs" [ref=e211] [cursor=pointer]:
+                  - /url: /developers/docs
+              - listitem [ref=e212]:
+                - link "Contribute" [ref=e213] [cursor=pointer]:
+                  - /url: /developers/contribute
+              - listitem [ref=e214]:
+                - link "Bug Bounty" [ref=e215] [cursor=pointer]:
+                  - /url: /developers/bug-bounty
+              - listitem [ref=e216]:
+                - link "GitHub" [ref=e217] [cursor=pointer]:
+                  - /url: https://github.com/vuappstore
+        - generic [ref=e218]:
+          - generic [ref=e219]:
+            - generic [ref=e220]: Privacy Payments via
+            - generic [ref=e221]:
+              - generic [ref=e222]: Monero
+              - generic [ref=e223]: Lightning
+              - generic [ref=e224]: Bitcoin
+              - generic [ref=e225]: Ethereum
+              - generic [ref=e226]: Crypto Only
+          - generic [ref=e227]:
+            - generic [ref=e228]: Zero Tracking
+            - generic [ref=e229]: ISO 27001
+            - generic [ref=e230]: Privacy Shield
+        - generic [ref=e231]:
+          - generic [ref=e232]:
+            - paragraph [ref=e233]: © 2024 VuAppStore. All rights reserved.
+            - paragraph [ref=e234]: VU Technologies | Delaware, USA
+          - generic [ref=e235]:
+            - button "Toggle theme" [ref=e236] [cursor=pointer]:
+              - img [ref=e237]
+              - generic [ref=e243]: Modern
+            - combobox [ref=e244]:
+              - option "English" [selected]
+              - option "Español"
+              - option "Français"
+        - paragraph [ref=e246]: VUAPPS
+  - generic [ref=e248]:
+    - generic [ref=e249]:
+      - img [ref=e251]
+      - generic [ref=e252]:
+        - heading "No Cookies Here! ZERO TRACKING" [level=3] [ref=e253]:
+          - img [ref=e254]
+          - text: No Cookies Here!
+          - generic [ref=e255]: ZERO TRACKING
+        - paragraph [ref=e256]: VU apps don't use cookies, trackers, or analytics. Your data stays on YOUR device. Period.
+        - paragraph [ref=e257]:
+          - img [ref=e258]
+          - text: Browser addon tracking blocked (4 neutralized)
+      - button "Minimize" [ref=e259] [cursor=pointer]:
+        - img [ref=e260]
+      - button "Close" [ref=e261] [cursor=pointer]:
+        - img [ref=e262]
+    - generic [ref=e264]:
+      - generic [ref=e265]:
+        - img [ref=e267]
+        - generic [ref=e268]: Cookies
+        - generic [ref=e269]: ZERO
+      - generic [ref=e270]:
+        - img [ref=e272]
+        - generic [ref=e273]: Analytics
+        - generic [ref=e274]: ZERO
+      - generic [ref=e275]:
+        - img [ref=e277]
+        - generic [ref=e278]: Tracking
+        - generic [ref=e279]: ZERO
+      - generic [ref=e280]:
+        - img [ref=e282]
+        - generic [ref=e283]: Data Sold
+        - generic [ref=e284]: ZERO
+    - generic [ref=e285]:
+      - button "Nice! Show me the apps →" [ref=e286] [cursor=pointer]:
+        - img [ref=e287]
+        - text: Nice! Show me the apps →
+      - button "Verify Yourself" [ref=e288] [cursor=pointer]:
+        - img [ref=e289]
+        - text: Verify Yourself
+  - region "Privacy Shield Status" [ref=e290]:
+    - button "Privacy Shield - Zero Tracking Guarantee" [ref=e291] [cursor=pointer]:
+      - img [ref=e293]
+      - generic [ref=e295]:
+        - generic [ref=e296]: ZERO COOKIES
+        - generic [ref=e297]: No tracking • No analytics
+  - button "VU Privacy Level 3 - Enhanced Privacy. Click for details." [ref=e298] [cursor=pointer]:
+    - generic [ref=e299]:
+      - generic [ref=e300]: V
+      - generic [ref=e301]: "3"
+```

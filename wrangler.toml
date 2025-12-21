@@ -1,0 +1,23 @@
+name = "vuappstore"
+main = "src/workers/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vuappstore-db"
+database_id = "your-database-id-here"
+
+[[kv_namespaces]]
+binding = "RATE_LIMITER"
+id = "your-kv-id-here"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+vars = { ENVIRONMENT = "staging" }
+

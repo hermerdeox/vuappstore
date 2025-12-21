@@ -1,0 +1,435 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "V VU Store" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: V
+          - generic [ref=e9]: VU Store
+        - generic [ref=e10]:
+          - link "Discover" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "All Apps" [ref=e12] [cursor=pointer]:
+            - /url: /apps
+          - link "Pricing" [ref=e13] [cursor=pointer]:
+            - /url: /pricing
+          - link "Developers" [ref=e14] [cursor=pointer]:
+            - /url: /developers
+        - generic [ref=e15]:
+          - generic [ref=e17]:
+            - button "Switch to Modern theme" [ref=e18] [cursor=pointer]: Modern
+            - button "Switch to Brutalist theme" [ref=e19] [cursor=pointer]: Brutal
+          - generic [ref=e20]:
+            - img [ref=e21]
+            - generic [ref=e24]: "Privacy Score: A+"
+          - button "Search" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+          - button "Create Identity" [ref=e30] [cursor=pointer]:
+            - img [ref=e31]
+            - generic [ref=e35]: Create Identity
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e40]: Honest Pricing
+          - heading "$2.56 Per App. 256 Bits of Encryption. 1¢ Per Bit." [level=1] [ref=e41]:
+            - text: $2.56 Per App.
+            - text: 256 Bits of Encryption.
+            - text: 1¢ Per Bit.
+          - paragraph [ref=e42]: The honest price of privacy. Choose one app or get all 30 at $2.56 each. No hidden fees, no tracking, no surveillance.
+          - paragraph [ref=e43]: Pay with crypto only • Monero, Lightning, or standard blockchain
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - img [ref=e49]
+              - heading "Single App" [level=3] [ref=e51]
+              - paragraph [ref=e52]: Perfect for trying one VU app
+              - paragraph [ref=e53]: 1¢ per bit of encryption
+              - generic [ref=e54]: $2.56 /month
+            - link "Choose Your App" [ref=e55] [cursor=pointer]:
+              - /url: /checkout?plan=single app
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - img [ref=e58]
+                - generic [ref=e60]: Choose any 1 app
+              - generic [ref=e61]:
+                - img [ref=e62]
+                - generic [ref=e64]: 256-bit encryption
+              - generic [ref=e65]:
+                - img [ref=e66]
+                - generic [ref=e68]: Cancel anytime
+              - generic [ref=e69]:
+                - img [ref=e70]
+                - generic [ref=e72]: Regular updates
+              - generic [ref=e73]:
+                - img [ref=e74]
+                - generic [ref=e76]: Privacy Level 0
+              - generic [ref=e77]:
+                - img [ref=e78]
+                - generic [ref=e80]: Zero tracking
+          - generic [ref=e81]:
+            - generic [ref=e82]: Most Popular
+            - generic [ref=e83]:
+              - generic [ref=e84]:
+                - img [ref=e85]
+                - generic [ref=e87]: $2.56/app
+              - heading "VU Suite Complete" [level=3] [ref=e88]
+              - paragraph [ref=e89]: All 30 apps at $2.56 each
+              - paragraph [ref=e90]: 30 apps × $2.56 = $76.80/mo
+              - generic [ref=e91]: $76.80 /month
+              - paragraph [ref=e92]: $768/year if paid annually
+            - link "Get Complete Suite" [ref=e93] [cursor=pointer]:
+              - /url: /checkout?plan=vu suite complete
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - img [ref=e96]
+                - generic [ref=e98]: All 30+ VU Suite apps
+              - generic [ref=e99]:
+                - img [ref=e100]
+                - generic [ref=e102]: $2.56 per app per month
+              - generic [ref=e103]:
+                - img [ref=e104]
+                - generic [ref=e106]: 7,680 bits of encryption
+              - generic [ref=e107]:
+                - img [ref=e108]
+                - generic [ref=e110]: Priority support
+              - generic [ref=e111]:
+                - img [ref=e112]
+                - generic [ref=e114]: Early access to new apps
+              - generic [ref=e115]:
+                - img [ref=e116]
+                - generic [ref=e118]: Multi-device access
+              - generic [ref=e119]:
+                - img [ref=e120]
+                - generic [ref=e122]: Lifetime price lock
+              - generic [ref=e123]:
+                - img [ref=e124]
+                - generic [ref=e126]: Annual privacy report
+          - generic [ref=e127]:
+            - generic [ref=e128]:
+              - generic [ref=e129]:
+                - img [ref=e130]
+                - generic [ref=e132]: $2.56 × 1000 months
+              - heading "Lifetime Access" [level=3] [ref=e133]
+              - paragraph [ref=e134]: Pay once, own forever
+              - paragraph [ref=e135]: 83 years of access upfront
+              - generic [ref=e136]: $2560.00 /once
+            - link "Get Lifetime Access" [ref=e137] [cursor=pointer]:
+              - /url: /checkout?plan=lifetime access
+            - generic [ref=e138]:
+              - generic [ref=e139]:
+                - img [ref=e140]
+                - generic [ref=e142]: All 30+ apps forever
+              - generic [ref=e143]:
+                - img [ref=e144]
+                - generic [ref=e146]: All future apps included
+              - generic [ref=e147]:
+                - img [ref=e148]
+                - generic [ref=e150]: Lifetime updates
+              - generic [ref=e151]:
+                - img [ref=e152]
+                - generic [ref=e154]: VIP support
+              - generic [ref=e155]:
+                - img [ref=e156]
+                - generic [ref=e158]: Beta access
+              - generic [ref=e159]:
+                - img [ref=e160]
+                - generic [ref=e162]: Priority feature requests
+              - generic [ref=e163]:
+                - img [ref=e164]
+                - generic [ref=e166]: Exclusive community
+              - generic [ref=e167]:
+                - img [ref=e168]
+                - generic [ref=e170]: SubZero level access (invitation)
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - img [ref=e175]
+              - generic [ref=e177]: Privacy-First Payments
+            - heading "We Accept Crypto Only" [level=2] [ref=e178]
+            - paragraph [ref=e179]: No credit cards. No PayPal. No surveillance. Choose your privacy level.
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - generic [ref=e182]:
+                - img [ref=e183]
+                - generic [ref=e185]: Recommended
+              - generic [ref=e186]:
+                - heading "Monero (XMR)" [level=3] [ref=e187]
+                - paragraph [ref=e188]: Zero-Knowledge • Level 0
+                - paragraph [ref=e189]: Maximum privacy - completely untraceable
+            - generic [ref=e190]:
+              - img [ref=e192]
+              - generic [ref=e194]:
+                - heading "Bitcoin Lightning" [level=3] [ref=e195]
+                - paragraph [ref=e196]: Fast & Private • Level 1
+                - paragraph [ref=e197]: Near-instant with enhanced privacy
+            - generic [ref=e198]:
+              - img [ref=e200]
+              - generic [ref=e202]:
+                - heading "Bitcoin/Ethereum" [level=3] [ref=e203]
+                - paragraph [ref=e204]: Standard Crypto • Level 2
+                - paragraph [ref=e205]: Transparent blockchain
+          - generic [ref=e207]:
+            - img [ref=e208]
+            - generic [ref=e210]:
+              - heading "Why Crypto-Only?" [level=4] [ref=e211]
+              - paragraph [ref=e212]:
+                - text: Traditional payment processors track every purchase, build profiles, and sell your data. Cryptocurrency payments align with VU's zero-knowledge philosophy - your purchase history stays completely private. We recommend
+                - strong [ref=e213]: Monero (XMR)
+                - text: for untraceable transactions.
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - generic [ref=e218]: 30-Day
+            - generic [ref=e219]: Money-Back Guarantee
+          - generic [ref=e220]:
+            - generic [ref=e221]: $2.56
+            - generic [ref=e222]: Per App Per Month
+          - generic [ref=e223]:
+            - generic [ref=e224]: Zero
+            - generic [ref=e225]: Payment Tracking
+          - generic [ref=e226]:
+            - generic [ref=e227]: 100%
+            - generic [ref=e228]: Crypto Payments
+        - generic [ref=e229]:
+          - heading "Frequently Asked Questions" [level=2] [ref=e230]
+          - generic [ref=e231]:
+            - generic [ref=e232]:
+              - heading "What's included in all plans?" [level=3] [ref=e233]
+              - paragraph [ref=e234]: All plans include access to all 30+ privacy-focused apps in the VU Suite, regular updates, cloud sync, and multi-device access. The only differences are pricing and some exclusive features for annual/lifetime plans.
+            - generic [ref=e235]:
+              - heading "Can I cancel anytime?" [level=3] [ref=e236]
+              - paragraph [ref=e237]: Yes! Monthly and annual subscriptions can be cancelled anytime through your account dashboard. You'll retain access until the end of your billing period. We also offer a 30-day money-back guarantee on all plans.
+            - generic [ref=e238]:
+              - heading "What payment methods do you accept?" [level=3] [ref=e239]
+              - paragraph [ref=e240]: "VU accepts privacy-first cryptocurrency payments only: Monero (XMR) for maximum privacy (Level 0), Bitcoin Lightning for fast payments (Level 1), and standard Bitcoin/Ethereum (Level 2). No credit cards, no PayPal, no surveillance."
+            - generic [ref=e241]:
+              - heading "Why crypto-only payments?" [level=3] [ref=e242]
+              - paragraph [ref=e243]: Traditional payment processors track every purchase, build profiles, and sell your data. Crypto payments align with VU's zero-knowledge philosophy - your purchase history stays private. We recommend Monero for complete transaction privacy.
+            - generic [ref=e244]:
+              - heading "Is there a free trial?" [level=3] [ref=e245]
+              - paragraph [ref=e246]: Yes! We offer a 14-day free trial on monthly and annual plans. No credit card required upfront. You'll only be charged if you decide to continue after the trial.
+            - generic [ref=e247]:
+              - heading "What happens to my data if I cancel?" [level=3] [ref=e248]
+              - paragraph [ref=e249]: Your data remains encrypted and accessible for 90 days after cancellation. After 90 days, it's permanently deleted from our servers. You can export your data anytime before then.
+            - generic [ref=e250]:
+              - heading "Do you offer student or non-profit discounts?" [level=3] [ref=e251]
+              - paragraph [ref=e252]: Yes! We offer 50% off for students and registered non-profits. Contact support@vuappstore.com with verification to receive your discount code.
+        - generic [ref=e254]:
+          - heading "Privacy-First Payment Processing" [level=3] [ref=e255]
+          - generic [ref=e256]:
+            - generic [ref=e257]:
+              - img [ref=e259]
+              - heading "Zero-Knowledge Payments" [level=4] [ref=e261]
+              - paragraph [ref=e262]: Monero transactions are completely untraceable
+            - generic [ref=e263]:
+              - img [ref=e265]
+              - heading "Lightning Fast" [level=4] [ref=e267]
+              - paragraph [ref=e268]: Bitcoin Lightning confirms in seconds
+            - generic [ref=e269]:
+              - img [ref=e271]
+              - heading "Global Access" [level=4] [ref=e274]
+              - paragraph [ref=e275]: No geographic restrictions or censorship
+          - generic [ref=e276]:
+            - paragraph [ref=e277]: Accepted Cryptocurrencies
+            - generic [ref=e278]:
+              - generic [ref=e279]: Monero (XMR)
+              - generic [ref=e280]: Bitcoin Lightning
+              - generic [ref=e281]: Bitcoin (BTC)
+              - generic [ref=e282]: Ethereum (ETH)
+            - paragraph [ref=e283]:
+              - img [ref=e284]
+              - text: All payments are cryptographically secure and completely private
+    - contentinfo [ref=e287]:
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - generic [ref=e291]:
+            - generic [ref=e292]:
+              - generic [ref=e293]: V
+              - generic [ref=e294]: VuAppStore
+            - paragraph [ref=e295]: Your Privacy, Our Priority
+            - paragraph [ref=e296]: Premium privacy-focused applications that respect your data. No tracking, no surveillance, just powerful software.
+            - generic [ref=e297]:
+              - generic [ref=e298]:
+                - img [ref=e299]
+                - generic [ref=e302]: SSL Secured
+              - generic [ref=e303]:
+                - img [ref=e304]
+                - generic [ref=e307]: PCI Compliant
+              - generic [ref=e308]:
+                - img [ref=e309]
+                - generic [ref=e313]: GDPR Compliant
+              - generic [ref=e314]:
+                - img [ref=e315]
+                - generic [ref=e320]: Zero Logs
+          - generic [ref=e321]:
+            - heading "Resources" [level=4] [ref=e322]
+            - list [ref=e323]:
+              - listitem [ref=e324]:
+                - link "VU Zero Privacy Levels" [ref=e325] [cursor=pointer]:
+                  - /url: /privacy-levels
+              - listitem [ref=e326]:
+                - link "Privacy Guide" [ref=e327] [cursor=pointer]:
+                  - /url: /resources/privacy-guide
+              - listitem [ref=e328]:
+                - link "Security Best Practices" [ref=e329] [cursor=pointer]:
+                  - /url: /resources/security-best-practices
+              - listitem [ref=e330]:
+                - link "VU vs Big Tech" [ref=e331] [cursor=pointer]:
+                  - /url: /resources/comparison
+              - listitem [ref=e332]:
+                - link "Migration Guides" [ref=e333] [cursor=pointer]:
+                  - /url: /resources/migration
+              - listitem [ref=e334]:
+                - link "Educational Resources" [ref=e335] [cursor=pointer]:
+                  - /url: /resources/educational
+              - listitem [ref=e336]:
+                - link "Affiliate Program" [ref=e337] [cursor=pointer]:
+                  - /url: /affiliate
+          - generic [ref=e338]:
+            - heading "Company" [level=4] [ref=e339]
+            - list [ref=e340]:
+              - listitem [ref=e341]:
+                - link "About Us" [ref=e342] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e343]:
+                - link "Our Mission" [ref=e344] [cursor=pointer]:
+                  - /url: /about/mission
+              - listitem [ref=e345]:
+                - link "Team" [ref=e346] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e347]:
+                - link "Blog" [ref=e348] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e349]:
+                - link "Contact" [ref=e350] [cursor=pointer]:
+                  - /url: /support/contact
+              - listitem [ref=e351]:
+                - link "Support Center" [ref=e352] [cursor=pointer]:
+                  - /url: /support
+              - listitem [ref=e353]:
+                - link "FAQ" [ref=e354] [cursor=pointer]:
+                  - /url: /support/faq
+          - generic [ref=e355]:
+            - heading "Legal & Compliance" [level=4] [ref=e356]
+            - list [ref=e357]:
+              - listitem [ref=e358]:
+                - link "Terms of Service" [ref=e359] [cursor=pointer]:
+                  - /url: /legal/terms
+              - listitem [ref=e360]:
+                - link "Privacy Policy" [ref=e361] [cursor=pointer]:
+                  - /url: /legal/privacy
+              - listitem [ref=e362]:
+                - link "Refund Policy" [ref=e363] [cursor=pointer]:
+                  - /url: /legal/refund
+              - listitem [ref=e364]:
+                - link "Acceptable Use Policy" [ref=e365] [cursor=pointer]:
+                  - /url: /legal/acceptable-use
+              - listitem [ref=e366]:
+                - link "GDPR Compliance" [ref=e367] [cursor=pointer]:
+                  - /url: /legal/gdpr
+              - listitem [ref=e368]:
+                - link "CCPA Compliance" [ref=e369] [cursor=pointer]:
+                  - /url: /legal/ccpa
+              - listitem [ref=e370]:
+                - link "Data Processing Agreement" [ref=e371] [cursor=pointer]:
+                  - /url: /legal/data-processing
+          - generic [ref=e372]:
+            - heading "Developers" [level=4] [ref=e373]
+            - list [ref=e374]:
+              - listitem [ref=e375]:
+                - link "Developer Portal" [ref=e376] [cursor=pointer]:
+                  - /url: /developers
+              - listitem [ref=e377]:
+                - link "API Documentation" [ref=e378] [cursor=pointer]:
+                  - /url: /developers/api
+              - listitem [ref=e379]:
+                - link "Technical Docs" [ref=e380] [cursor=pointer]:
+                  - /url: /developers/docs
+              - listitem [ref=e381]:
+                - link "Contribute" [ref=e382] [cursor=pointer]:
+                  - /url: /developers/contribute
+              - listitem [ref=e383]:
+                - link "Bug Bounty" [ref=e384] [cursor=pointer]:
+                  - /url: /developers/bug-bounty
+              - listitem [ref=e385]:
+                - link "GitHub" [ref=e386] [cursor=pointer]:
+                  - /url: https://github.com/vuappstore
+        - generic [ref=e387]:
+          - generic [ref=e388]:
+            - generic [ref=e389]: Privacy Payments via
+            - generic [ref=e390]:
+              - generic [ref=e391]: Monero
+              - generic [ref=e392]: Lightning
+              - generic [ref=e393]: Bitcoin
+              - generic [ref=e394]: Ethereum
+              - generic [ref=e395]: Crypto Only
+          - generic [ref=e396]:
+            - generic [ref=e397]: Zero Tracking
+            - generic [ref=e398]: ISO 27001
+            - generic [ref=e399]: Privacy Shield
+        - generic [ref=e400]:
+          - generic [ref=e401]:
+            - paragraph [ref=e402]: © 2024 VuAppStore. All rights reserved.
+            - paragraph [ref=e403]: VU Technologies | Delaware, USA
+          - generic [ref=e404]:
+            - button "Toggle theme" [ref=e405] [cursor=pointer]:
+              - img [ref=e406]
+              - generic [ref=e412]: Modern
+            - combobox [ref=e413]:
+              - option "English" [selected]
+              - option "Español"
+              - option "Français"
+        - paragraph [ref=e415]: VUAPPS
+  - generic [ref=e417]:
+    - generic [ref=e418]:
+      - img [ref=e420]
+      - generic [ref=e421]:
+        - heading "No Cookies Here! ZERO TRACKING" [level=3] [ref=e422]:
+          - img [ref=e423]
+          - text: No Cookies Here!
+          - generic [ref=e424]: ZERO TRACKING
+        - paragraph [ref=e425]: VU apps don't use cookies, trackers, or analytics. Your data stays on YOUR device. Period.
+        - paragraph [ref=e426]:
+          - img [ref=e427]
+          - text: Browser addon tracking blocked (4 neutralized)
+      - button "Minimize" [ref=e428] [cursor=pointer]:
+        - img [ref=e429]
+      - button "Close" [ref=e430] [cursor=pointer]:
+        - img [ref=e431]
+    - generic [ref=e433]:
+      - generic [ref=e434]:
+        - img [ref=e436]
+        - generic [ref=e437]: Cookies
+        - generic [ref=e438]: ZERO
+      - generic [ref=e439]:
+        - img [ref=e441]
+        - generic [ref=e442]: Analytics
+        - generic [ref=e443]: ZERO
+      - generic [ref=e444]:
+        - img [ref=e446]
+        - generic [ref=e447]: Tracking
+        - generic [ref=e448]: ZERO
+      - generic [ref=e449]:
+        - img [ref=e451]
+        - generic [ref=e452]: Data Sold
+        - generic [ref=e453]: ZERO
+    - generic [ref=e454]:
+      - button "Nice! Show me the apps →" [ref=e455] [cursor=pointer]:
+        - img [ref=e456]
+        - text: Nice! Show me the apps →
+      - button "Verify Yourself" [ref=e457] [cursor=pointer]:
+        - img [ref=e458]
+        - text: Verify Yourself
+  - region "Privacy Shield Status" [ref=e459]:
+    - button "Privacy Shield - Zero Tracking Guarantee" [ref=e460] [cursor=pointer]:
+      - img [ref=e462]
+      - generic [ref=e464]:
+        - generic [ref=e465]: ZERO COOKIES
+        - generic [ref=e466]: No tracking • No analytics
+  - button "VU Privacy Level 2 - Privacy First. Click for details." [ref=e467] [cursor=pointer]:
+    - generic [ref=e468]:
+      - generic [ref=e469]: V
+      - generic [ref=e470]: "2"
+```

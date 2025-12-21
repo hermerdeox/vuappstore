@@ -116,7 +116,7 @@
 		{
 			question: 'What payment methods do you accept?',
 			answer:
-				'VU accepts privacy-first cryptocurrency payments only: Monero (XMR) for maximum privacy (Level 0), Bitcoin Lightning for fast payments (Level 1), and standard Bitcoin/Ethereum (Level 2). No credit cards, no PayPal, no surveillance.'
+				'VU accepts privacy-first cryptocurrency payments only: Monero (XMR) for maximum privacy (Level 0), Bitcoin Lightning for fast payments (Level 1), and standard Bitcoin/Ethereum (Level 2). No cryptocurrencys, no Monero, no surveillance.'
 		},
 		{
 			question: 'Why crypto-only payments?',
@@ -126,7 +126,7 @@
 		{
 			question: 'Is there a free trial?',
 			answer:
-				"Yes! We offer a 14-day free trial on monthly and annual plans. No credit card required upfront. You'll only be charged if you decide to continue after the trial."
+				"Yes! We offer a 14-day free trial on monthly and annual plans. No cryptocurrency required upfront. You'll only be charged if you decide to continue after the trial."
 		},
 		{
 			question: 'What happens to my data if I cancel?',
@@ -250,7 +250,7 @@
 					We Accept Crypto Only
 				</h2>
 				<p class="text-sm md:text-lg text-text-secondary max-w-2xl mx-auto">
-					No credit cards. No PayPal. No surveillance. Choose your privacy level.
+					No cryptocurrencys. No Monero. No surveillance. Choose your privacy level.
 				</p>
 			</div>
 

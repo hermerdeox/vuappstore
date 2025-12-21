@@ -61,6 +61,11 @@
 					>Pricing</a
 				>
 				<a
+					href="/how-licensing-works"
+					class="nav-tab"
+					class:active={$page.url.pathname === '/how-licensing-works'}>Licensing</a
+				>
+				<a
 					href="/developers"
 					class="nav-tab"
 					class:active={$page.url.pathname.startsWith('/developers')}>Developers</a

@@ -3,6 +3,10 @@
  *
  * The server NEVER stores private keys or passwords.
  * It only verifies cryptographic proofs.
+ *
+ * ZERO COOKIES POLICY:
+ * Authentication is done via Authorization header ONLY.
+ * No cookies are used, read, or set anywhere in this system.
  */
 
 import {
@@ -145,6 +149,7 @@ export async function verifySessionToken(
 
 /**
  * Extract token from Authorization header
+ * This is the ONLY method of authentication - NO COOKIES EVER
  */
 export function extractToken(authHeader: string | null): string | null {
 	if (!authHeader) return null;
@@ -157,16 +162,15 @@ export function extractToken(authHeader: string | null): string | null {
 	return parts[1];
 }
 
-/**
- * Extract token from cookie
- */
-export function extractTokenFromCookie(cookieHeader: string | null): string | null {
-	if (!cookieHeader) return null;
-
-	const cookies = cookieHeader.split(';').map((c) => c.trim());
-	const tokenCookie = cookies.find((c) => c.startsWith('vu_session='));
-
-	if (!tokenCookie) return null;
-
-	return tokenCookie.split('=')[1];
-}
+// ============================================
+// DEPRECATED: Cookie functions removed
+// ============================================
+// The extractTokenFromCookie function has been permanently removed
+// as part of VU's ZERO COOKIES policy. Authentication is done
+// exclusively via the Authorization header with Bearer tokens.
+//
+// This ensures:
+// - 100% cookie-free operation
+// - GDPR/CCPA compliance without consent banners
+// - Protection from cookie-based tracking
+// - Alignment with VU's privacy-first philosophy

@@ -1,6 +1,6 @@
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
-import { verifySessionToken, extractToken, extractTokenFromCookie } from '$lib/server/auth';
+import { verifySessionToken, extractToken } from '$lib/server/auth';
 
 // Routes that require authentication
 const PROTECTED_ROUTES = ['/api/user', '/api/subscriptions'];
@@ -10,42 +10,141 @@ const PROTECTED_ROUTES = ['/api/user', '/api/subscriptions'];
 const _AUTH_PREFERRED_ROUTES = ['/account'];
 
 /**
+ * ZERO COOKIES Policy Handler
+ * Actively prevents any cookies from being set and clears any incoming cookies
+ * This ensures the site is 100% cookie-free
+ */
+const zeroCookies: Handle = async ({ event, resolve }) => {
+	// Log if any cookies were sent (they will be ignored)
+	const cookieHeader = event.request.headers.get('Cookie');
+	if (cookieHeader && process.env.NODE_ENV === 'development') {
+		console.warn('⚠️ [ZERO-COOKIES] Request contained cookies - they will be ignored');
+	}
+
+	const response = await resolve(event);
+
+	// Block any Set-Cookie header that might have been added
+	if (response.headers.has('Set-Cookie')) {
+		console.error('🚨 [ZERO-COOKIES] Blocked attempted cookie set!');
+		response.headers.delete('Set-Cookie');
+	}
+
+	return response;
+};
+
+/**
  * Security Headers Handler
- * Implements Content Security Policy and other security headers
+ * Implements Content Security Policy, anti-tracking, and browser addon protection
  */
 const securityHeaders: Handle = async ({ event, resolve }) => {
 	const response = await resolve(event);
 
-	// Content Security Policy - strict but functional for SvelteKit
+	// ============================================
+	// CONTENT SECURITY POLICY - Strict
+	// Blocks inline scripts from extensions, tracking pixels, etc.
+	// ============================================
 	const csp = [
 		"default-src 'self'",
 		"script-src 'self' 'unsafe-inline'", // Need unsafe-inline for SvelteKit hydration
 		"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-		"font-src 'self' https://fonts.gstatic.com",
+		"font-src 'self' https://fonts.gstatic.com data:",
 		"img-src 'self' data: blob:",
-		"connect-src 'self'",
-		"frame-ancestors 'none'",
+		"connect-src 'self'", // No external connections allowed
+		"frame-ancestors 'none'", // Prevent embedding
 		"form-action 'self'",
 		"base-uri 'self'",
-		'upgrade-insecure-requests'
+		"object-src 'none'", // Block plugins
+		"worker-src 'self'", // Only our service worker
+		"manifest-src 'self'",
+		'upgrade-insecure-requests',
+		'block-all-mixed-content',
+		// Report violations (can be used for monitoring)
+		"report-uri /api/csp-report"
 	].join('; ');
 
 	response.headers.set('Content-Security-Policy', csp);
+
+	// ============================================
+	// ANTI-TRACKING & ANTI-EXTENSION HEADERS
+	// ============================================
+
+	// Prevent framing (clickjacking protection)
 	response.headers.set('X-Frame-Options', 'DENY');
+
+	// Prevent MIME type sniffing
 	response.headers.set('X-Content-Type-Options', 'nosniff');
-	response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+	// Strict referrer policy - don't leak info
+	response.headers.set('Referrer-Policy', 'no-referrer');
+
+	// XSS protection
 	response.headers.set('X-XSS-Protection', '1; mode=block');
+
+	// Permissions Policy - Disable ALL sensitive APIs
+	// This blocks browser fingerprinting and many extension capabilities
 	response.headers.set(
 		'Permissions-Policy',
-		'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+		[
+			'camera=()',
+			'microphone=()',
+			'geolocation=()',
+			'interest-cohort=()', // Block FLoC
+			'browsing-topics=()', // Block Topics API
+			'attribution-reporting=()', // Block Attribution Reporting
+			'run-ad-auction=()', // Block FLEDGE
+			'join-ad-interest-group=()', // Block FLEDGE
+			'ambient-light-sensor=()',
+			'accelerometer=()',
+			'gyroscope=()',
+			'magnetometer=()',
+			'usb=()',
+			'bluetooth=()',
+			'serial=()',
+			'midi=()',
+			'hid=()',
+			'payment=()', // Block Payment Request API
+			'publickey-credentials-get=()',
+			'screen-wake-lock=()',
+			'sync-xhr=()',
+			'display-capture=()',
+			'document-domain=()',
+			'encrypted-media=()',
+			'execution-while-not-rendered=()',
+			'execution-while-out-of-viewport=()',
+			'fullscreen=(self)',
+			'gamepad=()',
+			'picture-in-picture=()',
+			'speaker-selection=()',
+			'xr-spatial-tracking=()'
+		].join(', ')
 	);
 
-	// HSTS (only in production)
-	if (process.env.NODE_ENV === 'production') {
-		response.headers.set(
-			'Strict-Transport-Security',
-			'max-age=31536000; includeSubDomains; preload'
-		);
+	// Cross-Origin policies to prevent data leakage
+	response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
+	response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
+	response.headers.set('Cross-Origin-Resource-Policy', 'same-origin');
+
+	// Disable DNS prefetching (prevents tracking via DNS)
+	response.headers.set('X-DNS-Prefetch-Control', 'off');
+
+	// Disable client hints (prevents fingerprinting)
+	response.headers.set('Accept-CH', '');
+	response.headers.set('Critical-CH', '');
+
+	// Custom VU Privacy headers (documentation)
+	response.headers.set('X-VU-Privacy', 'Zero-Cookies-Zero-Tracking');
+	response.headers.set('X-VU-Analytics', 'None');
+	response.headers.set('X-VU-Addon-Protection', 'Active');
+
+	// HSTS (always enable for security)
+	response.headers.set(
+		'Strict-Transport-Security',
+		'max-age=31536000; includeSubDomains; preload'
+	);
+
+	// Clear-Site-Data on specific routes (for logout, etc.)
+	if (event.url.pathname === '/logout' || event.url.pathname === '/clear-data') {
+		response.headers.set('Clear-Site-Data', '"cookies", "storage"');
 	}
 
 	return response;
@@ -102,16 +201,14 @@ const rateLimit: Handle = async ({ event, resolve }) => {
 
 /**
  * Authentication Handler
- * Verifies VU Sovereign Identity tokens
+ * Verifies VU Sovereign Identity tokens - Authorization header ONLY (NO COOKIES)
  */
 const auth: Handle = async ({ event, resolve }) => {
 	const { pathname } = event.url;
 
-	// Try to extract token from header or cookie
+	// Extract token from Authorization header ONLY - NO cookie fallback!
 	const authHeader = event.request.headers.get('Authorization');
-	const cookieHeader = event.request.headers.get('Cookie');
-
-	const tokenString = extractToken(authHeader) || extractTokenFromCookie(cookieHeader);
+	const tokenString = extractToken(authHeader);
 
 	// If we have a token, verify it and attach user to locals
 	if (tokenString) {
@@ -145,6 +242,6 @@ const auth: Handle = async ({ event, resolve }) => {
 
 /**
  * Combined handler using sequence
- * Order: Security Headers → Rate Limiting → Authentication
+ * Order: Zero Cookies → Security Headers → Rate Limiting → Authentication
  */
-export const handle = sequence(securityHeaders, rateLimit, auth);
+export const handle = sequence(zeroCookies, securityHeaders, rateLimit, auth);

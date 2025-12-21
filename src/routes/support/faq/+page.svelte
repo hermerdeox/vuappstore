@@ -30,7 +30,7 @@
 			category: 'Pricing',
 			question: 'Can I try before I buy?',
 			answer:
-				'Yes! We offer a 14-day free trial for monthly and annual plans. No credit card required upfront. Plus, all plans come with a 30-day money-back guarantee.'
+				'Yes! We offer a 14-day free trial for monthly and annual plans. No cryptocurrency required upfront. Plus, all plans come with a 30-day money-back guarantee.'
 		},
 		{
 			category: 'Pricing',
@@ -90,7 +90,7 @@
 			category: 'Billing',
 			question: 'What payment methods do you accept?',
 			answer:
-				'VU accepts privacy-first cryptocurrency payments only: Monero (XMR) for maximum privacy (Level 0), Bitcoin Lightning for fast payments (Level 1), and standard Bitcoin/Ethereum (Level 2). No credit cards, no PayPal, no surveillance.'
+				'VU accepts privacy-first cryptocurrency payments only: Monero (XMR) for maximum privacy (Level 0), Bitcoin Lightning for fast payments (Level 1), and standard Bitcoin/Ethereum (Level 2). No cryptocurrencys, no Monero, no surveillance.'
 		},
 		{
 			category: 'Billing',

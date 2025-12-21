@@ -7,6 +7,7 @@
 	import AntiCookieBanner from '$lib/components/privacy/AntiCookieBanner.svelte';
 	import PrivacyInspector from '$lib/components/privacy/PrivacyInspector.svelte';
 	import PrivacyShieldBadge from '$lib/components/privacy/PrivacyShieldBadge.svelte';
+	import VuLevelBadge from '$lib/components/privacy/VuLevelBadge.svelte';
 	import PWAInstallPrompt from '$lib/components/pwa/PWAInstallPrompt.svelte';
 
 	let showPWAPrompt = false;
@@ -84,11 +85,59 @@
 		name="description"
 		content="Discover 30+ privacy-focused apps that respect your data. No tracking, no surveillance, just powerful software that works for you."
 	/>
-	<!-- Custom VU Privacy Headers (for documentation) -->
-	<meta name="vu-privacy" content="No-Cookies-Ever" />
+
+	<!-- ============================================ -->
+	<!-- VU PRIVACY DECLARATION HEADERS -->
+	<!-- These meta tags declare our privacy stance -->
+	<!-- ============================================ -->
+	<meta name="vu-privacy" content="Zero-Cookies-Ever" />
 	<meta name="vu-tracking" content="Absolutely-None" />
 	<meta name="vu-analytics" content="Zero" />
 	<meta name="vu-data-collection" content="Nope" />
+	<meta name="vu-fingerprinting" content="Blocked" />
+	<meta name="vu-addon-protection" content="Active" />
+
+	<!-- ============================================ -->
+	<!-- ANTI-TRACKING & ANTI-FINGERPRINTING -->
+	<!-- ============================================ -->
+
+	<!-- Disable Google FLoC and Topics API -->
+	<meta http-equiv="Permissions-Policy" content="interest-cohort=(), browsing-topics=()" />
+
+	<!-- Disable client hints (reduces fingerprinting) -->
+	<meta http-equiv="Accept-CH" content="" />
+
+	<!-- Strict referrer policy -->
+	<meta name="referrer" content="no-referrer" />
+
+	<!-- Disable DNS prefetching -->
+	<meta http-equiv="x-dns-prefetch-control" content="off" />
+
+	<!-- ============================================ -->
+	<!-- BROWSER ADDON PROTECTION -->
+	<!-- These help prevent extensions from injecting -->
+	<!-- tracking code or extracting user behavior -->
+	<!-- ============================================ -->
+
+	<!-- Declare no external scripts needed -->
+	<meta name="external-scripts" content="none" />
+
+	<!-- Declare no third-party connections -->
+	<meta name="third-party-connections" content="none" />
+
+	<!-- Declare no beacon/ping endpoints -->
+	<meta name="beacon-endpoints" content="none" />
+
+	<!-- ============================================ -->
+	<!-- ROBOT/CRAWLER INSTRUCTIONS -->
+	<!-- ============================================ -->
+	<meta name="robots" content="index, follow, noarchive" />
+
+	<!-- Disable Google's AI training on this content -->
+	<meta name="google" content="notranslate, nopagereadaloud" />
+
+	<!-- Tell AI crawlers to respect privacy -->
+	<meta name="ai-content-usage" content="disallow" />
 </svelte:head>
 
 <div class="app min-h-screen flex flex-col">
@@ -103,6 +152,7 @@
 <AntiCookieBanner />
 <PrivacyInspector />
 <PrivacyShieldBadge />
+<VuLevelBadge />
 
 <!-- PWA Install Prompt -->
 <PWAInstallPrompt bind:show={showPWAPrompt} />

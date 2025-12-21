@@ -681,6 +681,92 @@
 		<div class="static-overlay"></div>
 	</div>
 
+	<!-- VU Badge Explanation Section -->
+	<div class="vu-badge-section">
+		<div class="badge-header">
+			<div class="badge-demo">
+				<div class="demo-badge v1">
+					<span class="demo-v">V</span>
+					<span class="demo-num">1</span>
+				</div>
+				<div class="demo-badge v2">
+					<span class="demo-v">V</span>
+					<span class="demo-num">2</span>
+				</div>
+				<div class="demo-badge v0">
+					<span class="demo-v">V</span>
+					<span class="demo-num">0</span>
+				</div>
+			</div>
+			<h2 class="badge-title">The VU Badge</h2>
+			<p class="badge-subtitle">
+				Radical Transparency in Every Corner of the VU Ecosystem
+			</p>
+		</div>
+
+		<div class="badge-explanation">
+			<div class="explanation-item">
+				<div class="explanation-icon location">📍</div>
+				<div class="explanation-content">
+					<h4>Always Visible</h4>
+					<p>
+						Look at the bottom-left corner of your screen. You'll see a small circular badge with <strong>V</strong> followed by a number.
+						This is the VU Privacy Level Badge - present on every page and service in the VU ecosystem.
+					</p>
+				</div>
+			</div>
+
+			<div class="explanation-item">
+				<div class="explanation-icon colors">🎨</div>
+				<div class="explanation-content">
+					<h4>Color-Coded for Clarity</h4>
+					<p>
+						Each level has its own color. <span class="inline-badge blue">V0</span> Blue for Zero-Knowledge (best),
+						<span class="inline-badge green">V1</span> Green for Local-First,
+						<span class="inline-badge yellow">V2</span> Yellow for Privacy-First, and so on.
+						The warmer the color, the more we need to explain.
+					</p>
+				</div>
+			</div>
+
+			<div class="explanation-item">
+				<div class="explanation-icon click">👆</div>
+				<div class="explanation-content">
+					<h4>Click for Complete Transparency</h4>
+					<p>
+						Clicking the badge opens a detailed modal explaining: what you control on this page,
+						what we can't see, what servers see, any privacy tradeoffs, and why this page
+						operates at this specific level.
+					</p>
+				</div>
+			</div>
+
+			<div class="explanation-item">
+				<div class="explanation-icon honest">💯</div>
+				<div class="explanation-content">
+					<h4>Brutally Honest</h4>
+					<p>
+						We don't sugarcoat. If a page requires more data than Level 0, we tell you exactly why.
+						The VU Badge represents reality - not marketing claims. Every page is rated based on
+						actual services and data flows, not aspirations.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="badge-commitment">
+			<div class="commitment-header">
+				<ShieldCheck class="w-6 h-6" />
+				<span>Our Commitment</span>
+			</div>
+			<p class="commitment-text">
+				Every page in the VU ecosystem will always display the VU Badge. We continuously strive to
+				lower our levels. When we can achieve Level 0, we will. When we can't, you'll know exactly why.
+				This is privacy transparency as it should be: visible, verifiable, and honest.
+			</p>
+		</div>
+	</div>
+
 	<!-- Call to Action -->
 	<div class="cta-section">
 		<h2 class="cta-title">Your Privacy Journey Starts Here</h2>
@@ -1384,6 +1470,219 @@
 		.warning-content {
 			flex-direction: column;
 			gap: 8px;
+		}
+	}
+
+	/* ========================================
+	   VU BADGE EXPLANATION SECTION
+	   ======================================== */
+	.vu-badge-section {
+		background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(34, 197, 94, 0.05) 100%);
+		border: 2px solid rgba(0, 212, 255, 0.2);
+		border-radius: 24px;
+		padding: 32px;
+		margin-bottom: 48px;
+	}
+
+	@media (min-width: 768px) {
+		.vu-badge-section {
+			padding: 48px;
+		}
+	}
+
+	.badge-header {
+		text-align: center;
+		margin-bottom: 32px;
+	}
+
+	.badge-demo {
+		display: flex;
+		gap: 12px;
+		justify-content: center;
+		margin-bottom: 24px;
+	}
+
+	.demo-badge {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		font-weight: 900;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		animation: float 3s ease-in-out infinite;
+	}
+
+	.demo-badge.v0 {
+		background: linear-gradient(135deg, #3b82f6, #2563eb);
+		animation-delay: 0s;
+	}
+
+	.demo-badge.v1 {
+		background: linear-gradient(135deg, #22c55e, #16a34a);
+		animation-delay: 0.5s;
+	}
+
+	.demo-badge.v2 {
+		background: linear-gradient(135deg, #eab308, #ca8a04);
+		animation-delay: 1s;
+	}
+
+	.demo-v {
+		font-size: 14px;
+		color: #000;
+	}
+
+	.demo-num {
+		font-size: 20px;
+		color: #000;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	.badge-title {
+		font-size: 28px;
+		font-weight: 800;
+		margin-bottom: 8px;
+		background: linear-gradient(135deg, #00d4ff, #22c55e);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	@media (min-width: 768px) {
+		.badge-title {
+			font-size: 36px;
+		}
+	}
+
+	.badge-subtitle {
+		font-size: 16px;
+		color: var(--color-text-secondary, #888888);
+	}
+
+	@media (min-width: 768px) {
+		.badge-subtitle {
+			font-size: 20px;
+		}
+	}
+
+	.badge-explanation {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 20px;
+		margin-bottom: 32px;
+	}
+
+	@media (min-width: 768px) {
+		.badge-explanation {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.explanation-item {
+		display: flex;
+		gap: 16px;
+		padding: 20px;
+		background: var(--color-glass, rgba(255, 255, 255, 0.05));
+		border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+		border-radius: 16px;
+		transition: all 0.2s ease;
+	}
+
+	.explanation-item:hover {
+		background: rgba(255, 255, 255, 0.08);
+		border-color: rgba(0, 212, 255, 0.3);
+		transform: translateY(-2px);
+	}
+
+	.explanation-icon {
+		font-size: 32px;
+		flex-shrink: 0;
+	}
+
+	.explanation-content h4 {
+		font-size: 16px;
+		font-weight: 700;
+		margin-bottom: 8px;
+		color: var(--color-text-primary, #ffffff);
+	}
+
+	.explanation-content p {
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--color-text-secondary, #888888);
+		margin: 0;
+	}
+
+	.inline-badge {
+		display: inline-flex;
+		align-items: center;
+		padding: 2px 6px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: 700;
+		margin: 0 2px;
+	}
+
+	.inline-badge.blue {
+		background: rgba(59, 130, 246, 0.2);
+		color: #3b82f6;
+	}
+
+	.inline-badge.green {
+		background: rgba(34, 197, 94, 0.2);
+		color: #22c55e;
+	}
+
+	.inline-badge.yellow {
+		background: rgba(234, 179, 8, 0.2);
+		color: #eab308;
+	}
+
+	.badge-commitment {
+		background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(0, 212, 255, 0.1));
+		border: 1px solid rgba(34, 197, 94, 0.3);
+		border-radius: 16px;
+		padding: 24px;
+		text-align: center;
+	}
+
+	.commitment-header {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 16px;
+		background: rgba(34, 197, 94, 0.2);
+		border: 1px solid rgba(34, 197, 94, 0.3);
+		border-radius: 24px;
+		color: #22c55e;
+		font-size: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		margin-bottom: 16px;
+	}
+
+	.commitment-text {
+		font-size: 14px;
+		line-height: 1.7;
+		color: var(--color-text-secondary, #cccccc);
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	@media (min-width: 768px) {
+		.commitment-text {
+			font-size: 16px;
 		}
 	}
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import {
 		Shield,
@@ -12,82 +12,412 @@
 		EyeOff,
 		DollarSign,
 		ChevronDown,
-		ChevronUp
+		ChevronUp,
+		AlertTriangle
 	} from 'lucide-svelte';
 
 	let showBanner = false;
 	let isMinimized = false;
+	let addonDetected = false;
+	let cookieCleanupCount = 0;
 
 	// Real-time privacy checks
 	let privacyChecks = {
 		cookies: 0,
 		analytics: 0,
 		tracking: 0,
-		dataSold: 0
+		dataSold: 0,
+		addonsBlocked: 0
 	};
 
-	onMount(() => {
-		// Clean up any tracking-related items to maintain no-cookie protocol
-		cleanupTrackingData();
+	// Cleanup interval references
+	let cookieWatcherInterval: ReturnType<typeof setInterval> | null = null;
+	let auditInterval: ReturnType<typeof setInterval> | null = null;
+	let addonCheckInterval: ReturnType<typeof setInterval> | null = null;
 
-		// Perform real privacy checks
-		performPrivacyAudit();
+	// ============================================
+	// AGGRESSIVE COOKIE REMOVAL
+	// ============================================
 
-		// Check if user has already dismissed the banner
-		const dismissed = localStorage.getItem('vu-privacy-banner-dismissed');
-		if (!dismissed) {
-			// Show banner after a short delay for better UX
-			setTimeout(() => {
-				showBanner = true;
-			}, 1500);
+	/**
+	 * Remove ALL cookies - no exceptions
+	 * Runs continuously to catch any cookies set by extensions or scripts
+	 */
+	function nukeAllCookies(): number {
+		if (typeof document === 'undefined') return 0;
+
+		let removedCount = 0;
+		const cookies = document.cookie.split(';');
+
+		for (const cookie of cookies) {
+			const eqPos = cookie.indexOf('=');
+			const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+
+			if (!name) continue;
+
+			// Remove from all possible paths and domains
+			const paths = ['/', '/app', '/api', '/account', '/legal'];
+			const domains = [
+				'',
+				window.location.hostname,
+				'.' + window.location.hostname,
+				window.location.hostname.split('.').slice(-2).join('.')
+			];
+
+			for (const path of paths) {
+				for (const domain of domains) {
+					const domainPart = domain ? `; domain=${domain}` : '';
+					document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}${domainPart}`;
+					document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}${domainPart}; secure`;
+					document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}${domainPart}; samesite=strict`;
+				}
+			}
+
+			removedCount++;
 		}
 
-		// Re-check periodically to ensure no new tracking
-		const interval = setInterval(performPrivacyAudit, 5000);
-		return () => clearInterval(interval);
-	});
+		return removedCount;
+	}
 
-	function cleanupTrackingData() {
-		// Remove any tracking cookies
-		document.cookie.split(';').forEach((c) => {
-			const eqPos = c.indexOf('=');
-			const name = eqPos > -1 ? c.substr(0, eqPos).trim() : c.trim();
+	/**
+	 * Continuous cookie watcher - runs every 100ms
+	 */
+	function startCookieWatcher() {
+		// Initial nuke
+		const initialRemoved = nukeAllCookies();
+		if (initialRemoved > 0) {
+			cookieCleanupCount += initialRemoved;
+			console.log(`🍪 [VU PRIVACY] Removed ${initialRemoved} initial cookies`);
+		}
 
-			// List of tracking cookie patterns to remove
-			const trackingPatterns = ['_ga', '_gid', '_gat', 'fbp', 'fbc', '_fbp', 'NID', 'test_cookie'];
-			if (trackingPatterns.some((pattern) => name.includes(pattern))) {
-				// Remove the cookie
-				document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-				document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname}`;
-				document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname}`;
+		// Continuous monitoring
+		cookieWatcherInterval = setInterval(() => {
+			const cookiesBefore = document.cookie.split(';').filter((c) => c.trim()).length;
+
+			if (cookiesBefore > 0) {
+				const removed = nukeAllCookies();
+				cookieCleanupCount += removed;
+				console.warn(`🚨 [VU PRIVACY] Intercepted & removed ${removed} cookie(s)!`);
 			}
-		});
+		}, 100);
+	}
 
-		// Clean suspicious localStorage items (preserve only VU-specific items)
-		const suspiciousKeys = [
-			'_ga',
-			'_gid',
-			'fbp',
-			'fbc',
+	// ============================================
+	// BROWSER ADDON/EXTENSION PROTECTION
+	// ============================================
+
+	/**
+	 * Detect and neutralize common tracking extensions
+	 */
+	function detectAndBlockAddons(): { detected: boolean; blocked: number } {
+		if (typeof window === 'undefined') return { detected: false, blocked: 0 };
+
+		let detectedCount = 0;
+		let blockedCount = 0;
+
+		// Common extension injection patterns to detect
+		const suspiciousPatterns = [
+			// Analytics injections
+			'__ga',
+			'_gaq',
+			'_gat',
+			'ga.',
+			'gtag',
+			'dataLayer',
+			'_fbq',
+			'fbq',
+			'__fb',
+			'_hjSettings',
+			'_hjid',
 			'mixpanel',
 			'amplitude',
 			'heap',
-			'segment'
+			'segment',
+			'_satellite',
+			'optimizely',
+			'_clck',
+			'_clsk',
+			'clarity',
+			// Extension-specific globals
+			'__REACT_DEVTOOLS_GLOBAL_HOOK__',
+			'__VUE_DEVTOOLS_GLOBAL_HOOK__',
+			'__GRAMMARLY_EXTENSION__',
+			'__HONEY_EXTENSION__',
+			'__RAKUTEN__',
+			'__UBLOCK__',
+			// Generic tracking
+			'_trackEvent',
+			'_trackPageview',
+			'sendBeacon'
 		];
-		Object.keys(localStorage).forEach((key) => {
-			// Keep only VU-specific items
-			if (!key.startsWith('vu-') && suspiciousKeys.some((suspicious) => key.includes(suspicious))) {
-				localStorage.removeItem(key);
+
+		// Check for suspicious global variables
+		for (const pattern of suspiciousPatterns) {
+			if (pattern in window) {
+				detectedCount++;
+
+				// Attempt to neutralize (make it a no-op)
+				try {
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
+					const win = window as any;
+					if (typeof win[pattern] === 'function') {
+						win[pattern] = () => {
+							console.log(`🛡️ [VU PRIVACY] Blocked call to ${pattern}`);
+						};
+						blockedCount++;
+					} else if (typeof win[pattern] === 'object' && win[pattern] !== null) {
+						// Freeze tracking objects to prevent them from working
+						Object.freeze(win[pattern]);
+						blockedCount++;
+					}
+				} catch {
+					// Some properties are read-only, that's fine
+				}
+			}
+		}
+
+		// Block common analytics functions
+		try {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			const win = window as any;
+
+			// Google Analytics
+			win.ga = () => console.log('🛡️ [VU PRIVACY] Blocked ga()');
+			win.gtag = () => console.log('🛡️ [VU PRIVACY] Blocked gtag()');
+
+			// Facebook
+			win.fbq = () => console.log('🛡️ [VU PRIVACY] Blocked fbq()');
+
+			// Generic
+			win._trackEvent = () => console.log('🛡️ [VU PRIVACY] Blocked _trackEvent()');
+			win._trackPageview = () => console.log('🛡️ [VU PRIVACY] Blocked _trackPageview()');
+		} catch {
+			// Silently fail
+		}
+
+		// Detect extension content scripts via DOM elements
+		const suspiciousDOMElements = document.querySelectorAll(
+			'[data-extension], [data-grammarly], [data-honey], [data-rakuten], [data-gtm], [data-ga]'
+		);
+		if (suspiciousDOMElements.length > 0) {
+			detectedCount += suspiciousDOMElements.length;
+
+			// Remove suspicious elements
+			suspiciousDOMElements.forEach((el) => {
+				el.remove();
+				blockedCount++;
+			});
+		}
+
+		// Monitor for injected scripts from extensions
+		const scripts = document.querySelectorAll('script:not([src^="/"]):not([src^="http"])');
+		scripts.forEach((script) => {
+			const src = script.getAttribute('src');
+			if (
+				src &&
+				(src.includes('chrome-extension://') ||
+					src.includes('moz-extension://') ||
+					src.includes('safari-extension://'))
+			) {
+				detectedCount++;
+				script.remove();
+				blockedCount++;
+				console.warn(`🛡️ [VU PRIVACY] Removed extension script: ${src}`);
 			}
 		});
 
-		// Clean sessionStorage as well
-		Object.keys(sessionStorage).forEach((key) => {
-			if (!key.startsWith('vu-') && suspiciousKeys.some((suspicious) => key.includes(suspicious))) {
-				sessionStorage.removeItem(key);
-			}
-		});
+		return { detected: detectedCount > 0, blocked: blockedCount };
 	}
+
+	/**
+	 * Override navigator properties to prevent fingerprinting
+	 */
+	function protectNavigator() {
+		if (typeof window === 'undefined') return;
+
+		try {
+			// Override properties that can be used for fingerprinting
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			const nav = navigator as any;
+
+			// Prevent battery API fingerprinting
+			if ('getBattery' in navigator) {
+				Object.defineProperty(navigator, 'getBattery', {
+					value: () =>
+						Promise.resolve({
+							charging: true,
+							chargingTime: Infinity,
+							dischargingTime: Infinity,
+							level: 1
+						})
+				});
+			}
+
+			// Prevent device memory fingerprinting
+			if ('deviceMemory' in navigator) {
+				Object.defineProperty(navigator, 'deviceMemory', {
+					value: 8, // Generic value
+					writable: false
+				});
+			}
+
+			// Prevent hardware concurrency fingerprinting
+			Object.defineProperty(navigator, 'hardwareConcurrency', {
+				value: 4, // Generic value
+				writable: false
+			});
+
+			// Prevent webdriver detection
+			Object.defineProperty(navigator, 'webdriver', {
+				value: false,
+				writable: false
+			});
+
+			// Block sendBeacon for tracking
+			const originalSendBeacon = navigator.sendBeacon;
+			Object.defineProperty(navigator, 'sendBeacon', {
+				value: (url: string, data: unknown) => {
+					// Only allow sendBeacon to our own domain
+					if (url.startsWith('/') || url.includes(window.location.hostname)) {
+						return originalSendBeacon.call(navigator, url, data);
+					}
+					console.log(`🛡️ [VU PRIVACY] Blocked sendBeacon to: ${url}`);
+					return false;
+				}
+			});
+		} catch {
+			// Some browsers may not allow these modifications
+		}
+	}
+
+	/**
+	 * Clean up localStorage and sessionStorage from tracking data
+	 */
+	function cleanupStorage() {
+		const trackingKeys = [
+			// Analytics
+			'_ga',
+			'_gid',
+			'_gat',
+			'__ga',
+			'amp_',
+			'_fbp',
+			'_fbc',
+			'fbp',
+			'fbc',
+			// Marketing
+			'mixpanel',
+			'amplitude',
+			'heap',
+			'segment',
+			'rudder',
+			// Session recording
+			'_hjid',
+			'_hjSession',
+			'_hjAbsoluteSession',
+			'_clarity',
+			'_clck',
+			'_clsk',
+			// A/B testing
+			'optimizely',
+			'vwo_',
+			'_vis_opt',
+			// Generic tracking
+			'mp_',
+			'intercom',
+			'drift',
+			'hubspot',
+			'_uc',
+			'__anon'
+		];
+
+		// Clean localStorage
+		for (const key of Object.keys(localStorage)) {
+			if (
+				!key.startsWith('vu-') &&
+				!key.startsWith('VuSovereign') &&
+				trackingKeys.some((pattern) => key.toLowerCase().includes(pattern.toLowerCase()))
+			) {
+				localStorage.removeItem(key);
+				console.log(`🧹 [VU PRIVACY] Removed localStorage key: ${key}`);
+			}
+		}
+
+		// Clean sessionStorage
+		for (const key of Object.keys(sessionStorage)) {
+			if (
+				!key.startsWith('vu-') &&
+				!key.startsWith('VuSovereign') &&
+				trackingKeys.some((pattern) => key.toLowerCase().includes(pattern.toLowerCase()))
+			) {
+				sessionStorage.removeItem(key);
+				console.log(`🧹 [VU PRIVACY] Removed sessionStorage key: ${key}`);
+			}
+		}
+	}
+
+	/**
+	 * Block tracking requests via fetch/XHR interception
+	 */
+	function interceptNetworkRequests() {
+		if (typeof window === 'undefined') return;
+
+		const blockedDomains = [
+			'google-analytics.com',
+			'googletagmanager.com',
+			'doubleclick.net',
+			'facebook.com',
+			'facebook.net',
+			'fbcdn.net',
+			'analytics.google.com',
+			'hotjar.com',
+			'mixpanel.com',
+			'segment.com',
+			'segment.io',
+			'amplitude.com',
+			'heap.io',
+			'heapanalytics.com',
+			'fullstory.com',
+			'clarity.ms',
+			'bing.com/bat',
+			'bat.bing.com',
+			'connect.facebook.net',
+			'pixel.facebook.com',
+			'analytics.tiktok.com',
+			'ads.linkedin.com',
+			'snap.licdn.com',
+			'tr.snapchat.com'
+		];
+
+		// Intercept fetch
+		const originalFetch = window.fetch;
+		window.fetch = async (input, init) => {
+			const url = typeof input === 'string' ? input : input instanceof Request ? input.url : '';
+
+			if (blockedDomains.some((domain) => url.includes(domain))) {
+				console.log(`🛡️ [VU PRIVACY] Blocked fetch to: ${url}`);
+				return new Response(null, { status: 204 });
+			}
+
+			return originalFetch(input, init);
+		};
+
+		// Intercept XMLHttpRequest
+		const originalOpen = XMLHttpRequest.prototype.open;
+		XMLHttpRequest.prototype.open = function (method: string, url: string, ...rest: unknown[]) {
+			if (blockedDomains.some((domain) => url.includes(domain))) {
+				console.log(`🛡️ [VU PRIVACY] Blocked XHR to: ${url}`);
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				return originalOpen.call(this, method, 'about:blank', ...(rest as any));
+			}
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			return originalOpen.call(this, method, url, ...(rest as any));
+		};
+	}
+
+	// ============================================
+	// PRIVACY AUDIT
+	// ============================================
 
 	function performPrivacyAudit() {
 		// Check for actual cookies
@@ -146,19 +476,65 @@
 			}
 		});
 
-		// Check localStorage for tracking identifiers
-		const suspiciousKeys = ['_ga', '_gid', 'fbp', 'fbc', 'mixpanel', 'amplitude'];
-		Object.keys(localStorage).forEach((key) => {
-			if (suspiciousKeys.some((suspicious) => key.includes(suspicious))) {
-				trackingFound++;
-			}
-		});
+		// Run addon detection
+		const addonResult = detectAndBlockAddons();
+		addonDetected = addonResult.detected;
+		privacyChecks.addonsBlocked = addonResult.blocked;
 
 		privacyChecks.analytics = analyticsFound;
 		privacyChecks.tracking = trackingFound;
 		// Data selling can't be technically detected, but we know VU doesn't sell data
 		privacyChecks.dataSold = 0;
 	}
+
+	// ============================================
+	// LIFECYCLE
+	// ============================================
+
+	onMount(() => {
+		// 1. Start aggressive cookie watcher
+		startCookieWatcher();
+
+		// 2. Protect navigator APIs from fingerprinting
+		protectNavigator();
+
+		// 3. Intercept network requests to tracking domains
+		interceptNetworkRequests();
+
+		// 4. Clean up storage
+		cleanupStorage();
+
+		// 5. Initial privacy audit
+		performPrivacyAudit();
+
+		// 6. Re-check periodically
+		auditInterval = setInterval(performPrivacyAudit, 5000);
+
+		// 7. Check for addons more frequently
+		addonCheckInterval = setInterval(() => {
+			detectAndBlockAddons();
+			cleanupStorage();
+		}, 2000);
+
+		// 8. Show banner
+		const dismissed = localStorage.getItem('vu-privacy-banner-dismissed');
+		if (!dismissed) {
+			setTimeout(() => {
+				showBanner = true;
+			}, 1500);
+		}
+
+		console.log('🛡️ [VU PRIVACY] Zero-cookie protection ACTIVE');
+		console.log('🛡️ [VU PRIVACY] Browser addon protection ACTIVE');
+		console.log('🛡️ [VU PRIVACY] Tracking request interception ACTIVE');
+		console.log('🛡️ [VU PRIVACY] Fingerprint protection ACTIVE');
+	});
+
+	onDestroy(() => {
+		if (cookieWatcherInterval) clearInterval(cookieWatcherInterval);
+		if (auditInterval) clearInterval(auditInterval);
+		if (addonCheckInterval) clearInterval(addonCheckInterval);
+	});
 
 	function dismiss() {
 		showBanner = false;
@@ -201,6 +577,17 @@
 							VU apps don't use cookies, trackers, or analytics. Your data stays on YOUR device.
 							Period.
 						</p>
+						{#if addonDetected}
+							<p class="text-xs text-amber-400 mt-1 flex items-center gap-1">
+								<AlertTriangle class="w-3 h-3" />
+								Browser addon tracking blocked ({privacyChecks.addonsBlocked} neutralized)
+							</p>
+						{/if}
+						{#if cookieCleanupCount > 0}
+							<p class="text-xs text-green-400 mt-1">
+								🧹 Cleaned {cookieCleanupCount} cookies set by external sources
+							</p>
+						{/if}
 					</div>
 					<button class="btn-minimize" on:click={minimize} aria-label="Minimize">
 						{#if isMinimized}

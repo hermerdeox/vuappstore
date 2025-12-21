@@ -160,7 +160,7 @@
 	<section>
 		<h2>DISPUTE PREVENTION</h2>
 		<p class="bg-warning/10 border border-warning/30 rounded-lg p-4 my-4">
-			<strong>Important:</strong> Before initiating a chargeback with your bank or credit card
+			<strong>Important:</strong> Before initiating a chargeback with your bank or cryptocurrency
 			company, please contact our support team at
 			<a href="mailto:support@vuappstore.com">support@vuappstore.com</a>.
 		</p>

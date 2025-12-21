@@ -1,0 +1,593 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "V VU Store" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: V
+          - generic [ref=e9]: VU Store
+        - generic [ref=e10]:
+          - link "Discover" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "All Apps" [ref=e12] [cursor=pointer]:
+            - /url: /apps
+          - link "Pricing" [ref=e13] [cursor=pointer]:
+            - /url: /pricing
+          - link "Developers" [ref=e14] [cursor=pointer]:
+            - /url: /developers
+        - generic [ref=e15]:
+          - generic [ref=e17]:
+            - button "Switch to Modern theme" [ref=e18] [cursor=pointer]: Modern
+            - button "Switch to Brutalist theme" [ref=e19] [cursor=pointer]: Brutal
+          - generic [ref=e20]:
+            - img [ref=e21]
+            - generic [ref=e24]: "Privacy Score: A+"
+          - button "Search" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+          - button "Create Identity" [ref=e30] [cursor=pointer]:
+            - img [ref=e31]
+            - generic [ref=e35]: Create Identity
+    - main [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e41]: Zero-Knowledge Marketplace
+          - heading "Your Apps. Your Data. Your Life. Zero Surveillance." [level=1] [ref=e42]:
+            - text: Your Apps. Your Data.
+            - text: Your Life. Zero Surveillance.
+          - paragraph [ref=e43]: The First App Marketplace Where Privacy Isn't A Feature, It's The Foundation. Every App Verified, Every Byte Encrypted, Every Moment Yours.
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - img [ref=e46]
+              - generic [ref=e48]: Legitimate SaaS
+            - generic [ref=e49]:
+              - img [ref=e50]
+              - generic [ref=e52]: Instant Delivery
+            - generic [ref=e53]:
+              - img [ref=e54]
+              - generic [ref=e56]: 30-Day Guarantee
+            - generic [ref=e57]:
+              - img [ref=e58]
+              - generic [ref=e60]: Secure Payments
+        - generic [ref=e61]:
+          - link "Explore The Store" [ref=e63] [cursor=pointer]:
+            - /url: /vu-store
+            - text: Explore The Store
+            - img [ref=e64]
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]:
+                - img [ref=e69]
+                - text: Premium In-House Production
+              - generic [ref=e72]:
+                - generic [ref=e73]: $2.56
+                - generic [ref=e74]: per app, per month
+                - generic [ref=e75]: 256 bits = $2.56 = 1¢ per bit
+                - generic [ref=e76]: Pay with crypto • Zero tracking
+            - generic [ref=e77]:
+              - generic [ref=e78]:
+                - heading "The VU Suite" [level=2] [ref=e79]
+                - paragraph [ref=e80]: "\"Déjà vu - Remember when your data was yours?\""
+                - paragraph [ref=e81]: 30+ zero-knowledge applications built from the ground up with privacy as the core architecture. At just 1 cent per bit of encryption, true digital sovereignty has never been more accessible.
+                - generic [ref=e82]:
+                  - generic [ref=e83]:
+                    - img [ref=e84]
+                    - generic [ref=e87]:
+                      - strong [ref=e88]: 100%
+                      - text: Encrypted
+                  - generic [ref=e89]:
+                    - img [ref=e90]
+                    - generic [ref=e93]:
+                      - strong [ref=e94]: Zero
+                      - text: Tracking
+                  - generic [ref=e95]:
+                    - img [ref=e96]
+                    - generic [ref=e99]:
+                      - strong [ref=e100]: Offline
+                      - text: First
+                - generic [ref=e101]:
+                  - link "Get The VU Suite" [ref=e102] [cursor=pointer]:
+                    - /url: /pricing
+                    - img [ref=e103]
+                    - text: Get The VU Suite
+                  - link "Learn More" [ref=e106] [cursor=pointer]:
+                    - /url: /apps/vuvault
+              - generic [ref=e107]:
+                - link "V VuNotes VuApps Certified" [ref=e108] [cursor=pointer]:
+                  - /url: /apps/vunotes
+                  - generic [ref=e109]: V
+                  - generic [ref=e110]: VuNotes
+                  - generic [ref=e112]:
+                    - img [ref=e113]
+                    - generic [ref=e116]: VuApps Certified
+                - link "V VuWallet" [ref=e117] [cursor=pointer]:
+                  - /url: /apps/vuwallet
+                  - generic [ref=e118]: V
+                  - generic [ref=e119]: VuWallet
+                - link "V VuCalendar" [ref=e120] [cursor=pointer]:
+                  - /url: /apps/vucalendar
+                  - generic [ref=e121]: V
+                  - generic [ref=e122]: VuCalendar
+                - link "V VuFit" [ref=e123] [cursor=pointer]:
+                  - /url: /apps/vufit
+                  - generic [ref=e124]: V
+                  - generic [ref=e125]: VuFit
+                - link "V VuText" [ref=e126] [cursor=pointer]:
+                  - /url: /apps/vutext
+                  - generic [ref=e127]: V
+                  - generic [ref=e128]: VuText
+                - link "V VuPhoto" [ref=e129] [cursor=pointer]:
+                  - /url: /apps/vuphoto
+                  - generic [ref=e130]: V
+                  - generic [ref=e131]: VuPhoto
+                - link "V VuCall" [ref=e132] [cursor=pointer]:
+                  - /url: /apps/vucall
+                  - generic [ref=e133]: V
+                  - generic [ref=e134]: VuCall
+                - link "V VuScan" [ref=e135] [cursor=pointer]:
+                  - /url: /apps/vuscan
+                  - generic [ref=e136]: V
+                  - generic [ref=e137]: VuScan
+                - link "V VuVault" [ref=e138] [cursor=pointer]:
+                  - /url: /apps/vuvault
+                  - generic [ref=e139]: V
+                  - generic [ref=e140]: VuVault
+                - link "+21 More Apps" [ref=e141] [cursor=pointer]:
+                  - /url: /apps
+                  - generic [ref=e142]: "+21"
+                  - generic [ref=e143]: More Apps
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - heading "Privacy Champions" [level=2] [ref=e146]
+            - link "See all" [ref=e147] [cursor=pointer]:
+              - /url: /apps
+              - text: See all
+              - img [ref=e148]
+          - generic [ref=e150]:
+            - link "V VuWallet by VuApps Privacy-focused cryptocurrency wallet with zero-knowledge transactions and built-in security. 5 Privacy Score $2.56/mo" [ref=e151] [cursor=pointer]:
+              - /url: /apps/vuwallet
+              - generic [ref=e152]:
+                - generic [ref=e153]: V
+                - generic [ref=e154]:
+                  - generic [ref=e155]: VuWallet
+                  - generic [ref=e156]: by VuApps
+              - generic [ref=e157]: Privacy-focused cryptocurrency wallet with zero-knowledge transactions and built-in security.
+              - generic [ref=e158]:
+                - generic [ref=e159]:
+                  - generic [ref=e160]: "5"
+                  - generic [ref=e161]: Privacy Score
+                - generic [ref=e162]: $2.56/mo
+            - link "V VuPhoto by VuApps Private photo library with AI-powered organization that runs entirely on your device. 5 Privacy Score $2.56/mo" [ref=e163] [cursor=pointer]:
+              - /url: /apps/vuphoto
+              - generic [ref=e164]:
+                - generic [ref=e165]: V
+                - generic [ref=e166]:
+                  - generic [ref=e167]: VuPhoto
+                  - generic [ref=e168]: by VuApps
+              - generic [ref=e169]: Private photo library with AI-powered organization that runs entirely on your device.
+              - generic [ref=e170]:
+                - generic [ref=e171]:
+                  - generic [ref=e172]: "5"
+                  - generic [ref=e173]: Privacy Score
+                - generic [ref=e174]: $2.56/mo
+            - link "V VuVault by VuApps Military-grade encrypted file storage. Zero-knowledge architecture ensures maximum privacy. 5 Privacy Score $2.56/mo" [ref=e175] [cursor=pointer]:
+              - /url: /apps/vuvault
+              - generic [ref=e176]:
+                - generic [ref=e177]: V
+                - generic [ref=e178]:
+                  - generic [ref=e179]: VuVault
+                  - generic [ref=e180]: by VuApps
+              - generic [ref=e181]: Military-grade encrypted file storage. Zero-knowledge architecture ensures maximum privacy.
+              - generic [ref=e182]:
+                - generic [ref=e183]:
+                  - generic [ref=e184]: "5"
+                  - generic [ref=e185]: Privacy Score
+                - generic [ref=e186]: $2.56/mo
+            - link "V VuBrowser by VuApps Privacy-focused browser with built-in ad blocking, tracker blocking, and VPN. 5 Privacy Score $2.56/mo" [ref=e187] [cursor=pointer]:
+              - /url: /apps/vubrowser
+              - generic [ref=e188]:
+                - generic [ref=e189]: V
+                - generic [ref=e190]:
+                  - generic [ref=e191]: VuBrowser
+                  - generic [ref=e192]: by VuApps
+              - generic [ref=e193]: Privacy-focused browser with built-in ad blocking, tracker blocking, and VPN.
+              - generic [ref=e194]:
+                - generic [ref=e195]:
+                  - generic [ref=e196]: "5"
+                  - generic [ref=e197]: Privacy Score
+                - generic [ref=e198]: $2.56/mo
+            - link "V VuPass by VuApps Zero-knowledge password manager with biometric unlock and secure sharing. 5 Privacy Score $2.56/mo" [ref=e199] [cursor=pointer]:
+              - /url: /apps/vupass
+              - generic [ref=e200]:
+                - generic [ref=e201]: V
+                - generic [ref=e202]:
+                  - generic [ref=e203]: VuPass
+                  - generic [ref=e204]: by VuApps
+              - generic [ref=e205]: Zero-knowledge password manager with biometric unlock and secure sharing.
+              - generic [ref=e206]:
+                - generic [ref=e207]:
+                  - generic [ref=e208]: "5"
+                  - generic [ref=e209]: Privacy Score
+                - generic [ref=e210]: $2.56/mo
+            - link "V VuVPN by VuApps No-logs VPN with WireGuard protocol and distributed servers worldwide. 5 Privacy Score $2.56/mo" [ref=e211] [cursor=pointer]:
+              - /url: /apps/vuvpn
+              - generic [ref=e212]:
+                - generic [ref=e213]: V
+                - generic [ref=e214]:
+                  - generic [ref=e215]: VuVPN
+                  - generic [ref=e216]: by VuApps
+              - generic [ref=e217]: No-logs VPN with WireGuard protocol and distributed servers worldwide.
+              - generic [ref=e218]:
+                - generic [ref=e219]:
+                  - generic [ref=e220]: "5"
+                  - generic [ref=e221]: Privacy Score
+                - generic [ref=e222]: $2.56/mo
+        - generic [ref=e223]:
+          - generic [ref=e224]:
+            - heading "New & Noteworthy" [level=2] [ref=e225]
+            - link "Browse all" [ref=e226] [cursor=pointer]:
+              - /url: /apps
+              - text: Browse all
+              - img [ref=e227]
+          - generic [ref=e229]:
+            - link "V VuNotes by @vuapps VuApps Certified Zero-knowledge note-taking with end-to-end encryption. Your notes never leave your device unencrypted. 5 Privacy Score $2.56/mo" [ref=e230] [cursor=pointer]:
+              - /url: /apps/vunotes
+              - generic [ref=e231]:
+                - generic [ref=e232]: V
+                - generic [ref=e233]:
+                  - generic [ref=e234]: VuNotes
+                  - generic [ref=e235]: by @vuapps
+                  - generic [ref=e237]:
+                    - img [ref=e238]
+                    - generic [ref=e241]: VuApps Certified
+              - generic [ref=e242]: Zero-knowledge note-taking with end-to-end encryption. Your notes never leave your device unencrypted.
+              - generic [ref=e243]:
+                - generic [ref=e244]:
+                  - generic [ref=e245]: "5"
+                  - generic [ref=e246]: Privacy Score
+                - generic [ref=e247]: $2.56/mo
+            - link "V VuWallet by VuApps Privacy-focused cryptocurrency wallet with zero-knowledge transactions and built-in security. 5 Privacy Score $2.56/mo" [ref=e248] [cursor=pointer]:
+              - /url: /apps/vuwallet
+              - generic [ref=e249]:
+                - generic [ref=e250]: V
+                - generic [ref=e251]:
+                  - generic [ref=e252]: VuWallet
+                  - generic [ref=e253]: by VuApps
+              - generic [ref=e254]: Privacy-focused cryptocurrency wallet with zero-knowledge transactions and built-in security.
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - generic [ref=e257]: "5"
+                  - generic [ref=e258]: Privacy Score
+                - generic [ref=e259]: $2.56/mo
+            - link "V VuCalendar by VuApps Privacy-first calendar and scheduling app with encrypted events and zero tracking. 5 Privacy Score $2.56/mo" [ref=e260] [cursor=pointer]:
+              - /url: /apps/vucalendar
+              - generic [ref=e261]:
+                - generic [ref=e262]: V
+                - generic [ref=e263]:
+                  - generic [ref=e264]: VuCalendar
+                  - generic [ref=e265]: by VuApps
+              - generic [ref=e266]: Privacy-first calendar and scheduling app with encrypted events and zero tracking.
+              - generic [ref=e267]:
+                - generic [ref=e268]:
+                  - generic [ref=e269]: "5"
+                  - generic [ref=e270]: Privacy Score
+                - generic [ref=e271]: $2.56/mo
+            - link "V VuFit by VuApps Privacy-focused fitness and health tracking. Your health data stays on your device, always. 5 Privacy Score $2.56/mo" [ref=e272] [cursor=pointer]:
+              - /url: /apps/vufit
+              - generic [ref=e273]:
+                - generic [ref=e274]: V
+                - generic [ref=e275]:
+                  - generic [ref=e276]: VuFit
+                  - generic [ref=e277]: by VuApps
+              - generic [ref=e278]: Privacy-focused fitness and health tracking. Your health data stays on your device, always.
+              - generic [ref=e279]:
+                - generic [ref=e280]:
+                  - generic [ref=e281]: "5"
+                  - generic [ref=e282]: Privacy Score
+                - generic [ref=e283]: $2.56/mo
+        - generic [ref=e286]:
+          - generic [ref=e287]:
+            - img [ref=e288]
+            - generic [ref=e291]: Transparency Protocol
+          - heading "Understand Your Privacy. Choose Your Level." [level=2] [ref=e292]:
+            - text: Understand Your Privacy.
+            - text: Choose Your Level.
+          - paragraph [ref=e293]:
+            - text: Not all privacy is created equal. The VU Zero-Level System shows you exactly what each app can see, what it can't, and what happens to your data. From
+            - strong [ref=e294]: Basic Privacy
+            - text: to
+            - strong [ref=e295]: True Zero-Knowledge
+            - text: and beyond.
+          - generic [ref=e296]:
+            - link "5 Conventional \"Privacy\" Claims" [ref=e297] [cursor=pointer]:
+              - /url: /privacy-levels#level-5
+              - generic [ref=e298]:
+                - text: "5"
+                - img [ref=e299]
+              - generic [ref=e302]: Conventional
+              - generic [ref=e303]: "\"Privacy\" Claims"
+            - link "4 Basic Privacy Encrypted Transit" [ref=e304] [cursor=pointer]:
+              - /url: /privacy-levels#level-4
+              - generic [ref=e305]: "4"
+              - generic [ref=e306]: Basic Privacy
+              - generic [ref=e307]: Encrypted Transit
+            - link "3 Enhanced End-to-End" [ref=e308] [cursor=pointer]:
+              - /url: /privacy-levels#level-3
+              - generic [ref=e309]: "3"
+              - generic [ref=e310]: Enhanced
+              - generic [ref=e311]: End-to-End
+            - link "2 Privacy First Zero Data Need" [ref=e312] [cursor=pointer]:
+              - /url: /privacy-levels#level-2
+              - generic [ref=e313]: "2"
+              - generic [ref=e314]: Privacy First
+              - generic [ref=e315]: Zero Data Need
+            - link "1 Local-First Your Device Only" [ref=e316] [cursor=pointer]:
+              - /url: /privacy-levels#level-1
+              - generic [ref=e317]: "1"
+              - generic [ref=e318]: Local-First
+              - generic [ref=e319]: Your Device Only
+            - link "0 Zero-Knowledge True Anonymity" [ref=e320] [cursor=pointer]:
+              - /url: /privacy-levels#level-0
+              - generic [ref=e321]: "0"
+              - generic [ref=e322]: Zero-Knowledge
+              - generic [ref=e323]: True Anonymity
+          - link "Explore the VU Zero-Level System" [ref=e324] [cursor=pointer]:
+            - /url: /privacy-levels
+            - img [ref=e325]
+            - text: Explore the VU Zero-Level System
+            - img [ref=e328]
+          - paragraph [ref=e330]: Every app is rated. Every rating is verified. Every choice is yours.
+        - generic [ref=e331]:
+          - heading "Browse by Privacy Level" [level=2] [ref=e333]
+          - generic [ref=e334]:
+            - link "Zero-Knowledge 142 apps" [ref=e335] [cursor=pointer]:
+              - /url: /apps?privacy=zero-knowledge
+              - img [ref=e337]
+              - generic [ref=e340]: Zero-Knowledge
+              - generic [ref=e341]: 142 apps
+            - link "End-to-End 89 apps" [ref=e342] [cursor=pointer]:
+              - /url: /apps?privacy=end-to-end
+              - img [ref=e344]
+              - generic [ref=e347]: End-to-End
+              - generic [ref=e348]: 89 apps
+            - link "Offline-First 234 apps" [ref=e349] [cursor=pointer]:
+              - /url: /apps?privacy=offline-first
+              - img [ref=e351]
+              - generic [ref=e354]: Offline-First
+              - generic [ref=e355]: 234 apps
+            - link "Open Source 156 apps" [ref=e356] [cursor=pointer]:
+              - /url: /apps?privacy=open source
+              - img [ref=e358]
+              - generic [ref=e361]: Open Source
+              - generic [ref=e362]: 156 apps
+            - link "Community Pick 67 apps" [ref=e363] [cursor=pointer]:
+              - /url: /apps?privacy=community pick
+              - img [ref=e365]
+              - generic [ref=e368]: Community Pick
+              - generic [ref=e369]: 67 apps
+            - link "Editor's Choice 31 apps" [ref=e370] [cursor=pointer]:
+              - /url: /apps?privacy=editor's choice
+              - img [ref=e372]
+              - generic [ref=e374]: Editor's Choice
+              - generic [ref=e375]: 31 apps
+        - generic [ref=e377]:
+          - heading "Trusted by Privacy-Conscious Users Worldwide" [level=2] [ref=e378]
+          - generic [ref=e379]:
+            - generic [ref=e380]:
+              - generic [ref=e381]: 50,000+
+              - generic [ref=e382]: Active Subscribers
+            - generic [ref=e383]:
+              - generic [ref=e384]: 99.9%
+              - generic [ref=e385]: Uptime SLA
+            - generic [ref=e386]:
+              - generic [ref=e387]: < 24h
+              - generic [ref=e388]: Support Response
+            - generic [ref=e389]:
+              - generic [ref=e390]: 0.1%
+              - generic [ref=e391]: Chargeback Rate
+        - generic [ref=e392]:
+          - heading "Privacy & Compliance" [level=3] [ref=e393]
+          - generic [ref=e394]:
+            - generic [ref=e395]: Zero Tracking Certified
+            - generic [ref=e396]: Crypto-Only Payments
+            - generic [ref=e397]: GDPR Compliant
+            - generic [ref=e398]: CCPA Compliant
+            - generic [ref=e399]: SOC 2 Type II
+            - generic [ref=e400]: ISO 27001
+          - paragraph [ref=e401]:
+            - img [ref=e402]
+            - text: Privacy-first crypto payments | Monero, Lightning, BTC, ETH | Zero transaction tracking
+    - contentinfo [ref=e405]:
+      - generic [ref=e407]:
+        - generic [ref=e408]:
+          - generic [ref=e409]:
+            - generic [ref=e410]:
+              - generic [ref=e411]: V
+              - generic [ref=e412]: VuAppStore
+            - paragraph [ref=e413]: Your Privacy, Our Priority
+            - paragraph [ref=e414]: Premium privacy-focused applications that respect your data. No tracking, no surveillance, just powerful software.
+            - generic [ref=e415]:
+              - generic [ref=e416]:
+                - img [ref=e417]
+                - generic [ref=e420]: SSL Secured
+              - generic [ref=e421]:
+                - img [ref=e422]
+                - generic [ref=e425]: PCI Compliant
+              - generic [ref=e426]:
+                - img [ref=e427]
+                - generic [ref=e431]: GDPR Compliant
+              - generic [ref=e432]:
+                - img [ref=e433]
+                - generic [ref=e438]: Zero Logs
+          - generic [ref=e439]:
+            - heading "Resources" [level=4] [ref=e440]
+            - list [ref=e441]:
+              - listitem [ref=e442]:
+                - link "VU Zero Privacy Levels" [ref=e443] [cursor=pointer]:
+                  - /url: /privacy-levels
+              - listitem [ref=e444]:
+                - link "Privacy Guide" [ref=e445] [cursor=pointer]:
+                  - /url: /resources/privacy-guide
+              - listitem [ref=e446]:
+                - link "Security Best Practices" [ref=e447] [cursor=pointer]:
+                  - /url: /resources/security-best-practices
+              - listitem [ref=e448]:
+                - link "VU vs Big Tech" [ref=e449] [cursor=pointer]:
+                  - /url: /resources/comparison
+              - listitem [ref=e450]:
+                - link "Migration Guides" [ref=e451] [cursor=pointer]:
+                  - /url: /resources/migration
+              - listitem [ref=e452]:
+                - link "Educational Resources" [ref=e453] [cursor=pointer]:
+                  - /url: /resources/educational
+              - listitem [ref=e454]:
+                - link "Affiliate Program" [ref=e455] [cursor=pointer]:
+                  - /url: /affiliate
+          - generic [ref=e456]:
+            - heading "Company" [level=4] [ref=e457]
+            - list [ref=e458]:
+              - listitem [ref=e459]:
+                - link "About Us" [ref=e460] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e461]:
+                - link "Our Mission" [ref=e462] [cursor=pointer]:
+                  - /url: /about/mission
+              - listitem [ref=e463]:
+                - link "Team" [ref=e464] [cursor=pointer]:
+                  - /url: /about/team
+              - listitem [ref=e465]:
+                - link "Blog" [ref=e466] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e467]:
+                - link "Contact" [ref=e468] [cursor=pointer]:
+                  - /url: /support/contact
+              - listitem [ref=e469]:
+                - link "Support Center" [ref=e470] [cursor=pointer]:
+                  - /url: /support
+              - listitem [ref=e471]:
+                - link "FAQ" [ref=e472] [cursor=pointer]:
+                  - /url: /support/faq
+          - generic [ref=e473]:
+            - heading "Legal & Compliance" [level=4] [ref=e474]
+            - list [ref=e475]:
+              - listitem [ref=e476]:
+                - link "Terms of Service" [ref=e477] [cursor=pointer]:
+                  - /url: /legal/terms
+              - listitem [ref=e478]:
+                - link "Privacy Policy" [ref=e479] [cursor=pointer]:
+                  - /url: /legal/privacy
+              - listitem [ref=e480]:
+                - link "Refund Policy" [ref=e481] [cursor=pointer]:
+                  - /url: /legal/refund
+              - listitem [ref=e482]:
+                - link "Acceptable Use Policy" [ref=e483] [cursor=pointer]:
+                  - /url: /legal/acceptable-use
+              - listitem [ref=e484]:
+                - link "GDPR Compliance" [ref=e485] [cursor=pointer]:
+                  - /url: /legal/gdpr
+              - listitem [ref=e486]:
+                - link "CCPA Compliance" [ref=e487] [cursor=pointer]:
+                  - /url: /legal/ccpa
+              - listitem [ref=e488]:
+                - link "Data Processing Agreement" [ref=e489] [cursor=pointer]:
+                  - /url: /legal/data-processing
+          - generic [ref=e490]:
+            - heading "Developers" [level=4] [ref=e491]
+            - list [ref=e492]:
+              - listitem [ref=e493]:
+                - link "Developer Portal" [ref=e494] [cursor=pointer]:
+                  - /url: /developers
+              - listitem [ref=e495]:
+                - link "API Documentation" [ref=e496] [cursor=pointer]:
+                  - /url: /developers/api
+              - listitem [ref=e497]:
+                - link "Technical Docs" [ref=e498] [cursor=pointer]:
+                  - /url: /developers/docs
+              - listitem [ref=e499]:
+                - link "Contribute" [ref=e500] [cursor=pointer]:
+                  - /url: /developers/contribute
+              - listitem [ref=e501]:
+                - link "Bug Bounty" [ref=e502] [cursor=pointer]:
+                  - /url: /developers/bug-bounty
+              - listitem [ref=e503]:
+                - link "GitHub" [ref=e504] [cursor=pointer]:
+                  - /url: https://github.com/vuappstore
+        - generic [ref=e505]:
+          - generic [ref=e506]:
+            - generic [ref=e507]: Privacy Payments via
+            - generic [ref=e508]:
+              - generic [ref=e509]: Monero
+              - generic [ref=e510]: Lightning
+              - generic [ref=e511]: Bitcoin
+              - generic [ref=e512]: Ethereum
+              - generic [ref=e513]: Crypto Only
+          - generic [ref=e514]:
+            - generic [ref=e515]: Zero Tracking
+            - generic [ref=e516]: ISO 27001
+            - generic [ref=e517]: Privacy Shield
+        - generic [ref=e518]:
+          - generic [ref=e519]:
+            - paragraph [ref=e520]: © 2024 VuAppStore. All rights reserved.
+            - paragraph [ref=e521]: VU Technologies | Delaware, USA
+          - generic [ref=e522]:
+            - button "Toggle theme" [ref=e523] [cursor=pointer]:
+              - img [ref=e524]
+              - generic [ref=e530]: Modern
+            - combobox [ref=e531]:
+              - option "English" [selected]
+              - option "Español"
+              - option "Français"
+        - paragraph [ref=e533]: VUAPPS
+  - generic [ref=e535]:
+    - generic [ref=e536]:
+      - img [ref=e538]
+      - generic [ref=e539]:
+        - heading "No Cookies Here! ZERO TRACKING" [level=3] [ref=e540]:
+          - img [ref=e541]
+          - text: No Cookies Here!
+          - generic [ref=e542]: ZERO TRACKING
+        - paragraph [ref=e543]: VU apps don't use cookies, trackers, or analytics. Your data stays on YOUR device. Period.
+        - paragraph [ref=e544]:
+          - img [ref=e545]
+          - text: Browser addon tracking blocked (4 neutralized)
+      - button "Minimize" [ref=e546] [cursor=pointer]:
+        - img [ref=e547]
+      - button "Close" [ref=e548] [cursor=pointer]:
+        - img [ref=e549]
+    - generic [ref=e551]:
+      - generic [ref=e552]:
+        - img [ref=e554]
+        - generic [ref=e555]: Cookies
+        - generic [ref=e556]: ZERO
+      - generic [ref=e557]:
+        - img [ref=e559]
+        - generic [ref=e560]: Analytics
+        - generic [ref=e561]: ZERO
+      - generic [ref=e562]:
+        - img [ref=e564]
+        - generic [ref=e565]: Tracking
+        - generic [ref=e566]: ZERO
+      - generic [ref=e567]:
+        - img [ref=e569]
+        - generic [ref=e570]: Data Sold
+        - generic [ref=e571]: ZERO
+    - generic [ref=e572]:
+      - button "Nice! Show me the apps →" [ref=e573] [cursor=pointer]:
+        - img [ref=e574]
+        - text: Nice! Show me the apps →
+      - button "Verify Yourself" [ref=e575] [cursor=pointer]:
+        - img [ref=e576]
+        - text: Verify Yourself
+  - region "Privacy Shield Status" [ref=e577]:
+    - button "Privacy Shield - Zero Tracking Guarantee" [ref=e578] [cursor=pointer]:
+      - img [ref=e580]
+      - generic [ref=e582]:
+        - generic [ref=e583]: ZERO COOKIES
+        - generic [ref=e584]: No tracking • No analytics
+  - button "VU Privacy Level 1 - Local-First. Click for details." [ref=e585] [cursor=pointer]:
+    - generic [ref=e586]:
+      - generic [ref=e587]: V
+      - generic [ref=e588]: "1"
+```

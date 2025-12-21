@@ -246,7 +246,7 @@
 							<p class="text-sm text-text-secondary leading-relaxed mb-3">
 								In line with VU's privacy-first philosophy, we <strong class="text-text-primary"
 									>accept cryptocurrency payments only</strong
-								>. Your payment history is completely private. No credit cards, no PayPal, no
+								>. Your payment history is completely private. No cryptocurrencys, no Monero, no
 								transaction tracking.
 							</p>
 							<p class="text-sm text-text-secondary mb-2">
