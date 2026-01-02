@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VU Privacy Checker - Vanilla JS Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%);
+      min-height: 100vh;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #00d4ff, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      color: #00d4ff;
+    }
+
+    .badge-demo {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .vu-privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(var(--badge-color-rgb), 0.2), rgba(var(--badge-color-rgb), 0.1));
+      border: 2px solid var(--badge-color);
+      border-radius: 12px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(var(--badge-color-rgb), 0.3);
+    }
+
+    .vu-privacy-badge:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(var(--badge-color-rgb), 0.4);
+    }
+
+    .vu-badge-v {
+      opacity: 0.8;
+      color: var(--badge-color);
+    }
+
+    .vu-badge-level {
+      font-weight: 900;
+      color: var(--badge-color);
+    }
+
+    .vu-level-subzero {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+      border-color: #fff;
+      animation: subzero-pulse 2s ease-in-out infinite;
+    }
+
+    .vu-level-subzero .vu-badge-v,
+    .vu-level-subzero .vu-badge-level {
+      color: #fff;
+    }
+
+    @keyframes subzero-pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+    }
+
+    .analysis-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    select, input[type="number"] {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    select:focus, input:focus {
+      outline: none;
+      border-color: #00d4ff;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    button {
+      background: linear-gradient(135deg, #00d4ff, #00ff88);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    }
+
+    .result-card {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .result-level {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .result-info h3 {
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .result-score {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .result-summary {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 16px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+
+    .flags-section {
+      margin-top: 16px;
+    }
+
+    .flags-section h4 {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 8px;
+    }
+
+    .flag {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .flag.critical { background: rgba(239, 68, 68, 0.2); border-left: 3px solid #ef4444; }
+    .flag.high { background: rgba(249, 115, 22, 0.2); border-left: 3px solid #f97316; }
+    .flag.medium { background: rgba(234, 179, 8, 0.2); border-left: 3px solid #eab308; }
+    .flag.low { background: rgba(107, 114, 128, 0.2); border-left: 3px solid #6b7280; }
+    .flag.green { background: rgba(34, 197, 94, 0.2); border-left: 3px solid #22c55e; }
+
+    .flag-severity {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+
+    .recommendations {
+      margin-top: 16px;
+      padding: 12px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 8px;
+      border-left: 3px solid #3b82f6;
+    }
+
+    .recommendations h4 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .recommendations ul {
+      padding-left: 20px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛡️ VU Privacy Checker</h1>
+    <p class="subtitle">Brutally Honest Privacy Assessment - Vanilla JavaScript Example</p>
+
+    <!-- Badge Demo Section -->
+    <section>
+      <h2>Privacy Level Badges</h2>
+      <div class="badge-demo" id="badge-demo">
+        <!-- Badges will be inserted here -->
+      </div>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 12px;">
+        Click any badge to see details. Lower numbers = Better privacy.
+      </p>
+    </section>
+
+    <!-- Analysis Section -->
+    <section>
+      <h2>🔍 Analyze Your App</h2>
+      <div class="analysis-form" id="analysis-form">
+        <div class="form-group">
+          <label>Encryption Type</label>
+          <select id="encryptionType">
+            <option value="none">None</option>
+            <option value="transit_only">Transit Only (HTTPS)</option>
+            <option value="at_rest">At Rest</option>
+            <option value="end_to_end" selected>End-to-End</option>
+            <option value="zero_knowledge">Zero-Knowledge</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Architecture</label>
+          <select id="architecture">
+            <option value="cloud_native">Cloud Native</option>
+            <option value="client_server">Client-Server</option>
+            <option value="local_first" selected>Local-First</option>
+            <option value="local_only">Local Only</option>
+            <option value="peer_to_peer">Peer-to-Peer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Offline Capability (%)</label>
+          <input type="number" id="offlineCapability" min="0" max="100" value="80">
+        </div>
+
+        <div class="form-group">
+          <label>Data Collection</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="collectsEmail" checked>
+              Email
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="collectsLocation">
+              Location
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="collectsContacts">
+              Contacts
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="collectsHealth">
+              Health Data
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Features</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="usesAnalytics">
+              Analytics
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="openSource" checked>
+              Open Source
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="canDeleteData" checked>
+              Can Delete Data
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="worksOffline" checked>
+              Works Offline
+            </label>
+          </div>
+        </div>
+
+        <button onclick="runAnalysis()">🔍 Analyze Privacy</button>
+      </div>
+
+      <div id="analysis-result"></div>
+    </section>
+
+    <!-- Route Checker Section -->
+    <section>
+      <h2>📍 Route-Based Checking</h2>
+      <div class="form-group">
+        <label>Enter a route path</label>
+        <input type="text" id="routePath" placeholder="/account/settings" value="/" style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 14px; color: #fff;">
+      </div>
+      <button onclick="checkRoute()" style="margin-top: 12px;">Check Route Privacy</button>
+      <div id="route-result"></div>
+    </section>
+  </div>
+
+  <script type="module">
+    // Import from local package (in real use, this would be from node_modules)
+    import { 
+      VuPrivacyChecker, 
+      VuPrivacyAnalyzer,
+      LEVEL_COLORS,
+      LEVEL_NAMES,
+      LEVEL_EMOJIS,
+      getAllLevels,
+      getVuLevels
+    } from '../src/index.js';
+
+    // Initialize checker with routes
+    const checker = new VuPrivacyChecker({
+      appName: 'Demo App',
+      defaultLevel: 2,
+      routes: {
+        '/': { level: 1, whyThisLevel: 'Homepage is static with zero tracking' },
+        '/apps': { level: 1, whyThisLevel: 'App catalog loaded locally' },
+        '/apps/*': { level: 1 },
+        '/account': { level: 2, whyThisLevel: 'Account data stored with privacy-first design' },
+        '/account/settings': { level: 2 },
+        '/account/downloads': { level: 1 },
+        '/support': { level: 2 },
+        '/support/contact': { level: 3, whyThisLevel: 'Contact form requires email for response' },
+        '/pricing': { level: 2 },
+        '/checkout': { level: 2 },
+        '/offline': { level: 0, whyThisLevel: 'Completely offline - zero network activity' },
+        '/admin': { level: 4, whyThisLevel: 'Admin requires more tracking for security' }
+      }
+    });
+
+    // Initialize analyzer
+    const analyzer = new VuPrivacyAnalyzer();
+
+    // Generate badge demo
+    function generateBadges() {
+      const container = document.getElementById('badge-demo');
+      const levels = getVuLevels();
+      
+      levels.forEach(level => {
+        const color = LEVEL_COLORS[level];
+        const name = LEVEL_NAMES[level];
+        const emoji = LEVEL_EMOJIS[level];
+        const display = level === 'subzero' ? '∅' : level;
+        const isSubZero = level === 'subzero';
+        
+        const badge = document.createElement('div');
+        badge.className = `vu-privacy-badge ${isSubZero ? 'vu-level-subzero' : ''}`;
+        badge.style.cssText = `--badge-color: ${color.color}; --badge-color-rgb: ${color.colorRgb};`;
+        badge.innerHTML = `
+          <span class="vu-badge-v">V</span>
+          <span class="vu-badge-level">${display}</span>
+        `;
+        badge.title = `${emoji} ${name}`;
+        badge.onclick = () => alert(`${emoji} ${name}\n\nPrivacy Level ${display}`);
+        
+        container.appendChild(badge);
+      });
+    }
+
+    // Run privacy analysis
+    window.runAnalysis = function() {
+      const dataTypes = [];
+      if (document.getElementById('collectsEmail').checked) dataTypes.push('email');
+      if (document.getElementById('collectsLocation').checked) dataTypes.push('location');
+      if (document.getElementById('collectsContacts').checked) dataTypes.push('contacts');
+      if (document.getElementById('collectsHealth').checked) dataTypes.push('health_data');
+      
+      const assessment = {
+        collectsUserData: dataTypes.length > 0,
+        dataTypesCollected: dataTypes.length > 0 ? dataTypes : ['none'],
+        dataCollectionOptional: true,
+        canDeleteData: document.getElementById('canDeleteData').checked,
+        dataLeavesDevice: document.getElementById('architecture').value !== 'local_only',
+        encryptionType: document.getElementById('encryptionType').value,
+        encryptedAtRest: true,
+        encryptedInTransit: true,
+        serviceCanReadData: !['end_to_end', 'zero_knowledge'].includes(document.getElementById('encryptionType').value),
+        thirdPartyServices: [],
+        usesAnalytics: document.getElementById('usesAnalytics').checked,
+        analyticsType: document.getElementById('usesAnalytics').checked ? 'self_hosted' : 'none',
+        usesAdvertising: false,
+        architecture: document.getElementById('architecture').value,
+        worksOffline: document.getElementById('worksOffline').checked,
+        offlineCapability: parseInt(document.getElementById('offlineCapability').value) || 0,
+        authMethod: 'email',
+        requiresRealIdentity: false,
+        allowsPseudonymous: true,
+        openSource: document.getElementById('openSource').checked,
+        independentlyAudited: false,
+        privacyPolicyClarity: 75,
+        dataPracticesDocumented: true,
+        usesZeroKnowledgeProofs: false,
+        usesFederatedLearning: false,
+        usesDifferentialPrivacy: false,
+        isPeerToPeer: document.getElementById('architecture').value === 'peer_to_peer',
+        usesOnionRouting: false
+      };
+      
+      const analysis = analyzer.analyze(assessment);
+      const summary = analyzer.getBrutalSummary(analysis);
+      
+      const color = LEVEL_COLORS[analysis.level];
+      const name = LEVEL_NAMES[analysis.level];
+      const emoji = LEVEL_EMOJIS[analysis.level];
+      const display = analysis.level === 'subzero' ? '∅' : analysis.level;
+      
+      let html = `
+        <div class="result-card">
+          <div class="result-header">
+            <div class="result-level" style="background: linear-gradient(135deg, ${color.color}, ${color.colorDark || color.color}); color: #fff;">
+              V${display}
+            </div>
+            <div class="result-info">
+              <h3>${emoji} ${name}</h3>
+              <div class="result-score">Score: ${analysis.score}/100</div>
+            </div>
+          </div>
+          
+          <div class="result-summary">${summary}</div>
+      `;
+      
+      // Red flags
+      if (analysis.redFlags.length > 0) {
+        html += `<div class="flags-section"><h4>⚠️ Red Flags</h4>`;
+        analysis.redFlags.slice(0, 5).forEach(flag => {
+          html += `
+            <div class="flag ${flag.severity}">
+              <span class="flag-severity">${flag.severity}</span>
+              <span>${flag.description}</span>
+            </div>
+          `;
+        });
+        html += `</div>`;
+      }
+      
+      // Green flags
+      if (analysis.greenFlags.length > 0) {
+        html += `<div class="flags-section"><h4>✅ Green Flags</h4>`;
+        analysis.greenFlags.slice(0, 5).forEach(flag => {
+          html += `
+            <div class="flag green">
+              <span>+${flag.impact}</span>
+              <span>${flag.description}</span>
+            </div>
+          `;
+        });
+        html += `</div>`;
+      }
+      
+      // Recommendations
+      if (analysis.recommendations.length > 0) {
+        html += `
+          <div class="recommendations">
+            <h4>💡 Recommendations</h4>
+            <ul>
+              ${analysis.recommendations.slice(0, 3).map(r => `<li>${r}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      }
+      
+      html += `</div>`;
+      
+      document.getElementById('analysis-result').innerHTML = html;
+    };
+
+    // Check route
+    window.checkRoute = function() {
+      const path = document.getElementById('routePath').value || '/';
+      const config = checker.getConfigForPath(path);
+      
+      const color = LEVEL_COLORS[config.level];
+      const display = config.level === 'subzero' ? '∅' : config.level;
+      const emoji = LEVEL_EMOJIS[config.level];
+      
+      const html = `
+        <div class="result-card" style="margin-top: 16px;">
+          <div class="result-header">
+            <div class="result-level" style="background: linear-gradient(135deg, ${color.color}, ${color.colorDark || color.color}); color: #fff;">
+              V${display}
+            </div>
+            <div class="result-info">
+              <h3>${emoji} ${config.levelName}</h3>
+              <div class="result-score">Route: ${path}</div>
+            </div>
+          </div>
+          
+          <div class="result-summary">${config.description}</div>
+          
+          <div class="flags-section">
+            <h4>📋 Details</h4>
+            <div class="flag green"><strong>You Control:</strong> ${config.whatYouControl}</div>
+            <div class="flag" style="background: rgba(59, 130, 246, 0.2); border-left-color: #3b82f6;">
+              <strong>We Can't See:</strong> ${config.whatWeCantSee}
+            </div>
+            <div class="flag" style="background: rgba(249, 115, 22, 0.2); border-left-color: #f97316;">
+              <strong>Servers See:</strong> ${config.whatServersSee}
+            </div>
+          </div>
+          
+          ${config.whyThisLevel ? `
+            <div class="recommendations">
+              <h4>🎯 Why This Level</h4>
+              <p style="margin: 0; font-size: 13px;">${config.whyThisLevel}</p>
+            </div>
+          ` : ''}
+        </div>
+      `;
+      
+      document.getElementById('route-result').innerHTML = html;
+    };
+
+    // Initialize
+    generateBadges();
+    
+    // Make functions globally available
+    window.checker = checker;
+    window.analyzer = analyzer;
+  </script>
+</body>
+</html>
+
